@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html id="html-tag" lang="en">
+  <script>
+   const $htmlTag = document.querySelector("#html-tag")
+   const urlParams = new URL(window.location.toLocaleString()).searchParams;
+   var lvar= urlParams.get('lang');
+   switch(lvar) {
+     case "hu":
+       $htmlTag.lang = "hu"
+       $htmlTag.classList.add("hungarianLang")
+       break
+     default:
+       lvar= "en";
+       $htmlTag.classList.add("englishLang")
+       break
+   }
+   function lnk(cath,fn)
+    {
+      var l= 'lib_' + cath + '.html#' + fn + '?lang=' + lvar;
+      return l;
+    }
+  </script>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="p12.css">
+    <title>p2223 library: character functions</title>
+  </head>
+  
+  <body>
+
+    <span lang="hu">Lang:</span> <span lang="en">Nyelv:</span>
+    <a href="lib_char.html?lang=hu">HU</a>
+    <a href="lib_char.html?lang=en">EN</a>
+
+    <h1>
+      <span lang="en">Character functions</span>
+      <span lang="hu">Karakter kezelő függvények</span>
+    </h1>
+
+
+    <a name="isdigit"><h3>isdigit</h3></a>
+    
+    <ul>
+      <li><span lang="en">Input(s):</span>
+	<span lang="hu">Bemenet(ek):</span>
+	<span lang="en">R0=character</span>
+	<span lang="hu">R0=karakter</span>
+      </li>
+      <li><span lang="en">Output(s):</span>
+	<span lang="hu">Kimenet(ek):</span>
+	<span lang="en">Flag.C=1 if character is number</span>
+	<span lang="hu">Flag.C=1 ha a karakter számjegy</span>
+      </li>
+    </ul>
+
+    <p>Az R0 regiszterben lévő karakterkód vizsgálata, hogy az egy
+    számjegy (0-9) ascii kódja-e. Ha igen, a flag regiszter C bitje 1
+    lesz.</p>    
+
+
+    <a name="islower"><h3>islower</h3></a>
+    
+    <ul>
+      <li><span lang="en">Input(s):</span>
+	<span lang="hu">Bemenet(ek):</span>
+	<span lang="en">R0=character</span>
+	<span lang="hu">R0=karakter</span>
+      </li>
+      <li><span lang="en">Output(s):</span>
+	<span lang="hu">Kimenet(ek):</span>
+	<span lang="en">Flag.C=1 if character is lowercase letter</span>
+	<span lang="hu">Flag.C=1 ha a karakter kibetű</span>
+      </li>
+    </ul>
+
+    <p>Az R0 regiszterben lévő karakterkód vizsgálata, hogy az egy
+      kisbetű (a-z) ascii kódja-e. Ha igen, a flag regiszter C bitje 1
+      lesz.</p>    
+
+    
+    <a name="isupper"><h3>isupper</h3></a>
+    
+    <ul>
+      <li><span lang="en">Input(s):</span>
+	<span lang="hu">Bemenet(ek):</span>
+	<span lang="en">R0=character</span>
+	<span lang="hu">R0=karakter</span>
+      </li>
+      <li><span lang="en">Output(s):</span>
+	<span lang="hu">Kimenet(ek):</span>
+	<span lang="en">Flag.C=1 if character is uppercase letter</span>
+	<span lang="hu">Flag.C=1 ha a karakter nagybetű</span>
+      </li>
+    </ul>
+
+    <p>Az R0 regiszterben lévő karakterkód vizsgálata, hogy az egy
+      nagybetű (A-Z) ascii kódja-e. Ha igen, a flag regiszter C bitje 1
+      lesz.</p>    
+
+    
+    <a name="isalpha"><h3>isalpha</h3></a>
+    
+    <ul>
+      <li><span lang="en">Input(s):</span>
+	<span lang="hu">Bemenet(ek):</span>
+	<span lang="en">R0=character</span>
+	<span lang="hu">R0=karakter</span>
+      </li>
+      <li><span lang="en">Output(s):</span>
+	<span lang="hu">Kimenet(ek):</span>
+	<span lang="en">Flag.C=1 if character is alphabetic</span>
+	<span lang="hu">Flag.C=1 ha a karakter betű</span>
+      </li>
+    </ul>
+
+    <p>Az R0 regiszterben lévő karakterkód vizsgálata, hogy az egy
+      betű (a-z, A-Z) ascii kódja-e. Ha igen, a flag regiszter C bitje 1
+      lesz.</p>    
+
+    
+    <a name="isalpha"><h3>isalnum</h3></a>
+    
+    <ul>
+      <li><span lang="en">Input(s):</span>
+	<span lang="hu">Bemenet(ek):</span>
+	<span lang="en">R0=character</span>
+	<span lang="hu">R0=karakter</span>
+      </li>
+      <li><span lang="en">Output(s):</span>
+	<span lang="hu">Kimenet(ek):</span>
+	<span lang="en">Flag.C=1 if character is alphanumeric</span>
+	<span lang="hu">Flag.C=1 ha a karakter betű vagy szám</span>
+      </li>
+    </ul>
+
+    <p>Az R0 regiszterben lévő karakterkód vizsgálata, hogy az egy
+      betű vagy szám (a-z, A-Z, 0-9) ascii kódja-e. Ha igen, a flag
+      regiszter C bitje 1 lesz.</p>    
+
+    
+    <a name="isblank"><h3>isblank</h3></a>
+    
+    <ul>
+      <li><span lang="en">Input(s):</span>
+	<span lang="hu">Bemenet(ek):</span>
+	<span lang="en">R0=character</span>
+	<span lang="hu">R0=karakter</span>
+      </li>
+      <li><span lang="en">Output(s):</span>
+	<span lang="hu">Kimenet(ek):</span>
+	<span lang="en">Flag.C=1 if character is blank</span>
+	<span lang="hu">Flag.C=1 ha a karakter szóköz</span>
+      </li>
+    </ul>
+
+    <p>Az R0 regiszterben lévő karakterkód vizsgálata, hogy az egy
+      szóköz/tabulátor ascii kódja-e. Ha igen, a flag regiszter C
+      bitje 1 lesz.</p>    
+
+    
+    <a name="isprint"><h3>isprint</h3></a>
+    
+    <ul>
+      <li><span lang="en">Input(s):</span>
+	<span lang="hu">Bemenet(ek):</span>
+	<span lang="en">R0=character</span>
+	<span lang="hu">R0=karakter</span>
+      </li>
+      <li><span lang="en">Output(s):</span>
+	<span lang="hu">Kimenet(ek):</span>
+	<span lang="en">Flag.C=1 if character is printable</span>
+	<span lang="hu">Flag.C=1 ha a karakter nyomtatható</span>
+      </li>
+    </ul>
+
+    <p>Az R0 regiszterben lévő karakterkód vizsgálata, hogy az egy
+      nyomtatható karakter ascii kódja-e. Ha igen, a flag regiszter C
+      bitje 1 lesz.</p>    
+
+    
+    <a name="ispunct"><h3>ispunct</h3></a>
+    
+    <ul>
+      <li><span lang="en">Input(s):</span>
+	<span lang="hu">Bemenet(ek):</span>
+	<span lang="en">R0=character</span>
+	<span lang="hu">R0=karakter</span>
+      </li>
+      <li><span lang="en">Output(s):</span>
+	<span lang="hu">Kimenet(ek):</span>
+	<span lang="en">Flag.C=1 if character is pubtuation</span>
+	<span lang="hu">Flag.C=1 ha a karakter írásjel</span>
+      </li>
+    </ul>
+
+    <p>Az R0 regiszterben lévő karakterkód vizsgálata, hogy az egy
+      írásjel karakter ascii kódja-e. Ha igen, a flag regiszter C
+      bitje 1 lesz.</p>    
+
+    
+    <a name="isspace"><h3>isspace</h3></a>
+    
+    <ul>
+      <li><span lang="en">Input(s):</span>
+	<span lang="hu">Bemenet(ek):</span>
+	<span lang="en">R0=character</span>
+	<span lang="hu">R0=karakter</span>
+      </li>
+      <li><span lang="en">Output(s):</span>
+	<span lang="hu">Kimenet(ek):</span>
+	<span lang="en">Flag.C=1 if character is space</span>
+	<span lang="hu">Flag.C=1 ha a karakter elválasztó jel</span>
+      </li>
+    </ul>
+
+    <p>Az R0 regiszterben lévő karakterkód vizsgálata, hogy az egy
+      elválasztó jel karakter ascii kódja-e. Ha igen, a flag regiszter
+      C bitje 1 lesz.</p>    
+
+    
+    <a name="isxdigit"><h3>isxdigit</h3></a>
+    
+    <ul>
+      <li><span lang="en">Input(s):</span>
+	<span lang="hu">Bemenet(ek):</span>
+	<span lang="en">R0=character</span>
+	<span lang="hu">R0=karakter</span>
+      </li>
+      <li><span lang="en">Output(s):</span>
+	<span lang="hu">Kimenet(ek):</span>
+	<span lang="en">Flag.C=1 if character is hexdigit</span>
+	<span lang="hu">Flag.C=1 ha a karakter hexa számjegy</span>
+      </li>
+    </ul>
+
+    <p>Az R0 regiszterben lévő karakterkód vizsgálata, hogy az egy
+      hexadecimális számjegy karakter ascii kódja-e. Ha igen, a flag
+      regiszter C bitje 1 lesz.</p>    
+
+    
+    <a name="tolower"><h3>tolower</h3></a>
+    
+    <ul>
+      <li><span lang="en">Input(s):</span>
+	<span lang="hu">Bemenet(ek):</span>
+	<span lang="en">R0=character</span>
+	<span lang="hu">R0=karakter</span>
+      </li>
+      <li><span lang="en">Output(s):</span>
+	<span lang="hu">Kimenet(ek):</span>
+	<span lang="en">R4: lowercase character</span>
+	<span lang="hu">R4: kisbetű</span>
+      </li>
+    </ul>
+
+    <p>Az R0 regiszterben lévő karakterkód átalakítása kisbetűsre, ha
+    a bemeneti adat egy nagybetű kódja.</p>    
+
+    
+    <a name="toupper"><h3>toupper</h3></a>
+    
+    <ul>
+      <li><span lang="en">Input(s):</span>
+	<span lang="hu">Bemenet(ek):</span>
+	<span lang="en">R0=character</span>
+	<span lang="hu">R0=karakter</span>
+      </li>
+      <li><span lang="en">Output(s):</span>
+	<span lang="hu">Kimenet(ek):</span>
+	<span lang="en">R4: uppercase character</span>
+	<span lang="hu">R4: nagybetű</span>
+      </li>
+    </ul>
+
+    <p>Az R0 regiszterben lévő karakterkód átalakítása nagybetűsre, ha
+      a bemeneti adat egy kisbetű kódja.</p>    
+
+    
+    <hr>
+  </body>
+</html>

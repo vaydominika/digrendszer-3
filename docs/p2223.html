@@ -1,0 +1,2464 @@
+<!DOCTYPE html>
+<html id="html-tag" lang="en">
+  <script>
+   const $htmlTag = document.querySelector("#html-tag")
+   const urlParams = new URL(window.location.toLocaleString()).searchParams;
+   const lvar= urlParams.get('lang');
+   switch(lvar) {
+     case "hu":
+       $htmlTag.lang = "hu"
+       $htmlTag.classList.add("hungarianLang")
+       break
+     default:
+       $htmlTag.classList.add("englishLang")
+       break
+   }
+  </script>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="p12.css">
+    <title>p2223 processor</title>
+  </head>
+
+  <body>
+
+    <p>
+    Adatmozgatás:
+      <a class="inst" href="#MOV"><span class="mov">MOV</span></a>
+    <a class="inst" href="#MVH"><span class="mov">MVH</span></a>
+    <a class="inst" href="#MVL"><span class="mov">MVL</span></a>
+    <a class="inst" href="#MVS"><span class="mov">MVS</span></a>
+    <a class="inst" href="#MVZL"><span class="mov">MVZL</span></a>
+    <a class="inst" href="#SEB"><span class="mov">SEB</span></a>
+    <a class="inst" href="#SEW"><span class="mov">SEW</span></a>
+    <a class="inst" href="#SED"><span class="mov">SED</span></a>
+    <a class="inst" href="#ZEB"><span class="mov">ZEB</span></a>
+    <a class="inst" href="#ZEW"><span class="mov">ZEW</span></a>
+    <a class="inst" href="#GETB"><span class="mov">GETB</span></a>
+    <a class="inst" href="#GETBS"><span class="mov">GETBS</span></a>
+    <a class="inst" href="#GETBZ"><span class="mov">GETBZ</span></a>
+    <a class="inst" href="#PUTB"><span class="mov">PUTB</span></a>
+    <a class="inst" href="#RDS"><span class="mov">RDS</span></a>
+    <a class="inst" href="#WRS"><span class="mov">WRS</span></a>
+
+    Szubrutinhívás:
+    <a class="inst" href="#CALL"><span class="call">CALL</span></a>
+    <a class="inst" href="#CES"><span class="call">CES</span></a>
+
+    Memória:
+    <a class="inst" href="#LD"><span class="mem">LD</span></a>
+    <a class="inst" href="#ST"><span class="mem">ST</span></a>
+
+    Aritmetika:
+    <a class="inst" href="#ADD"><span class="alu2">ADD</span></a>
+    <a class="inst" href="#ADC"><span class="alu2">ADC</span></a>
+    <a class="inst" href="#PLUS"><span class="alu2">PLUS</span></a>
+    <a class="inst" href="#SUB"><span class="alu2">SUB</span></a>
+    <a class="inst" href="#SBB"><span class="alu2">SBB</span></a>
+    <a class="inst" href="#CMP"><span class="alu2">CMP</span></a>
+    <a class="inst" href="#MUL"><span class="alu2">MUL</span></a>
+    <a class="inst" href="#BTST"><span class="alu2">BTST</span></a>
+    <a class="inst" href="#TEST"><span class="alu2">TEST</span></a>
+    <a class="inst" href="#AND"><span class="alu2">AND</span></a>
+    <a class="inst" href="#OR"><span class="alu2">OR</span></a>
+    <a class="inst" href="#XOR"><span class="alu2">XOR</span></a>
+    
+    <a class="inst" href="#NOT"><span class="alu1">NOT</span></a>
+    <a class="inst" href="#NEG"><span class="alu1">NEG</span></a>
+    <a class="inst" href="#ROR"><span class="alu1">ROR</span></a>
+    <a class="inst" href="#ROL"><span class="alu1">ROL</span></a>
+    <a class="inst" href="#SHL"><span class="alu1">SHL</span></a>
+    <a class="inst" href="#SHR"><span class="alu1">SHR</span></a>
+    <a class="inst" href="#SHA"><span class="alu1">SHA</span></a>
+    <a class="inst" href="#SZ"><span class="alu1">SZ</span></a>
+    <a class="inst" href="#SEC"><span class="alu1">SEC</span></a>
+    <a class="inst" href="#CLC"><span class="alu1">CLC</span></a>
+    </p>
+    
+    
+    <p>
+      Mind:
+      <a class="inst" href="#ADC"><span class="alu2">ADC</span></a>
+      <a class="inst" href="#ADD"><span class="alu2">ADD</span></a>
+      <a class="inst" href="#AND"><span class="alu2">AND</span></a>
+      <a class="inst" href="#BTST"><span class="alu2">BTST</span></a>
+      <a class="inst" href="#CALL"><span class="call">CALL</span></a>
+      <a class="inst" href="#CES"><span class="call">CES</span></a>
+      <a class="inst" href="#CLC"><span class="alu1">CLC</span></a>
+      <a class="inst" href="#CMP"><span class="alu2">CMP</span></a>
+      <a class="inst" href="#GETB"><span class="mov">GETB</span></a>
+      <a class="inst" href="#GETBS"><span class="mov">GETBS</span></a>
+      <a class="inst" href="#GETBZ"><span class="mov">GETBZ</span></a>
+      <a class="inst" href="#LD"><span class="mem">LD</span></a>
+      <a class="inst" href="#MOV"><span class="mov">MOV</span></a>
+      <a class="inst" href="#MUL"><span class="alu2">MUL</span></a>
+      <a class="inst" href="#MVH"><span class="mov">MVH</span></a>
+      <a class="inst" href="#MVL"><span class="mov">MVL</span></a>
+      <a class="inst" href="#MVS"><span class="mov">MVS</span></a>
+      <a class="inst" href="#MVZL"><span class="mov">MVZL</span></a>
+      <a class="inst" href="#NEG"><span class="alu1">NEG</span></a>
+      <a class="inst" href="#NOT"><span class="alu1">NOT</span></a>
+      <a class="inst" href="#OR"><span class="alu2">OR</span></a>
+      <a class="inst" href="#PLUS"><span class="alu2">PLUS</span></a>
+      <a class="inst" href="#PUTB"><span class="mov">PUTB</span></a>
+      <a class="inst" href="#RDS"><span class="mov">RDS</span></a>
+      <a class="inst" href="#ROL"><span class="alu1">ROL</span></a>
+      <a class="inst" href="#ROR"><span class="alu1">ROR</span></a>
+      <a class="inst" href="#SBB"><span class="alu2">SBB</span></a>
+      <a class="inst" href="#SEB"><span class="mov">SEB</span></a>
+      <a class="inst" href="#SEC"><span class="alu1">SEC</span></a>
+      <a class="inst" href="#SED"><span class="mov">SED</span></a>
+      <a class="inst" href="#SEW"><span class="mov">SEW</span></a>
+      <a class="inst" href="#SHA"><span class="alu1">SHA</span></a>
+      <a class="inst" href="#SHL"><span class="alu1">SHL</span></a>
+      <a class="inst" href="#SHR"><span class="alu1">SHR</span></a>
+      <a class="inst" href="#ST"><span class="mem">ST</span></a>
+      <a class="inst" href="#SUB"><span class="alu2">SUB</span></a>
+      <a class="inst" href="#SZ"><span class="alu1">SZ</span></a>
+      <a class="inst" href="#TEST"><span class="alu2">TEST</span></a>
+      <a class="inst" href="#WRS"><span class="mov">WRS</span></a>
+      <a class="inst" href="#XOR"><span class="alu2">XOR</span></a>
+      <a class="inst" href="#ZEB"><span class="mov">ZEB</span></a>
+      <a class="inst" href="#ZEW"><span class="mov">ZEW</span></a>
+    </p>
+    
+    <hr>
+
+    <p>
+      <span lang="hu">Lang:</span> <span lang="en">Nyelv:</span>
+      <a href="p2223.html?lang=hu">HU</a>
+      <a href="p2223.html?lang=en">EN</a>
+    </p>
+
+    <h1>P2223 mikroprocesszor</h1>
+    
+
+    <p>A mikroprocesszor egy RISC felépítésű (load/store), Neumann
+      architektúrájú, 32 bites szoft processzor, amelyet FPGA-val
+      valósíthatunk meg.</p>
+    
+    <p><img src="cpu_block.png" alt="cpu_block" /></p>
+    
+    <h1>A mikroprocesszor részei</h1>
+    
+    <p>A mikroprocesszor az alábbi építőelemekből áll.</p>
+    
+    <h2>Ütemező, vezérlő</h2>
+    
+    <p>Az ütemező állítja elő a vezérlő jeleket a processzor többi
+      eleme számára. Az ütemező állapot kódokat állít elő a működési
+      fázisok jelzésére, az állapotok a <b>clk</b> bemenetre adott
+      órajel hatására követik egymást. Az állapotok bináris sorszáma a
+      <b>clk_stat</b> kimeneten jelenik meg. A <b>reset</b> bemenet az
+      ütemezőt alaphelyzetbe állítja.</p>
+    
+    <p>A vezérlőhöz tartozik még az ún. utasítás regiszter, amely a
+      beolvasott utasítást tárolja a végrehajtás idejére.</p>
+    
+    <h2>Memória illesztő</h2>
+    
+    <p>Mivel a processzor Neumann architektúrájú, ezért csak egy
+      memória illesztővel rendelkezik. Ezen az illesztőn keresztül
+      olvassa be az utasításokat, és ezen az illesztőn keresztül végzi
+      el memória írási és olvasási műveleteket is. Az illesztő az
+      <b>mbus_aout</b> kimeneteken adja ki a művelethez használandó
+      memória címet (32 bites). Írás esetén a memóriába tárolandó adat
+      az
+      <b>mbus_dout</b> kimeneteken jelenik meg (32 bit). Ebben az
+      esetben az <b>mbus_wen</b> kimenet magas szintű lesz (írás
+      jelzés). Olvasás műveletnél a megcímzett memória tartalmát az
+      <b>mbus_din</b> bemenetre kell juttatni, ekkor az <b>mbus_wen</b>
+      kimenet alacsony lesz.</p>
+    
+    <h3>Memória szervezés</h3>
+    
+    <p>A processzor által kezelt memória 32 bites szélességű, minden
+      32 bites rekesznek külön címe van. Memória műveletnél a processzor
+      a megcímzett rekeszből 32 bites adatot olvas be, illetve 32 bites
+      adatot ír ki.</p>
+    
+    <p><img title="" src="mem_hu.svg" alt="" /></p>
+    
+    <h2>Regiszterek</h2>
+    
+    <p>A processzor állapota a belső regiszterekben tárolódik. A
+      regiszter készlet 16 db 32 bites regiszterből áll. A regiszterek
+      elnevezése: R0, R1...R15.</p>
+
+    <p><img title="" src="progmodel2.svg" alt="" /></p>
+    
+
+    <h3>Speciális regiszterek</h3>
+    
+    <h4>PC</h4>
+    
+    <p>A processzor az R15 regisztert használja program számlálóként
+      (Program Counter), ezért ennek tartalma minden utasítás
+      végrehajtásakor eggyel növekszik.</p>
+    
+    <h4>LR</h4>
+    
+    <p>A CALL utasítás a visszatéréshez szükséges címet az R14 (Link
+      Regiszter) regiszterbe menti.</p>
+
+    <h4>SP</h4>
+
+    <p>A processzor nem használ verem műveleteket, a verem
+      megszervezése a programozó feladata. Az ehhez szükséges verem
+      mutató (Stack Pointer) céljára bármelyik regiszter
+      felhasználható. A programok megírásakor az R13 regisztert
+      használtuk SP-ként.</p>
+
+    <h3>Egyéb speciális regiszterek</h3>
+
+    <p>A processzoron belül 16 speciális regiszterhez lehet
+      hozzáférni, ezek között vannak írható és olvasható, illetve csak
+      olvasható típusú regiszterek is. A speciális regisztereket
+      az <a class="inst" href="#RDS"><span class="mov">RDS</span></a>
+      és <a class="inst" href="#WRS"><span class="mov">WRS</span></a> utasításokkal
+      lehet kezelni. Az <a class="inst" href="#RDS"><span class="mov">RDS</span></a>
+      használható a regiszter kiolvasására, ugyanis ez az utasítás a
+      megadott speciális regisztert egy általános regiszterbe másolja
+      át. Az írható speciális regiszterek
+      a <a class="inst" href="#WRS"><span class="mov">WRS</span></a> utasítással
+      módosíthatók, amely az egyik általános regisztert a megadott
+      speciális regiszterbe másolja.</p>
+
+    <h4>SFR[0] Flag register</h4>
+
+    <p>A 0 sorszámú speciális regiszter a Flag regiszter, leírását
+    lásd az Aritmetikai-logikai egység fejezetben.</p>
+
+    <h4>SFR[1] Version register</h4>
+
+    <p>Csak olvasható regiszter, a processzor verziószámát
+    tartalmazza. A regiszter 3. bájtja mindig 0. A 2. bájt tartalmazza
+    a fő verzió számot, az 1. byte pedig az al verzió számot. A
+    0. bájt a kiadás sorszáma.</p>
+    
+    <h4>SFR[2] Feature register 1</h4>
+
+    <p>Csak olvasható regiszter, 1 értékű bitjei azt jelzik, hogy
+    egyes adott funkciók a processzorban rendelkezésre állnak-e.</p>
+
+    <h5>Bit 0. Getb extension</h5>
+
+    <p>A bit 1 értékű, ha a <a class="inst" href="#GETB"><span class="mov">GETB</span></a> utasítás különféle változatai (<a class="inst" href="#GETB"><span class="mov">GETB</span></a>,
+    <a class="inst" href="#GETBS"><span class="mov">GETBS</span></a>, <a class="inst" href="#GETBZ"><span class="mov">GETBZ</span></a>)
+    rendelkezésre állnak.</p>
+
+    <h5>Bit 1. SFR</h5>
+
+    <p>A bit 1 értékű, ha a speciális regiszterek, valamint a
+    kezelésükhöz
+    szükséges <a class="inst" href="#RDS"><span class="mov">RDS</span></a>, <a class="inst" href="#WRS"><span class="mov">WRS</span></a>
+    utasítások rendelkezésre állnak.</p>
+
+    <h5>Bit 2. Flag32</h5>
+
+    <p>A bit 1 értékű, ha a Flag regiszter 32 bites.</p>
+
+    <h5>Bit 3. CES instruction</h5>
+
+    <p>A bit 1 értékű, ha
+    a <a class="inst" href="#CES"><span class="call">CES</span></a> utasítást ismeri a
+    processzor.</p>
+    
+    <h4>SFR[3] Feature regiszter 2</h4>
+
+    <p>Csak olvasható regiszter, későbbi fejlesztésekhez fenntartva,
+    értéke 0.</p>
+
+    <p>A 3..15 sorszámú regiszterek nincsenek megvalósítva, a
+    sorszámok a későbbi fejlesztésekhez vannak fenntartva.</p>
+
+    <h2>Aritmetikai-logikai egység</h2>
+    
+    <p>Az adat manipulációs műveleteket az ALU végzi, amely 32 bites
+    egész (előjeles és előjel nélküli) adatokkal tud műveleteket
+    végezni. Az ALU-nak 3 adat bemenete van: <b>di</b>, <b>bi</b> és
+    az <b>im</b>.</p>
+
+    <p>A <b>di</b> bemenetre az eredményt eltároló regiszter eredeti
+      (művelet előtti) értékét kell kötni. Az <b>bi</b> bemenetre a
+      művelet operandusaként használt regiszter értéke
+      kerül. A <b>bi</b> bemenetet olyan utasításoknál használja az
+      ALU, amelyeknek regiszter operandusa van. A konstans operandusú
+      utasításoknál a <b>bi</b> helyett a 16 bites <b>im</b>bemenet
+      értéke lesz az operandus. Az <b>im</b> bemenetet az ALU 32
+      bitesre konvertálja, a konvertálás módja a művelettől függ. Az
+      egy operandusú műveletek csak a <b>di</b> bemenetet használják,
+      míg a két operandusú műveletek a <b>di</b> és
+      a <b>bi</b>/<b>im</b> értékeket használják fel. Az operandus
+      nélküli műveleteknél az eredmény a változatlan <b>di</b>
+      bemeneti érték lesz.</p>
+
+    <p><img title="" src="alu.png" alt="" /></p>
+    
+    <p>Az <b>fi</b> bemenetre a flag regiszter művelet előtti értéke
+      kerül, míg az <b>op</b> az elvégzendő művelet kódja. Az eredmény
+      a <b>res</b> kimeneten jelenik meg, az <b>fo</b> kimenet a flag
+      regiszter új értékét adja. A
+      <b>flag_en</b> és a <b>wb_en</b> kimenetek azt mutatják, hogy az
+      utasítás módosítja-e a flag, illetve az eredmény regisztert.</p>
+    
+    <h3>FLAG regiszter</h3>
+
+    <p>Az aritmetikai egység a műveletek eredményének jellemzőit a
+    FLAG regiszterben tárolja el. Ez a regiszter nem része az
+    általános regiszter készletnek, a tartalmához az utasítások
+    speciális módon férhetnek csak hozzá. A flag regiszter 32 bites,
+    az alább felsorolt biteken kívüli egyéb bitek tetszőleges célra
+    hsználhatók.</p>
+
+    <h4>Carry flag (C)</h4>
+
+    <p>A Flag regiszter 1. bitje (Flag[1]). Aritmetikai műveletek után
+    azt jelzi, hogy előjel nélkülinek tekintve az operandusokat,
+    volt-e túlcsordulás (1: volt, 0: nem volt).</p>
+
+    <h4>Overflow flag (O)</h4>
+
+    <p>A Flag regiszter 3. bitje (Flag[3]). Aritmetikai műveletek után
+    azt jelzi, hogy előjelesnek tekintve az operandusokat, volt-e
+    túlcsordulás (1: volt, 0: nem volt). </p>
+
+    <h4>Sign flag (S)</h4>
+
+    <p>A Flag regiszter 0. bitje (Flag[0]). Aritmetikai és logikai
+    műveletek után után az eredmény 31. bitjét tartalmazza, vagyis
+    annak előjelét jelzi (1: negatív, 0: pozitív).</p>
+
+    <h4>Zero flag (Z)</h4>
+
+    <p>A Flag regiszter 2. bitje (Flag[2]). Aritmetikai és logikai
+    műveletek után azt jelzi, hogy az eredmény nulla-e (1: igen, 0:
+    nem).</p>
+
+    <h4>Up flag (U), Pre flag (P)</h4>
+
+    <p>U: a Flag regiszter 5. bitje (Flag[5]). P: a Flag regiszter
+    4. bitje
+    (Flag[4]). Az <a class="inst" href="#LD"><span class="mem">LD</span></a>/<a class="inst" href="#ST"><span class="mem">ST</span></a>
+    utasítások konstans eltolású indexelt címzési módja esetén a
+    báziscím regiszter megváltoztatási módját határozzák meg.</p>
+
+    <h2>Utasítások</h2>
+
+    <p>A utasítások egyforma méretűek, minden utasítás kódja 32 bites,
+    egy memória rekeszben tárolódik. Az utasításkészlet főbb
+    csoportjai a következők:</p>
+
+    <ul>
+      <li>Szubrutinhívás
+      (<a class="inst" href="#CALL"><span class="call">CALL</span></a>). A
+      szubrutinhívás olyan vezérlésátadás, amely a PC (R15) értékét
+      elmenti az LR (R14) regiszterbe. A memóriába való mentés a
+      programozó feladata.</li>
+      
+      <li>Memória művelet
+      (<a class="inst" href="#LD"><span class="mem">LD</span></a>, <a class="inst" href="#ST"><span class="mem">ST</span></a>). A
+      memória és a regiszterek közötti adatátvitelt valósítják
+      meg. Többféle címzésmóddal használhatóak.</li>
+
+      <li>Aritmetikai, logikai utasítások
+      (<a class="inst" href="#ADD"><span class="alu2">ADD</span></a>, <a class="inst" href="#SUB"><span class="alu2">SUB</span></a>, <a class="inst" href="#MOV"><span class="mov">MOV</span></a>,
+      stb.). Különféle adatfeldolgozási, regiszter manipulációs
+      műveletet végeznek, amelynek az eredménye egy megadott
+      regiszterben (és a FLAG regiszterben) tárolódik. Vannak egy és
+      két operandusú műveletek, ahol a két operandusúak esetében a
+      második operandus regiszter vagy konstans lehet.</li>
+
+    </ul>
+
+    <h3>Feltételes végrehajtás</h3>
+
+    <p>Minden utasításnak lehet egy feltétele, az utasítás csak akkor
+    végez állapot változtatást, illetve memória műveletet, ha a
+    megadott feltétel igaz értékű. A feltétel az utasítás kódszavának
+    legfelső 4 helyiértékű bitjén tárolódik. A lehetséges értékek
+    következők:</p>
+
+    <table border="1">
+      <tr>
+	<td>
+	  Kód
+	</td>
+	<td>
+	  Feltétel
+	</td>
+	<td>
+	  Flag
+	</td>
+	<td>
+	  Működés pl. összehasonlítás esetén
+	</td>
+      </tr>
+      <tr>
+	<td>
+	  0
+	</td>
+	<td>
+	  AL
+	</td>
+	<td>
+	  -
+	</td>
+	<td>
+	  Mindig igaz, az utasítás a Flag-ek értékétől függetlenül
+	végrehajtódik</td>
+      </tr>
+      <tr>
+	<td>
+	  1
+	</td>
+	<td>
+	  EQ
+	</td>
+	<td>
+	  Z=1
+	</td>
+	<td>
+	  op1 == op2 (equal)
+	</td>
+      </tr>
+      <tr>
+	<td>
+	  2
+	</td>
+	<td>
+	  NE
+	</td>
+	<td>
+	  Z=0
+	</td>
+	<td>
+	  op1 != op2 (not equal)
+	</td>
+      </tr>
+      <tr>
+	<td>
+	  3
+	</td>
+	<td>
+	  CS, HS
+	</td>
+	<td>
+	  C=1
+	</td>
+	<td>
+	  op1 &gt;= op2 (unsigned higher or same)
+	</td>
+      </tr>
+      <tr>
+	<td>
+	  4
+	</td>
+	<td>
+	  CC, LO
+	</td>
+	<td>
+	  C=0
+	</td>
+	<td>
+	  op1 &lt; op2 (unsigned lower)
+	</td>
+      </tr>
+      <tr>
+	<td>
+	  5
+	</td>
+	<td>
+	  MI
+	</td>
+	<td>
+	  S=1
+	</td>
+	<td>
+	  negatív eredmény (signed)
+	</td>
+      </tr>
+      <tr>
+	<td>
+	  6
+	</td>
+	<td>
+	  PL
+	</td>
+	<td>
+	  S=0
+	</td>
+	<td>
+	  pozitív eredmény (signed)
+	</td>
+      </tr>
+      <tr>
+	<td>
+	  7
+	</td>
+	<td>
+	  VS
+	</td>
+	<td>
+	  O=1
+	</td>
+	<td>
+	  van túlcsordulás (signed)
+	</td>
+      </tr>
+      <tr>
+	<td>
+	  8
+	</td>
+	<td>
+	  VC
+	</td>
+	<td>
+	  O=0
+	</td>
+	<td>
+	  nincs túlcsordulás (signed)
+	</td>
+      </tr>
+      <tr>
+	<td>
+	  9
+	</td>
+	<td>
+	  HI
+	</td>
+	<td>
+	  C=1 &amp;&amp; Z=0
+	</td>
+	<td>
+	  op1 &gt; op2 (unsigned higher)
+	</td>
+      </tr>
+      <tr>
+	<td>
+	  10
+	</td>
+	<td>
+	  LS
+	</td>
+	<td>
+	  C=0 || Z=1
+	</td>
+	<td>
+	  op1 &lt;= op2 (unsigned lower or same)
+	</td>
+      </tr>
+      <tr>
+	<td>
+	  11
+	</td>
+	<td>
+	  GE
+	</td>
+	<td>
+	  S==O
+	</td>
+	<td>
+	  op1 &gt;= op2 (signed greater than or equal)
+	</td>
+      </tr>
+      <tr>
+	<td>
+	  12
+	</td>
+	<td>
+	  LT
+	</td>
+	<td>
+	  S!=O
+	</td>
+	<td>
+	  op1 &lt; op2 (signed less than)
+	</td>
+      </tr>
+      <tr>
+	<td>
+	  13
+	</td>
+	<td>
+	  GT
+	</td>
+	<td>
+	  Z=0 &amp;&amp;  S==O
+	</td>
+	<td>
+	  op1 &gt; op2 (signed greater than)
+	</td>
+      </tr>
+      <tr>
+	<td>
+	  14
+	</td>
+	<td>
+	  LE
+	</td>
+	<td>
+	  Z=1 || S!=O
+	</td>
+	<td>
+	  op1 &lt;= op2 (signed less than or equal)
+	</td>
+      </tr>
+      <tr>
+	<td>
+	  15
+	</td>
+	<td>
+	  -
+	</td>
+	<td>
+	  -
+	</td>
+	<td>
+	  Feltétel nélküli utasítás, jelenleg nem használt, az
+	  utasításkészlet bővítésre fenntartva
+	</td>
+      </tr>
+    </table>
+    
+    <h3>Vezérlésátadás</h3>
+    
+    <p>Szubrutinhívásra
+    a <a class="inst" href="#CALL"><span class="call">CALL</span></a> utasítást lehet
+    használni, amely a PC-t (R15) elmenti az LR-ben (R14). Ha a
+    szubrutin nem hív más rutinokat, akkor nincs más teendő. Ellenkező
+    esetben az LR értékét a memóriában kialakított verem
+    adatszerkezetbe el kell menteni. Erre a célra az SP (R13)
+    regisztert használjuk mutatóként, a mentés és a betöltés a memória
+    kezelő utasítások megfelelő címzésmódjának használatával
+    elvégezhető. Megjegyezzük, hogy verem mutatóként az R14 és R15
+    kivételével bármelyik regiszter használható.</p>
+    
+    <p>Ugró utasítások nincsenek az utasítás készletben, bármely
+      utasítás ugrást végez (beleértve
+      az <a class="inst" href="#LD"><span class="mem">LD</span></a> utasítást is),
+      amelynek az R15 a cél regisztere, ahol az eredménye
+      tárolódik. Mivel minden utasítás lehet feltételes, így külön
+      feltételes vezérlésátadó utasításokra sincs szükség.</p>
+    
+    <h1>Utasítások</h1>
+    
+    <h3>Adatmozgatás</h3>
+    
+    <a name="GETB"><h1>GETB get byte from register</h1></a>
+    
+    <table border="1">
+      <tr>
+	<td>
+	  GETB
+	</td>
+	<td>
+	  Rd,Rb,Ri
+	</td>
+	<td>
+	  <span id="inst">COND.0110.Rd  .0001.000-.Rb .----.Ri</span>
+	</td>
+	<td>
+	  i= Ri[1:0]<br />Rd[7:0]= Rb[i*8+7:i*8]
+	</td>
+      </tr>
+      <tr>
+	<td>
+	  GETB
+	</td>
+	<td>
+	  Rd,Rb,u2
+	</td>
+	<td>
+	  <span id="inst">COND.0110.Rd  .0001.100-.Rb .----.--u2</span>
+	</td>
+	<td>
+	  Rd[7:0]= Rb[u2*8+7:u2*8]
+	</td>
+      </tr>
+    </table>
+
+    <p>Az utasítás az Rb regiszter kiválasztott bájtját az Rd
+      regiszterbe másolja, az Rd felső helyiértékű 3 bájtja nem
+      változik. Az Rb regiszter 4 bájtja közül a másoláshoz egyet
+      lehet kiválasztani, vagy az Ri regiszter értékével, vagy egy 2
+      bites konstanssal. Ha az Ri-vel választunk, akkor a processzor a
+      regiszternek csak az alsó két bitjét használja.</p>
+
+    <a name="GETBS"><h1>GETBS get byte from register, sign extended</h1></a>
+
+    <table border="1">
+      
+      <tr>
+	<td>
+	  GETBS
+	</td>
+	<td>
+	  Rd,Rb,Ri
+	</td>
+	<td>
+	  <span id="inst">COND.0110.Rd  .0001.011-.Rb .----.Ri</span>
+	</td>
+	<td>
+	  i= Ri[1:0]<br />Rd= sex(Rb[i*8+7:i*8])
+	</td>
+      </tr>
+      <tr>
+	<td>
+	  GETBS
+	</td>
+	<td>
+	  Rd,Rb,u2
+	</td>
+	<td>
+	  <span id="inst">COND.0110.Rd  .0001.111-.Rb .----.--u2</span>
+	</td>
+	<td>
+	  Rd=sex(Rb[u2*8+7:u2*8])
+	</td>
+      </tr>
+      
+    </table>
+    
+    <p>Az utasítás az Rb regiszter kiválasztott bájtját az Rd
+      regiszterbe másolja, az Rd felső helyiértékű 3 bájtja az Rb
+      kiválasztott byte-jának 7. bitjével töltődik fel. Az Rb
+      regiszter 4 bájtja közül a másoláshoz egyet lehet kiválasztani,
+      vagy az Ri regiszter értékével, vagy egy 2 bites konstanssal. Ha
+      az Ri-vel választunk, akkor a processzor a regiszternek csak az
+      alsó két bitjét használja.</p>
+
+    <a name="GETBZ"><h1>GETBZ get byte from register, zero extended</h1></a>
+
+    <table border="1">
+      
+      <tr>
+	<td>
+	  GETBZ
+	</td>
+	<td>
+	  Rd,Rb,Ri
+	</td>
+	<td>
+	  <span id="inst">COND.0110.Rd  .0001.010-.Rb .----.Ri</span>
+	</td>
+	<td>
+	  i= Ri[1:0]<br />Rd= zex(Rb[i*8+7:i*8])
+	</td>
+      </tr>
+      <tr>
+	<td>
+	  GETBZ
+	</td>
+	<td>
+	  Rd,Rb,u2
+	</td>
+	<td>
+	  <span id="inst">COND.0110.Rd  .0001.110-.Rb .----.--u2</span>
+	</td>
+	<td>
+	  Rd= zex(Rb[u2*8+7:u2*8])
+	</td>
+      </tr>
+      
+    </table>
+    
+    <p>Az utasítás az Rb regiszter kiválasztott bájtját az Rd
+      regiszterbe másolja, az Rd felső helyiértékű 3 bájtja 0 lesz. Az
+      Rb regiszter 4 bájtja közül a másoláshoz egyet lehet
+      kiválasztani, vagy az Ri regiszter értékével, vagy egy 2 bites
+      konstanssal. Ha az Ri-vel választunk, akkor a processzor a
+      regiszternek csak az alsó két bitjét használja.</p>
+
+    <a name="MOV"><h1>MOV copy register to register</h1></a>
+
+    <table border="1">
+      <tr>
+	<td>MOV</td>
+	<td>Rd,Rb</td>
+	<td>
+	  <span id="inst">COND.0000.Rd  .0000.----.Rb  .----.----</span>
+	</td>
+	<td>Rd= Rb</td>
+      </tr>
+    </table>
+
+    <p>Az utasítás az Rb regiszter (forrás) tartalmát átmásolja az Rd
+      (cél) regiszterbe.</p>
+    
+    <a name="MVH"><h1>MVH load immediate into high</h1></a>
+
+    <table border="1">
+  
+      <tr>
+	<td>
+	  MVH
+	</td>
+	<td>
+	  Rd,u16
+	</td>
+	<td>
+	  <span id="inst">COND.0001.Rd  .0001.u16 .u16 .u16 .u16</span>
+	</td>
+	<td>
+	  Rd[31:16]= u16
+	</td>
+      </tr>
+      
+    </table>
+    
+    <p>Az utasítás egy regiszter konstanssal való feltöltésére
+      használható. Az utasítás második paramétere egy unsigned 16
+      bites konstans, amely az Rd regiszter felső helyiértékű 16
+      bitjébe kerül. A regiszter alsó helyiértékű 16 bitje változatlan
+      marad. A Flag regiszter nem módosul.</p>
+
+    <a name="MVL"><h1>MVL load immediate into low</h1></a>
+
+    <table border="1">
+      
+      <tr>
+	<td>
+	  MVL
+	</td>
+	<td>
+	  Rd,u16
+	</td>
+	<td>
+	  <span id="inst">COND.0001.Rd  .0000.u16 .u16 .u16 .u16</span>
+	</td>
+	<td>
+	  Rd[15:0]= u16
+	</td>
+      </tr>
+      
+    </table>
+    
+    <p>Az utasítás egy regiszter konstanssal való feltöltésére
+      használható. Az utasítás második paramétere egy unsigned 16
+      bites konstans, amely az Rd regiszter alsó helyiértékű 16
+      bitjébe kerül. A regiszter felső helyiértékű 16 bitje
+      változatlan marad. A Flag regiszter nem módosul.</p>
+
+    <a name="MVS"><h1>MVS load sign extended 16 bit immediate</h1></a>
+    
+    <table border="1">
+      
+      <tr>
+	<td>
+	  MVS
+	</td>
+	<td>
+	  Rd,s16
+	</td>
+	<td>
+	  <span id="inst">COND.0001.Rd  .0011.s16 .s16 .s16 .s16</span>
+	</td>
+	<td>
+	  Rd= sex(s16)
+	</td>
+      </tr>
+      
+    </table>
+    
+    <p>Az utasítás egy regiszter konstanssal való feltöltésére
+      használható. Az utasítás második paramétere egy signed 16 bites
+      konstans, amelyet a CPU előjel kiterjesztéssel 32 bitesre
+      alakít, ez az érték kerül az Rd regiszterbe. A Flag regiszter
+      nem módosul.</p>
+
+    <a name="MVZL"><h1>MVZL load zero extended 16 bit immediate</h1></a>
+    
+    <table border="1">
+      
+      <tr>
+	<td>
+	  MVZL
+	</td>
+	<td>
+	  Rd,u16
+	</td>
+	<td>
+	  <span id="inst">COND.0001.Rd  .0010.u16 .u16 .u16 .u16</span>
+	</td>
+	<td>
+	  Rd= zex(u16)
+	</td>
+      </tr>
+      
+    </table>
+    
+    <p>Az utasítás egy regiszter konstanssal való feltöltésére
+      használható. Az utasítás második paramétere egy unsigned 16
+      bites konstans, amelyet a CPU 0 kiterjesztéssel 32 bitesre
+      alakít, ez az érték kerül az Rd regiszterbe. A Flag regiszter
+      nem módosul.</p>
+
+    <a name="PUTB"><h1>PUTB set one byte of a register</h1></a>
+    
+    <table border="1">
+      
+      <tr>
+	<td>
+	  PUTB
+	</td>
+	<td>
+	  Rd,Rb,Ri
+	</td>
+	<td>
+	  <span id="inst">COND.0111.Rd  .0001.0---.Rb  .----.Ri</span>
+	</td>
+	<td>
+	  i=Ri[1:0]<br />Rd[i*8+7:i*8]=Rb[7:0]
+	</td>
+      </tr>
+      <tr>
+	<td>
+	  PUTB
+	</td>
+	<td>
+	  Rd,Rb,u2
+	</td>
+	<td>
+	  <span id="inst">COND.0111.Rd  .0001.0---.Rb  .----.--u2</span>
+	</td>
+	<td>
+	  Rd[u2*8+7:u2*8]=Rb[7:0]
+	</td>
+      </tr>
+      
+    </table>
+    
+    <p>Az utasítás az Rb regiszter legalsó helyiértékű bájtját
+      átmásolja az Rd regiszter kiválasztott bátjába, úgy, hogy az Rd
+      többi bájtja nem változik. Az Rd módosítandó bájtjának sorszámát
+      az Ri regiszterrel (amelynek csak a legalsó két bitjét használja
+      a processzor), vagy egy két bites konstanssal választhatjuk
+      ki.</p>
+
+    <a name="RDS"><h1>RDS read special regiszter</h1></a>
+    
+    <table border="1">
+      
+      <tr>
+	<td>
+	  RDS
+	</td>
+	<td>
+	  Rd,Rs
+	</td>
+	<td>
+	  <span id="inst">COND.0110.Rd  .0010.----.Rs  .----.----</span>
+	</td>
+	<td>
+	  Rd= Rs
+	</td>
+      </tr>
+      
+    </table>
+    
+    <p>Az Rs sorszámú speciális regiszter kiolvasása és átmásolása az
+    Rd regiszterbe.</p>
+    
+    <a name="SEB"><h1>SEB sign extend byte</h1></a>
+    
+    <table border="1">
+      
+      <tr>
+	<td>
+	  SEB
+	</td>
+	<td>
+	  Rd
+	</td>
+	<td>
+	  <span id="inst">COND.0010.Rd  .0010.----.----.----.----</span>
+	</td>
+	<td>
+	  Rd= sex(Rd[7:0])
+	</td>
+      </tr>
+      
+    </table>
+    
+    <p>Az utasítás az Rd regiszter tartalmának alsó helyiértékű 8
+      bitjét előjel kiterjesztéssel kibővíti 32 bitre, majd ezt az
+      eredményt tárolja az Rd regiszterben (felülíródik). A Flag
+      regiszter nem változik.</p>
+
+    <a name="SED"><h1>SED sign extend double word</h1></a>
+    
+    <table border="1">
+      
+      <tr>
+	<td>
+	  SED
+	</td>
+	<td>
+	  Rd,Rb
+	</td>
+	<td>
+	  <span id="inst">COND.0000.Rd  .0011.----.Rb  .----.----</span>
+	</td>
+	<td>
+	  Rd= sex(Rb)
+	</td>
+      </tr>
+      
+    </table>
+    
+    <p>Előjel kiterjesztés 32 bitről 64 bitre. Az utasítás az Rb
+      előjelével (Rb[31] bit) tölti fel az Rd minden bitjét, így az
+      Rd,Rb regiszterek együtt az Rb-nek a 64 bitre kiterjesztett
+      értékét fogják tartamazni. Az utasítás nem módosítja a Flag
+      regisztert.</p>
+    
+    <a name="SEW"><h1>SEW sign extend word</h1></a>
+    
+    <table border="1">
+      
+      <tr>
+	<td>
+	  SEB
+	</td>
+	<td>
+	  Rd
+	</td>
+	<td>
+	  <span id="inst">COND.0010.Rd  .0011.----.----.----.----</span>
+	</td>
+	<td>
+	  Rd= sex(Rd[15:0])
+	</td>
+      </tr>
+      
+    </table>
+    
+    <p>Az utasítás az Rd regiszter tartalmának alsó helyiértékű 16
+      bitjét előjel kiterjesztéssel kibővíti 32 bitre, majd ezt az
+      eredményt tárolja az Rd regiszterben (felülíródik). A Flag
+      regiszter nem változik.</p>
+
+    <a name="WRS"><h1>WRS write special register</h1></a>
+    
+    <table border="1">
+      
+      <tr>
+	<td>
+	  WRS
+	</td>
+	<td>
+	  Rd,Rs
+	</td>
+	<td>
+	  <span id="inst">COND.0111.Rd  .0010.----.Rs  .----.----</span>
+	</td>
+	<td>
+	  Rs= Rd
+	</td>
+      </tr>
+      
+    </table>
+    
+    <p>Az Rd regiszter átmásolása az Rs sorszámú speciális
+    regiszterbe.</p>
+
+    <a name="ZEB"><h1>ZEB zero extend byte</h1></a>
+    
+    <table border="1">
+      
+      <tr>
+	<td>
+	  ZEB
+	</td>
+	<td>
+	  Rd
+	</td>
+	<td>
+	  <span id="inst">COND.0010.Rd  .0000.----.----.----.----</span>
+	</td>
+	<td>
+	  Rd= zex(Rd[7:0])
+	</td>
+      </tr>
+      
+    </table>
+    
+    <p>Az utasítás az Rd regiszter tartalmának alsó helyiértékű 8
+      bitjét 0 kiterjesztéssel kibővíti 32 bitre, majd ezt az
+      eredményt tárolja az Rd regiszterben (felülíródik). A Flag
+      regiszter nem változik.</p>
+
+    <a name="ZEW"><h1>ZEW zero extend word</h1></a>
+    
+    <table border="1">
+      
+      <tr>
+	<td>
+	  ZEW
+	</td>
+	<td>
+	  Rd
+	</td>
+	<td>
+	  <span id="inst">COND.0010.Rd  .0001.----.----.----.----</span>
+	</td>
+	<td>
+	  Rd= zex(Rd[15:0])
+	</td>
+      </tr>
+      
+    </table>
+    
+    <p>Az Rd[15:0] bitjein lévő 16 bites adat 0 kiterjesztése 32
+      bitesre. Az eredmény az Rd regiszterbe kerül (felülíródik). Az
+      utasítás a Flag regisztert nem módosítja.</p>
+    
+    <h3>Szubrutinhívás</h3>
+    
+    <a name="CALL"><h1>CALL call subroutine</h1></a>
+    
+    <table border="1">
+      
+      <tr>
+	<td>
+	  CALL
+	</td>
+	<td>
+	  u24
+	</td>
+	<td>
+	  <span id="inst">COND.0100.u24 .u24 .u24 .u24 .u24 .u24</span>
+	</td>
+	<td>
+	  R14= R15<br />R15= zex(u24)
+	</td>
+      </tr>
+      <tr>
+	<td>
+	  CALL
+	</td>
+	<td>
+	  Rd,s20
+	</td>
+	<td>
+	  <span id="inst">COND.0101.Rd  .s20 .s20 .s20 .s20 .s20</span>
+	</td>
+	<td>
+	  R14= R15<br />R15= Rd+sex(s20)
+	</td>
+      </tr>
+      
+    </table>
+    
+    <p>Az utasítás működése az abszolút címzésmódú változat
+    esetén:</p>
+
+    <p>R14= R15<br />
+      R15= zex(u24)</p>
+
+    <p>Ahol a zex() művelet a Zero Extension-t jelenti, vagyis az
+      utasításban szereplő unsigned 24 bites paramétert a CPU
+      nullákkal bővíti 32 bit méretűre. Ezzel az utasítással a memória
+      első 16 MB-ja érhető el.</p>
+
+    <p>Az utasítás működése relatív címzési mód esetén:</p>
+
+    <p>R14= R15<br />
+      R15= Rd + sex(s20)</p>
+
+    <p>Ahol a sex() a Sign Extension műveletet jelenti, ami az
+      utasításban megadott signed 20 bites paramétert előjel
+      megtartással bővíti 32 bites méretűre. Ha az Rd az R15, akkor
+      figyelembe kell venni, hogy az R15 az összeadás elvégzésekor a
+      következő utasítás címét tartalmazza. Az R15 használata lehetővé
+      teszi pozíció független kód készítését, ahol az elérhető cím a
+      hívás helyétől ±0.5 MB távolságon belül lehet.</p>
+
+    <a name="CES"><h1>CES call subroutine with embedded string</h1></a>
+    
+    <table border="1">
+      
+      <tr>
+	<td>
+	  CALL
+	</td>
+	<td>
+	  u24
+	</td>
+	<td>
+	  <span id="inst">1111.0100.u24 .u24 .u24 .u24 .u24 .u24</span>
+	</td>
+	<td>
+	  R14= R15<br />R15= zex(u24)
+	</td>
+      </tr>
+      <tr>
+	<td>
+	  CALL
+	</td>
+	<td>
+	  Rd,s20
+	</td>
+	<td>
+	  <span id="inst">1111.0101.Rd  .s20 .s20 .s20 .s20 .s20</span>
+	</td>
+	<td>
+	  R14= R15<br />R15= Rd+sex(s20)
+	</td>
+      </tr>
+      
+    </table>
+    
+    <p>Az utasítás működése megegyezik
+      a <a class="inst" href="#CALL"><span class="call">CALL</span></a> utasítással,
+      azonban feltételt nem lehet megadni, a szubrutinhívás feltétel
+      nélkül megtörténik. Az utasítást abban az esetben célszerű
+      használni, amikor a hívás utasítás után közvetlenül egy
+      beágyazott sztring van a memóriában, amely a szubrutin
+      paramétere. Az ilyen szubrutinok nem a hívás utáni, hanem a
+      sztring utáni utasításra térnek
+      vissza. A <a class="inst" href="#CES"><span class="call">CES</span></a> utasítás
+      használata segíti a szimulátort a visszatérési cím
+      megállapításában, hogy a szubrutin a next paranccsal
+      lefuttatható legyen.</p>
+
+    <h3>Memória kezelés</h3>
+    
+    <a name="LD"><h1>LD load memory to register</h1></a>
+    
+    <table border="1">
+      
+      <tr>
+	<td>
+	  LD
+	</td>
+	<td>
+	  Rd,u16
+	</td>
+	<td>
+	  <span id="inst">COND.0111.Rd  .0000.u16 .u16 .u16 .u16</span>
+	</td>
+	<td>
+	  Rd= M[zex(u16)]
+	</td>
+      </tr>
+      <tr>
+	<td>
+	  LD
+	</td>
+	<td>
+	  Rd,Ra,Rb
+	</td>
+	<td>
+	  <span id="inst">COND.1010.Rd  .Ra  .----.Rb  .----.----</span>
+	</td>
+	<td>
+	  Rd= M[Ra+Rb]
+	</td>
+      </tr>
+      <tr>
+	<td>
+	  LD
+	</td>
+	<td>
+	  Rd,Ra+,Rb
+	</td>
+	<td>
+	  <span id="inst">COND.1011.Rd  .Ra  .10--.Rb  .----.----</span>
+	</td>
+	<td>
+	  Rd= M[(Ra++)+Rb]
+	</td>
+      </tr>
+      <tr>
+	<td>
+	  LD
+	</td>
+	<td>
+	  Rd,Ra-,Rb
+	</td>
+	<td>
+	  <span id="inst">COND.1011.Rd  .Ra  .00--.Rb  .----.----</span>
+	</td>
+	<td>
+	  Rd= M[(Ra--)+Rb]
+	</td>
+      </tr>
+      <tr>
+	<td>
+	  LD
+	</td>
+	<td>
+	  Rd,+Ra,Rb
+	</td>
+	<td>
+	  <span id="inst">COND.1011.Rd  .Ra  .11--.Rb  .----.----</span>
+	</td>
+	<td>
+	  Rd= M[(++Ra)+Rb]
+	</td>
+      </tr>
+      <tr>
+	<td>
+	  LD
+	</td>
+	<td>
+	  Rd,-Ra,Rb
+	</td>
+	<td>
+	  <span id="inst">COND.1011.Rd  .Ra  .01--.Rb  .----.----</span>
+	</td>
+	<td>
+	  Rd= M[(--Ra)+Rb]
+	</td>
+      </tr>
+      <tr>
+	<td>
+	  LD
+	</td>
+	<td>
+	  Rd,Ra,s16
+	</td>
+	<td>
+	  <span id="inst">COND.1110.Rd  .Ra  .s16 .s16 .s16 .s16</span>
+	</td>
+	<td>
+	  Rd= M[Ra+sex(s16)]
+	</td>
+      </tr>
+      <tr>
+	<td>
+	  LD
+	</td>
+	<td>
+	  Rd,*Ra,s16
+	</td>
+	<td>
+	  <span id="inst">COND.1111.Rd  .Ra  .s16 .s16 .s16 .s16</span>
+	</td>
+	<td>
+	  Rd= M[(*Ra)+sex(s16)]
+	</td>
+      </tr>
+      
+    </table>
+    
+    <p>A memória címe megadható direkt, vagy indexelt
+      címzésmóddal. Direkt címésmód esetén a cím mérete unsigned 16
+      bit lehet, ami a címtér első 64 kB-jának az elérését teszi
+      lehetővé.</p>
+
+    <p>Indexelt címzésmód esetén a bázis cím az Ra regiszterben van,
+      amihez hozzáadódik egy eltolási érték, amely lehet az Rb
+      regiszter, vagy egy signed 16 bites konstans. Indexelt címzés
+      esetén kérhetjük a bázis regiszter módosítását. Ha regiszter
+      eltolást alkalmazunk, akkor az Ra változtatását az utasításban
+      adhatjuk meg, amely lehet pre-increment (növelés eggyel a cím
+      számítás előtt), pre-decrement (csökkentés eggyel a cím számítás
+      előtt), post-increment (növelés eggyel a cím számítás után),
+      vagy post-decrement (csökkentés eggyel a cím számítás
+      után). Ebben az esetben az utasítás módosítja mind az Rd, mind
+      az Ra regisztert. Ha az Rd és az Ra regiszter ugyanaz, akkor a
+      memóriából beolvasott adat felülírja a címet.</p>
+
+    <p>Konstans eltolás esetén a módosítás módját nem az utasítás,
+      hanem a FLAG regiszter U és P bitjei határozzák meg, erre utal a
+      fenti táblázatban a * jelölés:</p>
+
+    <table border="1">
+      <thead>
+	<tr>
+	  <td>
+	    U
+	  </td>
+	  <td>
+	    P
+	  </td>
+	  <td>
+	    Ra módosítása: *Ra
+	  </td>
+	</tr>
+	<tr>
+	  <td>
+	    0
+	  </td>
+	  <td>
+	    0
+	  </td>
+	  <td>
+	    pre-increment: ++Ra
+	  </td>
+	</tr>
+	<tr>
+	  <td>
+	    0
+	  </td>
+	  <td>
+	    1
+	  </td>
+	  <td>
+	    post-increment: Ra++
+	  </td>
+	</tr>
+	<tr>
+	  <td>
+	    1
+	  </td>
+	  <td>
+	    0
+	  </td>
+	  <td>
+	    pre-decrement: --Ra
+	  </td>
+	</tr>
+	<tr>
+	  <td>
+	    1
+	  </td>
+	  <td>
+	    1
+	  </td>
+	  <td>
+	    post-decrement: Ra--
+	  </td>
+	</tr>
+      </thead>
+    </table>
+    
+    <a name="ST"><h1>ST store register to memory</h1></a>
+    
+    <table border="1">
+      
+      <tr>
+	<td>
+	  ST
+	</td>
+	<td>
+	  Rd,u16
+	</td>
+	<td>
+	  <span id="inst">COND.0110.Rd  .0000.u16 .u16 .u16 .u16</span>
+	</td>
+	<td>
+	  M[zex(u16)]= Rd
+	</td>
+      </tr>
+      <tr>
+	<td>
+	  ST
+	</td>
+	<td>
+	  Rd,Ra,Rb
+	</td>
+	<td>
+	  <span id="inst">COND.1000.Rd  .Ra  .----.Rb  .----.----</span>
+	</td>
+	<td>
+	  M[Ra+Rb]= Rd
+	</td>
+      </tr>
+      <tr>
+	<td>
+	  ST
+	</td>
+	<td>
+	  Rd,Ra+,Rb
+	</td>
+	<td>
+	  <span id="inst">COND.1001.Rd  .Ra  .10--.Rb  .----.----</span>
+	</td>
+	<td>
+	  M[(Ra++)+Rb]= Rd
+	</td>
+      </tr>
+      <tr>
+	<td>
+	  ST
+	</td>
+	<td>
+	  Rd,Ra-,Rb
+	</td>
+	<td>
+	  <span id="inst">COND.1001.Rd  .Ra  .00--.Rb  .----.----</span>
+	</td>
+	<td>
+	  M[(Ra--)+Rb]= Rd
+	</td>
+      </tr>
+      <tr>
+	<td>
+	  ST
+	</td>
+	<td>
+	  Rd,+Ra,Rb
+	</td>
+	<td>
+	  <span id="inst">COND.1001.Rd  .Ra  .11--.Rb  .----.----</span>
+	</td>
+	<td>
+	  M[(++Ra)+Rb]= Rd
+	</td>
+      </tr>
+      <tr>
+	<td>
+	  ST
+	</td>
+	<td>
+	  Rd,-Ra,Rb
+	</td>
+	<td>
+	  <span id="inst">COND.1001.Rd  .Ra  .01--.Rb  .----.----</span>
+	</td>
+	<td>
+	  M[(--Ra)+Rb]= Rd
+	</td>
+      </tr>
+      <tr>
+	<td>
+	  ST
+	</td>
+	<td>
+	  Rd,Ra,s16
+	</td>
+	<td>
+	  <span id="inst">COND.1100.Rd  .Ra  .s16 .s16 .s16 .s16</span>
+	</td>
+	<td>
+	  M[Ra+sex(s16)]= Rd
+	</td>
+      </tr>
+      <tr>
+	<td>
+	  ST
+	</td>
+	<td>
+	  Rd,*Ra,s16
+	</td>
+	<td>
+	  <span id="inst">COND.1101.Rd  .Ra  .s16 .s16 .s16 .s16</span>
+	</td>
+	<td>
+	  M[(*Ra)+sex(s16)]= Rd
+	</td>
+      </tr>
+      
+    </table>
+    
+
+    <p>A memória címe megadható direkt, vagy indexelt
+      címzésmóddal. Direkt címésmód esetén a cím mérete unsigned 16
+      bit lehet, ami a címtér első 64 kB-jának az elérését teszi
+      lehetővé.</p>
+
+    <p>Indexelt címzésmód esetén a bázis cím az Ra regiszterben van,
+      amihez hozzáadódik egy eltolási érték, amely lehet az Rb
+      regiszter, vagy egy signed 16 bites konstans. Indexelt címzés
+      esetén kérhetjük a bázis regiszter módosítását. Ha regiszter
+      eltolást alkalmazunk, akkor az Ra változtatását az utasításban
+      adhatjuk meg, amely lehet pre-increment (növelés eggyel a cím
+      számítás előtt), pre-decrement (csökkentés eggyel a cím számítás
+      előtt), post-increment (növelés eggyel a cím számítás után),
+      vagy post-decrement (csökkentés eggyel a cím számítás után).</p>
+
+    <p>Konstans eltolás esetén a módosítás módját nem az utasítás,
+      hanem a FLAG regiszter U és P bitjei határozzák meg, erre utal a
+      fenti táblázatban a * jelölés:</p>
+
+    <table border="1">
+      <thead>
+	<tr>
+	  <td>
+	    U
+	  </td>
+	  <td>
+	    P
+	  </td>
+	  <td>
+	    Ra módosítása: *Ra
+	  </td>
+	</tr>
+	<tr>
+	  <td>
+	    0
+	  </td>
+	  <td>
+	    0
+	  </td>
+	  <td>
+	    post-decrement: Ra--
+	  </td>
+	</tr>
+	<tr>
+	  <td>
+	    0
+	  </td>
+	  <td>
+	    1
+	  </td>
+	  <td>
+	    pre-decrement: --Ra
+	  </td>
+	</tr>
+	<tr>
+	  <td>
+	    1
+	  </td>
+	  <td>
+	    0
+	  </td>
+	  <td>
+	    post-increment: Ra++
+	  </td>
+	</tr>
+	<tr>
+	  <td>
+	    1
+	  </td>
+	  <td>
+	    1
+	  </td>
+	  <td>
+	    pre-increment: ++Ra
+	  </td>
+	</tr>
+      </thead>
+    </table>
+    
+    <h3>Aritmetikai, logikai műveletek</h3>
+    
+    <a name="ADC"><h1>ADC add with carry</h1></a>
+    
+    <table border="1">
+      
+      <tr>
+	<td>
+	  ADC
+	</td>
+	<td>
+	  Rd,Rb
+	</td>
+	<td>
+	  <span id="inst">COND.0000.Rd  .0101.----.Rb  .----.----</span>
+	</td>
+	<td>
+	  Rd,F[OZCS]= Rd + Rb + C
+	</td>
+      </tr>
+      <tr>
+	<td>
+	  ADC
+	</td>
+	<td>
+	  Rd,s16
+	</td>
+	<td>
+	  <span id="inst">COND.0001.Rd  .0101.s16 .s16 .s16 .s16</span>
+	</td>
+	<td>
+	  Rd,F[OZCS]= Rd + sex(s16) + C
+	</td>
+      </tr>
+      
+    </table>
+    
+    <p>Összeadás átvitel figyelembevételével. Az első operandus
+      egyúttal az eredmény tárolási helye is (felülíródik). A második
+      operandus regiszter, vagy signed 16 bites konstans lehet. A
+      művelet mind a négy aritmetikai flag-et módosítja.</p>
+
+    <a name="ADD"><h1>ADD add without carry</h1></a>
+    
+    <table border="1">
+      
+      <tr>
+	<td>
+	  ADD
+	</td>
+	<td>
+	  Rd,Rb
+	</td>
+	<td>
+	  <span id="inst">COND.0000.Rd  .0100.----.Rb  .----.----</span>
+	</td>
+	<td>
+	  Rd,F[OZCS]= Rd + Rb
+	</td>
+      </tr>
+      <tr>
+	<td>
+	  ADD
+	</td>
+	<td>
+	  Rd,s16
+	</td>
+	<td>
+	  <span id="inst">COND.0001.Rd  .0100.s16 .s16 .s16 .s16</span>
+	</td>
+	<td>
+	  Rd,F[OZCS]= Rd + sex(s16)
+	</td>
+      </tr>
+      
+    </table>
+    
+    <p>Összeadás átvitel figyelembe vétele nélkül. Az első operandus
+      egyúttal az eredmény tárolási helye is (felülíródik). A második
+      operandus regiszter, vagy signed 16 bites konstans lehet. A
+      művelet mind a négy aritmetikai flag-et módosítja.</p>
+
+    <a name="AND"><h1>AND bitwise and</h1></a>
+    
+    <table border="1">
+      
+      <tr>
+	<td>
+	  AND
+	</td>
+	<td>
+	  Rd,Rb
+	</td>
+	<td>
+	  <span id="inst">COND.0000.Rd  .1111.----.Rb  .----.----</span>
+	</td>
+	<td>
+	  Rd,F[ZS]= Rd &amp; Rb
+	</td>
+      </tr>
+      <tr>
+	<td>
+	  AND
+	</td>
+	<td>
+	  Rd,o16
+	</td>
+	<td>
+	  <span id="inst">COND.0001.Rd  .1111.o16 .o16 .o16 .o16</span>
+	</td>
+	<td>
+	  Rd,F[ZS]= Rd &amp; oex(o16)
+	</td>
+      </tr>
+      
+    </table>
+    
+    <p>Logikai ÉS művelet az operandusok azonos pozíciójú bitjei
+      között. Az első operandus egyúttal az eredmény tárolási helye is
+      (felülíródik). A második operandus regiszter, vagy 16 bites
+      konstans lehet. A konstans 32 bitesre való kiterjesztése mindig
+      1-es értékű bitekkel történik. Az utasítás ebben a formában
+      bitek 0-ba állítására használható, ha a törlendő bitek a 0-15
+      pozíciók között találhatók.</p>
+
+    <a name="BTST"><h1>BTST bit test with write-back</h1></a>
+    
+    <table border="1">
+      
+      <tr>
+	<td>
+	  BTST
+	</td>
+	<td>
+	  Rd,Rb
+	</td>
+	<td>
+	  <span id="inst">COND.0000.Rd  .1011.----.Rb  .----.----</span>
+	</td>
+	<td>
+	  Rd,F[ZS]= Rd &amp; Rb
+	</td>
+      </tr>
+      <tr>
+	<td>
+	  BTST
+	</td>
+	<td>
+	  Rd,u16
+	</td>
+	<td>
+	  <span id="inst">COND.0001.Rd  .1011.u16 .u16 .u16 .u16</span>
+	</td>
+	<td>
+	  Rd,F[ZS]= Rd &amp; zex(u16)
+	</td>
+      </tr>
+      
+    </table>
+    
+    <p>Logikai ÉS művelet az operandusok azonos pozíciójú bitjei
+      között. Az első operandus egyúttal az eredmény tárolási helye is
+      (felülíródik). A második operandus regiszter, vagy unsigned 16
+      bites konstans lehet. A konstans 32 bitesre való kiterjesztése
+      mindig 0 értékű bitekkel történik. Az utasítás ebben a formában
+      bit értékének a vizsgálatára használható, ha a vizsgált bit a
+      0-15 pozíció között található. Az utasítás csak a Z és S flag-et
+      módosítja.</p>
+
+    <a name="CLC"><h1>CLC clear C flag</h1></a>
+    
+    <table border="1">
+      
+      <tr>
+	<td>
+	  CLC
+	</td>
+	<td> - </td>
+	<td>
+	  <span id="inst">COND.0010.----.1101.----.----.----.----</span>
+	</td>
+	<td>
+	  F[C]= 0
+	</td>
+      </tr>
+      
+    </table>
+    
+    <p>Az utasítás 0 értéket ír a Flag regiszter C bitjébe. Más hatása
+      nincs.</p>
+
+    <a name="CMP"><h1>CMP compare</h1></a>
+    
+    <table border="1">
+      
+      <tr valign="bottom">
+	<td>
+	  CMP
+	</td>
+	<td>
+	  Rd,Rb
+	</td>
+	<td>
+	  <span id="inst">COND.0000.Rd  .1000.----.Rb  .----.----</span>
+	</td>
+	<td style="padding-top:5px">
+	  F[OZCS]= Rd + <span style="text-decoration:overline;">Rb</span> + 1
+	</td>
+      </tr>
+      <tr valign="bottom">
+	<td>
+	  CMP
+	</td>
+	<td>
+	  Rd,s16
+	</td>
+	<td style="padding-top:5px">
+	  <span id="inst">COND.0001.Rd  .1000.s16 .s16 .s16 .s16</span>
+	</td>
+	<td>
+	  F[OZCS]= Rd + <span style="text-decoration:overline;">sex(s16)</span> + 1
+	</td>
+      </tr>
+      
+    </table>
+    
+    <p>Az utasítás a két operandus összehasonlítására használható. A
+      működése megegyezik
+      a <a class="inst" href="#SUB"><span class="alu2">SUB</span></a> utasítással,
+      azonban a kivonás eredményét nem tárolja, az első operandus
+      regisztere (Rd) változatlan marad, csak a Flag regiszter
+      aritmetikai bitjei módosulnak.</p>
+    
+    <a name="GETF"><h1>GETF get flags</h1></a>
+    
+    <table border="1">
+      
+      <tr>
+	<td>
+	  GETF
+	</td>
+	<td>
+	  Rd
+	</td>
+	<td>
+	  <span id="inst">COND.0010.Rd  .1110.----.----.----.----</span>
+	</td>
+	<td>
+	  Rd= F[UPOZCS]
+	</td>
+      </tr>
+      
+    </table>
+    
+    <p>Az utasítás átmásolja a Flag regiszter értékét (beleértve az U
+      és P biteket is) a megadott Rd regiszterbe. A jelzőbitek a Flag
+      regiszter 0-5 bitjeit foglalják el, a regiszter azonban 8
+      bites. A 6-7 bitek tetszőleges 2 bites érték tárolására
+      használhatók. Az utasítás a Flag tartalmát az Rd[7:0] bitekbe
+      másolja, az Rd[31:8] bitek 0 értéket kapnak.</p>
+
+    <a name="MUL"><h1>MUL multiply</h1></a>
+    
+    <table border="1">
+      
+      <tr>
+	<td>
+	  MUL
+	</td>
+	<td>
+	  Rd,Rb
+	</td>
+	<td>
+	  <span id="inst">COND.0000.Rd  .1000.----.Rb  .----.----</span>
+	</td>
+	<td>
+	  Rd,F[ZS]= Rd * Rb
+	</td>
+      </tr>
+      <tr>
+	<td>
+	  MUL
+	</td>
+	<td>
+	  Rd,s16
+	</td>
+	<td>
+	  <span id="inst">COND.0001.Rd  .1000.s16 .s16 .s16 .s16</span>
+	</td>
+	<td>
+	  Rd,F[ZS]= Rd * sex(Rb)
+	</td>
+      </tr>
+      
+    </table>
+    
+    <p>Az utasítás a két operandus értékét szorozza össze, az eredmény
+      alsó helyiértékű 32 bitje az Rd regiszterbe kerül. Az eredmény
+      felső helyiértékű 32 bitje elvész. Az utasítás csak a Z és S
+      Flag biteket módosítja.</p>
+
+    <a name="NEG"><h1>NEG sign change</h1></a>
+    
+    <table border="1">
+      
+      <tr valign="bottom">
+	<td>
+	  NEG
+	</td>
+	<td>
+	  Rd
+	</td>
+	<td>
+	  <span id="inst">COND.0010.Rd  .0101.----.----.----.----</span>
+	</td>
+	<td style="padding-top:5px">
+	  Rd,F[OZCS]= <span style="text-decoration:overline;">Rd</span> + 1
+	</td>
+      </tr>
+      
+    </table>
+    
+    <p>Az utasítás a signed 32 bitesnek tekintett Rd regiszter
+      értékének az előjelét az ellenkezőjére állítja, az eredmény az
+      Rd regiszterbe kerül. A CPU a műveletet az Rd=0-Rd kivonás
+      elvégzésével számítja ki, a Flag biteket ennek megfelelően
+      állítja be.</p>
+
+    <a name="NOT"><h1>NOT bitwise complement</h1></a>
+    
+    <table border="1">
+      
+      <tr valign="bottom">
+	<td>
+	  NOT
+	</td>
+	<td>
+	  Rd
+	</td>
+	<td>
+	  <span id="inst">COND.0010.Rd  .0100.----.----.----.----</span>
+	</td>
+	<td style="padding-top:5px">
+	  Rd,F[ZS]= <span style="text-decoration:overline;">Rd</span>
+	</td>
+      </tr>
+      
+    </table>
+    
+    <p>A művelet az Rd bitjeit egyenként negálja, az eredmény az Rd
+      regiszterbe kerül. Az utasítás csak a Z és S Flag biteket
+      módosítja.</p>
+
+    <a name="OR"><h1>OR bitwise or</h1></a>
+    
+    <table border="1">
+      
+      <tr>
+	<td>
+	  OR
+	</td>
+	<td>
+	  Rd,Rb
+	</td>
+	<td>
+	  <span id="inst">COND.0000.Rd  .1101.----.Rb  .----.----</span>
+	</td>
+	<td>
+	  Rd,F[ZS]= Rd | Rb
+	</td>
+      </tr>
+      <tr>
+	<td>
+	  OR
+	</td>
+	<td>
+	  Rd,u16
+	</td>
+	<td>
+	  <span id="inst">COND.0001.Rd  .1101.u16 .u16 .u16 .u16</span>
+	</td>
+	<td>
+	  Rd,F[ZS]= Rd | zex(u16)
+	</td>
+      </tr>
+      
+    </table>
+    
+    <p>Logikai VAGY művelet az operandusok azonos pozíciójú bitjei
+      között. Az első operandus egyúttal az eredmény tárolási helye is
+      (felülíródik). A második operandus regiszter, vagy 16 bites
+      konstans lehet. A konstans 32 bitesre való kiterjesztése mindig
+      0-s értékű bitekkel történik. Az utasítás ebben a formában bitek
+      1-be állítására használható, ha a beállítandó bitek a 0-15
+      pozíciók között találhatók.</p>
+
+    <a name="PLUS"><h1>PLUS add without carry</h1></a>
+    
+    <table border="1">
+      
+      <tr>
+	<td>
+	  PLUS
+	</td>
+	<td>
+	  Rd,Rb
+	</td>
+	<td>
+	  <span id="inst">COND.0000.Rd  .1010.----.Rb  .----.----</span>
+	</td>
+	<td>
+	  Rd= Rd + Rb
+	</td>
+      </tr>
+      <tr>
+	<td>
+	  PLUS
+	</td>
+	<td>
+	  Rd,s16
+	</td>
+	<td>
+	  <span id="inst">COND.0001.Rd  .1010.s16 .s16 .s16 .s16</span>
+	</td>
+	<td>
+	  Rd= Rd + sex(s16)
+	</td>
+      </tr>
+      
+    </table>
+    
+    <p>Összeadás átvitel figyelembe vétele és a Flag regiszter
+      módosítása nélkül. Az első operandus egyúttal az eredmény
+      tárolási helye is (felülíródik). A második operandus regiszter,
+      vagy signed 16 bites konstans lehet. Az utasítás eredménye
+      megegyezik az <a class="inst" href="#ADD"><span class="alu2">ADD</span></a>
+      utasítás eredményével, azonban a Flag regisztert nem módosítja.</p>
+
+    <a name="ROL"><h1>ROL rotate left through carry</h1></a>
+    
+    <table border="1">
+      
+      <tr>
+	<td>
+	  ROL
+	</td>
+	<td>
+	  Rd
+	</td>
+	<td>
+	  <span id="inst">COND.0010.Rd  .0111.----.----.----.----</span>
+	</td>
+	<td>
+	  Rd,F[CZS]= rol(C,Rd)
+	</td>
+      </tr>
+      
+    </table>
+    
+    <p><img title="" src="rol.svg" alt="rol.png" /></p>
+    
+    <p>33 bites forgatás balra a C bittel együtt. A C Flag bit értéke
+      az Rd[31] bit forgatás előtti értéke lesz. A C Flag bit forgatás
+      előtti értéke az Rd[0] bitbe kerül. A forgatás után a Z és S
+      Flag bitek az Rd-nek megfelelő értéket veszik fel.</p>
+
+    <a name="ROR"><h1>ROR rotate right through carry</h1></a>
+    
+    <table border="1">
+      
+      <tr>
+	<td>
+	  ROR
+	</td>
+	<td>
+	  Rd
+	</td>
+	<td>
+	  <span id="inst">COND.0010.Rd  .0111.----.----.----.----</span>
+	</td>
+	<td>
+	  Rd,F[CZS]= ror(Rd,C)
+	</td>
+      </tr>
+      
+    </table>
+    
+    <p><img title="" src="ror.svg" alt="ror.png" /></p>
+    
+    <p>33 bites forgatás jobbra a C Flag bittel együtt. A C Flag
+      értéke az Rd[0] bit forgatás előtti értéke lesz. A C Flag bit
+      forgatás előtti értéke az Rd[31] bitbe kerül. A forgatás után a
+      Z és S Flag bitek az Rd-nek megfelelő értéket veszik fel.</p>
+
+    <a name="SBB"><h1>SBB subtract with carry</h1></a>
+    
+    <table border="1">
+      
+      <tr valign="bottom">
+	<td>
+	  SBB
+	</td>
+	<td>
+	  Rd,Rb
+	</td>
+	<td>
+	  <span id="inst">COND.0000.Rd  .0111.----.Rb  .----.----</span>
+	</td>
+	<td style="padding-top:5px">
+	  Rd,F[OZCS]= Rd + <span style="text-decoration:overline;">Rb</span> + C
+	</td>
+      </tr>
+      <tr valign="bottom">
+	<td>
+	  SBB
+	</td>
+	<td>
+	  Rd,s16
+	</td>
+	<td>
+	  <span id="inst">COND.0001.Rd  .0111.s16 .s16 .s16 .s16</span>
+	</td>
+	<td style="padding-top:5px">
+	  Rd,F[OZCS]= Rd + <span style="text-decoration:overline;">sex(s16)</span> + C
+	</td>
+      </tr>
+      
+    </table>
+    
+    <p>Kivonás művelet. Az első operandus (Rd) egyúttal az eredmény
+      tárolási helye is (felülíródik). A második operandus egy 32
+      bites regiszter, vagy egy signed 16 bites konstans lehet,
+      amelyet a CPU előjel kiterjesztéssel alakít 32 bitesre. A
+      második operandus negáltját adja hozzá az elsőhöz Rd=Rd+(-op2),
+      úgy, hogy kezdő átvitelként a C Flag bitet használja fel. A
+      kivonás után a C Flag 0 értéke jelenti azt, hogy túlcsordulás
+      keletkezett.</p>
+    
+    <a name="SEC"><h1>SEC set carry flag</h1></a>
+    
+    <table border="1">
+      
+      <tr>
+	<td>
+	  SEC
+	</td>
+	<td> </td>
+	<td>
+	  <span id="inst">COND.0010.----.1100.----.----.----.----</span>
+	</td>
+	<td>
+	  F[C]= 1
+	</td>
+      </tr>
+      
+    </table>
+    
+    <p>Az utasítás a C Flag bitet 1 értékűre állítja. Más hatása
+    nincs.</p>
+    
+    <a name="SETF"><h1>SETF copy register to flag register</h1></a>
+    
+    <table border="1">
+      
+      <tr>
+	<td>
+	  SETF
+	</td>
+	<td>
+	  Rd
+	</td>
+	<td>
+	  <span id="inst">COND.0010.Rd  .1111.----.----.----.----</span>
+	</td>
+	<td>
+	  F[UPOZCS]= Rd
+	</td>
+      </tr>
+      
+    </table>
+    
+    <p>Az utasítás az Rd regiszter értékét a Flag regiszterbe
+      másolja. A használt Flag bitek a regiszter 0-5 bitjeit foglalják
+      el, de a regiszter 8 bites. A 6-7 bitek tetszőleges 2 bites
+      érték tárolására használhatók, vagyis a műveletben az Rd[7:0]
+      bitjei kerülnek a Flag regiszterbe, az Rd[31:8] bitek figyelmen
+      kívül maradnak.</p>
+
+    <a name="SHA"><h1>SHA arithmetic (signed) shift right</h1></a>
+    
+    <table border="1">
+      
+      <tr>
+	<td>
+	  SHA
+	</td>
+	<td>
+	  Rd
+	</td>
+	<td>
+	  <span id="inst">COND.0010.Rd  .1010.----.----.----.----</span>
+	</td>
+	<td>
+	  Rd,F[ZCS]= sha(Rd)
+	</td>
+      </tr>
+      
+    </table>
+    
+    <p><img title="" src="sha.svg" alt="sha.png" /></p>
+    
+    <p>Signed 32 bites adat aritmetikai (előjel tartó) eltolása jobbra
+      1 bittel. A C Flag bit az Rd[0] eltolás előtti értékét veszi
+      fel. Az Rd[31] bit értéke nem változik, a 32 bites adat
+      megtartja az előjelét. A Z és S Flag bitek az Rd eltolás utáni
+      értéke alapján kapnak értéket.</p>
+
+    <a name="SHL"><h1>SHL shift left</h1></a>
+    
+    <table border="1">
+      
+      <tr>
+	<td>
+	  SHL
+	</td>
+	<td>
+	  Rd
+	</td>
+	<td>
+	  <span id="inst">COND.0010.Rd  .1000.----.----.----.----</span>
+	</td>
+	<td>
+	  Rd,F[ZCS]= shl(Rd)
+	</td>
+      </tr>
+      
+    </table>
+    
+    <p><img title="" src="shl.svg" alt="shl.png" /></p>
+    
+    <p>Eltolás balra 1 bittel. A C Flag bit az Rd[31] eltolás előtti
+      értékét kapja, az Rd[0] bitje 0 lesz. A Z és S Flag bitek az Rd
+      eltolás utáni értékének megfelelően módosul.</p>
+
+    <a name="SHR"><h1>SHR logic (unsigned) shift right</h1></a>
+    
+    <table border="1">
+      
+      <tr>
+	<td>
+	  SHR
+	</td>
+	<td>
+	  Rd
+	</td>
+	<td>
+	  <span id="inst">COND.0010.Rd  .1001.----.----.----.----</span>
+	</td>
+	<td>
+	  Rd,F[ZCS]= shr(Rd)
+	</td>
+      </tr>
+      
+    </table>
+    
+    <p><img title="" src="shr.svg" alt="shr.png" /></p>
+    
+    <p>Unsigned 32 bites adat eltolása jobbra 1 bittel. A C Flag bit
+      értéke az Rd[0] eltolás előtti értéke lesz. Az Rd[31] bit 0
+      értéket kap. A Z és az S Flag bitek az Rd eltolás utáni értéke
+      alapján kapnak értéket, vagyis a S Flag bit mindig 0 lesz.</p>
+
+    <a name="SUB"><h1>SUB subtract without carry</h1></a>
+    
+    <table border="1">
+      
+      <tr valign="bottom">
+	<td>
+	  SUB
+	</td>
+	<td>
+	  Rd,Rb
+	</td>
+	<td>
+	  <span id="inst">COND.0000.Rd  .0110.----.Rb  .----.----</span>
+	</td>
+	<td style="padding-top:5px">
+	  Rd,F[OZCS]= Rd + <span style="text-decoration:overline;">Rb</span> + 1
+	</td>
+      </tr>
+      <tr valign="bottom">
+	<td>
+	  SUB
+	</td>
+	<td>
+	  Rd,s16
+	</td>
+	<td>
+	  <span id="inst">COND.0001.Rd  .0110.s16 .s16 .s16 .s16</span>
+	</td>
+	<td style="padding-top:5px">
+	  Rd,F[OZCS]= Rd + <span style="text-decoration:overline;">sex(s16)</span> + 1
+	</td>
+      </tr>
+      
+    </table>
+    
+    <p>Kivonás művelet az átvitel figyelmen kívül hagyásával. Az első
+      operandus (Rd) egyúttal az eredmény tárolási helye is
+      (felülíródik). A második operandus egy 32 bites regiszter, vagy
+      egy signed 16 bites konstans lehet, amelyet a CPU előjel
+      kiterjesztéssel alakít 32 bitesre. A második operandus negáltját
+      adja hozzá az elsőhöz Rd=Rd+(-op2), úgy, hogy kezdő átvitelként
+      1 értéket használ fel. A kivonás után a C Flag 0 értéke jelenti
+      azt, hogy túlcsordulás keletkezett.</p>
+
+    <a name="SZ"><h1>SZ test of zero</h1></a>
+    
+    <table border="1">
+      
+      <tr>
+	<td>
+	  SZ
+	</td>
+	<td>
+	  Rd
+	</td>
+	<td>
+	  <span id="inst">COND.0010.Rd  .1011.----.----.----.----</span>
+	</td>
+	<td>
+	  F[ZS]= Rd
+	</td>
+      </tr>
+      
+    </table>
+    
+    <p>Az utasítás az Rd regiszter értékének a 0-val való
+      összehasonlítására, illetve az előjelének a megállapítására
+      használható. Ha a regiszter 0, akkor a Z Flag bit 1 lesz,
+      különben 0. Az S Flag bit az Rd[31] értékét veszi fel. Az Rd nem
+      változik.</p>
+
+    <a name="TEST"><h1>TEST bitwise and without write back</h1></a>
+    
+    <table border="1">
+      
+      <tr>
+	<td>
+	  TEST
+	</td>
+	<td>
+	  Rd,Rb
+	</td>
+	<td>
+	  <span id="inst">COND.0000.Rd  .1100.----.Rb  .----.----</span>
+	</td>
+	<td>
+	  F[ZS]= Rd &amp; Rb
+	</td>
+      </tr>
+      <tr>
+	<td>
+	  TEST
+	</td>
+	<td>
+	  Rd,u16
+	</td>
+	<td>
+	  <span id="inst">COND.0001.Rd  .1100.u16 .u16 .u16 .u16</span>
+	</td>
+	<td>
+	  F[ZS]= Rd &amp; zex(u16)
+	</td>
+      </tr>
+      
+    </table>
+
+    <p>Logikai ÉS művelet az operandusok azonos pozíciójú bitjei
+      között.  Az első operandus nem változik. A második operandus
+      regiszter, vagy unsigned 16 bites konstans lehet. A konstans 32
+      bitesre való kiterjesztése mindig 0 értékű bitekkel történik. Az
+      utasítás ebben a formában bit értékének a vizsgálatára
+      használható, ha a vizsgált bit a 0-15 pozíció között
+      található. Az utasítás csak a Z és S flag-et módosítja, az Rd
+      regiszter értéke változatlan marad. Az utasítás
+      a <a class="inst" href="#BTST"><span class="alu2">BTST</span></a> utasítással
+      megegyezően működik, az Rd módosítása nélkül.</p>
+
+    <a name="XOR"><h1>XOR bitwise xor</h1></a>
+    
+    <table border="1">
+      
+      <tr>
+	<td>
+	  XOR
+	</td>
+	<td>
+	  Rd,Rb
+	</td>
+	<td>
+	  <span id="inst">COND.0000.Rd  .1110.----.Rb  .----.----</span>
+	</td>
+	<td>
+	  Rd,F[ZS]= Rd ^ Rb
+	</td>
+      </tr>
+      <tr>
+	<td>
+	  XOR
+	</td>
+	<td>
+	  Rd,u16
+	</td>
+	<td>
+	  <span id="inst">COND.0001.Rd  .1110.u16 .u16 .u16 .u16</span>
+	</td>
+	<td>
+	  Rd,F[ZS]= Rd ^ zex(u16)
+	</td>
+      </tr>
+      
+    </table>
+    
+    <p>Logikai XOR művelet az operandusok azonos pozíciójú bitjei
+      között. Az első operandus egyúttal az eredmény tárolási helye is
+      (felülíródik). A második operandus regiszter, vagy unsigned 16
+      bites konstans lehet. A konstans 32 bitesre való kiterjesztése
+      mindig 0 értékű bitekkel történik. Az utasítás ebben a formában
+      bit értékének a negálására használható, ha a negálandó bit a
+      0-15 pozíció között található. Az utasítás csak a Z és S flag-et
+      módosítja.</p>
+
+<hr>
+	
+  </body>
+</html>

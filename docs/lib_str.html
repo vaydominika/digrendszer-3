@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html id="html-tag" lang="en">
+  <script>
+   const $htmlTag = document.querySelector("#html-tag")
+   const urlParams = new URL(window.location.toLocaleString()).searchParams;
+   var lvar= urlParams.get('lang');
+   switch(lvar) {
+     case "hu":
+       $htmlTag.lang = "hu"
+       $htmlTag.classList.add("hungarianLang")
+       break
+     default:
+       lvar= "en";
+       $htmlTag.classList.add("englishLang")
+       break
+   }
+   function lnk(cath,fn)
+    {
+      var l= 'lib_' + cath + '.html#' + fn + '?lang=' + lvar;
+      return l;
+    }
+  </script>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="p12.css">
+    <title>p2223 library: string functions</title>
+  </head>
+  
+  <body>
+
+    <span lang="hu">Lang:</span> <span lang="en">Nyelv:</span>
+    <a href="lib_str.html?lang=hu">HU</a>
+    <a href="lib_str.html?lang=en">EN</a>
+
+    <h1>
+      <span lang="en">String functions</span>
+      <span lang="hu">Szövegkezelő függvények</span>
+    </h1>
+
+
+    <a name="dtoi"><h3>dtoi</h3></a>
+
+    <ul>
+      <li><span lang="en">Input(s):</span>
+	<span lang="hu">Bemenet(ek):</span>
+	<span lang="en">R0=address of string</span>
+	<span lang="hu">R0=sztring címe</span>
+      </li>
+      <li><span lang="en">Output(s):</span>
+	<span lang="hu">Kimenet(ek):</span>
+	<span lang="en">R4=converted value, Flag.C=1 if successfull</span>
+	<span lang="hu">R4=konvertált érték, Flag.C=1 ha sikeres</span>
+      </li>
+    </ul>
+
+    <p>Decimális szám leírását tartalmazó sztring átalakítása
+    számmá. A számnak pozitívnak kell lennie, előjel karaktert nem
+    tartalmazhat. Ha a sztring nem tartalmaz hibás, érvénytelen
+    karaktert, akkor a flag regiszter C bitje 1 lesz. Ellenkező
+    esetben a konverzió befejeződik a hibás karakternél.</p>
+
+
+    <a name="htoi"><h3>htoi</h3></a>
+
+    <ul>
+      <li><span lang="en">Input(s):</span>
+	<span lang="hu">Bemenet(ek):</span>
+	<span lang="en">R0=address of string</span>
+	<span lang="hu">R0=sztring címe</span>
+      </li>
+      <li><span lang="en">Output(s):</span>
+	<span lang="hu">Kimenet(ek):</span>
+	<span lang="en">R4=converted value, Flag.C=1 if successfull</span>
+	<span lang="hu">R4=konvertált érték, Flag.C=1 ha sikeres</span>
+      </li>
+    </ul>
+
+    <p>Hexadecimális szám leírását tartalmazó sztring átalakítása
+      számmá. A számnak pozitívnak kell lennie, előjel karaktert nem
+      tartalmazhat. Az a-f számjegyek kis és nagybetűk is lehetnek. Ha
+      a sztring nem tartalmaz hibás, érvénytelen karaktert, akkor a
+      flag regiszter C bitje 1 lesz. Ellenkező esetben a konverzió
+      befejeződik a hibás karakternél.</p>
+
+    
+    <a name="str_chr"><h3>str_chr</h3></a>
+
+    <ul>
+      <li><span lang="en">Input(s):</span>
+	<span lang="hu">Bemenet(ek):</span>
+	<span lang="en">R0=string, R1=character</span>
+	<span lang="hu">R0=sztring, R1=karakter</span>
+      </li>
+      <li><span lang="en">Output(s):</span>
+	<span lang="hu">Kimenet(ek):</span>
+	<span lang="en">Flag.C=1 if found, R4=address of char in string, R5=byte index in word</span>
+	<span lang="hu">Flag.C=1 ha megtalálható, R4=megtalált karakter címe, R5=byte sorszáma a szóban</span>
+      </li>
+    </ul>
+
+    <p>Az R1 regiszterben lévő karakter keresése az R0 címen kezdődő
+    sztringben, a kis- és a nagybetűk különbözőnek számítanak. Ha a
+    keresett karakter megtalálható a szövegben, akkor az R4 a karakter
+    tartalmazó szó címe lesz, az R5 pedig a karakter indexe a
+    szóban. Ha nincs találat, az R4 és R5 0 lesz. A találatot a flag
+    regiszter C bitjének 1 értéke jelzi.</p>
+
+    
+    <a name="str_eq"><h3>str_eq</h3></a>
+
+    <ul>
+      <li><span lang="en">Input(s):</span>
+	<span lang="hu">Bemenet(ek):</span>
+	<span lang="en">R0=string1, R1=string2</span>
+	<span lang="hu">R0=sztring1, R1=sztring2</span>
+      </li>
+      <li><span lang="en">Output(s):</span>
+	<span lang="hu">Kimenet(ek):</span>
+	<span lang="en">Flag.C=1 if equal</span>
+	<span lang="hu">Flag.C=1 ha megegyeznek</span>
+      </li>
+    </ul>
+
+    <p>Két sztring összehasonlítása, a kis- és a nagybetűk
+    különbözőnek számítanak. Egyezés esetén a flag regiszter C bitje 1
+    lesz.</p>
+
+    
+    <a name="str_ieq"><h3>str_ieq</h3></a>
+    
+    <ul>
+      <li><span lang="en">Input(s):</span>
+	<span lang="hu">Bemenet(ek):</span>
+	<span lang="en">R0=string1, R1=string2</span>
+	<span lang="hu">R0=sztring1, R1=sztring2</span>
+      </li>
+      <li><span lang="en">Output(s):</span>
+	<span lang="hu">Kimenet(ek):</span>
+	<span lang="en">Flag.C=1 if equal</span>
+	<span lang="hu">Flag.C=1 ha megegyeznek</span>
+      </li>
+    </ul>
+
+    <p>Két sztring összehasonlítása, a kis- és a nagybetűk
+    megegyezőnek számítanak. Egyezés esetén a flag regiszter C bitje 1
+    lesz.</p>
+
+    
+    <a name="str_len"><h3>str_len</h3></a>
+    
+    <ul>
+      <li><span lang="en">Input(s):</span>
+	<span lang="hu">Bemenet(ek):</span>
+	<span lang="en">R0=string</span>
+	<span lang="hu">R0=sztring</span>
+      </li>
+      <li><span lang="en">Output(s):</span>
+	<span lang="hu">Kimenet(ek):</span>
+	<span lang="en">R4=chars in string</span>
+	<span lang="hu">R4=karakterek száma</span>
+      </li>
+    </ul>
+
+    <p>String hosszának meghatározása. A függvény a sztringben lévő
+    karakterek számát adja.</p>
+
+    
+    <a name="str_size"><h3>str_size</h3></a>
+    
+    <ul>
+      <li><span lang="en">Input(s):</span>
+	<span lang="hu">Bemenet(ek):</span>
+	<span lang="en">R0=string</span>
+	<span lang="hu">R0=sztring</span>
+      </li>
+      <li><span lang="en">Output(s):</span>
+	<span lang="hu">Kimenet(ek):</span>
+	<span lang="en">R4=words in memory</span>
+	<span lang="hu">R4=memória szavak száma</span>
+      </li>
+    </ul>
+
+    <p>A függvény egy sztring által elfoglalt memória hely méretét
+    adja meg, beleértve a sztringet záró 0 értékű szót is.</p>
+
+
+    <a name="str_getchar"><h3>str_getchar</h3></a>
+
+    <ul>
+      <li><spanlang="en">Input(s):</span>
+	<span lang="hu">Bemenet(ek):</span>
+	<span lang="en">R0=string, R1=index</span>
+	<span lang="hu">R0=sztring, R1=index</span>
+      </li>
+      <li><span lang="en">Output(s):</span>
+	<span lang="hu">Kimenet(ek):</span>
+	<span lang="en">R4=char in string at index</span>
+	<span lang="hu">R4=a sztring indexedik karaktere</span>
+      </li>
+    </ul>
+
+    <p>A függvény normál/pakolt formájú sztringnek egy adott sorszámú
+    karakterét adja, az első karakter sorszáma 0. Ha a sorszám
+    nagyobb, mint a sztring hossza, akkor 0 lesz az eredmény.</p>
+
+    
+    <a name="str_setchar"><h3>str_setchar</h3></a>
+
+    <ul>
+      <li><spanlang="en">Input(s):</span>
+	<span lang="hu">Bemenet(ek):</span>
+	<span lang="en">R0=string, R1=index, R2=char</span>
+	<span lang="hu">R0=sztring, R1=index, R2=karakter</span>
+      </li>
+      <li><span lang="en">Output(s):</span>
+	<span lang="hu">Kimenet(ek):</span>
+	<span lang="en">-</span>
+	<span lang="hu">-</span>
+      </li>
+    </ul>
+
+    <p>A függvény normál/pakolt formájú sztringnek egy adott sorszámú
+    (első karakter sorszáma 0) karakterét lecseréli a megadott
+    karakterre. Ha a sorszám nagyobb a sztring hosszánál, akkor nem
+    történik módosítás.
+    </p>
+
+    
+    <a name="str_packed"><h3>str_packed</h3></a>
+
+    <ul>
+      <li><spanlang="en">Input(s):</span>
+	<span lang="hu">Bemenet(ek):</span>
+	<span lang="en">R0=string</span>
+	<span lang="hu">R0=sztring</span>
+      </li>
+      <li><span lang="en">Output(s):</span>
+	<span lang="hu">Kimenet(ek):</span>
+	<span lang="en">F.C=1 if string is packed</span>
+	<span lang="hu">F.C=1 ha a sztring pakolt</span>
+      </li>
+    </ul>
+
+    <p>A függvény megvizsgálja, hogy a paraméterül megadott helyen
+    kezdődő sztring pakolt formátumú-e, ha igen, a C flag 1 lesz. Az
+    üres sztring nem pakolt formátumú.
+    </p>
+
+    
+    <hr>
+  </body>
+</html>

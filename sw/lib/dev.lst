@@ -1,0 +1,2545 @@
+;; 
+;; Phase 1 of file dev.asm [ASM]
+
+;; 92 lines buffered
+;; 
+
+;; line[1]: .proc	p2
+;; proc_asm_line; lnr=1 w=.proc
+;; is_cond(.PROC); 12 P1
+;; Use Processor p2223
+;; 
+
+;; line[2]: 
+;; proc_asm_line; no words found in line 2
+;; 
+
+;; line[3]: 
+;; proc_asm_line; no words found in line 3
+;; 
+
+;; line[4]: .seg	_lib_segment_regs_of_clock
+;; proc_asm_line; lnr=4 w=.seg
+;; is_cond(.SEG); 54 P2
+;; Segment started: _lib_segment_regs_of_clock,S035d1872e63c
+;; 
+
+;; line[5]: 
+;; proc_asm_line; no words found in line 5
+;; 
+
+;; line[6]: CLOCK.CLOCK	==	0xff50
+;; proc_asm_line; lnr=6 w=CLOCK.CLOCK
+;; is_cond(CLOCK.CLOCK); 54 P2
+;; is_inst(CLOCK.CLOCK);
+;; proc_asm_line; lnr=6 w===
+;; is_cond(==); 54 P2
+;; proc_asm_line; EQU W=== w=0xff50 val=65360
+;; Exporting symbol "CLOCK.CLOCK"
+;; proc_asm_line; SYMBOL CLOCK.CLOCK=65360
+;; 
+
+;; line[7]: CLOCK.CLK	==	0xff50
+;; proc_asm_line; lnr=7 w=CLOCK.CLK
+;; is_cond(CLOCK.CLK); 54 P2
+;; is_inst(CLOCK.CLK);
+;; proc_asm_line; lnr=7 w===
+;; is_cond(==); 54 P2
+;; proc_asm_line; EQU W=== w=0xff50 val=65360
+;; Exporting symbol "CLOCK.CLK"
+;; proc_asm_line; SYMBOL CLOCK.CLK=65360
+;; 
+
+;; line[8]: CLOCK.PRE	==	0xff51
+;; proc_asm_line; lnr=8 w=CLOCK.PRE
+;; is_cond(CLOCK.PRE); 54 P2
+;; is_inst(CLOCK.PRE);
+;; proc_asm_line; lnr=8 w===
+;; is_cond(==); 54 P2
+;; proc_asm_line; EQU W=== w=0xff51 val=65361
+;; Exporting symbol "CLOCK.PRE"
+;; proc_asm_line; SYMBOL CLOCK.PRE=65361
+;; 
+
+;; line[9]: CLOCK.BCNT2	==	0xff52
+;; proc_asm_line; lnr=9 w=CLOCK.BCNT2
+;; is_cond(CLOCK.BCNT2); 54 P2
+;; is_inst(CLOCK.BCNT2);
+;; proc_asm_line; lnr=9 w===
+;; is_cond(==); 54 P2
+;; proc_asm_line; EQU W=== w=0xff52 val=65362
+;; Exporting symbol "CLOCK.BCNT2"
+;; proc_asm_line; SYMBOL CLOCK.BCNT2=65362
+;; 
+
+;; line[10]: CLOCK.BCNT3	==	0xff53
+;; proc_asm_line; lnr=10 w=CLOCK.BCNT3
+;; is_cond(CLOCK.BCNT3); 54 P2
+;; is_inst(CLOCK.BCNT3);
+;; proc_asm_line; lnr=10 w===
+;; is_cond(==); 54 P2
+;; proc_asm_line; EQU W=== w=0xff53 val=65363
+;; Exporting symbol "CLOCK.BCNT3"
+;; proc_asm_line; SYMBOL CLOCK.BCNT3=65363
+;; 
+
+;; line[11]: CLOCK.BCNT4	==	0xff54
+;; proc_asm_line; lnr=11 w=CLOCK.BCNT4
+;; is_cond(CLOCK.BCNT4); 54 P2
+;; is_inst(CLOCK.BCNT4);
+;; proc_asm_line; lnr=11 w===
+;; is_cond(==); 54 P2
+;; proc_asm_line; EQU W=== w=0xff54 val=65364
+;; Exporting symbol "CLOCK.BCNT4"
+;; proc_asm_line; SYMBOL CLOCK.BCNT4=65364
+;; 
+
+;; line[12]: CLOCK.BCNT5	==	0xff55
+;; proc_asm_line; lnr=12 w=CLOCK.BCNT5
+;; is_cond(CLOCK.BCNT5); 54 P2
+;; is_inst(CLOCK.BCNT5);
+;; proc_asm_line; lnr=12 w===
+;; is_cond(==); 54 P2
+;; proc_asm_line; EQU W=== w=0xff55 val=65365
+;; Exporting symbol "CLOCK.BCNT5"
+;; proc_asm_line; SYMBOL CLOCK.BCNT5=65365
+;; 
+
+;; line[13]: CLOCK.BCNT6	==	0xff56
+;; proc_asm_line; lnr=13 w=CLOCK.BCNT6
+;; is_cond(CLOCK.BCNT6); 54 P2
+;; is_inst(CLOCK.BCNT6);
+;; proc_asm_line; lnr=13 w===
+;; is_cond(==); 54 P2
+;; proc_asm_line; EQU W=== w=0xff56 val=65366
+;; Exporting symbol "CLOCK.BCNT6"
+;; proc_asm_line; SYMBOL CLOCK.BCNT6=65366
+;; 
+
+;; line[14]: CLOCK.BCNT7	==	0xff57
+;; proc_asm_line; lnr=14 w=CLOCK.BCNT7
+;; is_cond(CLOCK.BCNT7); 54 P2
+;; is_inst(CLOCK.BCNT7);
+;; proc_asm_line; lnr=14 w===
+;; is_cond(==); 54 P2
+;; proc_asm_line; EQU W=== w=0xff57 val=65367
+;; Exporting symbol "CLOCK.BCNT7"
+;; proc_asm_line; SYMBOL CLOCK.BCNT7=65367
+;; 
+
+;; line[15]: CLOCK.BCNT8	==	0xff58
+;; proc_asm_line; lnr=15 w=CLOCK.BCNT8
+;; is_cond(CLOCK.BCNT8); 54 P2
+;; is_inst(CLOCK.BCNT8);
+;; proc_asm_line; lnr=15 w===
+;; is_cond(==); 54 P2
+;; proc_asm_line; EQU W=== w=0xff58 val=65368
+;; Exporting symbol "CLOCK.BCNT8"
+;; proc_asm_line; SYMBOL CLOCK.BCNT8=65368
+;; 
+
+;; line[16]: CLOCK.BCNT9	==	0xff59
+;; proc_asm_line; lnr=16 w=CLOCK.BCNT9
+;; is_cond(CLOCK.BCNT9); 54 P2
+;; is_inst(CLOCK.BCNT9);
+;; proc_asm_line; lnr=16 w===
+;; is_cond(==); 54 P2
+;; proc_asm_line; EQU W=== w=0xff59 val=65369
+;; Exporting symbol "CLOCK.BCNT9"
+;; proc_asm_line; SYMBOL CLOCK.BCNT9=65369
+;; 
+
+;; line[17]: CLOCK.BCNT10	==	0xff5a
+;; proc_asm_line; lnr=17 w=CLOCK.BCNT10
+;; is_cond(CLOCK.BCNT10); 54 P2
+;; is_inst(CLOCK.BCNT10);
+;; proc_asm_line; lnr=17 w===
+;; is_cond(==); 54 P2
+;; proc_asm_line; EQU W=== w=0xff5a val=65370
+;; Exporting symbol "CLOCK.BCNT10"
+;; proc_asm_line; SYMBOL CLOCK.BCNT10=65370
+;; 
+
+;; line[18]: CLOCK.BCNT11	==	0xff5b
+;; proc_asm_line; lnr=18 w=CLOCK.BCNT11
+;; is_cond(CLOCK.BCNT11); 54 P2
+;; is_inst(CLOCK.BCNT11);
+;; proc_asm_line; lnr=18 w===
+;; is_cond(==); 54 P2
+;; proc_asm_line; EQU W=== w=0xff5b val=65371
+;; Exporting symbol "CLOCK.BCNT11"
+;; proc_asm_line; SYMBOL CLOCK.BCNT11=65371
+;; 
+
+;; line[19]: CLOCK.BCNT12	==	0xff5c
+;; proc_asm_line; lnr=19 w=CLOCK.BCNT12
+;; is_cond(CLOCK.BCNT12); 54 P2
+;; is_inst(CLOCK.BCNT12);
+;; proc_asm_line; lnr=19 w===
+;; is_cond(==); 54 P2
+;; proc_asm_line; EQU W=== w=0xff5c val=65372
+;; Exporting symbol "CLOCK.BCNT12"
+;; proc_asm_line; SYMBOL CLOCK.BCNT12=65372
+;; 
+
+;; line[20]: CLOCK.BCNT13	==	0xff5d
+;; proc_asm_line; lnr=20 w=CLOCK.BCNT13
+;; is_cond(CLOCK.BCNT13); 54 P2
+;; is_inst(CLOCK.BCNT13);
+;; proc_asm_line; lnr=20 w===
+;; is_cond(==); 54 P2
+;; proc_asm_line; EQU W=== w=0xff5d val=65373
+;; Exporting symbol "CLOCK.BCNT13"
+;; proc_asm_line; SYMBOL CLOCK.BCNT13=65373
+;; 
+
+;; line[21]: CLOCK.BCNT14	==	0xff5e
+;; proc_asm_line; lnr=21 w=CLOCK.BCNT14
+;; is_cond(CLOCK.BCNT14); 54 P2
+;; is_inst(CLOCK.BCNT14);
+;; proc_asm_line; lnr=21 w===
+;; is_cond(==); 54 P2
+;; proc_asm_line; EQU W=== w=0xff5e val=65374
+;; Exporting symbol "CLOCK.BCNT14"
+;; proc_asm_line; SYMBOL CLOCK.BCNT14=65374
+;; 
+
+;; line[22]: CLOCK.BCNT15	==	0xff5f
+;; proc_asm_line; lnr=22 w=CLOCK.BCNT15
+;; is_cond(CLOCK.BCNT15); 54 P2
+;; is_inst(CLOCK.BCNT15);
+;; proc_asm_line; lnr=22 w===
+;; is_cond(==); 54 P2
+;; proc_asm_line; EQU W=== w=0xff5f val=65375
+;; Exporting symbol "CLOCK.BCNT15"
+;; proc_asm_line; SYMBOL CLOCK.BCNT15=65375
+;; 
+
+;; line[23]: 
+;; proc_asm_line; no words found in line 23
+;; 
+
+;; line[24]: .ends
+;; proc_asm_line; lnr=24 w=.ends
+;; is_cond(.ENDS); 54 P2
+;; Finish segment: _lib_segment_regs_of_clock,S035d1872e63c
+;; 
+
+;; line[25]: 
+;; proc_asm_line; no words found in line 25
+;; 
+
+;; line[26]: 
+;; proc_asm_line; no words found in line 26
+;; 
+
+;; line[27]: .seg	_lib_segment_regs_of_gpio
+;; proc_asm_line; lnr=27 w=.seg
+;; is_cond(.SEG); 54 P2
+;; Segment started: _lib_segment_regs_of_gpio,S0e483de54bb5
+;; 
+
+;; line[28]: 
+;; proc_asm_line; no words found in line 28
+;; 
+
+;; line[29]: GPIO.PORTA	==	0xff00	; 7seg (selectable)
+;; proc_asm_line; lnr=29 w=GPIO.PORTA
+;; is_cond(GPIO.PORTA); 54 P2
+;; is_inst(GPIO.PORTA);
+;; proc_asm_line; lnr=29 w===
+;; is_cond(==); 54 P2
+;; proc_asm_line; EQU W=== w=0xff00 val=65280
+;; Exporting symbol "GPIO.PORTA"
+;; proc_asm_line; SYMBOL GPIO.PORTA=65280
+;; 
+
+;; line[30]: GPIO.PORTB	==	0xff01	; led
+;; proc_asm_line; lnr=30 w=GPIO.PORTB
+;; is_cond(GPIO.PORTB); 54 P2
+;; is_inst(GPIO.PORTB);
+;; proc_asm_line; lnr=30 w===
+;; is_cond(==); 54 P2
+;; proc_asm_line; EQU W=== w=0xff01 val=65281
+;; Exporting symbol "GPIO.PORTB"
+;; proc_asm_line; SYMBOL GPIO.PORTB=65281
+;; 
+
+;; line[31]: GPIO.PORTC	==	0xff02
+;; proc_asm_line; lnr=31 w=GPIO.PORTC
+;; is_cond(GPIO.PORTC); 54 P2
+;; is_inst(GPIO.PORTC);
+;; proc_asm_line; lnr=31 w===
+;; is_cond(==); 54 P2
+;; proc_asm_line; EQU W=== w=0xff02 val=65282
+;; Exporting symbol "GPIO.PORTC"
+;; proc_asm_line; SYMBOL GPIO.PORTC=65282
+;; 
+
+;; line[32]: GPIO.PORTD	==	0xff03
+;; proc_asm_line; lnr=32 w=GPIO.PORTD
+;; is_cond(GPIO.PORTD); 54 P2
+;; is_inst(GPIO.PORTD);
+;; proc_asm_line; lnr=32 w===
+;; is_cond(==); 54 P2
+;; proc_asm_line; EQU W=== w=0xff03 val=65283
+;; Exporting symbol "GPIO.PORTD"
+;; proc_asm_line; SYMBOL GPIO.PORTD=65283
+;; 
+
+;; line[33]: 
+;; proc_asm_line; no words found in line 33
+;; 
+
+;; line[34]: GPIOA.ODR	==	0xff00
+;; proc_asm_line; lnr=34 w=GPIOA.ODR
+;; is_cond(GPIOA.ODR); 54 P2
+;; is_inst(GPIOA.ODR);
+;; proc_asm_line; lnr=34 w===
+;; is_cond(==); 54 P2
+;; proc_asm_line; EQU W=== w=0xff00 val=65280
+;; Exporting symbol "GPIOA.ODR"
+;; proc_asm_line; SYMBOL GPIOA.ODR=65280
+;; 
+
+;; line[35]: GPIOB.ODR	==	0xff01
+;; proc_asm_line; lnr=35 w=GPIOB.ODR
+;; is_cond(GPIOB.ODR); 54 P2
+;; is_inst(GPIOB.ODR);
+;; proc_asm_line; lnr=35 w===
+;; is_cond(==); 54 P2
+;; proc_asm_line; EQU W=== w=0xff01 val=65281
+;; Exporting symbol "GPIOB.ODR"
+;; proc_asm_line; SYMBOL GPIOB.ODR=65281
+;; 
+
+;; line[36]: GPIOC.ODR	==	0xff02
+;; proc_asm_line; lnr=36 w=GPIOC.ODR
+;; is_cond(GPIOC.ODR); 54 P2
+;; is_inst(GPIOC.ODR);
+;; proc_asm_line; lnr=36 w===
+;; is_cond(==); 54 P2
+;; proc_asm_line; EQU W=== w=0xff02 val=65282
+;; Exporting symbol "GPIOC.ODR"
+;; proc_asm_line; SYMBOL GPIOC.ODR=65282
+;; 
+
+;; line[37]: GPIOD.ODR	==	0xff03
+;; proc_asm_line; lnr=37 w=GPIOD.ODR
+;; is_cond(GPIOD.ODR); 54 P2
+;; is_inst(GPIOD.ODR);
+;; proc_asm_line; lnr=37 w===
+;; is_cond(==); 54 P2
+;; proc_asm_line; EQU W=== w=0xff03 val=65283
+;; Exporting symbol "GPIOD.ODR"
+;; proc_asm_line; SYMBOL GPIOD.ODR=65283
+;; 
+
+;; line[38]: 
+;; proc_asm_line; no words found in line 38
+;; 
+
+;; line[39]: GPIO.7SEG	==	0xff00	; GPIOA.ODR
+;; proc_asm_line; lnr=39 w=GPIO.7SEG
+;; is_cond(GPIO.7SEG); 54 P2
+;; is_inst(GPIO.7SEG);
+;; proc_asm_line; lnr=39 w===
+;; is_cond(==); 54 P2
+;; proc_asm_line; EQU W=== w=0xff00 val=65280
+;; Exporting symbol "GPIO.7SEG"
+;; proc_asm_line; SYMBOL GPIO.7SEG=65280
+;; 
+
+;; line[40]: GPIO.LED	==	0xff01	; GPIOB.ODR
+;; proc_asm_line; lnr=40 w=GPIO.LED
+;; is_cond(GPIO.LED); 54 P2
+;; is_inst(GPIO.LED);
+;; proc_asm_line; lnr=40 w===
+;; is_cond(==); 54 P2
+;; proc_asm_line; EQU W=== w=0xff01 val=65281
+;; Exporting symbol "GPIO.LED"
+;; proc_asm_line; SYMBOL GPIO.LED=65281
+;; 
+
+;; line[41]: 
+;; proc_asm_line; no words found in line 41
+;; 
+
+;; line[42]: GPIO.PORTI	==	0xff20	; btn
+;; proc_asm_line; lnr=42 w=GPIO.PORTI
+;; is_cond(GPIO.PORTI); 54 P2
+;; is_inst(GPIO.PORTI);
+;; proc_asm_line; lnr=42 w===
+;; is_cond(==); 54 P2
+;; proc_asm_line; EQU W=== w=0xff20 val=65312
+;; Exporting symbol "GPIO.PORTI"
+;; proc_asm_line; SYMBOL GPIO.PORTI=65312
+;; 
+
+;; line[43]: GPIO.PORTJ	==	0xff10	; sw
+;; proc_asm_line; lnr=43 w=GPIO.PORTJ
+;; is_cond(GPIO.PORTJ); 54 P2
+;; is_inst(GPIO.PORTJ);
+;; proc_asm_line; lnr=43 w===
+;; is_cond(==); 54 P2
+;; proc_asm_line; EQU W=== w=0xff10 val=65296
+;; Exporting symbol "GPIO.PORTJ"
+;; proc_asm_line; SYMBOL GPIO.PORTJ=65296
+;; 
+
+;; line[44]: 
+;; proc_asm_line; no words found in line 44
+;; 
+
+;; line[45]: GPIOI.IDR	==	0xff20	; GPIO.PORTI
+;; proc_asm_line; lnr=45 w=GPIOI.IDR
+;; is_cond(GPIOI.IDR); 54 P2
+;; is_inst(GPIOI.IDR);
+;; proc_asm_line; lnr=45 w===
+;; is_cond(==); 54 P2
+;; proc_asm_line; EQU W=== w=0xff20 val=65312
+;; Exporting symbol "GPIOI.IDR"
+;; proc_asm_line; SYMBOL GPIOI.IDR=65312
+;; 
+
+;; line[46]: GPIOJ.IDR	==	0xff10	; GPIO.PORTJ
+;; proc_asm_line; lnr=46 w=GPIOJ.IDR
+;; is_cond(GPIOJ.IDR); 54 P2
+;; is_inst(GPIOJ.IDR);
+;; proc_asm_line; lnr=46 w===
+;; is_cond(==); 54 P2
+;; proc_asm_line; EQU W=== w=0xff10 val=65296
+;; Exporting symbol "GPIOJ.IDR"
+;; proc_asm_line; SYMBOL GPIOJ.IDR=65296
+;; 
+
+;; line[47]: 
+;; proc_asm_line; no words found in line 47
+;; 
+
+;; line[48]: GPIO.BTN	==	0xff20	; GPIOI.IDR
+;; proc_asm_line; lnr=48 w=GPIO.BTN
+;; is_cond(GPIO.BTN); 54 P2
+;; is_inst(GPIO.BTN);
+;; proc_asm_line; lnr=48 w===
+;; is_cond(==); 54 P2
+;; proc_asm_line; EQU W=== w=0xff20 val=65312
+;; Exporting symbol "GPIO.BTN"
+;; proc_asm_line; SYMBOL GPIO.BTN=65312
+;; 
+
+;; line[49]: GPIO.SW		==	0xff10	; GPIOJ.IDR
+;; proc_asm_line; lnr=49 w=GPIO.SW
+;; is_cond(GPIO.SW); 54 P2
+;; is_inst(GPIO.SW);
+;; proc_asm_line; lnr=49 w===
+;; is_cond(==); 54 P2
+;; proc_asm_line; EQU W=== w=0xff10 val=65296
+;; Exporting symbol "GPIO.SW"
+;; proc_asm_line; SYMBOL GPIO.SW=65296
+;; 
+
+;; line[50]: 
+;; proc_asm_line; no words found in line 50
+;; 
+
+;; line[51]: .ends
+;; proc_asm_line; lnr=51 w=.ends
+;; is_cond(.ENDS); 54 P2
+;; Finish segment: _lib_segment_regs_of_gpio,S0e483de54bb5
+;; 
+
+;; line[52]: 
+;; proc_asm_line; no words found in line 52
+;; 
+
+;; line[53]: 
+;; proc_asm_line; no words found in line 53
+;; 
+
+;; line[54]: .seg	_lib_segment_regs_of_timer
+;; proc_asm_line; lnr=54 w=.seg
+;; is_cond(.SEG); 54 P2
+;; Segment started: _lib_segment_regs_of_timer,S06654fdc606a
+;; 
+
+;; line[55]: 
+;; proc_asm_line; no words found in line 55
+;; 
+
+;; line[56]: TIMER.CTRL	==	0xff30
+;; proc_asm_line; lnr=56 w=TIMER.CTRL
+;; is_cond(TIMER.CTRL); 54 P2
+;; is_inst(TIMER.CTRL);
+;; proc_asm_line; lnr=56 w===
+;; is_cond(==); 54 P2
+;; proc_asm_line; EQU W=== w=0xff30 val=65328
+;; Exporting symbol "TIMER.CTRL"
+;; proc_asm_line; SYMBOL TIMER.CTRL=65328
+;; 
+
+;; line[57]: TIMER.AR	==	0xff31
+;; proc_asm_line; lnr=57 w=TIMER.AR
+;; is_cond(TIMER.AR); 54 P2
+;; is_inst(TIMER.AR);
+;; proc_asm_line; lnr=57 w===
+;; is_cond(==); 54 P2
+;; proc_asm_line; EQU W=== w=0xff31 val=65329
+;; Exporting symbol "TIMER.AR"
+;; proc_asm_line; SYMBOL TIMER.AR=65329
+;; 
+
+;; line[58]: TIMER.CNTR	==	0xff32
+;; proc_asm_line; lnr=58 w=TIMER.CNTR
+;; is_cond(TIMER.CNTR); 54 P2
+;; is_inst(TIMER.CNTR);
+;; proc_asm_line; lnr=58 w===
+;; is_cond(==); 54 P2
+;; proc_asm_line; EQU W=== w=0xff32 val=65330
+;; Exporting symbol "TIMER.CNTR"
+;; proc_asm_line; SYMBOL TIMER.CNTR=65330
+;; 
+
+;; line[59]: TIMER.STAT	==	0xff33
+;; proc_asm_line; lnr=59 w=TIMER.STAT
+;; is_cond(TIMER.STAT); 54 P2
+;; is_inst(TIMER.STAT);
+;; proc_asm_line; lnr=59 w===
+;; is_cond(==); 54 P2
+;; proc_asm_line; EQU W=== w=0xff33 val=65331
+;; Exporting symbol "TIMER.STAT"
+;; proc_asm_line; SYMBOL TIMER.STAT=65331
+;; 
+
+;; line[60]: 
+;; proc_asm_line; no words found in line 60
+;; 
+
+;; line[61]: .ends
+;; proc_asm_line; lnr=61 w=.ends
+;; is_cond(.ENDS); 54 P2
+;; Finish segment: _lib_segment_regs_of_timer,S06654fdc606a
+;; 
+
+;; line[62]: 
+;; proc_asm_line; no words found in line 62
+;; 
+
+;; line[63]: 
+;; proc_asm_line; no words found in line 63
+;; 
+
+;; line[64]: .seg	_lib_segment_regs_of_uart
+;; proc_asm_line; lnr=64 w=.seg
+;; is_cond(.SEG); 54 P2
+;; Segment started: _lib_segment_regs_of_uart,S33927ab86900
+;; 
+
+;; line[65]: 
+;; proc_asm_line; no words found in line 65
+;; 
+
+;; line[66]: UART.DR		==	0xff40
+;; proc_asm_line; lnr=66 w=UART.DR
+;; is_cond(UART.DR); 54 P2
+;; is_inst(UART.DR);
+;; proc_asm_line; lnr=66 w===
+;; is_cond(==); 54 P2
+;; proc_asm_line; EQU W=== w=0xff40 val=65344
+;; Exporting symbol "UART.DR"
+;; proc_asm_line; SYMBOL UART.DR=65344
+;; 
+
+;; line[67]: UART.CTRL	==	0xff41
+;; proc_asm_line; lnr=67 w=UART.CTRL
+;; is_cond(UART.CTRL); 54 P2
+;; is_inst(UART.CTRL);
+;; proc_asm_line; lnr=67 w===
+;; is_cond(==); 54 P2
+;; proc_asm_line; EQU W=== w=0xff41 val=65345
+;; Exporting symbol "UART.CTRL"
+;; proc_asm_line; SYMBOL UART.CTRL=65345
+;; 
+
+;; line[68]: UART.RSTAT	==	0xff42
+;; proc_asm_line; lnr=68 w=UART.RSTAT
+;; is_cond(UART.RSTAT); 54 P2
+;; is_inst(UART.RSTAT);
+;; proc_asm_line; lnr=68 w===
+;; is_cond(==); 54 P2
+;; proc_asm_line; EQU W=== w=0xff42 val=65346
+;; Exporting symbol "UART.RSTAT"
+;; proc_asm_line; SYMBOL UART.RSTAT=65346
+;; 
+
+;; line[69]: UART.TSTAT	==	0xff43
+;; proc_asm_line; lnr=69 w=UART.TSTAT
+;; is_cond(UART.TSTAT); 54 P2
+;; is_inst(UART.TSTAT);
+;; proc_asm_line; lnr=69 w===
+;; is_cond(==); 54 P2
+;; proc_asm_line; EQU W=== w=0xff43 val=65347
+;; Exporting symbol "UART.TSTAT"
+;; proc_asm_line; SYMBOL UART.TSTAT=65347
+;; 
+
+;; line[70]: UART.CPB	==	0xff44
+;; proc_asm_line; lnr=70 w=UART.CPB
+;; is_cond(UART.CPB); 54 P2
+;; is_inst(UART.CPB);
+;; proc_asm_line; lnr=70 w===
+;; is_cond(==); 54 P2
+;; proc_asm_line; EQU W=== w=0xff44 val=65348
+;; Exporting symbol "UART.CPB"
+;; proc_asm_line; SYMBOL UART.CPB=65348
+;; 
+
+;; line[71]: UART.SREG0	==	0xff4c
+;; proc_asm_line; lnr=71 w=UART.SREG0
+;; is_cond(UART.SREG0); 54 P2
+;; is_inst(UART.SREG0);
+;; proc_asm_line; lnr=71 w===
+;; is_cond(==); 54 P2
+;; proc_asm_line; EQU W=== w=0xff4c val=65356
+;; Exporting symbol "UART.SREG0"
+;; proc_asm_line; SYMBOL UART.SREG0=65356
+;; 
+
+;; line[72]: UART.SREG1	==	0xff4d
+;; proc_asm_line; lnr=72 w=UART.SREG1
+;; is_cond(UART.SREG1); 54 P2
+;; is_inst(UART.SREG1);
+;; proc_asm_line; lnr=72 w===
+;; is_cond(==); 54 P2
+;; proc_asm_line; EQU W=== w=0xff4d val=65357
+;; Exporting symbol "UART.SREG1"
+;; proc_asm_line; SYMBOL UART.SREG1=65357
+;; 
+
+;; line[73]: UART.SREG2	==	0xff4e
+;; proc_asm_line; lnr=73 w=UART.SREG2
+;; is_cond(UART.SREG2); 54 P2
+;; is_inst(UART.SREG2);
+;; proc_asm_line; lnr=73 w===
+;; is_cond(==); 54 P2
+;; proc_asm_line; EQU W=== w=0xff4e val=65358
+;; Exporting symbol "UART.SREG2"
+;; proc_asm_line; SYMBOL UART.SREG2=65358
+;; 
+
+;; line[74]: UART.SREG3	==	0xff4f
+;; proc_asm_line; lnr=74 w=UART.SREG3
+;; is_cond(UART.SREG3); 54 P2
+;; is_inst(UART.SREG3);
+;; proc_asm_line; lnr=74 w===
+;; is_cond(==); 54 P2
+;; proc_asm_line; EQU W=== w=0xff4f val=65359
+;; Exporting symbol "UART.SREG3"
+;; proc_asm_line; SYMBOL UART.SREG3=65359
+;; 
+
+;; line[75]: 
+;; proc_asm_line; no words found in line 75
+;; 
+
+;; line[76]: .ends
+;; proc_asm_line; lnr=76 w=.ends
+;; is_cond(.ENDS); 54 P2
+;; Finish segment: _lib_segment_regs_of_uart,S33927ab86900
+;; 
+
+;; line[77]: 
+;; proc_asm_line; no words found in line 77
+;; 
+
+;; line[78]: 
+;; proc_asm_line; no words found in line 78
+;; 
+
+;; line[79]: .seg	_lib_segment_brd_ctrl
+;; proc_asm_line; lnr=79 w=.seg
+;; is_cond(.SEG); 54 P2
+;; Segment started: _lib_segment_brd_ctrl,Scb89bb6e89e9
+;; 
+
+;; line[80]: 
+;; proc_asm_line; no words found in line 80
+;; 
+
+;; line[81]: BRD_CTRL.OUT	==	0xfff0
+;; proc_asm_line; lnr=81 w=BRD_CTRL.OUT
+;; is_cond(BRD_CTRL.OUT); 54 P2
+;; is_inst(BRD_CTRL.OUT);
+;; proc_asm_line; lnr=81 w===
+;; is_cond(==); 54 P2
+;; proc_asm_line; EQU W=== w=0xfff0 val=65520
+;; Exporting symbol "BRD_CTRL.OUT"
+;; proc_asm_line; SYMBOL BRD_CTRL.OUT=65520
+;; 
+
+;; line[82]: 
+;; proc_asm_line; no words found in line 82
+;; 
+
+;; line[83]: .ends
+;; proc_asm_line; lnr=83 w=.ends
+;; is_cond(.ENDS); 54 P2
+;; Finish segment: _lib_segment_brd_ctrl,Scb89bb6e89e9
+;; 
+
+;; line[84]: 
+;; proc_asm_line; no words found in line 84
+;; 
+
+;; line[85]: 
+;; proc_asm_line; no words found in line 85
+;; 
+
+;; line[86]: .seg	_lib_segment_regs_of_simif
+;; proc_asm_line; lnr=86 w=.seg
+;; is_cond(.SEG); 54 P2
+;; Segment started: _lib_segment_regs_of_simif,Sce05ea78a418
+;; 
+
+;; line[87]: 
+;; proc_asm_line; no words found in line 87
+;; 
+
+;; line[88]: SIMIF.CMD_PAR	==	0xffff
+;; proc_asm_line; lnr=88 w=SIMIF.CMD_PAR
+;; is_cond(SIMIF.CMD_PAR); 54 P2
+;; is_inst(SIMIF.CMD_PAR);
+;; proc_asm_line; lnr=88 w===
+;; is_cond(==); 54 P2
+;; proc_asm_line; EQU W=== w=0xffff val=65535
+;; Exporting symbol "SIMIF.CMD_PAR"
+;; proc_asm_line; SYMBOL SIMIF.CMD_PAR=65535
+;; 
+
+;; line[89]: 
+;; proc_asm_line; no words found in line 89
+;; 
+
+;; line[90]: .ends
+;; proc_asm_line; lnr=90 w=.ends
+;; is_cond(.ENDS); 54 P2
+;; Finish segment: _lib_segment_regs_of_simif,Sce05ea78a418
+;; 
+
+;; line[91]: 
+;; proc_asm_line; no words found in line 91
+;; 
+
+;; line[92]: 
+;; proc_asm_line; no words found in line 92
+;; 
+
+
+;; SYMBOL_TABLE BEFORE PHASE2
+Array
+(
+    [CLOCK.CLOCK] => Array
+        (
+            [type] => =
+            [name] => CLOCK.CLOCK
+            [value] => 65360
+            [fin] => dev.asm
+            [lnr] => 6
+            [segid] => 
+            [owner] => S035d1872e63c
+            [defined] => 1
+        )
+
+    [CLOCK.CLK] => Array
+        (
+            [type] => =
+            [name] => CLOCK.CLK
+            [value] => 65360
+            [fin] => dev.asm
+            [lnr] => 7
+            [segid] => 
+            [owner] => S035d1872e63c
+            [defined] => 1
+        )
+
+    [CLOCK.PRE] => Array
+        (
+            [type] => =
+            [name] => CLOCK.PRE
+            [value] => 65361
+            [fin] => dev.asm
+            [lnr] => 8
+            [segid] => 
+            [owner] => S035d1872e63c
+            [defined] => 1
+        )
+
+    [CLOCK.BCNT2] => Array
+        (
+            [type] => =
+            [name] => CLOCK.BCNT2
+            [value] => 65362
+            [fin] => dev.asm
+            [lnr] => 9
+            [segid] => 
+            [owner] => S035d1872e63c
+            [defined] => 1
+        )
+
+    [CLOCK.BCNT3] => Array
+        (
+            [type] => =
+            [name] => CLOCK.BCNT3
+            [value] => 65363
+            [fin] => dev.asm
+            [lnr] => 10
+            [segid] => 
+            [owner] => S035d1872e63c
+            [defined] => 1
+        )
+
+    [CLOCK.BCNT4] => Array
+        (
+            [type] => =
+            [name] => CLOCK.BCNT4
+            [value] => 65364
+            [fin] => dev.asm
+            [lnr] => 11
+            [segid] => 
+            [owner] => S035d1872e63c
+            [defined] => 1
+        )
+
+    [CLOCK.BCNT5] => Array
+        (
+            [type] => =
+            [name] => CLOCK.BCNT5
+            [value] => 65365
+            [fin] => dev.asm
+            [lnr] => 12
+            [segid] => 
+            [owner] => S035d1872e63c
+            [defined] => 1
+        )
+
+    [CLOCK.BCNT6] => Array
+        (
+            [type] => =
+            [name] => CLOCK.BCNT6
+            [value] => 65366
+            [fin] => dev.asm
+            [lnr] => 13
+            [segid] => 
+            [owner] => S035d1872e63c
+            [defined] => 1
+        )
+
+    [CLOCK.BCNT7] => Array
+        (
+            [type] => =
+            [name] => CLOCK.BCNT7
+            [value] => 65367
+            [fin] => dev.asm
+            [lnr] => 14
+            [segid] => 
+            [owner] => S035d1872e63c
+            [defined] => 1
+        )
+
+    [CLOCK.BCNT8] => Array
+        (
+            [type] => =
+            [name] => CLOCK.BCNT8
+            [value] => 65368
+            [fin] => dev.asm
+            [lnr] => 15
+            [segid] => 
+            [owner] => S035d1872e63c
+            [defined] => 1
+        )
+
+    [CLOCK.BCNT9] => Array
+        (
+            [type] => =
+            [name] => CLOCK.BCNT9
+            [value] => 65369
+            [fin] => dev.asm
+            [lnr] => 16
+            [segid] => 
+            [owner] => S035d1872e63c
+            [defined] => 1
+        )
+
+    [CLOCK.BCNT10] => Array
+        (
+            [type] => =
+            [name] => CLOCK.BCNT10
+            [value] => 65370
+            [fin] => dev.asm
+            [lnr] => 17
+            [segid] => 
+            [owner] => S035d1872e63c
+            [defined] => 1
+        )
+
+    [CLOCK.BCNT11] => Array
+        (
+            [type] => =
+            [name] => CLOCK.BCNT11
+            [value] => 65371
+            [fin] => dev.asm
+            [lnr] => 18
+            [segid] => 
+            [owner] => S035d1872e63c
+            [defined] => 1
+        )
+
+    [CLOCK.BCNT12] => Array
+        (
+            [type] => =
+            [name] => CLOCK.BCNT12
+            [value] => 65372
+            [fin] => dev.asm
+            [lnr] => 19
+            [segid] => 
+            [owner] => S035d1872e63c
+            [defined] => 1
+        )
+
+    [CLOCK.BCNT13] => Array
+        (
+            [type] => =
+            [name] => CLOCK.BCNT13
+            [value] => 65373
+            [fin] => dev.asm
+            [lnr] => 20
+            [segid] => 
+            [owner] => S035d1872e63c
+            [defined] => 1
+        )
+
+    [CLOCK.BCNT14] => Array
+        (
+            [type] => =
+            [name] => CLOCK.BCNT14
+            [value] => 65374
+            [fin] => dev.asm
+            [lnr] => 21
+            [segid] => 
+            [owner] => S035d1872e63c
+            [defined] => 1
+        )
+
+    [CLOCK.BCNT15] => Array
+        (
+            [type] => =
+            [name] => CLOCK.BCNT15
+            [value] => 65375
+            [fin] => dev.asm
+            [lnr] => 22
+            [segid] => 
+            [owner] => S035d1872e63c
+            [defined] => 1
+        )
+
+    [GPIO.PORTA] => Array
+        (
+            [type] => =
+            [name] => GPIO.PORTA
+            [value] => 65280
+            [fin] => dev.asm
+            [lnr] => 29
+            [segid] => 
+            [owner] => S0e483de54bb5
+            [defined] => 1
+        )
+
+    [GPIO.PORTB] => Array
+        (
+            [type] => =
+            [name] => GPIO.PORTB
+            [value] => 65281
+            [fin] => dev.asm
+            [lnr] => 30
+            [segid] => 
+            [owner] => S0e483de54bb5
+            [defined] => 1
+        )
+
+    [GPIO.PORTC] => Array
+        (
+            [type] => =
+            [name] => GPIO.PORTC
+            [value] => 65282
+            [fin] => dev.asm
+            [lnr] => 31
+            [segid] => 
+            [owner] => S0e483de54bb5
+            [defined] => 1
+        )
+
+    [GPIO.PORTD] => Array
+        (
+            [type] => =
+            [name] => GPIO.PORTD
+            [value] => 65283
+            [fin] => dev.asm
+            [lnr] => 32
+            [segid] => 
+            [owner] => S0e483de54bb5
+            [defined] => 1
+        )
+
+    [GPIOA.ODR] => Array
+        (
+            [type] => =
+            [name] => GPIOA.ODR
+            [value] => 65280
+            [fin] => dev.asm
+            [lnr] => 34
+            [segid] => 
+            [owner] => S0e483de54bb5
+            [defined] => 1
+        )
+
+    [GPIOB.ODR] => Array
+        (
+            [type] => =
+            [name] => GPIOB.ODR
+            [value] => 65281
+            [fin] => dev.asm
+            [lnr] => 35
+            [segid] => 
+            [owner] => S0e483de54bb5
+            [defined] => 1
+        )
+
+    [GPIOC.ODR] => Array
+        (
+            [type] => =
+            [name] => GPIOC.ODR
+            [value] => 65282
+            [fin] => dev.asm
+            [lnr] => 36
+            [segid] => 
+            [owner] => S0e483de54bb5
+            [defined] => 1
+        )
+
+    [GPIOD.ODR] => Array
+        (
+            [type] => =
+            [name] => GPIOD.ODR
+            [value] => 65283
+            [fin] => dev.asm
+            [lnr] => 37
+            [segid] => 
+            [owner] => S0e483de54bb5
+            [defined] => 1
+        )
+
+    [GPIO.7SEG] => Array
+        (
+            [type] => =
+            [name] => GPIO.7SEG
+            [value] => 65280
+            [fin] => dev.asm
+            [lnr] => 39
+            [segid] => 
+            [owner] => S0e483de54bb5
+            [defined] => 1
+        )
+
+    [GPIO.LED] => Array
+        (
+            [type] => =
+            [name] => GPIO.LED
+            [value] => 65281
+            [fin] => dev.asm
+            [lnr] => 40
+            [segid] => 
+            [owner] => S0e483de54bb5
+            [defined] => 1
+        )
+
+    [GPIO.PORTI] => Array
+        (
+            [type] => =
+            [name] => GPIO.PORTI
+            [value] => 65312
+            [fin] => dev.asm
+            [lnr] => 42
+            [segid] => 
+            [owner] => S0e483de54bb5
+            [defined] => 1
+        )
+
+    [GPIO.PORTJ] => Array
+        (
+            [type] => =
+            [name] => GPIO.PORTJ
+            [value] => 65296
+            [fin] => dev.asm
+            [lnr] => 43
+            [segid] => 
+            [owner] => S0e483de54bb5
+            [defined] => 1
+        )
+
+    [GPIOI.IDR] => Array
+        (
+            [type] => =
+            [name] => GPIOI.IDR
+            [value] => 65312
+            [fin] => dev.asm
+            [lnr] => 45
+            [segid] => 
+            [owner] => S0e483de54bb5
+            [defined] => 1
+        )
+
+    [GPIOJ.IDR] => Array
+        (
+            [type] => =
+            [name] => GPIOJ.IDR
+            [value] => 65296
+            [fin] => dev.asm
+            [lnr] => 46
+            [segid] => 
+            [owner] => S0e483de54bb5
+            [defined] => 1
+        )
+
+    [GPIO.BTN] => Array
+        (
+            [type] => =
+            [name] => GPIO.BTN
+            [value] => 65312
+            [fin] => dev.asm
+            [lnr] => 48
+            [segid] => 
+            [owner] => S0e483de54bb5
+            [defined] => 1
+        )
+
+    [GPIO.SW] => Array
+        (
+            [type] => =
+            [name] => GPIO.SW
+            [value] => 65296
+            [fin] => dev.asm
+            [lnr] => 49
+            [segid] => 
+            [owner] => S0e483de54bb5
+            [defined] => 1
+        )
+
+    [TIMER.CTRL] => Array
+        (
+            [type] => =
+            [name] => TIMER.CTRL
+            [value] => 65328
+            [fin] => dev.asm
+            [lnr] => 56
+            [segid] => 
+            [owner] => S06654fdc606a
+            [defined] => 1
+        )
+
+    [TIMER.AR] => Array
+        (
+            [type] => =
+            [name] => TIMER.AR
+            [value] => 65329
+            [fin] => dev.asm
+            [lnr] => 57
+            [segid] => 
+            [owner] => S06654fdc606a
+            [defined] => 1
+        )
+
+    [TIMER.CNTR] => Array
+        (
+            [type] => =
+            [name] => TIMER.CNTR
+            [value] => 65330
+            [fin] => dev.asm
+            [lnr] => 58
+            [segid] => 
+            [owner] => S06654fdc606a
+            [defined] => 1
+        )
+
+    [TIMER.STAT] => Array
+        (
+            [type] => =
+            [name] => TIMER.STAT
+            [value] => 65331
+            [fin] => dev.asm
+            [lnr] => 59
+            [segid] => 
+            [owner] => S06654fdc606a
+            [defined] => 1
+        )
+
+    [UART.DR] => Array
+        (
+            [type] => =
+            [name] => UART.DR
+            [value] => 65344
+            [fin] => dev.asm
+            [lnr] => 66
+            [segid] => 
+            [owner] => S33927ab86900
+            [defined] => 1
+        )
+
+    [UART.CTRL] => Array
+        (
+            [type] => =
+            [name] => UART.CTRL
+            [value] => 65345
+            [fin] => dev.asm
+            [lnr] => 67
+            [segid] => 
+            [owner] => S33927ab86900
+            [defined] => 1
+        )
+
+    [UART.RSTAT] => Array
+        (
+            [type] => =
+            [name] => UART.RSTAT
+            [value] => 65346
+            [fin] => dev.asm
+            [lnr] => 68
+            [segid] => 
+            [owner] => S33927ab86900
+            [defined] => 1
+        )
+
+    [UART.TSTAT] => Array
+        (
+            [type] => =
+            [name] => UART.TSTAT
+            [value] => 65347
+            [fin] => dev.asm
+            [lnr] => 69
+            [segid] => 
+            [owner] => S33927ab86900
+            [defined] => 1
+        )
+
+    [UART.CPB] => Array
+        (
+            [type] => =
+            [name] => UART.CPB
+            [value] => 65348
+            [fin] => dev.asm
+            [lnr] => 70
+            [segid] => 
+            [owner] => S33927ab86900
+            [defined] => 1
+        )
+
+    [UART.SREG0] => Array
+        (
+            [type] => =
+            [name] => UART.SREG0
+            [value] => 65356
+            [fin] => dev.asm
+            [lnr] => 71
+            [segid] => 
+            [owner] => S33927ab86900
+            [defined] => 1
+        )
+
+    [UART.SREG1] => Array
+        (
+            [type] => =
+            [name] => UART.SREG1
+            [value] => 65357
+            [fin] => dev.asm
+            [lnr] => 72
+            [segid] => 
+            [owner] => S33927ab86900
+            [defined] => 1
+        )
+
+    [UART.SREG2] => Array
+        (
+            [type] => =
+            [name] => UART.SREG2
+            [value] => 65358
+            [fin] => dev.asm
+            [lnr] => 73
+            [segid] => 
+            [owner] => S33927ab86900
+            [defined] => 1
+        )
+
+    [UART.SREG3] => Array
+        (
+            [type] => =
+            [name] => UART.SREG3
+            [value] => 65359
+            [fin] => dev.asm
+            [lnr] => 74
+            [segid] => 
+            [owner] => S33927ab86900
+            [defined] => 1
+        )
+
+    [BRD_CTRL.OUT] => Array
+        (
+            [type] => =
+            [name] => BRD_CTRL.OUT
+            [value] => 65520
+            [fin] => dev.asm
+            [lnr] => 81
+            [segid] => 
+            [owner] => Scb89bb6e89e9
+            [defined] => 1
+        )
+
+    [SIMIF.CMD_PAR] => Array
+        (
+            [type] => =
+            [name] => SIMIF.CMD_PAR
+            [value] => 65535
+            [fin] => dev.asm
+            [lnr] => 88
+            [segid] => 
+            [owner] => Sce05ea78a418
+            [defined] => 1
+        )
+
+)
+
+;; MEM_TABLE BEFORE PHASE2
+Array
+(
+)
+
+;; PHASE 2
+
+;; SYMBOL_TABLE:Array
+(
+    [CLOCK.CLOCK] => Array
+        (
+            [type] => =
+            [name] => CLOCK.CLOCK
+            [value] => 65360
+            [fin] => dev.asm
+            [lnr] => 6
+            [segid] => 
+            [owner] => S035d1872e63c
+            [defined] => 1
+        )
+
+    [CLOCK.CLK] => Array
+        (
+            [type] => =
+            [name] => CLOCK.CLK
+            [value] => 65360
+            [fin] => dev.asm
+            [lnr] => 7
+            [segid] => 
+            [owner] => S035d1872e63c
+            [defined] => 1
+        )
+
+    [CLOCK.PRE] => Array
+        (
+            [type] => =
+            [name] => CLOCK.PRE
+            [value] => 65361
+            [fin] => dev.asm
+            [lnr] => 8
+            [segid] => 
+            [owner] => S035d1872e63c
+            [defined] => 1
+        )
+
+    [CLOCK.BCNT2] => Array
+        (
+            [type] => =
+            [name] => CLOCK.BCNT2
+            [value] => 65362
+            [fin] => dev.asm
+            [lnr] => 9
+            [segid] => 
+            [owner] => S035d1872e63c
+            [defined] => 1
+        )
+
+    [CLOCK.BCNT3] => Array
+        (
+            [type] => =
+            [name] => CLOCK.BCNT3
+            [value] => 65363
+            [fin] => dev.asm
+            [lnr] => 10
+            [segid] => 
+            [owner] => S035d1872e63c
+            [defined] => 1
+        )
+
+    [CLOCK.BCNT4] => Array
+        (
+            [type] => =
+            [name] => CLOCK.BCNT4
+            [value] => 65364
+            [fin] => dev.asm
+            [lnr] => 11
+            [segid] => 
+            [owner] => S035d1872e63c
+            [defined] => 1
+        )
+
+    [CLOCK.BCNT5] => Array
+        (
+            [type] => =
+            [name] => CLOCK.BCNT5
+            [value] => 65365
+            [fin] => dev.asm
+            [lnr] => 12
+            [segid] => 
+            [owner] => S035d1872e63c
+            [defined] => 1
+        )
+
+    [CLOCK.BCNT6] => Array
+        (
+            [type] => =
+            [name] => CLOCK.BCNT6
+            [value] => 65366
+            [fin] => dev.asm
+            [lnr] => 13
+            [segid] => 
+            [owner] => S035d1872e63c
+            [defined] => 1
+        )
+
+    [CLOCK.BCNT7] => Array
+        (
+            [type] => =
+            [name] => CLOCK.BCNT7
+            [value] => 65367
+            [fin] => dev.asm
+            [lnr] => 14
+            [segid] => 
+            [owner] => S035d1872e63c
+            [defined] => 1
+        )
+
+    [CLOCK.BCNT8] => Array
+        (
+            [type] => =
+            [name] => CLOCK.BCNT8
+            [value] => 65368
+            [fin] => dev.asm
+            [lnr] => 15
+            [segid] => 
+            [owner] => S035d1872e63c
+            [defined] => 1
+        )
+
+    [CLOCK.BCNT9] => Array
+        (
+            [type] => =
+            [name] => CLOCK.BCNT9
+            [value] => 65369
+            [fin] => dev.asm
+            [lnr] => 16
+            [segid] => 
+            [owner] => S035d1872e63c
+            [defined] => 1
+        )
+
+    [CLOCK.BCNT10] => Array
+        (
+            [type] => =
+            [name] => CLOCK.BCNT10
+            [value] => 65370
+            [fin] => dev.asm
+            [lnr] => 17
+            [segid] => 
+            [owner] => S035d1872e63c
+            [defined] => 1
+        )
+
+    [CLOCK.BCNT11] => Array
+        (
+            [type] => =
+            [name] => CLOCK.BCNT11
+            [value] => 65371
+            [fin] => dev.asm
+            [lnr] => 18
+            [segid] => 
+            [owner] => S035d1872e63c
+            [defined] => 1
+        )
+
+    [CLOCK.BCNT12] => Array
+        (
+            [type] => =
+            [name] => CLOCK.BCNT12
+            [value] => 65372
+            [fin] => dev.asm
+            [lnr] => 19
+            [segid] => 
+            [owner] => S035d1872e63c
+            [defined] => 1
+        )
+
+    [CLOCK.BCNT13] => Array
+        (
+            [type] => =
+            [name] => CLOCK.BCNT13
+            [value] => 65373
+            [fin] => dev.asm
+            [lnr] => 20
+            [segid] => 
+            [owner] => S035d1872e63c
+            [defined] => 1
+        )
+
+    [CLOCK.BCNT14] => Array
+        (
+            [type] => =
+            [name] => CLOCK.BCNT14
+            [value] => 65374
+            [fin] => dev.asm
+            [lnr] => 21
+            [segid] => 
+            [owner] => S035d1872e63c
+            [defined] => 1
+        )
+
+    [CLOCK.BCNT15] => Array
+        (
+            [type] => =
+            [name] => CLOCK.BCNT15
+            [value] => 65375
+            [fin] => dev.asm
+            [lnr] => 22
+            [segid] => 
+            [owner] => S035d1872e63c
+            [defined] => 1
+        )
+
+    [GPIO.PORTA] => Array
+        (
+            [type] => =
+            [name] => GPIO.PORTA
+            [value] => 65280
+            [fin] => dev.asm
+            [lnr] => 29
+            [segid] => 
+            [owner] => S0e483de54bb5
+            [defined] => 1
+        )
+
+    [GPIO.PORTB] => Array
+        (
+            [type] => =
+            [name] => GPIO.PORTB
+            [value] => 65281
+            [fin] => dev.asm
+            [lnr] => 30
+            [segid] => 
+            [owner] => S0e483de54bb5
+            [defined] => 1
+        )
+
+    [GPIO.PORTC] => Array
+        (
+            [type] => =
+            [name] => GPIO.PORTC
+            [value] => 65282
+            [fin] => dev.asm
+            [lnr] => 31
+            [segid] => 
+            [owner] => S0e483de54bb5
+            [defined] => 1
+        )
+
+    [GPIO.PORTD] => Array
+        (
+            [type] => =
+            [name] => GPIO.PORTD
+            [value] => 65283
+            [fin] => dev.asm
+            [lnr] => 32
+            [segid] => 
+            [owner] => S0e483de54bb5
+            [defined] => 1
+        )
+
+    [GPIOA.ODR] => Array
+        (
+            [type] => =
+            [name] => GPIOA.ODR
+            [value] => 65280
+            [fin] => dev.asm
+            [lnr] => 34
+            [segid] => 
+            [owner] => S0e483de54bb5
+            [defined] => 1
+        )
+
+    [GPIOB.ODR] => Array
+        (
+            [type] => =
+            [name] => GPIOB.ODR
+            [value] => 65281
+            [fin] => dev.asm
+            [lnr] => 35
+            [segid] => 
+            [owner] => S0e483de54bb5
+            [defined] => 1
+        )
+
+    [GPIOC.ODR] => Array
+        (
+            [type] => =
+            [name] => GPIOC.ODR
+            [value] => 65282
+            [fin] => dev.asm
+            [lnr] => 36
+            [segid] => 
+            [owner] => S0e483de54bb5
+            [defined] => 1
+        )
+
+    [GPIOD.ODR] => Array
+        (
+            [type] => =
+            [name] => GPIOD.ODR
+            [value] => 65283
+            [fin] => dev.asm
+            [lnr] => 37
+            [segid] => 
+            [owner] => S0e483de54bb5
+            [defined] => 1
+        )
+
+    [GPIO.7SEG] => Array
+        (
+            [type] => =
+            [name] => GPIO.7SEG
+            [value] => 65280
+            [fin] => dev.asm
+            [lnr] => 39
+            [segid] => 
+            [owner] => S0e483de54bb5
+            [defined] => 1
+        )
+
+    [GPIO.LED] => Array
+        (
+            [type] => =
+            [name] => GPIO.LED
+            [value] => 65281
+            [fin] => dev.asm
+            [lnr] => 40
+            [segid] => 
+            [owner] => S0e483de54bb5
+            [defined] => 1
+        )
+
+    [GPIO.PORTI] => Array
+        (
+            [type] => =
+            [name] => GPIO.PORTI
+            [value] => 65312
+            [fin] => dev.asm
+            [lnr] => 42
+            [segid] => 
+            [owner] => S0e483de54bb5
+            [defined] => 1
+        )
+
+    [GPIO.PORTJ] => Array
+        (
+            [type] => =
+            [name] => GPIO.PORTJ
+            [value] => 65296
+            [fin] => dev.asm
+            [lnr] => 43
+            [segid] => 
+            [owner] => S0e483de54bb5
+            [defined] => 1
+        )
+
+    [GPIOI.IDR] => Array
+        (
+            [type] => =
+            [name] => GPIOI.IDR
+            [value] => 65312
+            [fin] => dev.asm
+            [lnr] => 45
+            [segid] => 
+            [owner] => S0e483de54bb5
+            [defined] => 1
+        )
+
+    [GPIOJ.IDR] => Array
+        (
+            [type] => =
+            [name] => GPIOJ.IDR
+            [value] => 65296
+            [fin] => dev.asm
+            [lnr] => 46
+            [segid] => 
+            [owner] => S0e483de54bb5
+            [defined] => 1
+        )
+
+    [GPIO.BTN] => Array
+        (
+            [type] => =
+            [name] => GPIO.BTN
+            [value] => 65312
+            [fin] => dev.asm
+            [lnr] => 48
+            [segid] => 
+            [owner] => S0e483de54bb5
+            [defined] => 1
+        )
+
+    [GPIO.SW] => Array
+        (
+            [type] => =
+            [name] => GPIO.SW
+            [value] => 65296
+            [fin] => dev.asm
+            [lnr] => 49
+            [segid] => 
+            [owner] => S0e483de54bb5
+            [defined] => 1
+        )
+
+    [TIMER.CTRL] => Array
+        (
+            [type] => =
+            [name] => TIMER.CTRL
+            [value] => 65328
+            [fin] => dev.asm
+            [lnr] => 56
+            [segid] => 
+            [owner] => S06654fdc606a
+            [defined] => 1
+        )
+
+    [TIMER.AR] => Array
+        (
+            [type] => =
+            [name] => TIMER.AR
+            [value] => 65329
+            [fin] => dev.asm
+            [lnr] => 57
+            [segid] => 
+            [owner] => S06654fdc606a
+            [defined] => 1
+        )
+
+    [TIMER.CNTR] => Array
+        (
+            [type] => =
+            [name] => TIMER.CNTR
+            [value] => 65330
+            [fin] => dev.asm
+            [lnr] => 58
+            [segid] => 
+            [owner] => S06654fdc606a
+            [defined] => 1
+        )
+
+    [TIMER.STAT] => Array
+        (
+            [type] => =
+            [name] => TIMER.STAT
+            [value] => 65331
+            [fin] => dev.asm
+            [lnr] => 59
+            [segid] => 
+            [owner] => S06654fdc606a
+            [defined] => 1
+        )
+
+    [UART.DR] => Array
+        (
+            [type] => =
+            [name] => UART.DR
+            [value] => 65344
+            [fin] => dev.asm
+            [lnr] => 66
+            [segid] => 
+            [owner] => S33927ab86900
+            [defined] => 1
+        )
+
+    [UART.CTRL] => Array
+        (
+            [type] => =
+            [name] => UART.CTRL
+            [value] => 65345
+            [fin] => dev.asm
+            [lnr] => 67
+            [segid] => 
+            [owner] => S33927ab86900
+            [defined] => 1
+        )
+
+    [UART.RSTAT] => Array
+        (
+            [type] => =
+            [name] => UART.RSTAT
+            [value] => 65346
+            [fin] => dev.asm
+            [lnr] => 68
+            [segid] => 
+            [owner] => S33927ab86900
+            [defined] => 1
+        )
+
+    [UART.TSTAT] => Array
+        (
+            [type] => =
+            [name] => UART.TSTAT
+            [value] => 65347
+            [fin] => dev.asm
+            [lnr] => 69
+            [segid] => 
+            [owner] => S33927ab86900
+            [defined] => 1
+        )
+
+    [UART.CPB] => Array
+        (
+            [type] => =
+            [name] => UART.CPB
+            [value] => 65348
+            [fin] => dev.asm
+            [lnr] => 70
+            [segid] => 
+            [owner] => S33927ab86900
+            [defined] => 1
+        )
+
+    [UART.SREG0] => Array
+        (
+            [type] => =
+            [name] => UART.SREG0
+            [value] => 65356
+            [fin] => dev.asm
+            [lnr] => 71
+            [segid] => 
+            [owner] => S33927ab86900
+            [defined] => 1
+        )
+
+    [UART.SREG1] => Array
+        (
+            [type] => =
+            [name] => UART.SREG1
+            [value] => 65357
+            [fin] => dev.asm
+            [lnr] => 72
+            [segid] => 
+            [owner] => S33927ab86900
+            [defined] => 1
+        )
+
+    [UART.SREG2] => Array
+        (
+            [type] => =
+            [name] => UART.SREG2
+            [value] => 65358
+            [fin] => dev.asm
+            [lnr] => 73
+            [segid] => 
+            [owner] => S33927ab86900
+            [defined] => 1
+        )
+
+    [UART.SREG3] => Array
+        (
+            [type] => =
+            [name] => UART.SREG3
+            [value] => 65359
+            [fin] => dev.asm
+            [lnr] => 74
+            [segid] => 
+            [owner] => S33927ab86900
+            [defined] => 1
+        )
+
+    [BRD_CTRL.OUT] => Array
+        (
+            [type] => =
+            [name] => BRD_CTRL.OUT
+            [value] => 65520
+            [fin] => dev.asm
+            [lnr] => 81
+            [segid] => 
+            [owner] => Scb89bb6e89e9
+            [defined] => 1
+        )
+
+    [SIMIF.CMD_PAR] => Array
+        (
+            [type] => =
+            [name] => SIMIF.CMD_PAR
+            [value] => 65535
+            [fin] => dev.asm
+            [lnr] => 88
+            [segid] => 
+            [owner] => Sce05ea78a418
+            [defined] => 1
+        )
+
+)
+
+;; ; PHASE 2 done
+;; //U P2
+;; ; Segments
+;; //T S035d1872e63c _lib_segment_regs_of_clock noload=0 abs=0
+;; //T S0e483de54bb5 _lib_segment_regs_of_gpio noload=0 abs=0
+;; //T S06654fdc606a _lib_segment_regs_of_timer noload=0 abs=0
+;; //T S33927ab86900 _lib_segment_regs_of_uart noload=0 abs=0
+;; //T Scb89bb6e89e9 _lib_segment_brd_ctrl noload=0 abs=0
+;; //T Sce05ea78a418 _lib_segment_regs_of_simif noload=0 abs=0
+;; SYMBOLS
+;; OMITING SYMBOL=Array
+(
+    [type] => =
+    [name] => CLOCK.CLOCK
+    [value] => 65360
+    [fin] => dev.asm
+    [lnr] => 6
+    [segid] => 
+    [owner] => S035d1872e63c
+    [defined] => 1
+)
+
+;; //= CLOCK.CLOCK CLOCK.CLOCK 0000ff50 S035d1872e63c _
+;; OMITING SYMBOL=Array
+(
+    [type] => =
+    [name] => CLOCK.CLK
+    [value] => 65360
+    [fin] => dev.asm
+    [lnr] => 7
+    [segid] => 
+    [owner] => S035d1872e63c
+    [defined] => 1
+)
+
+;; //= CLOCK.CLK CLOCK.CLK 0000ff50 S035d1872e63c _
+;; OMITING SYMBOL=Array
+(
+    [type] => =
+    [name] => CLOCK.PRE
+    [value] => 65361
+    [fin] => dev.asm
+    [lnr] => 8
+    [segid] => 
+    [owner] => S035d1872e63c
+    [defined] => 1
+)
+
+;; //= CLOCK.PRE CLOCK.PRE 0000ff51 S035d1872e63c _
+;; OMITING SYMBOL=Array
+(
+    [type] => =
+    [name] => CLOCK.BCNT2
+    [value] => 65362
+    [fin] => dev.asm
+    [lnr] => 9
+    [segid] => 
+    [owner] => S035d1872e63c
+    [defined] => 1
+)
+
+;; //= CLOCK.BCNT2 CLOCK.BCNT2 0000ff52 S035d1872e63c _
+;; OMITING SYMBOL=Array
+(
+    [type] => =
+    [name] => CLOCK.BCNT3
+    [value] => 65363
+    [fin] => dev.asm
+    [lnr] => 10
+    [segid] => 
+    [owner] => S035d1872e63c
+    [defined] => 1
+)
+
+;; //= CLOCK.BCNT3 CLOCK.BCNT3 0000ff53 S035d1872e63c _
+;; OMITING SYMBOL=Array
+(
+    [type] => =
+    [name] => CLOCK.BCNT4
+    [value] => 65364
+    [fin] => dev.asm
+    [lnr] => 11
+    [segid] => 
+    [owner] => S035d1872e63c
+    [defined] => 1
+)
+
+;; //= CLOCK.BCNT4 CLOCK.BCNT4 0000ff54 S035d1872e63c _
+;; OMITING SYMBOL=Array
+(
+    [type] => =
+    [name] => CLOCK.BCNT5
+    [value] => 65365
+    [fin] => dev.asm
+    [lnr] => 12
+    [segid] => 
+    [owner] => S035d1872e63c
+    [defined] => 1
+)
+
+;; //= CLOCK.BCNT5 CLOCK.BCNT5 0000ff55 S035d1872e63c _
+;; OMITING SYMBOL=Array
+(
+    [type] => =
+    [name] => CLOCK.BCNT6
+    [value] => 65366
+    [fin] => dev.asm
+    [lnr] => 13
+    [segid] => 
+    [owner] => S035d1872e63c
+    [defined] => 1
+)
+
+;; //= CLOCK.BCNT6 CLOCK.BCNT6 0000ff56 S035d1872e63c _
+;; OMITING SYMBOL=Array
+(
+    [type] => =
+    [name] => CLOCK.BCNT7
+    [value] => 65367
+    [fin] => dev.asm
+    [lnr] => 14
+    [segid] => 
+    [owner] => S035d1872e63c
+    [defined] => 1
+)
+
+;; //= CLOCK.BCNT7 CLOCK.BCNT7 0000ff57 S035d1872e63c _
+;; OMITING SYMBOL=Array
+(
+    [type] => =
+    [name] => CLOCK.BCNT8
+    [value] => 65368
+    [fin] => dev.asm
+    [lnr] => 15
+    [segid] => 
+    [owner] => S035d1872e63c
+    [defined] => 1
+)
+
+;; //= CLOCK.BCNT8 CLOCK.BCNT8 0000ff58 S035d1872e63c _
+;; OMITING SYMBOL=Array
+(
+    [type] => =
+    [name] => CLOCK.BCNT9
+    [value] => 65369
+    [fin] => dev.asm
+    [lnr] => 16
+    [segid] => 
+    [owner] => S035d1872e63c
+    [defined] => 1
+)
+
+;; //= CLOCK.BCNT9 CLOCK.BCNT9 0000ff59 S035d1872e63c _
+;; OMITING SYMBOL=Array
+(
+    [type] => =
+    [name] => CLOCK.BCNT10
+    [value] => 65370
+    [fin] => dev.asm
+    [lnr] => 17
+    [segid] => 
+    [owner] => S035d1872e63c
+    [defined] => 1
+)
+
+;; //= CLOCK.BCNT10 CLOCK.BCNT10 0000ff5a S035d1872e63c _
+;; OMITING SYMBOL=Array
+(
+    [type] => =
+    [name] => CLOCK.BCNT11
+    [value] => 65371
+    [fin] => dev.asm
+    [lnr] => 18
+    [segid] => 
+    [owner] => S035d1872e63c
+    [defined] => 1
+)
+
+;; //= CLOCK.BCNT11 CLOCK.BCNT11 0000ff5b S035d1872e63c _
+;; OMITING SYMBOL=Array
+(
+    [type] => =
+    [name] => CLOCK.BCNT12
+    [value] => 65372
+    [fin] => dev.asm
+    [lnr] => 19
+    [segid] => 
+    [owner] => S035d1872e63c
+    [defined] => 1
+)
+
+;; //= CLOCK.BCNT12 CLOCK.BCNT12 0000ff5c S035d1872e63c _
+;; OMITING SYMBOL=Array
+(
+    [type] => =
+    [name] => CLOCK.BCNT13
+    [value] => 65373
+    [fin] => dev.asm
+    [lnr] => 20
+    [segid] => 
+    [owner] => S035d1872e63c
+    [defined] => 1
+)
+
+;; //= CLOCK.BCNT13 CLOCK.BCNT13 0000ff5d S035d1872e63c _
+;; OMITING SYMBOL=Array
+(
+    [type] => =
+    [name] => CLOCK.BCNT14
+    [value] => 65374
+    [fin] => dev.asm
+    [lnr] => 21
+    [segid] => 
+    [owner] => S035d1872e63c
+    [defined] => 1
+)
+
+;; //= CLOCK.BCNT14 CLOCK.BCNT14 0000ff5e S035d1872e63c _
+;; OMITING SYMBOL=Array
+(
+    [type] => =
+    [name] => CLOCK.BCNT15
+    [value] => 65375
+    [fin] => dev.asm
+    [lnr] => 22
+    [segid] => 
+    [owner] => S035d1872e63c
+    [defined] => 1
+)
+
+;; //= CLOCK.BCNT15 CLOCK.BCNT15 0000ff5f S035d1872e63c _
+;; OMITING SYMBOL=Array
+(
+    [type] => =
+    [name] => GPIO.PORTA
+    [value] => 65280
+    [fin] => dev.asm
+    [lnr] => 29
+    [segid] => 
+    [owner] => S0e483de54bb5
+    [defined] => 1
+)
+
+;; //= GPIO.PORTA GPIO.PORTA 0000ff00 S0e483de54bb5 _
+;; OMITING SYMBOL=Array
+(
+    [type] => =
+    [name] => GPIO.PORTB
+    [value] => 65281
+    [fin] => dev.asm
+    [lnr] => 30
+    [segid] => 
+    [owner] => S0e483de54bb5
+    [defined] => 1
+)
+
+;; //= GPIO.PORTB GPIO.PORTB 0000ff01 S0e483de54bb5 _
+;; OMITING SYMBOL=Array
+(
+    [type] => =
+    [name] => GPIO.PORTC
+    [value] => 65282
+    [fin] => dev.asm
+    [lnr] => 31
+    [segid] => 
+    [owner] => S0e483de54bb5
+    [defined] => 1
+)
+
+;; //= GPIO.PORTC GPIO.PORTC 0000ff02 S0e483de54bb5 _
+;; OMITING SYMBOL=Array
+(
+    [type] => =
+    [name] => GPIO.PORTD
+    [value] => 65283
+    [fin] => dev.asm
+    [lnr] => 32
+    [segid] => 
+    [owner] => S0e483de54bb5
+    [defined] => 1
+)
+
+;; //= GPIO.PORTD GPIO.PORTD 0000ff03 S0e483de54bb5 _
+;; OMITING SYMBOL=Array
+(
+    [type] => =
+    [name] => GPIOA.ODR
+    [value] => 65280
+    [fin] => dev.asm
+    [lnr] => 34
+    [segid] => 
+    [owner] => S0e483de54bb5
+    [defined] => 1
+)
+
+;; //= GPIOA.ODR GPIOA.ODR 0000ff00 S0e483de54bb5 _
+;; OMITING SYMBOL=Array
+(
+    [type] => =
+    [name] => GPIOB.ODR
+    [value] => 65281
+    [fin] => dev.asm
+    [lnr] => 35
+    [segid] => 
+    [owner] => S0e483de54bb5
+    [defined] => 1
+)
+
+;; //= GPIOB.ODR GPIOB.ODR 0000ff01 S0e483de54bb5 _
+;; OMITING SYMBOL=Array
+(
+    [type] => =
+    [name] => GPIOC.ODR
+    [value] => 65282
+    [fin] => dev.asm
+    [lnr] => 36
+    [segid] => 
+    [owner] => S0e483de54bb5
+    [defined] => 1
+)
+
+;; //= GPIOC.ODR GPIOC.ODR 0000ff02 S0e483de54bb5 _
+;; OMITING SYMBOL=Array
+(
+    [type] => =
+    [name] => GPIOD.ODR
+    [value] => 65283
+    [fin] => dev.asm
+    [lnr] => 37
+    [segid] => 
+    [owner] => S0e483de54bb5
+    [defined] => 1
+)
+
+;; //= GPIOD.ODR GPIOD.ODR 0000ff03 S0e483de54bb5 _
+;; OMITING SYMBOL=Array
+(
+    [type] => =
+    [name] => GPIO.7SEG
+    [value] => 65280
+    [fin] => dev.asm
+    [lnr] => 39
+    [segid] => 
+    [owner] => S0e483de54bb5
+    [defined] => 1
+)
+
+;; //= GPIO.7SEG GPIO.7SEG 0000ff00 S0e483de54bb5 _
+;; OMITING SYMBOL=Array
+(
+    [type] => =
+    [name] => GPIO.LED
+    [value] => 65281
+    [fin] => dev.asm
+    [lnr] => 40
+    [segid] => 
+    [owner] => S0e483de54bb5
+    [defined] => 1
+)
+
+;; //= GPIO.LED GPIO.LED 0000ff01 S0e483de54bb5 _
+;; OMITING SYMBOL=Array
+(
+    [type] => =
+    [name] => GPIO.PORTI
+    [value] => 65312
+    [fin] => dev.asm
+    [lnr] => 42
+    [segid] => 
+    [owner] => S0e483de54bb5
+    [defined] => 1
+)
+
+;; //= GPIO.PORTI GPIO.PORTI 0000ff20 S0e483de54bb5 _
+;; OMITING SYMBOL=Array
+(
+    [type] => =
+    [name] => GPIO.PORTJ
+    [value] => 65296
+    [fin] => dev.asm
+    [lnr] => 43
+    [segid] => 
+    [owner] => S0e483de54bb5
+    [defined] => 1
+)
+
+;; //= GPIO.PORTJ GPIO.PORTJ 0000ff10 S0e483de54bb5 _
+;; OMITING SYMBOL=Array
+(
+    [type] => =
+    [name] => GPIOI.IDR
+    [value] => 65312
+    [fin] => dev.asm
+    [lnr] => 45
+    [segid] => 
+    [owner] => S0e483de54bb5
+    [defined] => 1
+)
+
+;; //= GPIOI.IDR GPIOI.IDR 0000ff20 S0e483de54bb5 _
+;; OMITING SYMBOL=Array
+(
+    [type] => =
+    [name] => GPIOJ.IDR
+    [value] => 65296
+    [fin] => dev.asm
+    [lnr] => 46
+    [segid] => 
+    [owner] => S0e483de54bb5
+    [defined] => 1
+)
+
+;; //= GPIOJ.IDR GPIOJ.IDR 0000ff10 S0e483de54bb5 _
+;; OMITING SYMBOL=Array
+(
+    [type] => =
+    [name] => GPIO.BTN
+    [value] => 65312
+    [fin] => dev.asm
+    [lnr] => 48
+    [segid] => 
+    [owner] => S0e483de54bb5
+    [defined] => 1
+)
+
+;; //= GPIO.BTN GPIO.BTN 0000ff20 S0e483de54bb5 _
+;; OMITING SYMBOL=Array
+(
+    [type] => =
+    [name] => GPIO.SW
+    [value] => 65296
+    [fin] => dev.asm
+    [lnr] => 49
+    [segid] => 
+    [owner] => S0e483de54bb5
+    [defined] => 1
+)
+
+;; //= GPIO.SW GPIO.SW 0000ff10 S0e483de54bb5 _
+;; OMITING SYMBOL=Array
+(
+    [type] => =
+    [name] => TIMER.CTRL
+    [value] => 65328
+    [fin] => dev.asm
+    [lnr] => 56
+    [segid] => 
+    [owner] => S06654fdc606a
+    [defined] => 1
+)
+
+;; //= TIMER.CTRL TIMER.CTRL 0000ff30 S06654fdc606a _
+;; OMITING SYMBOL=Array
+(
+    [type] => =
+    [name] => TIMER.AR
+    [value] => 65329
+    [fin] => dev.asm
+    [lnr] => 57
+    [segid] => 
+    [owner] => S06654fdc606a
+    [defined] => 1
+)
+
+;; //= TIMER.AR TIMER.AR 0000ff31 S06654fdc606a _
+;; OMITING SYMBOL=Array
+(
+    [type] => =
+    [name] => TIMER.CNTR
+    [value] => 65330
+    [fin] => dev.asm
+    [lnr] => 58
+    [segid] => 
+    [owner] => S06654fdc606a
+    [defined] => 1
+)
+
+;; //= TIMER.CNTR TIMER.CNTR 0000ff32 S06654fdc606a _
+;; OMITING SYMBOL=Array
+(
+    [type] => =
+    [name] => TIMER.STAT
+    [value] => 65331
+    [fin] => dev.asm
+    [lnr] => 59
+    [segid] => 
+    [owner] => S06654fdc606a
+    [defined] => 1
+)
+
+;; //= TIMER.STAT TIMER.STAT 0000ff33 S06654fdc606a _
+;; OMITING SYMBOL=Array
+(
+    [type] => =
+    [name] => UART.DR
+    [value] => 65344
+    [fin] => dev.asm
+    [lnr] => 66
+    [segid] => 
+    [owner] => S33927ab86900
+    [defined] => 1
+)
+
+;; //= UART.DR UART.DR 0000ff40 S33927ab86900 _
+;; OMITING SYMBOL=Array
+(
+    [type] => =
+    [name] => UART.CTRL
+    [value] => 65345
+    [fin] => dev.asm
+    [lnr] => 67
+    [segid] => 
+    [owner] => S33927ab86900
+    [defined] => 1
+)
+
+;; //= UART.CTRL UART.CTRL 0000ff41 S33927ab86900 _
+;; OMITING SYMBOL=Array
+(
+    [type] => =
+    [name] => UART.RSTAT
+    [value] => 65346
+    [fin] => dev.asm
+    [lnr] => 68
+    [segid] => 
+    [owner] => S33927ab86900
+    [defined] => 1
+)
+
+;; //= UART.RSTAT UART.RSTAT 0000ff42 S33927ab86900 _
+;; OMITING SYMBOL=Array
+(
+    [type] => =
+    [name] => UART.TSTAT
+    [value] => 65347
+    [fin] => dev.asm
+    [lnr] => 69
+    [segid] => 
+    [owner] => S33927ab86900
+    [defined] => 1
+)
+
+;; //= UART.TSTAT UART.TSTAT 0000ff43 S33927ab86900 _
+;; OMITING SYMBOL=Array
+(
+    [type] => =
+    [name] => UART.CPB
+    [value] => 65348
+    [fin] => dev.asm
+    [lnr] => 70
+    [segid] => 
+    [owner] => S33927ab86900
+    [defined] => 1
+)
+
+;; //= UART.CPB UART.CPB 0000ff44 S33927ab86900 _
+;; OMITING SYMBOL=Array
+(
+    [type] => =
+    [name] => UART.SREG0
+    [value] => 65356
+    [fin] => dev.asm
+    [lnr] => 71
+    [segid] => 
+    [owner] => S33927ab86900
+    [defined] => 1
+)
+
+;; //= UART.SREG0 UART.SREG0 0000ff4c S33927ab86900 _
+;; OMITING SYMBOL=Array
+(
+    [type] => =
+    [name] => UART.SREG1
+    [value] => 65357
+    [fin] => dev.asm
+    [lnr] => 72
+    [segid] => 
+    [owner] => S33927ab86900
+    [defined] => 1
+)
+
+;; //= UART.SREG1 UART.SREG1 0000ff4d S33927ab86900 _
+;; OMITING SYMBOL=Array
+(
+    [type] => =
+    [name] => UART.SREG2
+    [value] => 65358
+    [fin] => dev.asm
+    [lnr] => 73
+    [segid] => 
+    [owner] => S33927ab86900
+    [defined] => 1
+)
+
+;; //= UART.SREG2 UART.SREG2 0000ff4e S33927ab86900 _
+;; OMITING SYMBOL=Array
+(
+    [type] => =
+    [name] => UART.SREG3
+    [value] => 65359
+    [fin] => dev.asm
+    [lnr] => 74
+    [segid] => 
+    [owner] => S33927ab86900
+    [defined] => 1
+)
+
+;; //= UART.SREG3 UART.SREG3 0000ff4f S33927ab86900 _
+;; OMITING SYMBOL=Array
+(
+    [type] => =
+    [name] => BRD_CTRL.OUT
+    [value] => 65520
+    [fin] => dev.asm
+    [lnr] => 81
+    [segid] => 
+    [owner] => Scb89bb6e89e9
+    [defined] => 1
+)
+
+;; //= BRD_CTRL.OUT BRD_CTRL.OUT 0000fff0 Scb89bb6e89e9 _
+;; OMITING SYMBOL=Array
+(
+    [type] => =
+    [name] => SIMIF.CMD_PAR
+    [value] => 65535
+    [fin] => dev.asm
+    [lnr] => 88
+    [segid] => 
+    [owner] => Sce05ea78a418
+    [defined] => 1
+)
+
+;; //= SIMIF.CMD_PAR SIMIF.CMD_PAR 0000ffff Sce05ea78a418 _
+;; 
+
+
+;; //P -
+;; //H 00000000
+;; //E

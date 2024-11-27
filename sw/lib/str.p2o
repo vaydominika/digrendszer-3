@@ -1,0 +1,399 @@
+//U P2
+
+//; SEGMENTS
+//T S379a2415f157 _lib_segment_dtoi noload=0 abs=0
+//T S9a93d1d3daee _lib_segment_htoi noload=0 abs=0
+//T Sbe1a78b9d15e _lib_segment_str_chr noload=0 abs=0
+//T Sc8e5ba13115e _lib_segment_str_eq noload=0 abs=0
+//T S905197f5731f _lib_segment_str_ieq noload=0 abs=0
+//T S4b7a66c9288f _lib_segment_str_len noload=0 abs=0
+//T Scbb33fda64a3 _lib_segment_str_size noload=0 abs=0
+//T S4f82c0ba3965 _lib_segment_str_getchar noload=0 abs=0
+//T S5cb1f98163db _lib_segment_str_setchar noload=0 abs=0
+//T S53f2e29bd178 _lib_segment_str_packed noload=0 abs=0
+
+//; SYMBOLS
+//L dtoi dtoi 00000000 S379a2415f157 _
+//L S379a2415f157dtoi_cyc dtoi_cyc 0000000b s S379a2415f157
+//L S379a2415f157dtoi_byte dtoi_byte 0000000f s S379a2415f157
+//L S379a2415f157dtoi_true dtoi_true 0000001b s S379a2415f157
+//L S379a2415f157dtoi_false dtoi_false 0000001d s S379a2415f157
+//L S379a2415f157dtoi_ret dtoi_ret 0000001e s S379a2415f157
+//L htoi htoi 00000024 S9a93d1d3daee _
+//L str_chr str_chr 0000002e Sbe1a78b9d15e _
+//L str_eq str_eq 0000003e Sc8e5ba13115e _
+//L str_ieq str_ieq 00000044 S905197f5731f _
+//L str_len str_len 0000004a S4b7a66c9288f _
+//L S4b7a66c9288fp2_next p2_next 00000053 s S4b7a66c9288f
+//L S4b7a66c9288fp2_cyc p2_cyc 00000056 s S4b7a66c9288f
+//L S4b7a66c9288fp2_end p2_end 0000005e s S4b7a66c9288f
+//L str_size str_size 00000063 Scbb33fda64a3 _
+//L Scbb33fda64a3p2_next p2_next 0000006c s Scbb33fda64a3
+//L Scbb33fda64a3p2_cyc p2_cyc 00000070 s Scbb33fda64a3
+//L Scbb33fda64a3p2_end p2_end 00000076 s Scbb33fda64a3
+//L str_getchar str_getchar 0000007b S4f82c0ba3965 _
+//L S4f82c0ba3965gchar_cyc gchar_cyc 00000084 s S4f82c0ba3965
+//L S4f82c0ba3965gchar_byte gchar_byte 00000088 s S4f82c0ba3965
+//L S4f82c0ba3965gchar_nonz gchar_nonz 0000008b s S4f82c0ba3965
+//L S4f82c0ba3965gchar_ret_act gchar_ret_act 00000091 s S4f82c0ba3965
+//L S4f82c0ba3965gchar_ret_eos gchar_ret_eos 00000093 s S4f82c0ba3965
+//L S4f82c0ba3965gchar_ret gchar_ret 00000094 s S4f82c0ba3965
+//L str_setchar str_setchar 00000099 S5cb1f98163db _
+//L S5cb1f98163dbschar_cyc schar_cyc 000000a1 s S5cb1f98163db
+//L S5cb1f98163dbschar_byte schar_byte 000000a5 s S5cb1f98163db
+//L S5cb1f98163dbschar_nonz schar_nonz 000000a9 s S5cb1f98163db
+//L S5cb1f98163dbschar_set schar_set 000000b0 s S5cb1f98163db
+//L S5cb1f98163dbschar_ret schar_ret 000000b2 s S5cb1f98163db
+//L str_packed str_packed 000000b7 S53f2e29bd178 _
+//L S53f2e29bd178sp_cyc sp_cyc 000000bd s S53f2e29bd178
+//L S53f2e29bd178sp_true sp_true 000000c2 s S53f2e29bd178
+//L S53f2e29bd178sp_false sp_false 000000c4 s S53f2e29bd178
+//L S53f2e29bd178sp_ret sp_ret 000000c5 s S53f2e29bd178
+
+//; CODE
+//P -
+//F str.asm
+//P S379a2415f157 _lib_segment_dtoi
+0ded0000 //C 00000    25 push	lr
+//G dtoi
+0d0d0000 //C 00001    26 push	r0
+0d1d0000 //C 00002    27 push	r1
+0d2d0000 //C 00003    28 push	r2
+0d3d0000 //C 00004    29 push	r3
+0d5d0000 //C 00005    30 push	r5
+01420000 //C 00006    32 mvzl	r4,0		; return value
+//I 00006 #16 00000000
+00200000 //C 00007    33 mov	r2,r0		; address in r2
+01320000 //C 00008    34 mvzl	r3,0		; word index
+//I 00008 #16 00000000
+022b0000 //C 00009    35 sz	r2		; check pointer
+11f2001d //C 0000a    36 jz	dtoi_false	; for NULL value
+//R 0000a #16 dtoi_false 0000001d
+//I 0000a #16 0000001d
+01520000 //C 0000b    38 mvzl	r5,0		; byte index
+//I 0000b #16 00000000
+//N dtoi_cyc S379a2415f157
+0b138200 //C 0000c    39 ld	r1,r3+,r2	; pick a char
+021b0000 //C 0000d    40 sz	r1		; end of string?
+11f2001b //C 0000e    41 jz	dtoi_true	; normal exit
+//R 0000e #16 dtoi_true 0000001b
+//I 0000e #16 0000001b
+06014105 //C 0000f    43 getbz	r0,r1,r5
+//N dtoi_byte S379a2415f157
+020b0000 //C 00010    44 sz	r0
+11f2000b //C 00011    45 jz	dtoi_cyc
+//R 00011 #16 dtoi_cyc 0000000b
+//I 00011 #16 0000000b
+04000000 //C 00012    46 call	isdigit		; check ascii char
+//R 00012 #24 isdigit 00000000
+//I 00012 #24 00000000
+41f2001d //C 00013    47 jnc	dtoi_false	; exit if not a number
+//R 00013 #16 dtoi_false 0000001d
+//I 00013 #16 0000001d
+01060030 //C 00014    48 sub	r0,'0'		; convert char to number
+//I 00014 #16 00000030
+0149000a //C 00015    49 mul	r4,10		; shift tmp
+//I 00015 #16 0000000a
+00440000 //C 00016    50 add	r4,r0		; add actual number
+01540001 //C 00017    51 inc	r5
+01580004 //C 00018    52 cmp	r5,4
+//I 00018 #16 00000004
+11f2000b //C 00019    53 jz	dtoi_cyc
+//R 00019 #16 dtoi_cyc 0000000b
+//I 00019 #16 0000000b
+01f2000f //C 0001a    54 jmp	dtoi_byte
+//R 0001a #16 dtoi_byte 0000000f
+//I 0001a #16 0000000f
+020c0000 //C 0001b    57 sec
+//N dtoi_true S379a2415f157
+01f2001e //C 0001c    58 jmp	dtoi_ret
+//R 0001c #16 dtoi_ret 0000001e
+//I 0001c #16 0000001e
+020d0000 //C 0001d    60 clc
+//N dtoi_false S379a2415f157
+0f5d0000 //C 0001e    62 pop	r5
+//N dtoi_ret S379a2415f157
+0f3d0000 //C 0001f    63 pop	r3
+0f2d0000 //C 00020    64 pop	r2
+0f1d0000 //C 00021    65 pop	r1
+0f0d0000 //C 00022    66 pop	r0
+0ffd0000 //C 00023    67 pop	pc
+//P S9a93d1d3daee _lib_segment_htoi
+020b0000 //C 00024    76 sz	r0		; check NULL pointer
+//G htoi
+11420000 //C 00025    77 Z mvzl	r4,0
+//I 00025 #16 00000000
+120d0000 //C 00026    78 Z clc
+10f00e00 //C 00027    79 Z ret
+0ded0000 //C 00028    80 push	lr
+0d1d0000 //C 00029    81 push	r1
+04000000 //C 0002a    82 call	_pm_htoi
+//R 0002a #24 _pm_htoi 00000000
+//I 0002a #24 00000000
+00400100 //C 0002b    83 mov	r4,r1
+0f1d0000 //C 0002c    84 pop	r1
+0ffd0000 //C 0002d    85 pop	pc
+//P Sbe1a78b9d15e _lib_segment_str_chr
+020b0000 //C 0002e    94 sz	r0		; check NULL pointer
+//G str_chr
+120d0000 //C 0002f    95 Z clc
+10f00e00 //C 00030    96 Z ret
+02100000 //C 00031    97 zeb	r1		; prepare character
+0ded0000 //C 00032    98 push	lr
+0d1d0000 //C 00033    99 push	r1
+0d2d0000 //C 00034   100 push	r2
+00400000 //C 00035   101 mov	r4,r0
+00000100 //C 00036   102 mov	r0,r1
+00100400 //C 00037   103 mov	r1,r4
+04000000 //C 00038   104 call	_pm_strchr
+//R 00038 #24 _pm_strchr 00000000
+//I 00038 #24 00000000
+00400100 //C 00039   105 mov	r4,r1
+00500200 //C 0003a   106 mov	r5,r2
+0f2d0000 //C 0003b   107 pop	r2
+0f1d0000 //C 0003c   108 pop	r1
+0ffd0000 //C 0003d   109 pop	pc
+//P Sc8e5ba13115e _lib_segment_str_eq
+020d0000 //C 0003e   118 clc			; return false if
+//G str_eq
+020b0000 //C 0003f   119 sz	r0		; any pointer is NULL
+10f00e00 //C 00040   120 Z ret
+021b0000 //C 00041   121 sz	r1
+10f00e00 //C 00042   122 Z ret
+01f20000 //C 00043   123 jmp	_pm_streq
+//R 00043 #16 _pm_streq 00000000
+//I 00043 #16 00000000
+//P S905197f5731f _lib_segment_str_ieq
+020d0000 //C 00044   132 clc			; return false if
+//G str_ieq
+020b0000 //C 00045   133 sz	r0		; any pointer is NULL
+10f00e00 //C 00046   134 Z ret
+021b0000 //C 00047   135 sz	r1
+10f00e00 //C 00048   136 Z ret
+01f20000 //C 00049   137 jmp	_pm_strieq
+//R 00049 #16 _pm_strieq 00000000
+//I 00049 #16 00000000
+//P S4b7a66c9288f _lib_segment_str_len
+0d0d0000 //C 0004a   148 push	r0
+//G str_len
+0d1d0000 //C 0004b   149 push	r1
+0d2d0000 //C 0004c   150 push	r2
+0d3d0000 //C 0004d   151 push	r3
+00100000 //C 0004e   152 mov	r1,r0
+01220000 //C 0004f   153 mvzl	r2,0
+//I 0004f #16 00000000
+01420000 //C 00050   154 mvzl	r4,0
+//I 00050 #16 00000000
+020b0000 //C 00051   155 sz	r0		; check NULL pointer
+11f2005e //C 00052   156 jz	p2_end
+//R 00052 #16 p2_end 0000005e
+//I 00052 #16 0000005e
+0e310000 //C 00053   158 ld	r3,r1
+//N p2_next S4b7a66c9288f
+023b0000 //C 00054   159 sz	r3
+11f2005e //C 00055   160 jz	p2_end
+//R 00055 #16 p2_end 0000005e
+//I 00055 #16 0000005e
+06014302 //C 00056   162 getbz	r0,r3,r2
+//N p2_cyc S4b7a66c9288f
+020b0000 //C 00057   163 sz	r0
+21440001 //C 00058   164 NZ inc	r4
+01240001 //C 00059   165 inc	r2
+012c0003 //C 0005a   166 test	r2,3
+//I 0005a #16 00000003
+111a0001 //C 0005b   167 Z plus	r1,1
+//I 0005b #16 00000001
+11f20053 //C 0005c   168 Z jmp	p2_next
+//R 0005c #16 p2_next 00000053
+//I 0005c #16 00000053
+01f20056 //C 0005d   169 jmp	p2_cyc
+//R 0005d #16 p2_cyc 00000056
+//I 0005d #16 00000056
+0f3d0000 //C 0005e   171 pop	r3
+//N p2_end S4b7a66c9288f
+0f2d0000 //C 0005f   172 pop	r2
+0f1d0000 //C 00060   173 pop	r1
+0f0d0000 //C 00061   174 pop	r0
+00f00e00 //C 00062   175 ret
+//P Scbb33fda64a3 _lib_segment_str_size
+0d0d0000 //C 00063   187 push	r0
+//G str_size
+0d1d0000 //C 00064   188 push	r1
+0d2d0000 //C 00065   189 push	r2
+0d3d0000 //C 00066   190 push	r3
+00100000 //C 00067   191 mov	r1,r0
+01220000 //C 00068   192 mvzl	r2,0
+//I 00068 #16 00000000
+01420000 //C 00069   193 mvzl	r4,0
+//I 00069 #16 00000000
+020b0000 //C 0006a   194 sz	r0		; check NULL pointer
+11f20076 //C 0006b   195 jz	p2_end
+//R 0006b #16 p2_end 00000076
+//I 0006b #16 00000076
+0e310000 //C 0006c   197 ld	r3,r1
+//N p2_next Scbb33fda64a3
+014a0001 //C 0006d   198 plus	r4,1
+//I 0006d #16 00000001
+023b0000 //C 0006e   199 sz	r3
+11f20076 //C 0006f   200 jz	p2_end
+//R 0006f #16 p2_end 00000076
+//I 0006f #16 00000076
+06014302 //C 00070   202 getbz	r0,r3,r2
+//N p2_cyc Scbb33fda64a3
+01240001 //C 00071   203 inc	r2
+012c0003 //C 00072   204 test	r2,3
+//I 00072 #16 00000003
+111a0001 //C 00073   205 Z plus	r1,1
+//I 00073 #16 00000001
+11f2006c //C 00074   206 Z jmp	p2_next
+//R 00074 #16 p2_next 0000006c
+//I 00074 #16 0000006c
+01f20070 //C 00075   207 jmp	p2_cyc
+//R 00075 #16 p2_cyc 00000070
+//I 00075 #16 00000070
+0f3d0000 //C 00076   209 pop	r3
+//N p2_end Scbb33fda64a3
+0f2d0000 //C 00077   210 pop	r2
+0f1d0000 //C 00078   211 pop	r1
+0f0d0000 //C 00079   212 pop	r0
+00f00e00 //C 0007a   213 ret
+//P S4f82c0ba3965 _lib_segment_str_getchar
+020b0000 //C 0007b   225 sz	r0		; check NULL pointer
+//G str_getchar
+11420000 //C 0007c   226 Z mvzl	r4,0
+//I 0007c #16 00000000
+10f00e00 //C 0007d   227 Z ret
+0d1d0000 //C 0007e   228 push	r1
+0d2d0000 //C 0007f   229 push	r2
+0d3d0000 //C 00080   230 push	r3
+0d5d0000 //C 00081   231 push	r5
+01320000 //C 00082   233 mvzl	r3,0		; word index
+//I 00082 #16 00000000
+01140001 //C 00083   234 inc	r1
+01520000 //C 00084   236 mvzl	r5,0		; start byte index in word
+//I 00084 #16 00000000
+//N gchar_cyc S4f82c0ba3965
+0b438000 //C 00085   237 ld	r4,r3+,r0	; pick a word
+024b0000 //C 00086   238 sz	r4		; EOS?
+11f20093 //C 00087   239 jz	gchar_ret_eos
+//R 00087 #16 gchar_ret_eos 00000093
+//I 00087 #16 00000093
+06214405 //C 00088   241 getbz	r2,r4,r5	; pick byte from word
+//N gchar_byte S4f82c0ba3965
+022b0000 //C 00089   242 sz	r2		; is it 0?
+11f20084 //C 0008a   243 jz	gchar_cyc	; if yes, get next word
+//R 0008a #16 gchar_cyc 00000084
+//I 0008a #16 00000084
+0114ffff //C 0008b   245 dec	r1		; count
+//N gchar_nonz S4f82c0ba3965
+11f20091 //C 0008c   246 jz	gchar_ret_act	; repeat if index is not reached
+//R 0008c #16 gchar_ret_act 00000091
+//I 0008c #16 00000091
+01540001 //C 0008d   248 inc	r5		; next byte index
+01580004 //C 0008e   249 cmp	r5,4		; is it overflowed?
+//I 0008e #16 00000004
+11f20084 //C 0008f   250 jz	gchar_cyc
+//R 0008f #16 gchar_cyc 00000084
+//I 0008f #16 00000084
+01f20088 //C 00090   251 jmp	gchar_byte
+//R 00090 #16 gchar_byte 00000088
+//I 00090 #16 00000088
+00400200 //C 00091   254 mov	r4,r2
+//N gchar_ret_act S4f82c0ba3965
+01f20094 //C 00092   255 jmp	gchar_ret
+//R 00092 #16 gchar_ret 00000094
+//I 00092 #16 00000094
+01420000 //C 00093   257 mvzl	r4,0
+//I 00093 #16 00000000
+//N gchar_ret_eos S4f82c0ba3965
+0f5d0000 //C 00094   259 pop	r5
+//N gchar_ret S4f82c0ba3965
+0f3d0000 //C 00095   260 pop	r3
+0f2d0000 //C 00096   261 pop	r2
+0f1d0000 //C 00097   262 pop	r1
+00f00e00 //C 00098   263 ret
+//P S5cb1f98163db _lib_segment_str_setchar
+020b0000 //C 00099   276 sz	r0		; check NULL pointer
+//G str_setchar
+10f00e00 //C 0009a   277 Z ret
+0d1d0000 //C 0009b   278 push	r1
+0d3d0000 //C 0009c   279 push	r3
+0d5d0000 //C 0009d   280 push	r5
+0d6d0000 //C 0009e   281 push	r6
+01320000 //C 0009f   283 mvzl	r3,0		; word index
+//I 0009f #16 00000000
+01140001 //C 000a0   284 inc	r1
+01520000 //C 000a1   286 mvzl	r5,0		; start byte index in word
+//I 000a1 #16 00000000
+//N schar_cyc S5cb1f98163db
+0a430000 //C 000a2   287 ld	r4,r3,r0	; pick a word
+024b0000 //C 000a3   288 sz	r4		; EOS?
+11f200b2 //C 000a4   289 jz	schar_ret
+//R 000a4 #16 schar_ret 000000b2
+//I 000a4 #16 000000b2
+06614405 //C 000a5   291 getbz	r6,r4,r5	; pick byte from word
+//N schar_byte S5cb1f98163db
+026b0000 //C 000a6   292 sz	r6		; is it 0?
+113a0001 //C 000a7   293 Z plus	r3,1		; if yes, get next word
+//I 000a7 #16 00000001
+11f200a1 //C 000a8   294 jz	schar_cyc
+//R 000a8 #16 schar_cyc 000000a1
+//I 000a8 #16 000000a1
+0114ffff //C 000a9   296 dec	r1		; count
+//N schar_nonz S5cb1f98163db
+11f200b0 //C 000aa   297 jz	schar_set	; repeat if index is not reached
+//R 000aa #16 schar_set 000000b0
+//I 000aa #16 000000b0
+01540001 //C 000ab   299 inc	r5		; next byte index
+01580004 //C 000ac   300 cmp	r5,4		; is it overflowed?
+//I 000ac #16 00000004
+113a0001 //C 000ad   301 Z plus	r3,1
+//I 000ad #16 00000001
+11f200a1 //C 000ae   302 jz	schar_cyc
+//R 000ae #16 schar_cyc 000000a1
+//I 000ae #16 000000a1
+01f200a5 //C 000af   303 jmp	schar_byte
+//R 000af #16 schar_byte 000000a5
+//I 000af #16 000000a5
+07410205 //C 000b0   306 putb	r4,r2,r5	; replace char in orig word
+//N schar_set S5cb1f98163db
+08430000 //C 000b1   307 st	r4,r3,r0	; store in memory
+0f6d0000 //C 000b2   309 pop	r6
+//N schar_ret S5cb1f98163db
+0f5d0000 //C 000b3   310 pop	r5
+0f3d0000 //C 000b4   311 pop	r3
+0f1d0000 //C 000b5   312 pop	r1
+00f00e00 //C 000b6   313 ret
+//P S53f2e29bd178 _lib_segment_str_packed
+020b0000 //C 000b7   324 sz	r0		; check NULL pointer
+//G str_packed
+120d0000 //C 000b8   325 Z clc
+10f00e00 //C 000b9   326 Z ret
+0d1d0000 //C 000ba   327 push	r1
+0d2d0000 //C 000bb   328 push	r2
+01220000 //C 000bc   329 mvzl	r2,0		; index
+//I 000bc #16 00000000
+0b128000 //C 000bd   331 ld	r1,r2+,r0	; pick word
+//N sp_cyc S53f2e29bd178
+021b0000 //C 000be   332 sz	r1
+11f200c4 //C 000bf   333 jz	sp_false
+//R 000bf #16 sp_false 000000c4
+//I 000bf #16 000000c4
+011fff00 //C 000c0   334 and	r1,0xff00	; check upper bytes
+//I 000c0 #16 0000ff00
+11f200bd //C 000c1   335 jz	sp_cyc
+//R 000c1 #16 sp_cyc 000000bd
+//I 000c1 #16 000000bd
+020c0000 //C 000c2   337 sec
+//N sp_true S53f2e29bd178
+01f200c5 //C 000c3   338 jmp	sp_ret
+//R 000c3 #16 sp_ret 000000c5
+//I 000c3 #16 000000c5
+020d0000 //C 000c4   340 clc
+//N sp_false S53f2e29bd178
+0f3d0000 //C 000c5   342 pop	r3
+//N sp_ret S53f2e29bd178
+0f2d0000 //C 000c6   343 pop	r2
+00f00e00 //C 000c7   344 ret
+//H 3a3bae0b
+//E

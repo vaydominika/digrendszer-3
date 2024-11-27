@@ -1,0 +1,586 @@
+//U P2
+
+//; SEGMENTS
+//T S293d8fdbaa47 _lib_segment_div noload=0 abs=0
+//T S8e7b3d203072 _lib_segment_rand noload=0 abs=0
+//T S32e270509cd9 _lib_segment_rand_max noload=0 abs=0
+//T Sbe1a78b9d15e _lib_segment_str_chr noload=0 abs=0
+//T S0e483de54bb5 _lib_segment_regs_of_gpio noload=0 abs=0
+//T S33927ab86900 _lib_segment_regs_of_uart noload=0 abs=0
+//T S602f0726a14b _lib_segment_character_fn noload=0 abs=0
+//T S847a5c4e618b _lib_segment_isdigit noload=0 abs=0
+//T S9a7f1c151839 _lib_segment_islower noload=0 abs=0
+//T S154e11ca77b1 _lib_segment_isupper noload=0 abs=0
+//T Sf1f3b6b1f10a _lib_segment_isalpha noload=0 abs=0
+//T Sb95a2b17779b _lib_segment_isalnum noload=0 abs=0
+//T S503b4c87a8c4 _lib_segment_putchar noload=0 abs=0
+//T S23554af9f140 _lib_segment_eprints noload=0 abs=0
+//T Sb401aee44acb _lib_segment_eprintf noload=0 abs=0
+//T Sedd6b6695436 _lib_segment_input_avail noload=0 abs=0
+//T S84a19e8ae015 _lib_segment_read noload=0 abs=0
+//T Sd14c348df59b _lib_segment_pmon noload=0 abs=0
+//T S45ec84dfaab0 _lib_segment_nr_to_mask noload=0 abs=0
+//T S38738b71c88c _lib_segment_edge noload=0 abs=0
+//T Saed5ad4c4c92 _lib_segment_btn noload=0 abs=0
+
+//; SYMBOLS
+//L cyc cyc 00000003 - _
+//L the_end the_end 00000014 - _
+//L stack stack 00000079 - _
+//L div div 0000007a S293d8fdbaa47 _
+//L S293d8fdbaa47div_dok div_dok 00000081 s S293d8fdbaa47
+//L S293d8fdbaa47div_dummy div_dummy 00000081 s S293d8fdbaa47
+//L S293d8fdbaa47div_cyc div_cyc 00000085 s S293d8fdbaa47
+//L S293d8fdbaa47div_cyc_next div_cyc_next 00000090 s S293d8fdbaa47
+//L S293d8fdbaa47div_ret div_ret 00000092 s S293d8fdbaa47
+//L S8e7b3d203072seed seed 00000094 s S8e7b3d203072
+//L srand srand 00000095 S8e7b3d203072 _
+//L rand rand 00000097 S8e7b3d203072 _
+//L S8e7b3d203072c1 c1 0000009d s S8e7b3d203072
+//L S8e7b3d203072c2 c2 000000a3 s S8e7b3d203072
+//L S8e7b3d203072c3 c3 000000a9 s S8e7b3d203072
+//L rand_max rand_max 000000b2 S32e270509cd9 _
+//L str_chr str_chr 000000c1 Sbe1a78b9d15e _
+//= GPIO.PORTA GPIO.PORTA 0000ff00 S0e483de54bb5 _
+//= GPIO.PORTB GPIO.PORTB 0000ff01 S0e483de54bb5 _
+//= GPIO.PORTC GPIO.PORTC 0000ff02 S0e483de54bb5 _
+//= GPIO.PORTD GPIO.PORTD 0000ff03 S0e483de54bb5 _
+//= GPIOA.ODR GPIOA.ODR 0000ff00 S0e483de54bb5 _
+//= GPIOB.ODR GPIOB.ODR 0000ff01 S0e483de54bb5 _
+//= GPIOC.ODR GPIOC.ODR 0000ff02 S0e483de54bb5 _
+//= GPIOD.ODR GPIOD.ODR 0000ff03 S0e483de54bb5 _
+//= GPIO.7SEG GPIO.7SEG 0000ff00 S0e483de54bb5 _
+//= GPIO.LED GPIO.LED 0000ff01 S0e483de54bb5 _
+//= GPIO.PORTI GPIO.PORTI 0000ff20 S0e483de54bb5 _
+//= GPIO.PORTJ GPIO.PORTJ 0000ff10 S0e483de54bb5 _
+//= GPIOI.IDR GPIOI.IDR 0000ff20 S0e483de54bb5 _
+//= GPIOJ.IDR GPIOJ.IDR 0000ff10 S0e483de54bb5 _
+//= GPIO.BTN GPIO.BTN 0000ff20 S0e483de54bb5 _
+//= GPIO.SW GPIO.SW 0000ff10 S0e483de54bb5 _
+//= UART.DR UART.DR 0000ff40 S33927ab86900 _
+//= UART.CTRL UART.CTRL 0000ff41 S33927ab86900 _
+//= UART.RSTAT UART.RSTAT 0000ff42 S33927ab86900 _
+//= UART.TSTAT UART.TSTAT 0000ff43 S33927ab86900 _
+//= UART.CPB UART.CPB 0000ff44 S33927ab86900 _
+//= UART.SREG0 UART.SREG0 0000ff4c S33927ab86900 _
+//= UART.SREG1 UART.SREG1 0000ff4d S33927ab86900 _
+//= UART.SREG2 UART.SREG2 0000ff4e S33927ab86900 _
+//= UART.SREG3 UART.SREG3 0000ff4f S33927ab86900 _
+//L _char_is_true _char_is_true 000000d1 S602f0726a14b _
+//L _char_is_false _char_is_false 000000d3 S602f0726a14b _
+//L isdigit isdigit 000000d5 S847a5c4e618b _
+//L islower islower 000000da S9a7f1c151839 _
+//L isupper isupper 000000df S154e11ca77b1 _
+//L isalpha isalpha 000000e4 Sf1f3b6b1f10a _
+//L isalnum isalnum 000000e9 Sb95a2b17779b _
+//L putchar putchar 000000ee S503b4c87a8c4 _
+//L eprints eprints 000000ef S23554af9f140 _
+//L eprintf eprintf 000000f0 Sb401aee44acb _
+//L input_avail input_avail 000000f1 Sedd6b6695436 _
+//L read read 000000f2 S84a19e8ae015 _
+//= _pm_callin _pm_callin 0000f000 Sd14c348df59b _
+//= _pm_enter_by_uart _pm_enter_by_uart 0000f001 Sd14c348df59b _
+//= _pm_getchar _pm_getchar 0000f002 Sd14c348df59b _
+//= _pm_version _pm_version 0000f003 Sd14c348df59b _
+//= _pm_itobcd _pm_itobcd 0000f004 Sd14c348df59b _
+//= _pm_cold_start _pm_cold_start 0000f005 Sd14c348df59b _
+//= _pm_strchr _pm_strchr 0000f006 Sd14c348df59b _
+//= _pm_streq _pm_streq 0000f007 Sd14c348df59b _
+//= _pm_check_uart _pm_check_uart 0000f008 Sd14c348df59b _
+//= _pm_input_avail _pm_input_avail 0000f008 Sd14c348df59b _
+//= _pm_hexchar2value _pm_hexchar2value 0000f009 Sd14c348df59b _
+//= _pm_value2hexchar _pm_value2hexchar 0000f00a Sd14c348df59b _
+//= _pm_htoi _pm_htoi 0000f00b Sd14c348df59b _
+//= _pm_strieq _pm_strieq 0000f00c Sd14c348df59b _
+//= _pm_read _pm_read 0000f00d Sd14c348df59b _
+//= _pm_putchar _pm_putchar 0000f00e Sd14c348df59b _
+//= _pm_prints _pm_prints 0000f00f Sd14c348df59b _
+//= _pm_printsnl _pm_printsnl 0000f010 Sd14c348df59b _
+//= _pm_print_vhex _pm_print_vhex 0000f011 Sd14c348df59b _
+//= _pm_pes _pm_pes 0000f012 Sd14c348df59b _
+//= _pm_printd _pm_printd 0000f013 Sd14c348df59b _
+//= _pm_printf _pm_printf 0000f014 Sd14c348df59b _
+//= _pm_pesf _pm_pesf 0000f015 Sd14c348df59b _
+//= _pm_ascii2seg _pm_ascii2seg 0000f016 Sd14c348df59b _
+//L monitor monitor 000000f4 Sd14c348df59b _
+//L monitor_by_uart monitor_by_uart 000000f5 Sd14c348df59b _
+//L monitor_by_button monitor_by_button 000000f6 Sd14c348df59b _
+//L monitor_version monitor_version 000000fc Sd14c348df59b _
+//L _nr_to_mask _nr_to_mask 00000102 S45ec84dfaab0 _
+//L S45ec84dfaab0nr_to_mask_cyc nr_to_mask_cyc 00000105 s S45ec84dfaab0
+//L S45ec84dfaab0nr_to_mask_ret nr_to_mask_ret 0000010a s S45ec84dfaab0
+//L S38738b71c88clast_btn last_btn 0000010d s S38738b71c88c
+//L S38738b71c88clast_sw last_sw 0000010e s S38738b71c88c
+//L S38738b71c88clast_btn_down last_btn_down 0000010f s S38738b71c88c
+//L S38738b71c88clast_sw_down last_sw_down 00000110 s S38738b71c88c
+//L S38738b71c88clast_btn_inited last_btn_inited 00000111 s S38738b71c88c
+//L S38738b71c88clast_sw_inited last_sw_inited 00000112 s S38738b71c88c
+//L _lib_edge_detect _lib_edge_detect 00000113 S38738b71c88c _
+//L S38738b71c88cinit_btn init_btn 0000011b s S38738b71c88c
+//L S38738b71c88cinit_sw init_sw 00000124 s S38738b71c88c
+//L S38738b71c88cpressed_inited pressed_inited 0000012d s S38738b71c88c
+//L S38738b71c88cch_btn ch_btn 00000130 s S38738b71c88c
+//L S38738b71c88cch_sw ch_sw 00000133 s S38738b71c88c
+//L S38738b71c88ccheck_push check_push 00000143 s S38738b71c88c
+//L S38738b71c88ccheck_release check_release 00000146 s S38738b71c88c
+//L S38738b71c88cpressed_true pressed_true 00000148 s S38738b71c88c
+//L S38738b71c88cpressed_false pressed_false 0000014a s S38738b71c88c
+//L S38738b71c88cpressed_end pressed_end 0000014b s S38738b71c88c
+//L btn_restart btn_restart 00000151 S38738b71c88c _
+//L sw_restart sw_restart 00000156 S38738b71c88c _
+//L btn_posedge btn_posedge 0000015b Saed5ad4c4c92 _
+//L btn_negedge btn_negedge 00000163 Saed5ad4c4c92 _
+//L btn_get btn_get 0000016b Saed5ad4c4c92 _
+
+//; CODE
+//P -
+//F rnd_test.asm
+01d20079 //C 00001     5 mvzl	sp,stack
+//R 00001 #16 stack 00000079
+0122000a //C 00002     6 mvzl	r2,10
+04000097 //C 00003     8 call	rand
+//R 00003 #24 rand 00000097
+//G cyc
+00100400 //C 00004     9 mov	r1,r4
+f40000f0 //C 00005    10 ces	eprintf
+//R 00005 #24 eprintf 000000f0
+00000025 //C 00006    11 db	37
+00000075 //C 00007    11 db	117
+0000000a //C 00008    11 db	10
+00000000 //C 00009    11 db
+01020064 //C 0000a    12 mvzl	r0,100
+040000b2 //C 0000b    13 call	rand_max
+//R 0000b #24 rand_max 000000b2
+00100400 //C 0000c    14 mov	r1,r4
+f40000f0 //C 0000d    15 ces	eprintf
+//R 0000d #24 eprintf 000000f0
+00000025 //C 0000e    16 db	37
+00000075 //C 0000f    16 db	117
+0000000a //C 00010    16 db	10
+00000000 //C 00011    16 db
+0124ffff //C 00012    17 dec	r2
+21f20003 //C 00013    18 jnz	cyc
+//R 00013 #16 cyc 00000003
+01f20014 //C 00014    21 jmp	the_end
+//R 00014 #16 the_end 00000014
+//G the_end
+00000000 //C 00015    23 ds	100
+//+ 00000064
+00000000 //C 00079    25 db	0
+//G stack
+//F math.asm
+//P S293d8fdbaa47 _lib_segment_div
+0ded0000 //C 0007a    15 push	lr
+//G div
+0d6d0000 //C 0007b    16 push	r6
+021b0000 //C 0007c    18 sz	r1
+21f20081 //C 0007d    19 NZ jmp	div_dok
+//R 0007d #16 div_dok 00000081
+00400000 //C 0007e    20 mov	r4,r0		; div by zero
+01520000 //C 0007f    21 mvzl	r5,0x0
+01f20092 //C 00080    22 jmp	div_ret
+//R 00080 #16 div_ret 00000092
+01420000 //C 00081    25 mvzl	r4,0		; Q= 0
+//N div_dok S293d8fdbaa47
+//N div_dummy S293d8fdbaa47
+01520000 //C 00082    26 mvzl	r5,0		; R= 0
+01618000 //C 00083    27 mvh	r6,0x80000000	; m= 1<<31
+01600000 //C 00084    28 mvl	r6,0x80000000
+026b0000 //C 00085    30 sz	r6
+//N div_cyc S293d8fdbaa47
+11f20092 //C 00086    31 Z jmp	div_ret
+//R 00086 #16 div_ret 00000092
+02580000 //C 00087    32 shl	r5		; r<<= 1
+000c0600 //C 00088    33 test	r0,r6		; if (n&m)
+215d0001 //C 00089    34 NZ or	r5,1		; r|= 1
+00580100 //C 0008a    35 cmp	r5,r1		; if (r>=d)
+41f20090 //C 0008b    36 LO jmp	div_cyc_next
+//R 0008b #16 div_cyc_next 00000090
+00560100 //C 0008c    37 sub	r5,r1		; r-= d
+004d0600 //C 0008d    38 or	r4,r6		; q|= m
+01f20090 //C 0008e    39 jmp	div_cyc_next
+//R 0008e #16 div_cyc_next 00000090
+01f20085 //C 0008f    40 jmp	div_cyc
+//R 0008f #16 div_cyc 00000085
+02690000 //C 00090    42 shr	r6		; m>>= 1
+//N div_cyc_next S293d8fdbaa47
+01f20085 //C 00091    43 jmp	div_cyc
+//R 00091 #16 div_cyc 00000085
+0f6d0000 //C 00092    45 pop	r6
+//N div_ret S293d8fdbaa47
+0ffd0000 //C 00093    46 pop	pc
+//P S8e7b3d203072 _lib_segment_rand
+00000049 //C 00094    58 db	2127401289
+//N seed S8e7b3d203072
+06000094 //C 00095    65 st	r0,seed
+//R 00095 #16 seed 00000094
+//G srand
+00f00e00 //C 00096    66 ret
+0ded0000 //C 00097    72 push	lr
+//G rand
+0d0d0000 //C 00098    73 push	r0
+0d2d0000 //C 00099    74 push	r2
+07000094 //C 0009a    76 ld	r0,seed
+//R 0009a #16 seed 00000094
+00400000 //C 0009b    77 mov	r4,r0
+0122000d //C 0009c    78 mvzl	r2,13
+02480000 //C 0009d    79 c1:	shl	r4
+//N c1 S8e7b3d203072
+0124ffff //C 0009e    80 dec	r2
+21f2009d //C 0009f    81 jnz	c1
+//R 0009f #16 c1 0000009d
+000e0400 //C 000a0    82 xor	r0,r4
+00400000 //C 000a1    83 mov	r4,r0
+01220011 //C 000a2    84 mvzl	r2,17
+02490000 //C 000a3    85 c2:	shr	r4
+//N c2 S8e7b3d203072
+0124ffff //C 000a4    86 dec	r2
+21f200a3 //C 000a5    87 jnz	c2
+//R 000a5 #16 c2 000000a3
+000e0400 //C 000a6    88 xor	r0,r4
+00400000 //C 000a7    89 mov	r4,r0
+01220005 //C 000a8    90 mvzl	r2,5
+02480000 //C 000a9    91 c3:	shl	r4
+//N c3 S8e7b3d203072
+0124ffff //C 000aa    92 dec	r2
+21f200a9 //C 000ab    93 jnz	c3
+//R 000ab #16 c3 000000a9
+000e0400 //C 000ac    94 xor	r0,r4
+06000094 //C 000ad    95 st	r0,seed
+//R 000ad #16 seed 00000094
+00400000 //C 000ae    97 mov	r4,r0
+0f2d0000 //C 000af    99 pop	r2
+0f0d0000 //C 000b0   100 pop	r0
+0ffd0000 //C 000b1   101 pop	pc
+//P S32e270509cd9 _lib_segment_rand_max
+0ded0000 //C 000b2   110 push	lr
+//G rand_max
+0d0d0000 //C 000b3   111 push	r0
+0d2d0000 //C 000b4   112 push	r2
+0d5d0000 //C 000b5   113 push	r5
+00200000 //C 000b6   115 mov	r2,r0
+01240001 //C 000b7   116 inc	r2
+04000097 //C 000b8   117 call	rand
+//R 000b8 #24 rand 00000097
+00000400 //C 000b9   118 mov	r0,r4
+00100200 //C 000ba   119 mov	r1,r2
+0400007a //C 000bb   120 call	div
+//R 000bb #24 div 0000007a
+00400500 //C 000bc   121 mov	r4,r5
+0f5d0000 //C 000bd   123 pop	r5
+0f2d0000 //C 000be   124 pop	r2
+0f0d0000 //C 000bf   125 pop	r0
+0ffd0000 //C 000c0   126 pop	pc
+//F str.asm
+//P Sbe1a78b9d15e _lib_segment_str_chr
+020b0000 //C 000c1    94 sz	r0		; check NULL pointer
+//G str_chr
+120d0000 //C 000c2    95 Z clc
+10f00e00 //C 000c3    96 Z ret
+02100000 //C 000c4    97 zeb	r1		; prepare character
+0ded0000 //C 000c5    98 push	lr
+0d1d0000 //C 000c6    99 push	r1
+0d2d0000 //C 000c7   100 push	r2
+00400000 //C 000c8   101 mov	r4,r0
+00000100 //C 000c9   102 mov	r0,r1
+00100400 //C 000ca   103 mov	r1,r4
+0400f006 //C 000cb   104 call	_pm_strchr
+//R 000cb #24 _pm_strchr 0000f006
+00400100 //C 000cc   105 mov	r4,r1
+00500200 //C 000cd   106 mov	r5,r2
+0f2d0000 //C 000ce   107 pop	r2
+0f1d0000 //C 000cf   108 pop	r1
+0ffd0000 //C 000d0   109 pop	pc
+//F char.asm
+//P S602f0726a14b _lib_segment_character_fn
+020c0000 //C 000d1    22 sec
+//G _char_is_true
+00f00e00 //C 000d2    23 ret
+020d0000 //C 000d3    25 clc
+//G _char_is_false
+00f00e00 //C 000d4    26 ret
+//P S847a5c4e618b _lib_segment_isdigit
+01080030 //C 000d5    37 cmp	R0,'0'
+//G isdigit
+41f200d3 //C 000d6    38 ULT jmp	_char_is_false
+//R 000d6 #16 _char_is_false 000000d3
+01080039 //C 000d7    39 cmp	R0,'9'
+91f200d3 //C 000d8    40 UGT jmp	_char_is_false
+//R 000d8 #16 _char_is_false 000000d3
+01f200d1 //C 000d9    41 jmp _char_is_true
+//R 000d9 #16 _char_is_true 000000d1
+//P S9a7f1c151839 _lib_segment_islower
+01080061 //C 000da    53 cmp	r0,'a'
+//G islower
+41f200d3 //C 000db    54 ULT jmp	_char_is_false
+//R 000db #16 _char_is_false 000000d3
+0108007a //C 000dc    55 cmp	r0,'z'
+91f200d3 //C 000dd    56 UGT jmp	_char_is_false
+//R 000dd #16 _char_is_false 000000d3
+01f200d1 //C 000de    57 jmp	_char_is_true
+//R 000de #16 _char_is_true 000000d1
+//P S154e11ca77b1 _lib_segment_isupper
+01080041 //C 000df    69 cmp	r0,'A'
+//G isupper
+41f200d3 //C 000e0    70 ULT jmp	_char_is_false
+//R 000e0 #16 _char_is_false 000000d3
+0108005a //C 000e1    71 cmp	r0,'Z'
+91f200d3 //C 000e2    72 UGT jmp	_char_is_false
+//R 000e2 #16 _char_is_false 000000d3
+01f200d1 //C 000e3    73 jmp	_char_is_true
+//R 000e3 #16 _char_is_true 000000d1
+//P Sf1f3b6b1f10a _lib_segment_isalpha
+0ded0000 //C 000e4    85 push	lr
+//G isalpha
+040000da //C 000e5    86 call	islower
+//R 000e5 #24 islower 000000da
+3ffd0000 //C 000e6    87 C pop	pc
+040000df //C 000e7    88 call	isupper
+//R 000e7 #24 isupper 000000df
+0ffd0000 //C 000e8    89 pop	pc
+//P Sb95a2b17779b _lib_segment_isalnum
+0ded0000 //C 000e9   101 push	lr
+//G isalnum
+040000e4 //C 000ea   102 call	isalpha
+//R 000ea #24 isalpha 000000e4
+3ffd0000 //C 000eb   103 C pop	pc
+040000d5 //C 000ec   104 call	isdigit
+//R 000ec #24 isdigit 000000d5
+0ffd0000 //C 000ed   105 pop	pc
+//F inout.asm
+//P S503b4c87a8c4 _lib_segment_putchar
+01f2f00e //C 000ee    24 jmp	_pm_putchar
+//R 000ee #16 _pm_putchar 0000f00e
+//G putchar
+//P S23554af9f140 _lib_segment_eprints
+01f2f012 //C 000ef    54 jmp	_pm_pes
+//R 000ef #16 _pm_pes 0000f012
+//G eprints
+//P Sb401aee44acb _lib_segment_eprintf
+01f2f015 //C 000f0    66 jmp	_pm_pesf
+//R 000f0 #16 _pm_pesf 0000f015
+//G eprintf
+//P Sedd6b6695436 _lib_segment_input_avail
+01f2f008 //C 000f1    72 jmp	_pm_check_uart
+//R 000f1 #16 _pm_check_uart 0000f008
+//G input_avail
+//P S84a19e8ae015 _lib_segment_read
+0740ff40 //C 000f2    89 ld	r4,UART.DR
+//R 000f2 #16 UART.DR 0000ff40
+//G read
+00f00e00 //C 000f3    90 ret
+//F mon.asm
+//P Sd14c348df59b _lib_segment_pmon
+01f2f000 //C 000f4    40 jmp	_pm_callin
+//R 000f4 #16 _pm_callin 0000f000
+//G monitor
+01f2f001 //C 000f5    44 jmp	_pm_enter_by_uart
+//R 000f5 #16 _pm_enter_by_uart 0000f001
+//G monitor_by_uart
+0ded0000 //C 000f6    48 push	lr
+//G monitor_by_button
+0400015b //C 000f7    49 call	btn_posedge
+//R 000f7 #24 btn_posedge 0000015b
+4ffd0000 //C 000f8    50 NC pop	pc
+040000f4 //C 000f9    51 call	monitor
+//R 000f9 #24 monitor 000000f4
+04000151 //C 000fa    52 call	btn_restart
+//R 000fa #24 btn_restart 00000151
+0ffd0000 //C 000fb    53 pop	pc
+0ded0000 //C 000fc    57 push	lr
+//G monitor_version
+0d0d0000 //C 000fd    58 push	r0
+0400f003 //C 000fe    59 call	_pm_version
+//R 000fe #24 _pm_version 0000f003
+00400000 //C 000ff    60 mov	r4,r0
+0f0d0000 //C 00100    61 pop	r0
+0ffd0000 //C 00101    62 pop	pc
+//F bsp.asm
+//P S45ec84dfaab0 _lib_segment_nr_to_mask
+0d1d0000 //C 00102    26 push	r1
+//G _nr_to_mask
+010b001f //C 00103    27 btst	r0,0x1f		; max nr is 31
+01120001 //C 00104    28 mvzl	r1,1		; mask for nr==0
+020b0000 //C 00105    30 sz	r0		; is nr zero?
+//N nr_to_mask_cyc S45ec84dfaab0
+11f2010a //C 00106    31 jz	nr_to_mask_ret	; if yes, go out
+//R 00106 #16 nr_to_mask_ret 0000010a
+02180000 //C 00107    32 shl	r1		; shift mask up
+0104ffff //C 00108    33 dec	r0		; decrement nr
+01f20105 //C 00109    34 jmp	nr_to_mask_cyc	; check for zero
+//R 00109 #16 nr_to_mask_cyc 00000105
+00000100 //C 0010a    36 mov	r0,r1		; return mask in R0
+//N nr_to_mask_ret S45ec84dfaab0
+0f1d0000 //C 0010b    37 pop	r1
+00f00e00 //C 0010c    38 ret
+//P S38738b71c88c _lib_segment_edge
+00000000 //C 0010d   120 ds	1
+//+ 00000001
+//N last_btn S38738b71c88c
+00000000 //C 0010e   122 ds	1
+//+ 00000001
+//N last_sw S38738b71c88c
+00000000 //C 0010f   124 ds	1
+//+ 00000001
+//N last_btn_down S38738b71c88c
+00000000 //C 00110   126 ds	1
+//+ 00000001
+//N last_sw_down S38738b71c88c
+00000000 //C 00111   128 db	0
+//N last_btn_inited S38738b71c88c
+00000000 //C 00112   130 db	0
+//N last_sw_inited S38738b71c88c
+0ded0000 //C 00113   141 push	lr
+//G _lib_edge_detect
+0d1d0000 //C 00114   142 push	r1
+0d2d0000 //C 00115   143 push	r2
+0d3d0000 //C 00116   144 push	r3
+0d4d0000 //C 00117   145 push	r4
+0d5d0000 //C 00118   146 push	r5
+00500100 //C 00119   148 mov	r5,r1		; what edge to check
+31f20124 //C 0011a   149 C jmp	init_sw
+//R 0011a #16 init_sw 00000124
+07100111 //C 0011b   151 ld	r1,last_btn_inited
+//R 0011b #16 last_btn_inited 00000111
+//N init_btn S38738b71c88c
+021b0000 //C 0011c   152 sz	r1
+21f2012d //C 0011d   153 jnz	pressed_inited
+//R 0011d #16 pressed_inited 0000012d
+01120001 //C 0011e   154 mvzl	r1,1
+06100111 //C 0011f   155 st	r1,last_btn_inited
+//R 0011f #16 last_btn_inited 00000111
+0710ff20 //C 00120   156 ld	r1,GPIO.BTN
+//R 00120 #16 GPIO.BTN 0000ff20
+0610010d //C 00121   157 st	r1,last_btn
+//R 00121 #16 last_btn 0000010d
+0610010f //C 00122   158 st	r1,last_btn_down
+//R 00122 #16 last_btn_down 0000010f
+01f2014a //C 00123   159 jmp	pressed_false
+//R 00123 #16 pressed_false 0000014a
+07100112 //C 00124   161 ld	r1,last_sw_inited
+//R 00124 #16 last_sw_inited 00000112
+//N init_sw S38738b71c88c
+021b0000 //C 00125   162 sz	r1
+21f2012d //C 00126   163 jnz	pressed_inited
+//R 00126 #16 pressed_inited 0000012d
+01120001 //C 00127   164 mvzl	r1,1
+06100112 //C 00128   165 st	r1,last_sw_inited
+//R 00128 #16 last_sw_inited 00000112
+0710ff10 //C 00129   166 ld	r1,GPIO.SW
+//R 00129 #16 GPIO.SW 0000ff10
+0610010e //C 0012a   167 st	r1,last_sw
+//R 0012a #16 last_sw 0000010e
+06100110 //C 0012b   168 st	r1,last_sw_down
+//R 0012b #16 last_sw_down 00000110
+01f2014a //C 0012c   169 jmp	pressed_false
+//R 0012c #16 pressed_false 0000014a
+4122ff20 //C 0012d   173 NC mvzl	r2,GPIO.BTN
+//R 0012d #16 GPIO.BTN 0000ff20
+//N pressed_inited S38738b71c88c
+3122ff10 //C 0012e   174 C mvzl	r2,GPIO.SW
+//R 0012e #16 GPIO.SW 0000ff10
+31f20133 //C 0012f   175 jc	ch_sw
+//R 0012f #16 ch_sw 00000133
+025b0000 //C 00130   177 sz	r5
+//N ch_btn S38738b71c88c
+1112010d //C 00131   178 Z mvzl	r1,last_btn
+//R 00131 #16 last_btn 0000010d
+2112010f //C 00132   179 NZ mvzl	r1,last_btn_down
+//R 00132 #16 last_btn_down 0000010f
+025b0000 //C 00133   181 sz	r5
+//N ch_sw S38738b71c88c
+1112010e //C 00134   182 Z mvzl	r1,last_sw
+//R 00134 #16 last_sw 0000010e
+21120110 //C 00135   183 NZ mvzl	r1,last_sw_down
+//R 00135 #16 last_sw_down 00000110
+0e310000 //C 00136   187 ld	r3,r1
+0e420000 //C 00137   188 ld	r4,r2
+003f0000 //C 00138   190 and	r3,r0		; masked last
+004f0000 //C 00139   191 and	r4,r0		; masked port
+00380400 //C 0013a   192 cmp	r3,r4
+11f2014a //C 0013b   193 EQ jmp	pressed_false
+//R 0013b #16 pressed_false 0000014a
+02040000 //C 0013c   194 not	r0		; negated mask
+0e310000 //C 0013d   195 ld	r3,r1		; original last
+003f0000 //C 0013e   196 and	r3,r0		; clear checked bit
+003d0400 //C 0013f   197 or	r3,r4		; or with masked port
+0c310000 //C 00140   198 st	r3,r1		; store new last value
+025b0000 //C 00141   199 sz	r5
+21f20146 //C 00142   200 jnz	check_release
+//R 00142 #16 check_release 00000146
+024b0000 //C 00143   202 sz	r4		; check new port value
+//N check_push S38738b71c88c
+11f2014a //C 00144   203 jz	pressed_false
+//R 00144 #16 pressed_false 0000014a
+21f20148 //C 00145   204 jnz	pressed_true
+//R 00145 #16 pressed_true 00000148
+024b0000 //C 00146   206 sz	r4
+//N check_release S38738b71c88c
+21f2014a //C 00147   207 jnz	pressed_false
+//R 00147 #16 pressed_false 0000014a
+020c0000 //C 00148   210 sec
+//N pressed_true S38738b71c88c
+01f2014b //C 00149   211 jmp	pressed_end
+//R 00149 #16 pressed_end 0000014b
+020d0000 //C 0014a   213 clc
+//N pressed_false S38738b71c88c
+0f5d0000 //C 0014b   215 pop	r5
+//N pressed_end S38738b71c88c
+0f4d0000 //C 0014c   216 pop	r4
+0f3d0000 //C 0014d   217 pop	r3
+0f2d0000 //C 0014e   218 pop	r2
+0f1d0000 //C 0014f   219 pop	r1
+0ffd0000 //C 00150   220 pop	pc
+0d1d0000 //C 00151   225 push	r1
+//G btn_restart
+0710ff20 //C 00152   226 ld	r1,GPIO.BTN
+//R 00152 #16 GPIO.BTN 0000ff20
+0610010d //C 00153   227 st	r1,last_btn
+//R 00153 #16 last_btn 0000010d
+0f1d0000 //C 00154   228 pop	r1
+00f00e00 //C 00155   229 ret
+0d1d0000 //C 00156   233 push	r1
+//G sw_restart
+0710ff10 //C 00157   234 ld	r1,GPIO.SW
+//R 00157 #16 GPIO.SW 0000ff10
+0610010e //C 00158   235 st	r1,last_sw
+//R 00158 #16 last_sw 0000010e
+0f1d0000 //C 00159   236 pop	r1
+00f00e00 //C 0015a   237 ret
+//P Saed5ad4c4c92 _lib_segment_btn
+0ded0000 //C 0015b   250 push	lr
+//G btn_posedge
+04000102 //C 0015c   251 call	_nr_to_mask
+//R 0015c #24 _nr_to_mask 00000102
+0d1d0000 //C 0015d   252 push	r1
+01120000 //C 0015e   253 mvzl	r1,0
+020d0000 //C 0015f   254 clc
+04000113 //C 00160   255 call	_lib_edge_detect
+//R 00160 #24 _lib_edge_detect 00000113
+0f1d0000 //C 00161   256 pop	r1
+0ffd0000 //C 00162   257 pop	pc
+0ded0000 //C 00163   266 push	lr
+//G btn_negedge
+04000102 //C 00164   267 call	_nr_to_mask
+//R 00164 #24 _nr_to_mask 00000102
+0d1d0000 //C 00165   268 push	r1
+01120001 //C 00166   269 mvzl	r1,1
+020d0000 //C 00167   270 clc
+04000113 //C 00168   271 call	_lib_edge_detect
+//R 00168 #24 _lib_edge_detect 00000113
+0f1d0000 //C 00169   272 pop	r1
+0ffd0000 //C 0016a   273 pop	pc
+0ded0000 //C 0016b   282 push	lr
+//G btn_get
+0d1d0000 //C 0016c   283 push	r1
+04000102 //C 0016d   284 call	_nr_to_mask
+//R 0016d #24 _nr_to_mask 00000102
+0710ff20 //C 0016e   285 ld	r1,GPIO.BTN
+//R 0016e #16 GPIO.BTN 0000ff20
+001f0000 //C 0016f   286 and	r1,r0
+120d0000 //C 00170   287 Z clc
+220c0000 //C 00171   288 NZ sec
+0f1d0000 //C 00172   289 pop	r1
+0ffd0000 //C 00173   290 pop	pc
+//H e3efec19
+//E

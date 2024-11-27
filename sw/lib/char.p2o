@@ -1,0 +1,248 @@
+//U P2
+
+//; SEGMENTS
+//T S602f0726a14b _lib_segment_character_fn noload=0 abs=0
+//T S847a5c4e618b _lib_segment_isdigit noload=0 abs=0
+//T S9a7f1c151839 _lib_segment_islower noload=0 abs=0
+//T S154e11ca77b1 _lib_segment_isupper noload=0 abs=0
+//T Sf1f3b6b1f10a _lib_segment_isalpha noload=0 abs=0
+//T Sb95a2b17779b _lib_segment_isalnum noload=0 abs=0
+//T S23e3014ecdcb _lib_segment_isblank noload=0 abs=0
+//T S657feb1378b4 _lib_segment_isprint noload=0 abs=0
+//T S4229dcc94e3c _lib_segment_ispunct noload=0 abs=0
+//T S0563087e2c29 _lib_segment_isspace noload=0 abs=0
+//T Sedfa8adb3ec8 _lib_segment_isxdigit noload=0 abs=0
+//T S6b6133f39334 _lib_segment_tolower noload=0 abs=0
+//T S4abb4cb17c3b _lib_segment_toupper noload=0 abs=0
+
+//; SYMBOLS
+//L _char_is_true _char_is_true 00000000 S602f0726a14b _
+//L _char_is_false _char_is_false 00000002 S602f0726a14b _
+//L isdigit isdigit 00000004 S847a5c4e618b _
+//L islower islower 00000009 S9a7f1c151839 _
+//L isupper isupper 0000000e S154e11ca77b1 _
+//L isalpha isalpha 00000013 Sf1f3b6b1f10a _
+//L isalnum isalnum 00000018 Sb95a2b17779b _
+//L isblank isblank 0000001d S23e3014ecdcb _
+//L isprint isprint 00000022 S657feb1378b4 _
+//L ispunct ispunct 00000027 S4229dcc94e3c _
+//L S4229dcc94e3cisp_false isp_false 00000030 s S4229dcc94e3c
+//L isspace isspace 00000032 S0563087e2c29 _
+//L isxdigit isxdigit 00000039 Sedfa8adb3ec8 _
+//L Sedfa8adb3ec8xdigits xdigits 00000046 s Sedfa8adb3ec8
+//L tolower tolower 0000004d S6b6133f39334 _
+//L toupper toupper 00000053 S4abb4cb17c3b _
+
+//; CODE
+//P -
+//F char.asm
+//P S602f0726a14b _lib_segment_character_fn
+020c0000 //C 00000    22 sec
+//G _char_is_true
+00f00e00 //C 00001    23 ret
+020d0000 //C 00002    25 clc
+//G _char_is_false
+00f00e00 //C 00003    26 ret
+//P S847a5c4e618b _lib_segment_isdigit
+01080030 //C 00004    37 cmp	R0,'0'
+//I 00004 #16 00000030
+//G isdigit
+41f20002 //C 00005    38 ULT jmp	_char_is_false
+//R 00005 #16 _char_is_false 00000002
+//I 00005 #16 00000002
+01080039 //C 00006    39 cmp	R0,'9'
+//I 00006 #16 00000039
+91f20002 //C 00007    40 UGT jmp	_char_is_false
+//R 00007 #16 _char_is_false 00000002
+//I 00007 #16 00000002
+01f20000 //C 00008    41 jmp _char_is_true
+//R 00008 #16 _char_is_true 00000000
+//I 00008 #16 00000000
+//P S9a7f1c151839 _lib_segment_islower
+01080061 //C 00009    53 cmp	r0,'a'
+//I 00009 #16 00000061
+//G islower
+41f20002 //C 0000a    54 ULT jmp	_char_is_false
+//R 0000a #16 _char_is_false 00000002
+//I 0000a #16 00000002
+0108007a //C 0000b    55 cmp	r0,'z'
+//I 0000b #16 0000007a
+91f20002 //C 0000c    56 UGT jmp	_char_is_false
+//R 0000c #16 _char_is_false 00000002
+//I 0000c #16 00000002
+01f20000 //C 0000d    57 jmp	_char_is_true
+//R 0000d #16 _char_is_true 00000000
+//I 0000d #16 00000000
+//P S154e11ca77b1 _lib_segment_isupper
+01080041 //C 0000e    69 cmp	r0,'A'
+//I 0000e #16 00000041
+//G isupper
+41f20002 //C 0000f    70 ULT jmp	_char_is_false
+//R 0000f #16 _char_is_false 00000002
+//I 0000f #16 00000002
+0108005a //C 00010    71 cmp	r0,'Z'
+//I 00010 #16 0000005a
+91f20002 //C 00011    72 UGT jmp	_char_is_false
+//R 00011 #16 _char_is_false 00000002
+//I 00011 #16 00000002
+01f20000 //C 00012    73 jmp	_char_is_true
+//R 00012 #16 _char_is_true 00000000
+//I 00012 #16 00000000
+//P Sf1f3b6b1f10a _lib_segment_isalpha
+0ded0000 //C 00013    85 push	lr
+//G isalpha
+04000009 //C 00014    86 call	islower
+//R 00014 #24 islower 00000009
+//I 00014 #24 00000009
+3ffd0000 //C 00015    87 C pop	pc
+0400000e //C 00016    88 call	isupper
+//R 00016 #24 isupper 0000000e
+//I 00016 #24 0000000e
+0ffd0000 //C 00017    89 pop	pc
+//P Sb95a2b17779b _lib_segment_isalnum
+0ded0000 //C 00018   101 push	lr
+//G isalnum
+04000013 //C 00019   102 call	isalpha
+//R 00019 #24 isalpha 00000013
+//I 00019 #24 00000013
+3ffd0000 //C 0001a   103 C pop	pc
+04000004 //C 0001b   104 call	isdigit
+//R 0001b #24 isdigit 00000004
+//I 0001b #24 00000004
+0ffd0000 //C 0001c   105 pop	pc
+//P S23e3014ecdcb _lib_segment_isblank
+01080020 //C 0001d   117 cmp	r0,32
+//I 0001d #16 00000020
+//G isblank
+11f20000 //C 0001e   118 jz	_char_is_true
+//R 0001e #16 _char_is_true 00000000
+//I 0001e #16 00000000
+01080007 //C 0001f   119 cmp	r0,7
+//I 0001f #16 00000007
+11f20000 //C 00020   120 jz	_char_is_true
+//R 00020 #16 _char_is_true 00000000
+//I 00020 #16 00000000
+01f20002 //C 00021   121 jmp	_char_is_false
+//R 00021 #16 _char_is_false 00000002
+//I 00021 #16 00000002
+//P S657feb1378b4 _lib_segment_isprint
+01080020 //C 00022   133 cmp	r0,32
+//I 00022 #16 00000020
+//G isprint
+41f20002 //C 00023   134 ULT jmp	_char_is_false
+//R 00023 #16 _char_is_false 00000002
+//I 00023 #16 00000002
+0108007e //C 00024   135 cmp	r0,126
+//I 00024 #16 0000007e
+91f20002 //C 00025   136 UGT jmp	_char_is_false
+//R 00025 #16 _char_is_false 00000002
+//I 00025 #16 00000002
+01f20000 //C 00026   137 jmp	_char_is_true
+//R 00026 #16 _char_is_true 00000000
+//I 00026 #16 00000000
+//P S4229dcc94e3c _lib_segment_ispunct
+01080020 //C 00027   150 cmp	r0,32
+//I 00027 #16 00000020
+//G ispunct
+a1f20002 //C 00028   151 ULE jmp	_char_is_false
+//R 00028 #16 _char_is_false 00000002
+//I 00028 #16 00000002
+0108007f //C 00029   152 cmp	r0,127
+//I 00029 #16 0000007f
+31f20002 //C 0002a   153 UGE jmp	_char_is_false
+//R 0002a #16 _char_is_false 00000002
+//I 0002a #16 00000002
+0ded0000 //C 0002b   154 push	lr
+04000018 //C 0002c   155 call	isalnum
+//R 0002c #24 isalnum 00000018
+//I 0002c #24 00000018
+31f20030 //C 0002d   156 C jmp	isp_false
+//R 0002d #16 isp_false 00000030
+//I 0002d #16 00000030
+020c0000 //C 0002e   157 sec
+0ffd0000 //C 0002f   158 pop	pc
+020d0000 //C 00030   160 clc
+//N isp_false S4229dcc94e3c
+0ffd0000 //C 00031   161 pop	pc
+//P S0563087e2c29 _lib_segment_isspace
+01080020 //C 00032   173 cmp	r0,32
+//I 00032 #16 00000020
+//G isspace
+11f20000 //C 00033   174 jz	_char_is_true
+//R 00033 #16 _char_is_true 00000000
+//I 00033 #16 00000000
+01080009 //C 00034   175 cmp	r0,9
+//I 00034 #16 00000009
+41f20002 //C 00035   176 ULT jmp	_char_is_false
+//R 00035 #16 _char_is_false 00000002
+//I 00035 #16 00000002
+0108000d //C 00036   177 cmp	r0,13
+//I 00036 #16 0000000d
+91f20002 //C 00037   178 UGT jmp	_char_is_false
+//R 00037 #16 _char_is_false 00000002
+//I 00037 #16 00000002
+01f20000 //C 00038   179 jmp	_char_is_true
+//R 00038 #16 _char_is_true 00000000
+//I 00038 #16 00000000
+//P Sedfa8adb3ec8 _lib_segment_isxdigit
+0ded0000 //C 00039   191 push	lr
+//G isxdigit
+0d0d0000 //C 0003a   192 push	r0
+0d1d0000 //C 0003b   193 push	r1
+0d4d0000 //C 0003c   194 push	r4
+0d5d0000 //C 0003d   195 push	r5
+00100000 //C 0003e   196 mov	r1,r0
+01020046 //C 0003f   197 mvzl	r0,xdigits
+//R 0003f #16 xdigits 00000046
+//I 0003f #16 00000046
+04000000 //C 00040   198 call	str_chr
+//R 00040 #24 str_chr 00000000
+//I 00040 #24 00000000
+0f5d0000 //C 00041   199 pop	r5
+0f4d0000 //C 00042   200 pop	r4
+0f1d0000 //C 00043   201 pop	r1
+0f0d0000 //C 00044   202 pop	r0
+0ffd0000 //C 00045   203 pop	pc
+33323130 //C 00046   205 dd	0x33323130	; "3210"
+//I 00046 d32 33323130
+//N xdigits Sedfa8adb3ec8
+37363534 //C 00047   205 dd	0x37363534	; "7654"
+//I 00047 d32 37363534
+62613938 //C 00048   205 dd	0x62613938	; "ba98"
+//I 00048 d32 62613938
+66656463 //C 00049   205 dd	0x66656463	; "fedc"
+//I 00049 d32 66656463
+44434241 //C 0004a   205 dd	0x44434241	; "DCBA"
+//I 0004a d32 44434241
+00004645 //C 0004b   205 dd	0x00004645	; "FE"
+//I 0004b d32 00004645
+00000000 //C 0004c   205 dd	0
+//I 0004c d32 00000000
+//P S6b6133f39334 _lib_segment_tolower
+00400000 //C 0004d   214 mov	r4,r0
+//G tolower
+0ded0000 //C 0004e   215 push	lr
+0400000e //C 0004f   216 call	isupper
+//R 0004f #24 isupper 0000000e
+//I 0004f #24 0000000e
+4ffd0000 //C 00050   217 NC pop	pc
+014d0020 //C 00051   218 or	r4,0x20
+//I 00051 #16 00000020
+0ffd0000 //C 00052   219 pop	pc
+//P S4abb4cb17c3b _lib_segment_toupper
+00400000 //C 00053   228 mov	r4,r0
+//G toupper
+0ded0000 //C 00054   229 push	lr
+04000009 //C 00055   230 call	islower
+//R 00055 #24 islower 00000009
+//I 00055 #24 00000009
+4ffd0000 //C 00056   231 NC pop	pc
+0d0d0000 //C 00057   232 push	r0
+01020020 //C 00058   233 mvzl	r0,0x20
+//I 00058 #16 00000020
+02040000 //C 00059   234 not	r0
+004f0000 //C 0005a   235 and	r4,r0
+0f0d0000 //C 0005b   236 pop	r0
+0ffd0000 //C 0005c   237 pop	pc
+//H 932bad2b
+//E

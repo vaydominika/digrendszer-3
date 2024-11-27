@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html id="html-tag" lang="en">
+  <script>
+   const $htmlTag = document.querySelector("#html-tag")
+   const urlParams = new URL(window.location.toLocaleString()).searchParams;
+   const lvar= urlParams.get('lang');
+   switch(lvar) {
+     case "hu":
+       $htmlTag.lang = "hu"
+       $htmlTag.classList.add("hungarianLang")
+       break
+     default:
+       $htmlTag.classList.add("englishLang")
+       break
+   }
+  </script>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="p12.css">
+    <title>p2223 library: output functions</title>
+  </head>
+  
+  <body>
+
+    <span lang="hu">Lang:</span> <span lang="en">Nyelv:</span>
+    <a href="lib_out.html?lang=hu">HU</a>
+    <a href="lib_out.html?lang=en">EN</a>
+
+    <h1>
+      <span lang="en">Output functions</span>
+      <span lang="hu">Kimeneti függvények</span>
+    </h1>
+
+    
+    <a name="putchar"><h3>putchar</h3></a>
+
+    <ul>
+      <li><span lang="en">Input(s):</span>
+	<span lang="hu">Bemenet(ek):</span>
+	<span lang="en">R0 character</span>
+	<span lang="hu">R0 karakter</span>
+      </li>
+      <li><span lang="en">Output(s):</span>
+	<span lang="hu">Kimenet(ek):</span>
+	-
+      </li>
+    </ul>
+    
+    <p>A bemenetként megadott karakterkód kiírása az UART periférián
+    keresztül a terminálra. A függvény először megvárja az előzőleg
+    kiírt karakter kiküldését.</p>
+
+
+    <a name="prints"><h3>prints</h3></a>
+
+    <ul>
+      <li><span lang="en">Input(s):</span>
+	<span lang="hu">Bemenet(ek):</span>
+	<span lang="en">R0 address of string</span>
+	<span lang="hu">R0 sztring kezdőcíme</span>
+      </li>
+      <li><span lang="en">Output(s):</span>
+	<span lang="hu">Kimenet(ek):</span>
+	-
+      </li>
+    </ul>
+
+    <p>Szöveg (0 végződésű karaktersorozat) kiírása a terminálra.</p>
+
+
+    <a name="printsnl"><h3>printsnl</h3></a>
+
+    <ul>
+      <li><span lang="en">Input(s):</span>
+	<span lang="hu">Bemenet(ek):</span>
+	<span lang="en">R0 address of string</span>
+	<span lang="hu">R0 sztring kezdőcíme</span>
+      </li>
+      <li><span lang="en">Output(s):</span>
+	<span lang="hu">Kimenet(ek):</span>
+	<span lang="en">-</span>
+	<span lang="hu">-</span>
+	</li>
+    </ul>
+
+    <p>Szöveg (0 végződésű karaktersorozat) kiírása a terminálra,
+      ezután a függvény kiír egy soremelés karaktert.</p>
+
+    
+    <a name="printh"><h3>printh</h3></a>
+
+    <ul>
+      <li><span lang="en">Input(s):</span>
+	<span lang="hu">Bemenet(ek):</span>
+	<span lang="en">R0 value;
+	  <br>R1 nr of chars between separators (_)</span>
+	<span lang="hu">R0 számérték;
+	  <br>R1 az elválasztó (_) közötti karakterek száma</span>
+      </li>
+      <li><span lang="en">Output(s):</span>
+	<span lang="hu">Kimenet(ek):</span>
+	<span lang="en">-</span>
+	<span lang="hu">-</span>
+	</li>
+    </ul>
+
+    <p>Kiírja a bemeneti 32 bites bináris egész szám értékét a
+    terminálra hexadecimális számrendszerben, 8 karakteren, bevezető
+    nullákkal. Az R1-ben megadott számú karakterenként egy _
+    elválasztó jelet is kiír.</p>
+
+    
+    <a name="printd"><h3>printd</h3></a>
+
+    <ul>
+      <li><span lang="en">Input(s):</span>
+	<span lang="hu">Bemenet(ek):</span>
+	<span lang="en">R0 value</span>
+	<span lang="hu">R0 érték</span>
+      </li>
+      <li><span lang="en">Output(s):</span>
+	<span lang="hu">Kimenet(ek):</span>
+	<span lang="en">-</span>
+	<span lang="hu">-</span>
+	</li>
+    </ul>
+
+    <p>A bemenetként megadott 32 bites (pozitív) bináris számot kiírja
+      a terminálra tízes számrendszerben.</p>
+
+    
+    <a name="eprints"><h3>eprints</h3></a>
+
+    <ul>
+      <li><span lang="en">Input(s):</span>
+	<span lang="hu">Bemenet(ek):</span>
+	<span lang="en">-</span>
+	<span lang="hu">-</span>
+      </li>
+      <li><span lang="en">Output(s):</span>
+	<span lang="hu">Kimenet(ek):</span>
+	<span lang="en">-</span>
+	<span lang="hu">-</span>
+	</li>
+    </ul>
+
+    <p>Beágyazott, 0 végződésű karaktertömb kiírása a terminálra. A
+    sztringnek a program kódjában közvetlenül a szubrutint meghívó
+    CALL utasítás után kell lennie. A szubrutin a sztring záró nullája
+    utáni címre fog visszatérni. Escape szekvenciák (formázó
+    karakterek) nem használhatók. A funkciónak sem bemeneti, sem
+    kimeneti paraméterei nincsenek. Helyes használatára egy példa:</p>
+
+    <samp>
+        nop
+
+        call    eprints
+        db      ”Hello World!\n”
+        mvzl    r0,12
+        ...
+    </samp>
+
+    <p>A CALL utasítás helyett ebben az esetben használható a CES
+      utasítás is.</p>
+    
+    
+    <a name="printf"><h3>printf</h3></a>
+
+    <ul>
+      <li><span lang="en">Input(s): R0 address of format string
+	<br>R1..R12 parameter values</span>
+	<span lang="hu">Bemenet(ek): R0 formázó szöveg címe
+	<br>R1..R12 paraméterek értékei</span>
+	<span lang="en"></span>
+	<span lang="hu"></span>
+      </li>
+      <li><span lang="en">Output(s):</span>
+	<span lang="hu">Kimenet(ek):</span>
+	<span lang="en">-</span>
+	<span lang="hu">-</span>
+      </li>
+    </ul>
+
+    <p>Formázott szöveg kiírása a terminálra. A szövegben
+    elhelyezhetők formázó utasítások (% jellel kezdve), amelyek egy
+    adat megfelelő formátumban való kiírását eredményezik. Az adatokat
+    az R1..R12 regiszterekben adhatjuk át, amelyekből sorban annyit
+    használ fel a szubrutin, amennyi formázó utasítás van a
+    szövegben.</p>
+
+    <p><b>A függvény módosítja az R0-R12 regiszterek, valamit a Flag
+      regiszter értékét.</b></p>
+
+      <p>A formázó szövegben escape szekvenciákat is
+    használhatunk:</p>
+
+    <table border=1>
+      <tr><th>Escape szekvencia</th> <th>Kiírt karakterkód</th></tr>
+      <tr><td>\a</td> <td>7</td></tr>
+      <tr><td>\b</td> <td>8</td></tr>
+      <tr><td>\e</td> <td>31</td></tr>
+      <tr><td>\f</td> <td>12</td></tr>
+      <tr><td>\n</td> <td>10</td></tr>
+      <tr><td>\r</td> <td>13</td></tr>
+      <tr><td>\t</td> <td>9</td></tr>
+      <tr><td>\v</td> <td>11</td></tr>
+      <tr><td>\\</td> <td>'\'</td></tr>
+      <tr><td>\0</td> <td>0</td></tr>
+    </table>
+
+    <p>A szubrutin által kezelt formázó utasítások a következők:</p>
+
+    <table border=1>
+      <tr><th>Utasítás</th> <th>Formátum</th> <th>Példa, megjegyzés</th></tr>
+      <tr><td>%%</td> <td>Százalékjel</td> <td>%</td></tr>
+      <tr><td>%u, %d</td> <td>Előjel nélküli decimális</td> <td>12345</td></tr>
+      <tr><td>%x</td> <td>32 bites hexadecimális</td> <td>1A2B3C5D</td></tr>
+      <tr><td>%s</td> <td>Szöveg</td> <td>az adat regiszternek a
+      beillesztendő szöveg címét kell tartalmaznia</td></tr>
+      <tr><td>%c</td> <td>Karakter</td> <td>az adat regiszterben lévő
+      ASCII kódot írja ki</td></tr>
+    </table>
+
+    
+    <a name="eprintf"><h3>eprintf</h3></a>
+
+    <ul>
+      <li><span lang="en">Input(s): R1..R12 parameter values</span>
+	<span lang="hu">Bemenet(ek): R1..R12 paraméter értékek</span>
+	<span lang="en"></span>
+	<span lang="hu"></span>
+      </li>
+      <li><span lang="en">Output(s):</span>
+	<span lang="hu">Kimenet(ek):</span>
+	<span lang="en">-</span>
+	<span lang="hu">-</span>
+      </li>
+    </ul>
+
+    <p>Beágyazott, 0 végződésű formázó szöveg kiírása a terminálra. A
+    formázó szövegnek közvetlenül a CALL (vagy CES) utasítás után kell
+    lennie, a további paraméterek a printf szubrutinéval egyeznek,
+    azonban ez a funkció az R0 regiszterben nem vár bemenő adatot.</p>
+
+    <p><b>A függvény módosítja az R0-R12 regiszterek, valamit a Flag
+      regiszter értékét.</b></p>
+
+    <samp>UART_CPB = 0xff44
+
+        ld      r1,UART_CPB
+        mov     r2,r1
+        ces     eprintf
+        db      ”Uart cpb= %d (0x%x)\n”
+        nop
+        ...
+    </samp>
+
+
+    <hr>
+  </body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html id="html-tag" lang="en">
+  <script>
+   const $htmlTag = document.querySelector("#html-tag")
+   const urlParams = new URL(window.location.toLocaleString()).searchParams;
+   const lvar= urlParams.get('lang');
+   switch(lvar) {
+     case "hu":
+       $htmlTag.lang = "hu"
+       $htmlTag.classList.add("hungarianLang")
+       break
+     default:
+       $htmlTag.classList.add("englishLang")
+       break
+   }
+  </script>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="p12.css">
+    <title>p1516/p2223 Development Environment</title>
+  </head>
+  
+  <body>
+
+    <span lang="hu">Lang:</span> <span lang="en">Nyelv:</span>
+    <a href="index.html?lang=hu">HU</a>
+    <a href="index.html?lang=en">EN</a>
+
+    <p>
+      <span lang="en">Download:</span>
+      <span lang="hu">Letöltés:</span>
+      <a href="https://github.com/danieldrotos/p12dev/releases/latest">https://github.com/danieldrotos/p12dev/releases/latest</a>
+    </p>
+    
+    <h1>
+      <span lang="en">p1516/p2223 Development Environment</span>
+      <span lang="hu">p1516/p2223 fejlesztőrendszer</span>
+    </h1>
+
+    
+    <p lang="hu"><a href="devenv.html">A fejlesztőrendszer használata
+    p1516 és p2223 szoftverek fejlesztésére</a></p>
+    
+    <p lang="en"><a href="devenv.html">How to use the environment to
+    develop p1516 and p2223 softwares</a></p>
+
+    
+    <h2>
+      <span lang="en">Parts of the system</span>
+      <span lang="hu">A rendszer részei</span>
+    </h2>
+
+    
+    <h3>
+      <span lang="en">Microprocessor (CPU)</span>
+      <span lang="hu">Mikroprocesszor (CPU)</span>
+    </h3>
+    
+    <p><a href="https://docs.google.com/document/d/1OqRVKSoARkuOzAF-vJRL1pK7P_FuFF1Smt0_Fs68EkE/edit?usp=sharing">
+      <span lang="en">Details of p1516 processor</span>
+      <span lang="hu">A p1516 processzor</span>
+    </a></p>
+
+    <p><a href="p2223.html">
+      <span lang="en">Description of p2223 processor</span>
+      <span lang="hu">A p2223 processzor</span>
+    </a></p>
+
+    <p><a href="https://docs.google.com/spreadsheets/d/1yRIE6M4-J8aWNy2xuut-sulmcYHLYd5lgCCJo8WyUME/edit?usp=sharing">
+      <span lang="en">p2223 instruction code sheet</span>
+      <span lang="hu">A p2223 processzor utasításainak kódolása</span>
+    </a></p>
+    
+      
+    <h3>
+      <span lang="en">Microcomputer</span>
+      <span lang="hu">Mikroszámítógép</span>
+    </h3>
+
+    <p><a href="https://docs.google.com/document/d/1EH9JMGsYhAFYx91Jy4Yti02Cv2vieIVAEOHdejiOZJE/edit?usp=sharing">
+      <span lang="en">Microcomputer v1</span>
+      <span lang="hu">Mikroszámítógép v1</span>
+    </a>
+    <span lang="en">(obsolete)</span>
+    <span lang="hu">(elavult)</span>
+    </p>
+
+    <p><a href="https://docs.google.com/document/d/1K6ikjEPedkE5B1KfjrYjYlpLCMV6vOUFnHX1mJy2eqI/edit?usp=sharing">
+      <span lang="en">Microcomputer v2</span>
+      <span lang="hu">Mikroszámítógép v2</span>
+    </a></p>
+
+
+    <h3>
+      <span lang="en">Softwares</span>
+      <span lang="hu">Szoftverek</span>
+    </h3>
+
+    <!-- <p><a href="https://docs.google.com/document/d/1bQZooX6hUN2C4n99xTbH_ixLitfhPmOWg5OT2IrxJ5U/edit?usp=sharing">Assembler</a></p>-->
+    <p><a href="asm.html">Assembler</a></p>
+
+    <p><a href="https://docs.google.com/document/d/1neBb7_BvfqcEkGVNIrbo9eepwC5I1iNFhmSqMA1kGwI/edit?usp=sharing">Pmon
+    monitor program</a></p>
+
+    <p><a href="lib.html"><span lang="en">Library
+    functions</span><span lang="hu">Függvény könyvtár</span></a>
+      
+    <hr>
+  </body>
+</html>

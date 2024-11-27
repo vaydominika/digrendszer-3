@@ -1,0 +1,2090 @@
+//U P2
+
+//; SEGMENTS
+//T Sc292c109e2a7 print noload=0 abs=0
+//T S293d8fdbaa47 _lib_segment_div noload=0 abs=0
+//T S8e7b3d203072 _lib_segment_rand noload=0 abs=0
+//T Sbe1a78b9d15e _lib_segment_str_chr noload=0 abs=0
+//T S4b7a66c9288f _lib_segment_str_len noload=0 abs=0
+//T Scbb33fda64a3 _lib_segment_str_size noload=0 abs=0
+//T S4f82c0ba3965 _lib_segment_str_getchar noload=0 abs=0
+//T S5cb1f98163db _lib_segment_str_setchar noload=0 abs=0
+//T S53f2e29bd178 _lib_segment_str_packed noload=0 abs=0
+//T S0e483de54bb5 _lib_segment_regs_of_gpio noload=0 abs=0
+//T S33927ab86900 _lib_segment_regs_of_uart noload=0 abs=0
+//T S602f0726a14b _lib_segment_character_fn noload=0 abs=0
+//T S847a5c4e618b _lib_segment_isdigit noload=0 abs=0
+//T S9a7f1c151839 _lib_segment_islower noload=0 abs=0
+//T S154e11ca77b1 _lib_segment_isupper noload=0 abs=0
+//T Sf1f3b6b1f10a _lib_segment_isalpha noload=0 abs=0
+//T Sb95a2b17779b _lib_segment_isalnum noload=0 abs=0
+//T S503b4c87a8c4 _lib_segment_putchar noload=0 abs=0
+//T S433104d33bc0 _lib_segment_prints noload=0 abs=0
+//T S23554af9f140 _lib_segment_eprints noload=0 abs=0
+//T Sff63d250b521 _lib_segment_printf noload=0 abs=0
+//T Sb401aee44acb _lib_segment_eprintf noload=0 abs=0
+//T Sedd6b6695436 _lib_segment_input_avail noload=0 abs=0
+//T S84a19e8ae015 _lib_segment_read noload=0 abs=0
+//T Sd14c348df59b _lib_segment_pmon noload=0 abs=0
+//T S45ec84dfaab0 _lib_segment_nr_to_mask noload=0 abs=0
+//T S38738b71c88c _lib_segment_edge noload=0 abs=0
+//T Saed5ad4c4c92 _lib_segment_btn noload=0 abs=0
+
+//; SYMBOLS
+//L c1 c1 00000005 - _
+//L c2 c2 0000001e - _
+//L c11 c11 00000021 - _
+//L c12 c12 0000003a - _
+//L scu scu 0000003b - _
+//L scp scp 00000058 - _
+//L c3 c3 00000060 - _
+//L c4 c4 00000074 - _
+//L c5 c5 00000142 - _
+//L bad bad 000001b1 - _
+//L resu resu 000001fd - _
+//L resp resp 00000214 - _
+//L packed_test packed_test 00000229 - _
+//= TST TST 12345678 - _
+//L sc1 sc1 0000035d - _
+//L sc2 sc2 0000037b - _
+//L sc3 sc3 00000397 - _
+//L sc4 sc4 000003ca - _
+//L s0 s0 00000434 - _
+//L s1 s1 00000435 - _
+//L s2 s2 0000044d - _
+//L s3 s3 00000452 - _
+//L print print 00000459 Sc292c109e2a7 _
+//L Sc292c109e2a7p2_next p2_next 00000460 s Sc292c109e2a7
+//L Sc292c109e2a7p2_cyc p2_cyc 00000463 s Sc292c109e2a7
+//L Sc292c109e2a7p2_end p2_end 0000046b s Sc292c109e2a7
+//L stack stack 000004d4 - _
+//L div div 000004d5 S293d8fdbaa47 _
+//L S293d8fdbaa47div_dok div_dok 000004dc s S293d8fdbaa47
+//L S293d8fdbaa47div_dummy div_dummy 000004dc s S293d8fdbaa47
+//L S293d8fdbaa47div_cyc div_cyc 000004e0 s S293d8fdbaa47
+//L S293d8fdbaa47div_cyc_next div_cyc_next 000004eb s S293d8fdbaa47
+//L S293d8fdbaa47div_ret div_ret 000004ed s S293d8fdbaa47
+//L S8e7b3d203072seed seed 000004ef s S8e7b3d203072
+//L srand srand 000004f0 S8e7b3d203072 _
+//L rand rand 000004f2 S8e7b3d203072 _
+//L S8e7b3d203072c1 c1 000004f8 s S8e7b3d203072
+//L S8e7b3d203072c2 c2 000004fe s S8e7b3d203072
+//L S8e7b3d203072c3 c3 00000504 s S8e7b3d203072
+//L str_chr str_chr 0000050d Sbe1a78b9d15e _
+//L str_len str_len 0000051d S4b7a66c9288f _
+//L S4b7a66c9288fp2_next p2_next 00000526 s S4b7a66c9288f
+//L S4b7a66c9288fp2_cyc p2_cyc 00000529 s S4b7a66c9288f
+//L S4b7a66c9288fp2_end p2_end 00000531 s S4b7a66c9288f
+//L str_size str_size 00000536 Scbb33fda64a3 _
+//L Scbb33fda64a3p2_next p2_next 0000053f s Scbb33fda64a3
+//L Scbb33fda64a3p2_cyc p2_cyc 00000543 s Scbb33fda64a3
+//L Scbb33fda64a3p2_end p2_end 00000549 s Scbb33fda64a3
+//L str_getchar str_getchar 0000054e S4f82c0ba3965 _
+//L S4f82c0ba3965gchar_cyc gchar_cyc 00000557 s S4f82c0ba3965
+//L S4f82c0ba3965gchar_byte gchar_byte 0000055b s S4f82c0ba3965
+//L S4f82c0ba3965gchar_nonz gchar_nonz 0000055e s S4f82c0ba3965
+//L S4f82c0ba3965gchar_ret_act gchar_ret_act 00000564 s S4f82c0ba3965
+//L S4f82c0ba3965gchar_ret_eos gchar_ret_eos 00000566 s S4f82c0ba3965
+//L S4f82c0ba3965gchar_ret gchar_ret 00000567 s S4f82c0ba3965
+//L str_setchar str_setchar 0000056c S5cb1f98163db _
+//L S5cb1f98163dbschar_cyc schar_cyc 00000574 s S5cb1f98163db
+//L S5cb1f98163dbschar_byte schar_byte 00000578 s S5cb1f98163db
+//L S5cb1f98163dbschar_nonz schar_nonz 0000057c s S5cb1f98163db
+//L S5cb1f98163dbschar_set schar_set 00000583 s S5cb1f98163db
+//L S5cb1f98163dbschar_ret schar_ret 00000585 s S5cb1f98163db
+//L str_packed str_packed 0000058a S53f2e29bd178 _
+//L S53f2e29bd178sp_cyc sp_cyc 00000590 s S53f2e29bd178
+//L S53f2e29bd178sp_true sp_true 00000595 s S53f2e29bd178
+//L S53f2e29bd178sp_false sp_false 00000597 s S53f2e29bd178
+//L S53f2e29bd178sp_ret sp_ret 00000598 s S53f2e29bd178
+//= GPIO.PORTA GPIO.PORTA 0000ff00 S0e483de54bb5 _
+//= GPIO.PORTB GPIO.PORTB 0000ff01 S0e483de54bb5 _
+//= GPIO.PORTC GPIO.PORTC 0000ff02 S0e483de54bb5 _
+//= GPIO.PORTD GPIO.PORTD 0000ff03 S0e483de54bb5 _
+//= GPIOA.ODR GPIOA.ODR 0000ff00 S0e483de54bb5 _
+//= GPIOB.ODR GPIOB.ODR 0000ff01 S0e483de54bb5 _
+//= GPIOC.ODR GPIOC.ODR 0000ff02 S0e483de54bb5 _
+//= GPIOD.ODR GPIOD.ODR 0000ff03 S0e483de54bb5 _
+//= GPIO.7SEG GPIO.7SEG 0000ff00 S0e483de54bb5 _
+//= GPIO.LED GPIO.LED 0000ff01 S0e483de54bb5 _
+//= GPIO.PORTI GPIO.PORTI 0000ff20 S0e483de54bb5 _
+//= GPIO.PORTJ GPIO.PORTJ 0000ff10 S0e483de54bb5 _
+//= GPIOI.IDR GPIOI.IDR 0000ff20 S0e483de54bb5 _
+//= GPIOJ.IDR GPIOJ.IDR 0000ff10 S0e483de54bb5 _
+//= GPIO.BTN GPIO.BTN 0000ff20 S0e483de54bb5 _
+//= GPIO.SW GPIO.SW 0000ff10 S0e483de54bb5 _
+//= UART.DR UART.DR 0000ff40 S33927ab86900 _
+//= UART.CTRL UART.CTRL 0000ff41 S33927ab86900 _
+//= UART.RSTAT UART.RSTAT 0000ff42 S33927ab86900 _
+//= UART.TSTAT UART.TSTAT 0000ff43 S33927ab86900 _
+//= UART.CPB UART.CPB 0000ff44 S33927ab86900 _
+//= UART.SREG0 UART.SREG0 0000ff4c S33927ab86900 _
+//= UART.SREG1 UART.SREG1 0000ff4d S33927ab86900 _
+//= UART.SREG2 UART.SREG2 0000ff4e S33927ab86900 _
+//= UART.SREG3 UART.SREG3 0000ff4f S33927ab86900 _
+//L _char_is_true _char_is_true 0000059b S602f0726a14b _
+//L _char_is_false _char_is_false 0000059d S602f0726a14b _
+//L isdigit isdigit 0000059f S847a5c4e618b _
+//L islower islower 000005a4 S9a7f1c151839 _
+//L isupper isupper 000005a9 S154e11ca77b1 _
+//L isalpha isalpha 000005ae Sf1f3b6b1f10a _
+//L isalnum isalnum 000005b3 Sb95a2b17779b _
+//L putchar putchar 000005b8 S503b4c87a8c4 _
+//L prints prints 000005b9 S433104d33bc0 _
+//L eprints eprints 000005ba S23554af9f140 _
+//L printf printf 000005bb Sff63d250b521 _
+//L eprintf eprintf 000005bc Sb401aee44acb _
+//L input_avail input_avail 000005bd Sedd6b6695436 _
+//L read read 000005be S84a19e8ae015 _
+//= _pm_callin _pm_callin 0000f000 Sd14c348df59b _
+//= _pm_enter_by_uart _pm_enter_by_uart 0000f001 Sd14c348df59b _
+//= _pm_getchar _pm_getchar 0000f002 Sd14c348df59b _
+//= _pm_version _pm_version 0000f003 Sd14c348df59b _
+//= _pm_itobcd _pm_itobcd 0000f004 Sd14c348df59b _
+//= _pm_cold_start _pm_cold_start 0000f005 Sd14c348df59b _
+//= _pm_strchr _pm_strchr 0000f006 Sd14c348df59b _
+//= _pm_streq _pm_streq 0000f007 Sd14c348df59b _
+//= _pm_check_uart _pm_check_uart 0000f008 Sd14c348df59b _
+//= _pm_input_avail _pm_input_avail 0000f008 Sd14c348df59b _
+//= _pm_hexchar2value _pm_hexchar2value 0000f009 Sd14c348df59b _
+//= _pm_value2hexchar _pm_value2hexchar 0000f00a Sd14c348df59b _
+//= _pm_htoi _pm_htoi 0000f00b Sd14c348df59b _
+//= _pm_strieq _pm_strieq 0000f00c Sd14c348df59b _
+//= _pm_read _pm_read 0000f00d Sd14c348df59b _
+//= _pm_putchar _pm_putchar 0000f00e Sd14c348df59b _
+//= _pm_prints _pm_prints 0000f00f Sd14c348df59b _
+//= _pm_printsnl _pm_printsnl 0000f010 Sd14c348df59b _
+//= _pm_print_vhex _pm_print_vhex 0000f011 Sd14c348df59b _
+//= _pm_pes _pm_pes 0000f012 Sd14c348df59b _
+//= _pm_printd _pm_printd 0000f013 Sd14c348df59b _
+//= _pm_printf _pm_printf 0000f014 Sd14c348df59b _
+//= _pm_pesf _pm_pesf 0000f015 Sd14c348df59b _
+//= _pm_ascii2seg _pm_ascii2seg 0000f016 Sd14c348df59b _
+//L monitor monitor 000005c0 Sd14c348df59b _
+//L monitor_by_uart monitor_by_uart 000005c1 Sd14c348df59b _
+//L monitor_by_button monitor_by_button 000005c2 Sd14c348df59b _
+//L monitor_version monitor_version 000005c8 Sd14c348df59b _
+//L _nr_to_mask _nr_to_mask 000005ce S45ec84dfaab0 _
+//L S45ec84dfaab0nr_to_mask_cyc nr_to_mask_cyc 000005d1 s S45ec84dfaab0
+//L S45ec84dfaab0nr_to_mask_ret nr_to_mask_ret 000005d6 s S45ec84dfaab0
+//L S38738b71c88clast_btn last_btn 000005d9 s S38738b71c88c
+//L S38738b71c88clast_sw last_sw 000005da s S38738b71c88c
+//L S38738b71c88clast_btn_down last_btn_down 000005db s S38738b71c88c
+//L S38738b71c88clast_sw_down last_sw_down 000005dc s S38738b71c88c
+//L S38738b71c88clast_btn_inited last_btn_inited 000005dd s S38738b71c88c
+//L S38738b71c88clast_sw_inited last_sw_inited 000005de s S38738b71c88c
+//L _lib_edge_detect _lib_edge_detect 000005df S38738b71c88c _
+//L S38738b71c88cinit_btn init_btn 000005e7 s S38738b71c88c
+//L S38738b71c88cinit_sw init_sw 000005f0 s S38738b71c88c
+//L S38738b71c88cpressed_inited pressed_inited 000005f9 s S38738b71c88c
+//L S38738b71c88cch_btn ch_btn 000005fc s S38738b71c88c
+//L S38738b71c88cch_sw ch_sw 000005ff s S38738b71c88c
+//L S38738b71c88ccheck_push check_push 0000060f s S38738b71c88c
+//L S38738b71c88ccheck_release check_release 00000612 s S38738b71c88c
+//L S38738b71c88cpressed_true pressed_true 00000614 s S38738b71c88c
+//L S38738b71c88cpressed_false pressed_false 00000616 s S38738b71c88c
+//L S38738b71c88cpressed_end pressed_end 00000617 s S38738b71c88c
+//L btn_restart btn_restart 0000061d S38738b71c88c _
+//L sw_restart sw_restart 00000622 S38738b71c88c _
+//L btn_posedge btn_posedge 00000627 Saed5ad4c4c92 _
+//L btn_negedge btn_negedge 0000062f Saed5ad4c4c92 _
+//L btn_get btn_get 00000637 Saed5ad4c4c92 _
+
+//; CODE
+//P -
+//F strtest.asm
+01d204d4 //C 00001     5 mvzl	sp,stack
+//R 00001 #16 stack 000004d4
+01020435 //C 00002     7 mvzl	r0,s1
+//R 00002 #16 s1 00000435
+040005b9 //C 00003     8 call	prints
+//R 00003 #24 prints 000005b9
+01920000 //C 00004     9 mvzl	r9,0
+00100900 //C 00005    11 mov	r1,r9
+//G c1
+0400054e //C 00006    12 call	str_getchar
+//R 00006 #24 str_getchar 0000054e
+024b0000 //C 00007    13 sz	r4
+11f2001e //C 00008    14 jz	c2
+//R 00008 #16 c2 0000001e
+00100900 //C 00009    15 mov	r1,r9
+00200400 //C 0000a    16 mov	r2,r4
+00300400 //C 0000b    17 mov	r3,r4
+f40005bc //C 0000c    18 ces	eprintf
+//R 0000c #24 eprintf 000005bc
+00000073 //C 0000d    19 db	115
+00000031 //C 0000e    19 db	49
+0000005b //C 0000f    19 db	91
+00000025 //C 00010    19 db	37
+00000064 //C 00011    19 db	100
+0000005d //C 00012    19 db	93
+0000003d //C 00013    19 db	61
+00000020 //C 00014    19 db	32
+00000025 //C 00015    19 db	37
+00000063 //C 00016    19 db	99
+0000002c //C 00017    19 db	44
+00000025 //C 00018    19 db	37
+00000064 //C 00019    19 db	100
+0000000a //C 0001a    19 db	10
+00000000 //C 0001b    19 db
+01940001 //C 0001c    20 inc	r9
+01f20005 //C 0001d    21 jmp	c1
+//R 0001d #16 c1 00000005
+01020452 //C 0001e    24 mvzl	r0,s3
+//R 0001e #16 s3 00000452
+//G c2
+040005b9 //C 0001f    25 call	prints
+//R 0001f #24 prints 000005b9
+01920000 //C 00020    26 mvzl	r9,0
+00100900 //C 00021    28 mov	r1,r9
+//G c11
+0400054e //C 00022    29 call	str_getchar
+//R 00022 #24 str_getchar 0000054e
+024b0000 //C 00023    30 sz	r4
+11f2003a //C 00024    31 jz	c12
+//R 00024 #16 c12 0000003a
+00100900 //C 00025    32 mov	r1,r9
+00200400 //C 00026    33 mov	r2,r4
+00300400 //C 00027    34 mov	r3,r4
+f40005bc //C 00028    35 ces	eprintf
+//R 00028 #24 eprintf 000005bc
+00000073 //C 00029    36 db	115
+00000033 //C 0002a    36 db	51
+0000005b //C 0002b    36 db	91
+00000025 //C 0002c    36 db	37
+00000064 //C 0002d    36 db	100
+0000005d //C 0002e    36 db	93
+0000003d //C 0002f    36 db	61
+00000020 //C 00030    36 db	32
+00000025 //C 00031    36 db	37
+00000063 //C 00032    36 db	99
+0000002c //C 00033    36 db	44
+00000025 //C 00034    36 db	37
+00000064 //C 00035    36 db	100
+0000000a //C 00036    36 db	10
+00000000 //C 00037    36 db
+01940001 //C 00038    37 inc	r9
+01f20021 //C 00039    38 jmp	c11
+//R 00039 #16 c11 00000021
+01f20060 //C 0003a    40 jmp	c3
+//R 0003a #16 c3 00000060
+//G c12
+00000075 //C 0003b    41 db	117
+//G scu
+0000006e //C 0003c    41 db	110
+00000070 //C 0003d    41 db	112
+00000061 //C 0003e    41 db	97
+00000063 //C 0003f    41 db	99
+0000006b //C 00040    41 db	107
+00000065 //C 00041    41 db	101
+00000064 //C 00042    41 db	100
+00000020 //C 00043    41 db	32
+00000073 //C 00044    41 db	115
+00000074 //C 00045    41 db	116
+00000072 //C 00046    41 db	114
+00000069 //C 00047    41 db	105
+0000006e //C 00048    41 db	110
+00000067 //C 00049    41 db	103
+00000020 //C 0004a    41 db	32
+00000066 //C 0004b    41 db	102
+0000006f //C 0004c    41 db	111
+00000072 //C 0004d    41 db	114
+00000020 //C 0004e    41 db	32
+00000063 //C 0004f    41 db	99
+00000068 //C 00050    41 db	104
+00000061 //C 00051    41 db	97
+0000006e //C 00052    41 db	110
+00000067 //C 00053    41 db	103
+00000065 //C 00054    41 db	101
+00000073 //C 00055    41 db	115
+0000000a //C 00056    41 db	10
+00000000 //C 00057    41 db
+6b636170 //C 00058    42 dd	0x6b636170	; "kcap"
+//G scp
+73206465 //C 00059    42 dd	0x73206465	; "s de"
+6e697274 //C 0005a    42 dd	0x6e697274	; "nirt"
+6f662067 //C 0005b    42 dd	0x6f662067	; "of g"
+68632072 //C 0005c    42 dd	0x68632072	; "hc r"
+65676e61 //C 0005d    42 dd	0x65676e61	; "egna"
+00000a73 //C 0005e    42 dd	0x00000a73	; "\012s"
+00000000 //C 0005f    42 dd	0
+0112003b //C 00060    44 mvzl	r1,scu
+//R 00060 #16 scu 0000003b
+//G c3
+f40005bc //C 00061    45 ces	eprintf
+//R 00061 #24 eprintf 000005bc
+00000062 //C 00062    46 db	98
+00000065 //C 00063    46 db	101
+00000066 //C 00064    46 db	102
+0000006f //C 00065    46 db	111
+00000072 //C 00066    46 db	114
+00000065 //C 00067    46 db	101
+00000020 //C 00068    46 db	32
+00000063 //C 00069    46 db	99
+00000068 //C 0006a    46 db	104
+00000061 //C 0006b    46 db	97
+0000006e //C 0006c    46 db	110
+00000067 //C 0006d    46 db	103
+00000065 //C 0006e    46 db	101
+0000003a //C 0006f    46 db	58
+00000020 //C 00070    46 db	32
+00000025 //C 00071    46 db	37
+00000073 //C 00072    46 db	115
+00000000 //C 00073    46 db
+0102003b //C 00074    48 mvzl	r0,scu
+//R 00074 #16 scu 0000003b
+//G c4
+01120000 //C 00075    49 mvzl	r1,0
+01220041 //C 00076    50 mvzl	r2,'A'
+0400056c //C 00077    51 call	str_setchar
+//R 00077 #24 str_setchar 0000056c
+0112003b //C 00078    52 mvzl	r1,scu
+//R 00078 #16 scu 0000003b
+f40005bc //C 00079    53 ces	eprintf
+//R 00079 #24 eprintf 000005bc
+00000061 //C 0007a    54 db	97
+00000066 //C 0007b    54 db	102
+00000074 //C 0007c    54 db	116
+00000065 //C 0007d    54 db	101
+00000072 //C 0007e    54 db	114
+00000020 //C 0007f    54 db	32
+00000063 //C 00080    54 db	99
+00000068 //C 00081    54 db	104
+00000061 //C 00082    54 db	97
+0000006e //C 00083    54 db	110
+00000067 //C 00084    54 db	103
+00000065 //C 00085    54 db	101
+0000005b //C 00086    54 db	91
+00000030 //C 00087    54 db	48
+0000005d //C 00088    54 db	93
+0000003d //C 00089    54 db	61
+00000041 //C 0008a    54 db	65
+0000003a //C 0008b    54 db	58
+00000020 //C 0008c    54 db	32
+00000025 //C 0008d    54 db	37
+00000073 //C 0008e    54 db	115
+00000000 //C 0008f    54 db
+01120001 //C 00090    55 mvzl	r1,1
+01220042 //C 00091    56 mvzl	r2,'B'
+0400056c //C 00092    57 call	str_setchar
+//R 00092 #24 str_setchar 0000056c
+0112003b //C 00093    58 mvzl	r1,scu
+//R 00093 #16 scu 0000003b
+f40005bc //C 00094    59 ces	eprintf
+//R 00094 #24 eprintf 000005bc
+00000061 //C 00095    60 db	97
+00000066 //C 00096    60 db	102
+00000074 //C 00097    60 db	116
+00000065 //C 00098    60 db	101
+00000072 //C 00099    60 db	114
+00000020 //C 0009a    60 db	32
+00000063 //C 0009b    60 db	99
+00000068 //C 0009c    60 db	104
+00000061 //C 0009d    60 db	97
+0000006e //C 0009e    60 db	110
+00000067 //C 0009f    60 db	103
+00000065 //C 000a0    60 db	101
+0000005b //C 000a1    60 db	91
+00000031 //C 000a2    60 db	49
+0000005d //C 000a3    60 db	93
+0000003d //C 000a4    60 db	61
+00000042 //C 000a5    60 db	66
+0000003a //C 000a6    60 db	58
+00000020 //C 000a7    60 db	32
+00000025 //C 000a8    60 db	37
+00000073 //C 000a9    60 db	115
+00000000 //C 000aa    60 db
+01120002 //C 000ab    61 mvzl	r1,2
+01220043 //C 000ac    62 mvzl	r2,'C'
+0400056c //C 000ad    63 call	str_setchar
+//R 000ad #24 str_setchar 0000056c
+0112003b //C 000ae    64 mvzl	r1,scu
+//R 000ae #16 scu 0000003b
+f40005bc //C 000af    65 ces	eprintf
+//R 000af #24 eprintf 000005bc
+00000061 //C 000b0    66 db	97
+00000066 //C 000b1    66 db	102
+00000074 //C 000b2    66 db	116
+00000065 //C 000b3    66 db	101
+00000072 //C 000b4    66 db	114
+00000020 //C 000b5    66 db	32
+00000063 //C 000b6    66 db	99
+00000068 //C 000b7    66 db	104
+00000061 //C 000b8    66 db	97
+0000006e //C 000b9    66 db	110
+00000067 //C 000ba    66 db	103
+00000065 //C 000bb    66 db	101
+0000005b //C 000bc    66 db	91
+00000032 //C 000bd    66 db	50
+0000005d //C 000be    66 db	93
+0000003d //C 000bf    66 db	61
+00000043 //C 000c0    66 db	67
+0000003a //C 000c1    66 db	58
+00000020 //C 000c2    66 db	32
+00000025 //C 000c3    66 db	37
+00000073 //C 000c4    66 db	115
+00000000 //C 000c5    66 db
+01120003 //C 000c6    67 mvzl	r1,3
+01220044 //C 000c7    68 mvzl	r2,'D'
+0400056c //C 000c8    69 call	str_setchar
+//R 000c8 #24 str_setchar 0000056c
+0112003b //C 000c9    70 mvzl	r1,scu
+//R 000c9 #16 scu 0000003b
+f40005bc //C 000ca    71 ces	eprintf
+//R 000ca #24 eprintf 000005bc
+00000061 //C 000cb    72 db	97
+00000066 //C 000cc    72 db	102
+00000074 //C 000cd    72 db	116
+00000065 //C 000ce    72 db	101
+00000072 //C 000cf    72 db	114
+00000020 //C 000d0    72 db	32
+00000063 //C 000d1    72 db	99
+00000068 //C 000d2    72 db	104
+00000061 //C 000d3    72 db	97
+0000006e //C 000d4    72 db	110
+00000067 //C 000d5    72 db	103
+00000065 //C 000d6    72 db	101
+0000005b //C 000d7    72 db	91
+00000033 //C 000d8    72 db	51
+0000005d //C 000d9    72 db	93
+0000003d //C 000da    72 db	61
+00000044 //C 000db    72 db	68
+0000003a //C 000dc    72 db	58
+00000020 //C 000dd    72 db	32
+00000025 //C 000de    72 db	37
+00000073 //C 000df    72 db	115
+00000000 //C 000e0    72 db
+01120004 //C 000e1    73 mvzl	r1,4
+01220045 //C 000e2    74 mvzl	r2,'E'
+0400056c //C 000e3    75 call	str_setchar
+//R 000e3 #24 str_setchar 0000056c
+0112003b //C 000e4    76 mvzl	r1,scu
+//R 000e4 #16 scu 0000003b
+f40005bc //C 000e5    77 ces	eprintf
+//R 000e5 #24 eprintf 000005bc
+00000061 //C 000e6    78 db	97
+00000066 //C 000e7    78 db	102
+00000074 //C 000e8    78 db	116
+00000065 //C 000e9    78 db	101
+00000072 //C 000ea    78 db	114
+00000020 //C 000eb    78 db	32
+00000063 //C 000ec    78 db	99
+00000068 //C 000ed    78 db	104
+00000061 //C 000ee    78 db	97
+0000006e //C 000ef    78 db	110
+00000067 //C 000f0    78 db	103
+00000065 //C 000f1    78 db	101
+0000005b //C 000f2    78 db	91
+00000034 //C 000f3    78 db	52
+0000005d //C 000f4    78 db	93
+0000003d //C 000f5    78 db	61
+00000045 //C 000f6    78 db	69
+0000003a //C 000f7    78 db	58
+00000020 //C 000f8    78 db	32
+00000025 //C 000f9    78 db	37
+00000073 //C 000fa    78 db	115
+00000000 //C 000fb    78 db
+01120014 //C 000fc    79 mvzl	r1,20
+0122005f //C 000fd    80 mvzl	r2,'_'
+0400056c //C 000fe    81 call	str_setchar
+//R 000fe #24 str_setchar 0000056c
+0112003b //C 000ff    82 mvzl	r1,scu
+//R 000ff #16 scu 0000003b
+f40005bc //C 00100    83 ces	eprintf
+//R 00100 #24 eprintf 000005bc
+00000061 //C 00101    84 db	97
+00000066 //C 00102    84 db	102
+00000074 //C 00103    84 db	116
+00000065 //C 00104    84 db	101
+00000072 //C 00105    84 db	114
+00000020 //C 00106    84 db	32
+00000063 //C 00107    84 db	99
+00000068 //C 00108    84 db	104
+00000061 //C 00109    84 db	97
+0000006e //C 0010a    84 db	110
+00000067 //C 0010b    84 db	103
+00000065 //C 0010c    84 db	101
+0000005b //C 0010d    84 db	91
+00000032 //C 0010e    84 db	50
+00000030 //C 0010f    84 db	48
+0000005d //C 00110    84 db	93
+0000003d //C 00111    84 db	61
+0000005f //C 00112    84 db	95
+0000003a //C 00113    84 db	58
+00000020 //C 00114    84 db	32
+00000025 //C 00115    84 db	37
+00000073 //C 00116    84 db	115
+00000000 //C 00117    84 db
+011200c8 //C 00118    85 mvzl	r1,200
+01220021 //C 00119    86 mvzl	r2,'!'
+0400056c //C 0011a    87 call	str_setchar
+//R 0011a #24 str_setchar 0000056c
+0112003b //C 0011b    89 mvzl	r1,scu
+//R 0011b #16 scu 0000003b
+f40005bc //C 0011c    90 ces	eprintf
+//R 0011c #24 eprintf 000005bc
+00000061 //C 0011d    91 db	97
+00000066 //C 0011e    91 db	102
+00000074 //C 0011f    91 db	116
+00000065 //C 00120    91 db	101
+00000072 //C 00121    91 db	114
+00000020 //C 00122    91 db	32
+00000063 //C 00123    91 db	99
+00000068 //C 00124    91 db	104
+00000061 //C 00125    91 db	97
+0000006e //C 00126    91 db	110
+00000067 //C 00127    91 db	103
+00000065 //C 00128    91 db	101
+0000003a //C 00129    91 db	58
+00000020 //C 0012a    91 db	32
+00000025 //C 0012b    91 db	37
+00000073 //C 0012c    91 db	115
+00000000 //C 0012d    91 db
+01120058 //C 0012e    93 mvzl	r1,scp
+//R 0012e #16 scp 00000058
+f40005bc //C 0012f    94 ces	eprintf
+//R 0012f #24 eprintf 000005bc
+00000062 //C 00130    95 db	98
+00000065 //C 00131    95 db	101
+00000066 //C 00132    95 db	102
+0000006f //C 00133    95 db	111
+00000072 //C 00134    95 db	114
+00000065 //C 00135    95 db	101
+00000020 //C 00136    95 db	32
+00000063 //C 00137    95 db	99
+00000068 //C 00138    95 db	104
+00000061 //C 00139    95 db	97
+0000006e //C 0013a    95 db	110
+00000067 //C 0013b    95 db	103
+00000065 //C 0013c    95 db	101
+0000003a //C 0013d    95 db	58
+00000020 //C 0013e    95 db	32
+00000025 //C 0013f    95 db	37
+00000073 //C 00140    95 db	115
+00000000 //C 00141    95 db
+01020058 //C 00142    97 mvzl	r0,scp
+//R 00142 #16 scp 00000058
+//G c5
+01120000 //C 00143    98 mvzl	r1,0
+01220041 //C 00144    99 mvzl	r2,'A'
+0400056c //C 00145   100 call	str_setchar
+//R 00145 #24 str_setchar 0000056c
+01120058 //C 00146   101 mvzl	r1,scp
+//R 00146 #16 scp 00000058
+f40005bc //C 00147   102 ces	eprintf
+//R 00147 #24 eprintf 000005bc
+00000061 //C 00148   103 db	97
+00000066 //C 00149   103 db	102
+00000074 //C 0014a   103 db	116
+00000065 //C 0014b   103 db	101
+00000072 //C 0014c   103 db	114
+00000020 //C 0014d   103 db	32
+00000063 //C 0014e   103 db	99
+00000068 //C 0014f   103 db	104
+00000061 //C 00150   103 db	97
+0000006e //C 00151   103 db	110
+00000067 //C 00152   103 db	103
+00000065 //C 00153   103 db	101
+0000005b //C 00154   103 db	91
+00000030 //C 00155   103 db	48
+0000005d //C 00156   103 db	93
+0000003d //C 00157   103 db	61
+00000041 //C 00158   103 db	65
+0000003a //C 00159   103 db	58
+00000020 //C 0015a   103 db	32
+00000025 //C 0015b   103 db	37
+00000073 //C 0015c   103 db	115
+00000000 //C 0015d   103 db
+01120001 //C 0015e   104 mvzl	r1,1
+01220042 //C 0015f   105 mvzl	r2,'B'
+0400056c //C 00160   106 call	str_setchar
+//R 00160 #24 str_setchar 0000056c
+01120058 //C 00161   107 mvzl	r1,scp
+//R 00161 #16 scp 00000058
+f40005bc //C 00162   108 ces	eprintf
+//R 00162 #24 eprintf 000005bc
+00000061 //C 00163   109 db	97
+00000066 //C 00164   109 db	102
+00000074 //C 00165   109 db	116
+00000065 //C 00166   109 db	101
+00000072 //C 00167   109 db	114
+00000020 //C 00168   109 db	32
+00000063 //C 00169   109 db	99
+00000068 //C 0016a   109 db	104
+00000061 //C 0016b   109 db	97
+0000006e //C 0016c   109 db	110
+00000067 //C 0016d   109 db	103
+00000065 //C 0016e   109 db	101
+0000005b //C 0016f   109 db	91
+00000031 //C 00170   109 db	49
+0000005d //C 00171   109 db	93
+0000003d //C 00172   109 db	61
+00000042 //C 00173   109 db	66
+0000003a //C 00174   109 db	58
+00000020 //C 00175   109 db	32
+00000025 //C 00176   109 db	37
+00000073 //C 00177   109 db	115
+00000000 //C 00178   109 db
+01120002 //C 00179   110 mvzl	r1,2
+01220043 //C 0017a   111 mvzl	r2,'C'
+0400056c //C 0017b   112 call	str_setchar
+//R 0017b #24 str_setchar 0000056c
+01120058 //C 0017c   113 mvzl	r1,scp
+//R 0017c #16 scp 00000058
+f40005bc //C 0017d   114 ces	eprintf
+//R 0017d #24 eprintf 000005bc
+00000061 //C 0017e   115 db	97
+00000066 //C 0017f   115 db	102
+00000074 //C 00180   115 db	116
+00000065 //C 00181   115 db	101
+00000072 //C 00182   115 db	114
+00000020 //C 00183   115 db	32
+00000063 //C 00184   115 db	99
+00000068 //C 00185   115 db	104
+00000061 //C 00186   115 db	97
+0000006e //C 00187   115 db	110
+00000067 //C 00188   115 db	103
+00000065 //C 00189   115 db	101
+0000005b //C 0018a   115 db	91
+00000032 //C 0018b   115 db	50
+0000005d //C 0018c   115 db	93
+0000003d //C 0018d   115 db	61
+00000043 //C 0018e   115 db	67
+0000003a //C 0018f   115 db	58
+00000020 //C 00190   115 db	32
+00000025 //C 00191   115 db	37
+00000073 //C 00192   115 db	115
+00000000 //C 00193   115 db
+01120003 //C 00194   116 mvzl	r1,3
+01220044 //C 00195   117 mvzl	r2,'D'
+0400056c //C 00196   118 call	str_setchar
+//R 00196 #24 str_setchar 0000056c
+01120058 //C 00197   119 mvzl	r1,scp
+//R 00197 #16 scp 00000058
+f40005bc //C 00198   120 ces	eprintf
+//R 00198 #24 eprintf 000005bc
+00000061 //C 00199   121 db	97
+00000066 //C 0019a   121 db	102
+00000074 //C 0019b   121 db	116
+00000065 //C 0019c   121 db	101
+00000072 //C 0019d   121 db	114
+00000020 //C 0019e   121 db	32
+00000063 //C 0019f   121 db	99
+00000068 //C 001a0   121 db	104
+00000061 //C 001a1   121 db	97
+0000006e //C 001a2   121 db	110
+00000067 //C 001a3   121 db	103
+00000065 //C 001a4   121 db	101
+0000005b //C 001a5   121 db	91
+00000033 //C 001a6   121 db	51
+0000005d //C 001a7   121 db	93
+0000003d //C 001a8   121 db	61
+00000044 //C 001a9   121 db	68
+0000003a //C 001aa   121 db	58
+00000020 //C 001ab   121 db	32
+00000025 //C 001ac   121 db	37
+00000073 //C 001ad   121 db	115
+00000000 //C 001ae   121 db
+01120004 //C 001af   122 mvzl	r1,4
+01220045 //C 001b0   123 mvzl	r2,'E'
+0400056c //C 001b1   124 bad:	call	str_setchar
+//R 001b1 #24 str_setchar 0000056c
+//G bad
+01120058 //C 001b2   125 mvzl	r1,scp
+//R 001b2 #16 scp 00000058
+f40005bc //C 001b3   126 ces	eprintf
+//R 001b3 #24 eprintf 000005bc
+00000061 //C 001b4   127 db	97
+00000066 //C 001b5   127 db	102
+00000074 //C 001b6   127 db	116
+00000065 //C 001b7   127 db	101
+00000072 //C 001b8   127 db	114
+00000020 //C 001b9   127 db	32
+00000063 //C 001ba   127 db	99
+00000068 //C 001bb   127 db	104
+00000061 //C 001bc   127 db	97
+0000006e //C 001bd   127 db	110
+00000067 //C 001be   127 db	103
+00000065 //C 001bf   127 db	101
+0000005b //C 001c0   127 db	91
+00000034 //C 001c1   127 db	52
+0000005d //C 001c2   127 db	93
+0000003d //C 001c3   127 db	61
+00000045 //C 001c4   127 db	69
+0000003a //C 001c5   127 db	58
+00000020 //C 001c6   127 db	32
+00000025 //C 001c7   127 db	37
+00000073 //C 001c8   127 db	115
+00000000 //C 001c9   127 db
+01120014 //C 001ca   128 mvzl	r1,20
+0122005f //C 001cb   129 mvzl	r2,'_'
+0400056c //C 001cc   130 call	str_setchar
+//R 001cc #24 str_setchar 0000056c
+01120058 //C 001cd   131 mvzl	r1,scp
+//R 001cd #16 scp 00000058
+f40005bc //C 001ce   132 ces	eprintf
+//R 001ce #24 eprintf 000005bc
+00000061 //C 001cf   133 db	97
+00000066 //C 001d0   133 db	102
+00000074 //C 001d1   133 db	116
+00000065 //C 001d2   133 db	101
+00000072 //C 001d3   133 db	114
+00000020 //C 001d4   133 db	32
+00000063 //C 001d5   133 db	99
+00000068 //C 001d6   133 db	104
+00000061 //C 001d7   133 db	97
+0000006e //C 001d8   133 db	110
+00000067 //C 001d9   133 db	103
+00000065 //C 001da   133 db	101
+0000005b //C 001db   133 db	91
+00000032 //C 001dc   133 db	50
+00000030 //C 001dd   133 db	48
+0000005d //C 001de   133 db	93
+0000003d //C 001df   133 db	61
+0000005f //C 001e0   133 db	95
+0000003a //C 001e1   133 db	58
+00000020 //C 001e2   133 db	32
+00000025 //C 001e3   133 db	37
+00000073 //C 001e4   133 db	115
+00000000 //C 001e5   133 db
+011200c8 //C 001e6   134 mvzl	r1,200
+01220021 //C 001e7   135 mvzl	r2,'!'
+0400056c //C 001e8   136 call	str_setchar
+//R 001e8 #24 str_setchar 0000056c
+01120058 //C 001e9   138 mvzl	r1,scp
+//R 001e9 #16 scp 00000058
+f40005bc //C 001ea   139 ces	eprintf
+//R 001ea #24 eprintf 000005bc
+00000061 //C 001eb   140 db	97
+00000066 //C 001ec   140 db	102
+00000074 //C 001ed   140 db	116
+00000065 //C 001ee   140 db	101
+00000072 //C 001ef   140 db	114
+00000020 //C 001f0   140 db	32
+00000063 //C 001f1   140 db	99
+00000068 //C 001f2   140 db	104
+00000061 //C 001f3   140 db	97
+0000006e //C 001f4   140 db	110
+00000067 //C 001f5   140 db	103
+00000065 //C 001f6   140 db	101
+0000003a //C 001f7   140 db	58
+00000020 //C 001f8   140 db	32
+00000025 //C 001f9   140 db	37
+00000073 //C 001fa   140 db	115
+00000000 //C 001fb   140 db
+01f20229 //C 001fc   141 jmp	packed_test
+//R 001fc #16 packed_test 00000229
+00000073 //C 001fd   143 db	115
+//G resu
+00000074 //C 001fe   143 db	116
+00000072 //C 001ff   143 db	114
+00000069 //C 00200   143 db	105
+0000006e //C 00201   143 db	110
+00000067 //C 00202   143 db	103
+00000020 //C 00203   143 db	32
+00000069 //C 00204   143 db	105
+00000073 //C 00205   143 db	115
+00000020 //C 00206   143 db	32
+00000075 //C 00207   143 db	117
+0000006e //C 00208   143 db	110
+00000070 //C 00209   143 db	112
+00000061 //C 0020a   143 db	97
+00000063 //C 0020b   143 db	99
+0000006b //C 0020c   143 db	107
+00000065 //C 0020d   143 db	101
+00000064 //C 0020e   143 db	100
+0000003a //C 0020f   143 db	58
+00000020 //C 00210   143 db	32
+00000025 //C 00211   143 db	37
+00000073 //C 00212   143 db	115
+00000000 //C 00213   143 db
+00000073 //C 00214   144 db	115
+//G resp
+00000074 //C 00215   144 db	116
+00000072 //C 00216   144 db	114
+00000069 //C 00217   144 db	105
+0000006e //C 00218   144 db	110
+00000067 //C 00219   144 db	103
+00000020 //C 0021a   144 db	32
+00000069 //C 0021b   144 db	105
+00000073 //C 0021c   144 db	115
+00000020 //C 0021d   144 db	32
+00000070 //C 0021e   144 db	112
+00000061 //C 0021f   144 db	97
+00000063 //C 00220   144 db	99
+0000006b //C 00221   144 db	107
+00000065 //C 00222   144 db	101
+00000064 //C 00223   144 db	100
+0000003a //C 00224   144 db	58
+00000020 //C 00225   144 db	32
+00000025 //C 00226   144 db	37
+00000073 //C 00227   144 db	115
+00000000 //C 00228   144 db
+0102003b //C 00229   147 mvzl	r0,scu
+//R 00229 #16 scu 0000003b
+//G packed_test
+0400058a //C 0022a   148 call	str_packed
+//R 0022a #24 str_packed 0000058a
+31020214 //C 0022b   149 C mvzl	r0,resp
+//R 0022b #16 resp 00000214
+410201fd //C 0022c   150 NC mvzl	r0,resu
+//R 0022c #16 resu 000001fd
+0112003b //C 0022d   151 mvzl	r1,scu
+//R 0022d #16 scu 0000003b
+040005bb //C 0022e   152 call	printf
+//R 0022e #24 printf 000005bb
+01020058 //C 0022f   154 mvzl	r0,scp
+//R 0022f #16 scp 00000058
+0400058a //C 00230   155 call	str_packed
+//R 00230 #24 str_packed 0000058a
+31020214 //C 00231   156 C mvzl	r0,resp
+//R 00231 #16 resp 00000214
+410201fd //C 00232   157 NC mvzl	r0,resu
+//R 00232 #16 resu 000001fd
+01120058 //C 00233   158 mvzl	r1,scp
+//R 00233 #16 scp 00000058
+040005bb //C 00234   159 call	printf
+//R 00234 #24 printf 000005bb
+01005678 //C 00235   163 mvl	r0,TST
+//R 00235 #16 TST 12345678
+01011234 //C 00236   164 mvh	r0,TST
+//R 00236 h16 TST 12345678
+011200a5 //C 00237   165 mvzl	r1,0xa5
+07018100 //C 00238   166 putb	r0,r1,0
+01005678 //C 00239   167 mvl	r0,TST
+//R 00239 #16 TST 12345678
+01011234 //C 0023a   168 mvh	r0,TST
+//R 0023a h16 TST 12345678
+011200a5 //C 0023b   169 mvzl	r1,0xa5
+07018101 //C 0023c   170 putb	r0,r1,1
+01005678 //C 0023d   171 mvl	r0,TST
+//R 0023d #16 TST 12345678
+01011234 //C 0023e   172 mvh	r0,TST
+//R 0023e h16 TST 12345678
+011200a5 //C 0023f   173 mvzl	r1,0xa5
+07018102 //C 00240   174 putb	r0,r1,2
+01005678 //C 00241   175 mvl	r0,TST
+//R 00241 #16 TST 12345678
+01011234 //C 00242   176 mvh	r0,TST
+//R 00242 h16 TST 12345678
+011200a5 //C 00243   177 mvzl	r1,0xa5
+07018103 //C 00244   178 putb	r0,r1,3
+0102044d //C 00245   180 mvzl	r0,s2
+//R 00245 #16 s2 0000044d
+04000459 //C 00246   181 call	print
+//R 00246 #24 print 00000459
+01020435 //C 00247   182 mvzl	r0,s1
+//R 00247 #16 s1 00000435
+04000459 //C 00248   183 call	print
+//R 00248 #24 print 00000459
+01020435 //C 00249   185 mvzl	r0,s1
+//R 00249 #16 s1 00000435
+0400051d //C 0024a   186 call	str_len
+//R 0024a #24 str_len 0000051d
+f40005bc //C 0024b   187 ces	eprintf
+//R 0024b #24 eprintf 000005bc
+0000004c //C 0024c   188 db	76
+00000065 //C 0024d   188 db	101
+0000006e //C 0024e   188 db	110
+00000020 //C 0024f   188 db	32
+0000006f //C 00250   188 db	111
+00000066 //C 00251   188 db	102
+00000020 //C 00252   188 db	32
+00000075 //C 00253   188 db	117
+0000006e //C 00254   188 db	110
+00000070 //C 00255   188 db	112
+00000061 //C 00256   188 db	97
+00000063 //C 00257   188 db	99
+0000006b //C 00258   188 db	107
+00000065 //C 00259   188 db	101
+00000064 //C 0025a   188 db	100
+0000003a //C 0025b   188 db	58
+00000020 //C 0025c   188 db	32
+00000025 //C 0025d   188 db	37
+00000064 //C 0025e   188 db	100
+0000000a //C 0025f   188 db	10
+00000000 //C 00260   188 db
+01020435 //C 00261   189 mvzl	r0,s1
+//R 00261 #16 s1 00000435
+04000536 //C 00262   190 call	str_size
+//R 00262 #24 str_size 00000536
+f40005bc //C 00263   191 ces	eprintf
+//R 00263 #24 eprintf 000005bc
+00000053 //C 00264   192 db	83
+00000069 //C 00265   192 db	105
+0000007a //C 00266   192 db	122
+00000065 //C 00267   192 db	101
+00000020 //C 00268   192 db	32
+0000006f //C 00269   192 db	111
+00000066 //C 0026a   192 db	102
+00000020 //C 0026b   192 db	32
+00000075 //C 0026c   192 db	117
+0000006e //C 0026d   192 db	110
+00000070 //C 0026e   192 db	112
+00000061 //C 0026f   192 db	97
+00000063 //C 00270   192 db	99
+0000006b //C 00271   192 db	107
+00000065 //C 00272   192 db	101
+00000064 //C 00273   192 db	100
+0000003a //C 00274   192 db	58
+00000020 //C 00275   192 db	32
+00000025 //C 00276   192 db	37
+00000064 //C 00277   192 db	100
+0000000a //C 00278   192 db	10
+00000000 //C 00279   192 db
+0102044d //C 0027a   194 mvzl	r0,s2
+//R 0027a #16 s2 0000044d
+0400051d //C 0027b   195 call	str_len
+//R 0027b #24 str_len 0000051d
+f40005bc //C 0027c   196 ces	eprintf
+//R 0027c #24 eprintf 000005bc
+0000004c //C 0027d   197 db	76
+00000065 //C 0027e   197 db	101
+0000006e //C 0027f   197 db	110
+00000020 //C 00280   197 db	32
+0000006f //C 00281   197 db	111
+00000066 //C 00282   197 db	102
+00000020 //C 00283   197 db	32
+00000070 //C 00284   197 db	112
+00000061 //C 00285   197 db	97
+00000063 //C 00286   197 db	99
+0000006b //C 00287   197 db	107
+00000065 //C 00288   197 db	101
+00000064 //C 00289   197 db	100
+0000003a //C 0028a   197 db	58
+00000020 //C 0028b   197 db	32
+00000025 //C 0028c   197 db	37
+00000064 //C 0028d   197 db	100
+0000000a //C 0028e   197 db	10
+00000000 //C 0028f   197 db
+0102044d //C 00290   198 mvzl	r0,s2
+//R 00290 #16 s2 0000044d
+04000536 //C 00291   199 call	str_size
+//R 00291 #24 str_size 00000536
+f40005bc //C 00292   200 ces	eprintf
+//R 00292 #24 eprintf 000005bc
+00000053 //C 00293   201 db	83
+00000069 //C 00294   201 db	105
+0000007a //C 00295   201 db	122
+00000065 //C 00296   201 db	101
+00000020 //C 00297   201 db	32
+0000006f //C 00298   201 db	111
+00000066 //C 00299   201 db	102
+00000020 //C 0029a   201 db	32
+00000070 //C 0029b   201 db	112
+00000061 //C 0029c   201 db	97
+00000063 //C 0029d   201 db	99
+0000006b //C 0029e   201 db	107
+00000065 //C 0029f   201 db	101
+00000064 //C 002a0   201 db	100
+0000003a //C 002a1   201 db	58
+00000020 //C 002a2   201 db	32
+00000025 //C 002a3   201 db	37
+00000064 //C 002a4   201 db	100
+0000000a //C 002a5   201 db	10
+00000000 //C 002a6   201 db
+01020435 //C 002a7   203 mvzl	r0,s1
+//R 002a7 #16 s1 00000435
+040005b9 //C 002a8   204 call	prints
+//R 002a8 #24 prints 000005b9
+01020452 //C 002a9   205 mvzl	r0,s3
+//R 002a9 #16 s3 00000452
+040005b9 //C 002aa   206 call	prints
+//R 002aa #24 prints 000005b9
+f40005ba //C 002ab   208 ces	eprints
+//R 002ab #24 eprints 000005ba
+00000075 //C 002ac   209 db	117
+0000006e //C 002ad   209 db	110
+00000070 //C 002ae   209 db	112
+00000061 //C 002af   209 db	97
+00000063 //C 002b0   209 db	99
+0000006b //C 002b1   209 db	107
+00000065 //C 002b2   209 db	101
+00000064 //C 002b3   209 db	100
+0000003a //C 002b4   209 db	58
+00000020 //C 002b5   209 db	32
+00000053 //C 002b6   209 db	83
+00000074 //C 002b7   209 db	116
+00000072 //C 002b8   209 db	114
+00000069 //C 002b9   209 db	105
+0000006e //C 002ba   209 db	110
+00000067 //C 002bb   209 db	103
+0000002c //C 002bc   209 db	44
+00000020 //C 002bd   209 db	32
+00000070 //C 002be   209 db	112
+00000072 //C 002bf   209 db	114
+00000069 //C 002c0   209 db	105
+0000006e //C 002c1   209 db	110
+00000074 //C 002c2   209 db	116
+00000065 //C 002c3   209 db	101
+00000064 //C 002c4   209 db	100
+00000020 //C 002c5   209 db	32
+00000062 //C 002c6   209 db	98
+00000079 //C 002c7   209 db	121
+00000020 //C 002c8   209 db	32
+00000070 //C 002c9   209 db	112
+00000065 //C 002ca   209 db	101
+00000073 //C 002cb   209 db	115
+0000000a //C 002cc   209 db	10
+00000000 //C 002cd   209 db
+f40005ba //C 002ce   210 ces	eprints
+//R 002ce #24 eprints 000005ba
+6b636170 //C 002cf   211 dd	0x6b636170	; "kcap"
+203a6465 //C 002d0   211 dd	0x203a6465	; " :de"
+69727453 //C 002d1   211 dd	0x69727453	; "irtS"
+202c676e //C 002d2   211 dd	0x202c676e	; " ,gn"
+6e697270 //C 002d3   211 dd	0x6e697270	; "nirp"
+20646574 //C 002d4   211 dd	0x20646574	; " det"
+70207962 //C 002d5   211 dd	0x70207962	; "p yb"
+000a7365 //C 002d6   211 dd	0x000a7365	; "\012se"
+00000000 //C 002d7   211 dd	0
+0112000c //C 002d8   213 mvzl	r1,12
+f40005bc //C 002d9   214 ces	eprintf
+//R 002d9 #24 eprintf 000005bc
+00000064 //C 002da   215 db	100
+00000065 //C 002db   215 db	101
+00000063 //C 002dc   215 db	99
+00000069 //C 002dd   215 db	105
+0000006d //C 002de   215 db	109
+00000061 //C 002df   215 db	97
+0000006c //C 002e0   215 db	108
+00000020 //C 002e1   215 db	32
+00000025 //C 002e2   215 db	37
+00000064 //C 002e3   215 db	100
+00000020 //C 002e4   215 db	32
+00000069 //C 002e5   215 db	105
+0000006e //C 002e6   215 db	110
+00000020 //C 002e7   215 db	32
+00000075 //C 002e8   215 db	117
+0000006e //C 002e9   215 db	110
+00000070 //C 002ea   215 db	112
+00000061 //C 002eb   215 db	97
+00000063 //C 002ec   215 db	99
+0000006b //C 002ed   215 db	107
+00000065 //C 002ee   215 db	101
+00000064 //C 002ef   215 db	100
+0000000a //C 002f0   215 db	10
+00000000 //C 002f1   215 db
+f40005bc //C 002f2   216 ces	eprintf
+//R 002f2 #24 eprintf 000005bc
+69636564 //C 002f3   217 dd	0x69636564	; "iced"
+206c616d //C 002f4   217 dd	0x206c616d	; " lam"
+69207525 //C 002f5   217 dd	0x69207525	; "i u%"
+6170206e //C 002f6   217 dd	0x6170206e	; "ap n"
+64656b63 //C 002f7   217 dd	0x64656b63	; "dekc"
+0000000a //C 002f8   217 dd	0x0000000a	; "\012"
+00000000 //C 002f9   217 dd	0
+01120435 //C 002fa   219 mvzl	r1,s1
+//R 002fa #16 s1 00000435
+f40005bc //C 002fb   220 ces	eprintf
+//R 002fb #24 eprintf 000005bc
+00000075 //C 002fc   221 db	117
+0000006e //C 002fd   221 db	110
+00000070 //C 002fe   221 db	112
+00000061 //C 002ff   221 db	97
+00000063 //C 00300   221 db	99
+0000006b //C 00301   221 db	107
+00000065 //C 00302   221 db	101
+00000064 //C 00303   221 db	100
+00000020 //C 00304   221 db	32
+00000073 //C 00305   221 db	115
+00000074 //C 00306   221 db	116
+00000072 //C 00307   221 db	114
+00000020 //C 00308   221 db	32
+00000069 //C 00309   221 db	105
+0000006e //C 0030a   221 db	110
+00000020 //C 0030b   221 db	32
+00000075 //C 0030c   221 db	117
+0000006e //C 0030d   221 db	110
+00000070 //C 0030e   221 db	112
+00000061 //C 0030f   221 db	97
+00000063 //C 00310   221 db	99
+0000006b //C 00311   221 db	107
+00000065 //C 00312   221 db	101
+00000064 //C 00313   221 db	100
+0000003a //C 00314   221 db	58
+00000020 //C 00315   221 db	32
+00000025 //C 00316   221 db	37
+00000073 //C 00317   221 db	115
+00000000 //C 00318   221 db
+01120435 //C 00319   222 mvzl	r1,s1
+//R 00319 #16 s1 00000435
+f40005bc //C 0031a   223 ces	eprintf
+//R 0031a #24 eprintf 000005bc
+61706e75 //C 0031b   224 dd	0x61706e75	; "apnu"
+64656b63 //C 0031c   224 dd	0x64656b63	; "dekc"
+72747320 //C 0031d   224 dd	0x72747320	; "rts "
+206e6920 //C 0031e   224 dd	0x206e6920	; " ni "
+6b636170 //C 0031f   224 dd	0x6b636170	; "kcap"
+203a6465 //C 00320   224 dd	0x203a6465	; " :de"
+00007325 //C 00321   224 dd	0x00007325	; "s%"
+00000000 //C 00322   224 dd	0
+01120452 //C 00323   225 mvzl	r1,s3
+//R 00323 #16 s3 00000452
+f40005bc //C 00324   226 ces	eprintf
+//R 00324 #24 eprintf 000005bc
+00000070 //C 00325   227 db	112
+00000061 //C 00326   227 db	97
+00000063 //C 00327   227 db	99
+0000006b //C 00328   227 db	107
+00000065 //C 00329   227 db	101
+00000064 //C 0032a   227 db	100
+00000020 //C 0032b   227 db	32
+00000073 //C 0032c   227 db	115
+00000074 //C 0032d   227 db	116
+00000072 //C 0032e   227 db	114
+00000020 //C 0032f   227 db	32
+00000069 //C 00330   227 db	105
+0000006e //C 00331   227 db	110
+00000020 //C 00332   227 db	32
+00000075 //C 00333   227 db	117
+0000006e //C 00334   227 db	110
+00000070 //C 00335   227 db	112
+00000061 //C 00336   227 db	97
+00000063 //C 00337   227 db	99
+0000006b //C 00338   227 db	107
+00000065 //C 00339   227 db	101
+00000064 //C 0033a   227 db	100
+0000003a //C 0033b   227 db	58
+00000020 //C 0033c   227 db	32
+00000025 //C 0033d   227 db	37
+00000073 //C 0033e   227 db	115
+00000000 //C 0033f   227 db
+01120452 //C 00340   228 mvzl	r1,s3
+//R 00340 #16 s3 00000452
+f40005bc //C 00341   229 ces	eprintf
+//R 00341 #24 eprintf 000005bc
+6b636170 //C 00342   230 dd	0x6b636170	; "kcap"
+73206465 //C 00343   230 dd	0x73206465	; "s de"
+69207274 //C 00344   230 dd	0x69207274	; "i rt"
+6170206e //C 00345   230 dd	0x6170206e	; "ap n"
+64656b63 //C 00346   230 dd	0x64656b63	; "dekc"
+7325203a //C 00347   230 dd	0x7325203a	; "s% :"
+00000000 //C 00348   230 dd	0
+01120434 //C 00349   231 mvzl	r1,s0
+//R 00349 #16 s0 00000434
+f40005bc //C 0034a   232 ces	eprintf
+//R 0034a #24 eprintf 000005bc
+74706d65 //C 0034b   233 dd	0x74706d65	; "tpme"
+6e692079 //C 0034c   233 dd	0x6e692079	; "ni y"
+63617020 //C 0034d   233 dd	0x63617020	; "cap "
+3a64656b //C 0034e   233 dd	0x3a64656b	; ":dek"
+73252220 //C 0034f   233 dd	0x73252220	; "s%" "
+6f642022 //C 00350   233 dd	0x6f642022	; "od ""
+000a656e //C 00351   233 dd	0x000a656e	; "\012en"
+00000000 //C 00352   233 dd	0
+01120000 //C 00353   234 mvzl	r1,0
+f40005bc //C 00354   235 ces	eprintf
+//R 00354 #24 eprintf 000005bc
+4c4c554e //C 00355   236 dd	0x4c4c554e	; "LLUN"
+206e6920 //C 00356   236 dd	0x206e6920	; " ni "
+6b636170 //C 00357   236 dd	0x6b636170	; "kcap"
+203a6465 //C 00358   236 dd	0x203a6465	; " :de"
+22732522 //C 00359   236 dd	0x22732522	; ""s%""
+6e6f6420 //C 0035a   236 dd	0x6e6f6420	; "nod "
+00000a65 //C 0035b   236 dd	0x00000a65	; "\012e"
+00000000 //C 0035c   236 dd	0
+01120435 //C 0035d   239 mvzl	r1,s1
+//R 0035d #16 s1 00000435
+//G sc1
+0102005a //C 0035e   240 mvzl	r0,'Z'
+0400050d //C 0035f   241 call	str_chr
+//R 0035f #24 str_chr 0000050d
+00100400 //C 00360   242 mov	r1,r4
+00200500 //C 00361   243 mov	r2,r5
+f40005bc //C 00362   244 ces	eprintf
+//R 00362 #24 eprintf 000005bc
+0000005a //C 00363   245 db	90
+00000020 //C 00364   245 db	32
+00000069 //C 00365   245 db	105
+0000006e //C 00366   245 db	110
+00000020 //C 00367   245 db	32
+00000075 //C 00368   245 db	117
+0000006e //C 00369   245 db	110
+00000070 //C 0036a   245 db	112
+00000061 //C 0036b   245 db	97
+00000063 //C 0036c   245 db	99
+0000006b //C 0036d   245 db	107
+00000065 //C 0036e   245 db	101
+00000064 //C 0036f   245 db	100
+0000003a //C 00370   245 db	58
+00000020 //C 00371   245 db	32
+00000030 //C 00372   245 db	48
+00000078 //C 00373   245 db	120
+00000025 //C 00374   245 db	37
+00000078 //C 00375   245 db	120
+00000020 //C 00376   245 db	32
+00000025 //C 00377   245 db	37
+00000064 //C 00378   245 db	100
+0000000a //C 00379   245 db	10
+00000000 //C 0037a   245 db
+01120452 //C 0037b   248 mvzl	r1,s3
+//R 0037b #16 s3 00000452
+//G sc2
+0102005a //C 0037c   249 mvzl	r0,'Z'
+0400050d //C 0037d   250 call	str_chr
+//R 0037d #24 str_chr 0000050d
+00100400 //C 0037e   251 mov	r1,r4
+00200500 //C 0037f   252 mov	r2,r5
+f40005bc //C 00380   253 ces	eprintf
+//R 00380 #24 eprintf 000005bc
+0000005a //C 00381   254 db	90
+00000020 //C 00382   254 db	32
+00000069 //C 00383   254 db	105
+0000006e //C 00384   254 db	110
+00000020 //C 00385   254 db	32
+00000070 //C 00386   254 db	112
+00000061 //C 00387   254 db	97
+00000063 //C 00388   254 db	99
+0000006b //C 00389   254 db	107
+00000065 //C 0038a   254 db	101
+00000064 //C 0038b   254 db	100
+0000003a //C 0038c   254 db	58
+00000020 //C 0038d   254 db	32
+00000030 //C 0038e   254 db	48
+00000078 //C 0038f   254 db	120
+00000025 //C 00390   254 db	37
+00000078 //C 00391   254 db	120
+00000020 //C 00392   254 db	32
+00000025 //C 00393   254 db	37
+00000064 //C 00394   254 db	100
+0000000a //C 00395   254 db	10
+00000000 //C 00396   254 db
+01120435 //C 00397   257 mvzl	r1,s1
+//R 00397 #16 s1 00000435
+//G sc3
+01020063 //C 00398   258 mvzl	r0,'c'
+0400050d //C 00399   259 call	str_chr
+//R 00399 #24 str_chr 0000050d
+00100400 //C 0039a   260 mov	r1,r4
+00200500 //C 0039b   261 mov	r2,r5
+f40005bc //C 0039c   262 ces	eprintf
+//R 0039c #24 eprintf 000005bc
+00000063 //C 0039d   263 db	99
+00000020 //C 0039e   263 db	32
+00000069 //C 0039f   263 db	105
+0000006e //C 003a0   263 db	110
+00000020 //C 003a1   263 db	32
+00000075 //C 003a2   263 db	117
+0000006e //C 003a3   263 db	110
+00000070 //C 003a4   263 db	112
+00000061 //C 003a5   263 db	97
+00000063 //C 003a6   263 db	99
+0000006b //C 003a7   263 db	107
+00000065 //C 003a8   263 db	101
+00000064 //C 003a9   263 db	100
+0000003a //C 003aa   263 db	58
+00000020 //C 003ab   263 db	32
+00000030 //C 003ac   263 db	48
+00000078 //C 003ad   263 db	120
+00000025 //C 003ae   263 db	37
+00000078 //C 003af   263 db	120
+00000020 //C 003b0   263 db	32
+00000025 //C 003b1   263 db	37
+00000064 //C 003b2   263 db	100
+0000000a //C 003b3   263 db	10
+00000000 //C 003b4   263 db
+01160435 //C 003b5   264 sub	r1,s1
+//R 003b5 #16 s1 00000435
+f40005bc //C 003b6   265 ces	eprintf
+//R 003b6 #24 eprintf 000005bc
+00000077 //C 003b7   266 db	119
+0000006f //C 003b8   266 db	111
+00000072 //C 003b9   266 db	114
+00000064 //C 003ba   266 db	100
+0000003a //C 003bb   266 db	58
+00000020 //C 003bc   266 db	32
+00000025 //C 003bd   266 db	37
+00000064 //C 003be   266 db	100
+00000020 //C 003bf   266 db	32
+00000062 //C 003c0   266 db	98
+00000079 //C 003c1   266 db	121
+00000074 //C 003c2   266 db	116
+00000065 //C 003c3   266 db	101
+0000003a //C 003c4   266 db	58
+00000020 //C 003c5   266 db	32
+00000025 //C 003c6   266 db	37
+00000064 //C 003c7   266 db	100
+0000000a //C 003c8   266 db	10
+00000000 //C 003c9   266 db
+01120452 //C 003ca   269 mvzl	r1,s3
+//R 003ca #16 s3 00000452
+//G sc4
+01020064 //C 003cb   270 mvzl	r0,'d'
+0400050d //C 003cc   271 call	str_chr
+//R 003cc #24 str_chr 0000050d
+00100400 //C 003cd   272 mov	r1,r4
+00200500 //C 003ce   273 mov	r2,r5
+f40005bc //C 003cf   274 ces	eprintf
+//R 003cf #24 eprintf 000005bc
+00000064 //C 003d0   275 db	100
+00000020 //C 003d1   275 db	32
+00000069 //C 003d2   275 db	105
+0000006e //C 003d3   275 db	110
+00000020 //C 003d4   275 db	32
+00000070 //C 003d5   275 db	112
+00000061 //C 003d6   275 db	97
+00000063 //C 003d7   275 db	99
+0000006b //C 003d8   275 db	107
+00000065 //C 003d9   275 db	101
+00000064 //C 003da   275 db	100
+0000003a //C 003db   275 db	58
+00000020 //C 003dc   275 db	32
+00000030 //C 003dd   275 db	48
+00000078 //C 003de   275 db	120
+00000025 //C 003df   275 db	37
+00000078 //C 003e0   275 db	120
+00000020 //C 003e1   275 db	32
+00000025 //C 003e2   275 db	37
+00000064 //C 003e3   275 db	100
+0000000a //C 003e4   275 db	10
+00000000 //C 003e5   275 db
+01160452 //C 003e6   276 sub	r1,s3
+//R 003e6 #16 s3 00000452
+f40005bc //C 003e7   277 ces	eprintf
+//R 003e7 #24 eprintf 000005bc
+00000077 //C 003e8   278 db	119
+0000006f //C 003e9   278 db	111
+00000072 //C 003ea   278 db	114
+00000064 //C 003eb   278 db	100
+0000003a //C 003ec   278 db	58
+00000020 //C 003ed   278 db	32
+00000025 //C 003ee   278 db	37
+00000064 //C 003ef   278 db	100
+00000020 //C 003f0   278 db	32
+00000062 //C 003f1   278 db	98
+00000079 //C 003f2   278 db	121
+00000074 //C 003f3   278 db	116
+00000065 //C 003f4   278 db	101
+0000003a //C 003f5   278 db	58
+00000020 //C 003f6   278 db	32
+00000025 //C 003f7   278 db	37
+00000064 //C 003f8   278 db	100
+0000000a //C 003f9   278 db	10
+00000000 //C 003fa   278 db
+01020000 //C 003fb   280 mvzl	r0,0
+0400f004 //C 003fc   281 call	_pm_itobcd
+//R 003fc #24 _pm_itobcd 0000f004
+00100000 //C 003fd   282 mov	r1,r0
+f40005bc //C 003fe   283 ces	eprintf
+//R 003fe #24 eprintf 000005bc
+00000030 //C 003ff   284 db	48
+00000020 //C 00400   284 db	32
+00000062 //C 00401   284 db	98
+00000063 //C 00402   284 db	99
+00000064 //C 00403   284 db	100
+0000003d //C 00404   284 db	61
+00000020 //C 00405   284 db	32
+00000025 //C 00406   284 db	37
+00000078 //C 00407   284 db	120
+0000000a //C 00408   284 db	10
+00000000 //C 00409   284 db
+010204d2 //C 0040a   285 mvzl	r0,1234
+0400f004 //C 0040b   286 call	_pm_itobcd
+//R 0040b #24 _pm_itobcd 0000f004
+00100000 //C 0040c   287 mov	r1,r0
+f40005bc //C 0040d   288 ces	eprintf
+//R 0040d #24 eprintf 000005bc
+00000031 //C 0040e   289 db	49
+00000032 //C 0040f   289 db	50
+00000033 //C 00410   289 db	51
+00000034 //C 00411   289 db	52
+00000020 //C 00412   289 db	32
+00000062 //C 00413   289 db	98
+00000063 //C 00414   289 db	99
+00000064 //C 00415   289 db	100
+0000003d //C 00416   289 db	61
+00000020 //C 00417   289 db	32
+00000025 //C 00418   289 db	37
+00000078 //C 00419   289 db	120
+0000000a //C 0041a   289 db	10
+00000000 //C 0041b   289 db
+0100e0ff //C 0041c   290 mvl	r0,99999999
+010105f5 //C 0041d   291 mvh	r0,99999999
+0400f004 //C 0041e   292 call	_pm_itobcd
+//R 0041e #24 _pm_itobcd 0000f004
+00100000 //C 0041f   293 mov	r1,r0
+f40005bc //C 00420   294 ces	eprintf
+//R 00420 #24 eprintf 000005bc
+00000039 //C 00421   295 db	57
+00000039 //C 00422   295 db	57
+00000039 //C 00423   295 db	57
+00000039 //C 00424   295 db	57
+00000039 //C 00425   295 db	57
+00000039 //C 00426   295 db	57
+00000039 //C 00427   295 db	57
+00000039 //C 00428   295 db	57
+00000020 //C 00429   295 db	32
+00000062 //C 0042a   295 db	98
+00000063 //C 0042b   295 db	99
+00000064 //C 0042c   295 db	100
+0000003d //C 0042d   295 db	61
+00000020 //C 0042e   295 db	32
+00000025 //C 0042f   295 db	37
+00000078 //C 00430   295 db	120
+0000000a //C 00431   295 db	10
+00000000 //C 00432   295 db
+040005c0 //C 00433   297 call	monitor
+//R 00433 #24 monitor 000005c0
+00000000 //C 00434   299 db	0
+//G s0
+00000075 //C 00435   300 db	117
+//G s1
+0000006e //C 00436   300 db	110
+00000070 //C 00437   300 db	112
+00000061 //C 00438   300 db	97
+00000063 //C 00439   300 db	99
+0000006b //C 0043a   300 db	107
+00000065 //C 0043b   300 db	101
+00000064 //C 0043c   300 db	100
+0000003a //C 0043d   300 db	58
+00000020 //C 0043e   300 db	32
+00000048 //C 0043f   300 db	72
+00000065 //C 00440   300 db	101
+0000006c //C 00441   300 db	108
+0000006c //C 00442   300 db	108
+0000006f //C 00443   300 db	111
+00000020 //C 00444   300 db	32
+00000057 //C 00445   300 db	87
+0000006f //C 00446   300 db	111
+00000072 //C 00447   300 db	114
+0000006c //C 00448   300 db	108
+00000064 //C 00449   300 db	100
+00000021 //C 0044a   300 db	33
+0000000a //C 0044b   300 db	10
+00000000 //C 0044c   300 db
+6c6c6548 //C 0044d   301 dd	0x6c6c6548
+//G s2
+6f57206f //C 0044e   302 dd	0x6f57206f
+21646c72 //C 0044f   303 dd	0x21646c72
+0000000a //C 00450   304 dd	0x0000000a
+00000000 //C 00451   305 dd	0
+6b636170 //C 00452   306 dd	0x6b636170	; "kcap"
+//G s3
+203a6465 //C 00453   306 dd	0x203a6465	; " :de"
+6c6c6548 //C 00454   306 dd	0x6c6c6548	; "lleH"
+6f57206f //C 00455   306 dd	0x6f57206f	; "oW o"
+21646c72 //C 00456   306 dd	0x21646c72	; "!dlr"
+0000000a //C 00457   306 dd	0x0000000a	; "\012"
+00000000 //C 00458   306 dd	0
+//P Sc292c109e2a7 print
+0ded0000 //C 00459   325 push	lr
+//G print
+0d0d0000 //C 0045a   326 push	r0
+0d1d0000 //C 0045b   327 push	r1
+0d2d0000 //C 0045c   328 push	r2
+0d3d0000 //C 0045d   329 push	r3
+00100000 //C 0045e   330 mov	r1,r0
+01220000 //C 0045f   331 mvzl	r2,0
+0e310000 //C 00460   333 ld	r3,r1
+//N p2_next Sc292c109e2a7
+023b0000 //C 00461   334 sz	r3
+11f2046b //C 00462   335 jz	p2_end
+//R 00462 #16 p2_end 0000046b
+06010302 //C 00463   337 getb	r0,r3,r2
+//N p2_cyc Sc292c109e2a7
+020b0000 //C 00464   338 sz	r0
+240005b8 //C 00465   339 NZ call	putchar
+//R 00465 #24 putchar 000005b8
+01240001 //C 00466   340 inc	r2
+012c0003 //C 00467   341 test	r2,3
+111a0001 //C 00468   342 Z plus	r1,1
+11f20460 //C 00469   343 Z jmp	p2_next
+//R 00469 #16 p2_next 00000460
+01f20463 //C 0046a   344 jmp	p2_cyc
+//R 0046a #16 p2_cyc 00000463
+0f3d0000 //C 0046b   346 pop	r3
+//N p2_end Sc292c109e2a7
+0f2d0000 //C 0046c   347 pop	r2
+0f1d0000 //C 0046d   348 pop	r1
+0f0d0000 //C 0046e   349 pop	r0
+0ffd0000 //C 0046f   350 pop	pc
+//P -
+00000000 //C 00470   353 ds	100
+//+ 00000064
+00000000 //C 004d4   355 db	0
+//G stack
+//F math.asm
+//P S293d8fdbaa47 _lib_segment_div
+0ded0000 //C 004d5    15 push	lr
+//G div
+0d6d0000 //C 004d6    16 push	r6
+021b0000 //C 004d7    18 sz	r1
+21f204dc //C 004d8    19 NZ jmp	div_dok
+//R 004d8 #16 div_dok 000004dc
+00400000 //C 004d9    20 mov	r4,r0		; div by zero
+01520000 //C 004da    21 mvzl	r5,0x0
+01f204ed //C 004db    22 jmp	div_ret
+//R 004db #16 div_ret 000004ed
+01420000 //C 004dc    25 mvzl	r4,0		; Q= 0
+//N div_dok S293d8fdbaa47
+//N div_dummy S293d8fdbaa47
+01520000 //C 004dd    26 mvzl	r5,0		; R= 0
+01618000 //C 004de    27 mvh	r6,0x80000000	; m= 1<<31
+01600000 //C 004df    28 mvl	r6,0x80000000
+026b0000 //C 004e0    30 sz	r6
+//N div_cyc S293d8fdbaa47
+11f204ed //C 004e1    31 Z jmp	div_ret
+//R 004e1 #16 div_ret 000004ed
+02580000 //C 004e2    32 shl	r5		; r<<= 1
+000c0600 //C 004e3    33 test	r0,r6		; if (n&m)
+215d0001 //C 004e4    34 NZ or	r5,1		; r|= 1
+00580100 //C 004e5    35 cmp	r5,r1		; if (r>=d)
+41f204eb //C 004e6    36 LO jmp	div_cyc_next
+//R 004e6 #16 div_cyc_next 000004eb
+00560100 //C 004e7    37 sub	r5,r1		; r-= d
+004d0600 //C 004e8    38 or	r4,r6		; q|= m
+01f204eb //C 004e9    39 jmp	div_cyc_next
+//R 004e9 #16 div_cyc_next 000004eb
+01f204e0 //C 004ea    40 jmp	div_cyc
+//R 004ea #16 div_cyc 000004e0
+02690000 //C 004eb    42 shr	r6		; m>>= 1
+//N div_cyc_next S293d8fdbaa47
+01f204e0 //C 004ec    43 jmp	div_cyc
+//R 004ec #16 div_cyc 000004e0
+0f6d0000 //C 004ed    45 pop	r6
+//N div_ret S293d8fdbaa47
+0ffd0000 //C 004ee    46 pop	pc
+//P S8e7b3d203072 _lib_segment_rand
+00000049 //C 004ef    58 db	2127401289
+//N seed S8e7b3d203072
+060004ef //C 004f0    65 st	r0,seed
+//R 004f0 #16 seed 000004ef
+//G srand
+00f00e00 //C 004f1    66 ret
+0ded0000 //C 004f2    72 push	lr
+//G rand
+0d0d0000 //C 004f3    73 push	r0
+0d2d0000 //C 004f4    74 push	r2
+070004ef //C 004f5    76 ld	r0,seed
+//R 004f5 #16 seed 000004ef
+00400000 //C 004f6    77 mov	r4,r0
+0122000d //C 004f7    78 mvzl	r2,13
+02480000 //C 004f8    79 c1:	shl	r4
+//N c1 S8e7b3d203072
+0124ffff //C 004f9    80 dec	r2
+21f204f8 //C 004fa    81 jnz	c1
+//R 004fa #16 c1 000004f8
+000e0400 //C 004fb    82 xor	r0,r4
+00400000 //C 004fc    83 mov	r4,r0
+01220011 //C 004fd    84 mvzl	r2,17
+02490000 //C 004fe    85 c2:	shr	r4
+//N c2 S8e7b3d203072
+0124ffff //C 004ff    86 dec	r2
+21f204fe //C 00500    87 jnz	c2
+//R 00500 #16 c2 000004fe
+000e0400 //C 00501    88 xor	r0,r4
+00400000 //C 00502    89 mov	r4,r0
+01220005 //C 00503    90 mvzl	r2,5
+02480000 //C 00504    91 c3:	shl	r4
+//N c3 S8e7b3d203072
+0124ffff //C 00505    92 dec	r2
+21f20504 //C 00506    93 jnz	c3
+//R 00506 #16 c3 00000504
+000e0400 //C 00507    94 xor	r0,r4
+060004ef //C 00508    95 st	r0,seed
+//R 00508 #16 seed 000004ef
+00400000 //C 00509    97 mov	r4,r0
+0f2d0000 //C 0050a    99 pop	r2
+0f0d0000 //C 0050b   100 pop	r0
+0ffd0000 //C 0050c   101 pop	pc
+//F str.asm
+//P Sbe1a78b9d15e _lib_segment_str_chr
+020b0000 //C 0050d    94 sz	r0		; check NULL pointer
+//G str_chr
+120d0000 //C 0050e    95 Z clc
+10f00e00 //C 0050f    96 Z ret
+02100000 //C 00510    97 zeb	r1		; prepare character
+0ded0000 //C 00511    98 push	lr
+0d1d0000 //C 00512    99 push	r1
+0d2d0000 //C 00513   100 push	r2
+00400000 //C 00514   101 mov	r4,r0
+00000100 //C 00515   102 mov	r0,r1
+00100400 //C 00516   103 mov	r1,r4
+0400f006 //C 00517   104 call	_pm_strchr
+//R 00517 #24 _pm_strchr 0000f006
+00400100 //C 00518   105 mov	r4,r1
+00500200 //C 00519   106 mov	r5,r2
+0f2d0000 //C 0051a   107 pop	r2
+0f1d0000 //C 0051b   108 pop	r1
+0ffd0000 //C 0051c   109 pop	pc
+//P S4b7a66c9288f _lib_segment_str_len
+0d0d0000 //C 0051d   148 push	r0
+//G str_len
+0d1d0000 //C 0051e   149 push	r1
+0d2d0000 //C 0051f   150 push	r2
+0d3d0000 //C 00520   151 push	r3
+00100000 //C 00521   152 mov	r1,r0
+01220000 //C 00522   153 mvzl	r2,0
+01420000 //C 00523   154 mvzl	r4,0
+020b0000 //C 00524   155 sz	r0		; check NULL pointer
+11f20531 //C 00525   156 jz	p2_end
+//R 00525 #16 p2_end 00000531
+0e310000 //C 00526   158 ld	r3,r1
+//N p2_next S4b7a66c9288f
+023b0000 //C 00527   159 sz	r3
+11f20531 //C 00528   160 jz	p2_end
+//R 00528 #16 p2_end 00000531
+06014302 //C 00529   162 getbz	r0,r3,r2
+//N p2_cyc S4b7a66c9288f
+020b0000 //C 0052a   163 sz	r0
+21440001 //C 0052b   164 NZ inc	r4
+01240001 //C 0052c   165 inc	r2
+012c0003 //C 0052d   166 test	r2,3
+111a0001 //C 0052e   167 Z plus	r1,1
+11f20526 //C 0052f   168 Z jmp	p2_next
+//R 0052f #16 p2_next 00000526
+01f20529 //C 00530   169 jmp	p2_cyc
+//R 00530 #16 p2_cyc 00000529
+0f3d0000 //C 00531   171 pop	r3
+//N p2_end S4b7a66c9288f
+0f2d0000 //C 00532   172 pop	r2
+0f1d0000 //C 00533   173 pop	r1
+0f0d0000 //C 00534   174 pop	r0
+00f00e00 //C 00535   175 ret
+//P Scbb33fda64a3 _lib_segment_str_size
+0d0d0000 //C 00536   187 push	r0
+//G str_size
+0d1d0000 //C 00537   188 push	r1
+0d2d0000 //C 00538   189 push	r2
+0d3d0000 //C 00539   190 push	r3
+00100000 //C 0053a   191 mov	r1,r0
+01220000 //C 0053b   192 mvzl	r2,0
+01420000 //C 0053c   193 mvzl	r4,0
+020b0000 //C 0053d   194 sz	r0		; check NULL pointer
+11f20549 //C 0053e   195 jz	p2_end
+//R 0053e #16 p2_end 00000549
+0e310000 //C 0053f   197 ld	r3,r1
+//N p2_next Scbb33fda64a3
+014a0001 //C 00540   198 plus	r4,1
+023b0000 //C 00541   199 sz	r3
+11f20549 //C 00542   200 jz	p2_end
+//R 00542 #16 p2_end 00000549
+06014302 //C 00543   202 getbz	r0,r3,r2
+//N p2_cyc Scbb33fda64a3
+01240001 //C 00544   203 inc	r2
+012c0003 //C 00545   204 test	r2,3
+111a0001 //C 00546   205 Z plus	r1,1
+11f2053f //C 00547   206 Z jmp	p2_next
+//R 00547 #16 p2_next 0000053f
+01f20543 //C 00548   207 jmp	p2_cyc
+//R 00548 #16 p2_cyc 00000543
+0f3d0000 //C 00549   209 pop	r3
+//N p2_end Scbb33fda64a3
+0f2d0000 //C 0054a   210 pop	r2
+0f1d0000 //C 0054b   211 pop	r1
+0f0d0000 //C 0054c   212 pop	r0
+00f00e00 //C 0054d   213 ret
+//P S4f82c0ba3965 _lib_segment_str_getchar
+020b0000 //C 0054e   225 sz	r0		; check NULL pointer
+//G str_getchar
+11420000 //C 0054f   226 Z mvzl	r4,0
+10f00e00 //C 00550   227 Z ret
+0d1d0000 //C 00551   228 push	r1
+0d2d0000 //C 00552   229 push	r2
+0d3d0000 //C 00553   230 push	r3
+0d5d0000 //C 00554   231 push	r5
+01320000 //C 00555   233 mvzl	r3,0		; word index
+01140001 //C 00556   234 inc	r1
+01520000 //C 00557   236 mvzl	r5,0		; start byte index in word
+//N gchar_cyc S4f82c0ba3965
+0b438000 //C 00558   237 ld	r4,r3+,r0	; pick a word
+024b0000 //C 00559   238 sz	r4		; EOS?
+11f20566 //C 0055a   239 jz	gchar_ret_eos
+//R 0055a #16 gchar_ret_eos 00000566
+06214405 //C 0055b   241 getbz	r2,r4,r5	; pick byte from word
+//N gchar_byte S4f82c0ba3965
+022b0000 //C 0055c   242 sz	r2		; is it 0?
+11f20557 //C 0055d   243 jz	gchar_cyc	; if yes, get next word
+//R 0055d #16 gchar_cyc 00000557
+0114ffff //C 0055e   245 dec	r1		; count
+//N gchar_nonz S4f82c0ba3965
+11f20564 //C 0055f   246 jz	gchar_ret_act	; repeat if index is not reached
+//R 0055f #16 gchar_ret_act 00000564
+01540001 //C 00560   248 inc	r5		; next byte index
+01580004 //C 00561   249 cmp	r5,4		; is it overflowed?
+11f20557 //C 00562   250 jz	gchar_cyc
+//R 00562 #16 gchar_cyc 00000557
+01f2055b //C 00563   251 jmp	gchar_byte
+//R 00563 #16 gchar_byte 0000055b
+00400200 //C 00564   254 mov	r4,r2
+//N gchar_ret_act S4f82c0ba3965
+01f20567 //C 00565   255 jmp	gchar_ret
+//R 00565 #16 gchar_ret 00000567
+01420000 //C 00566   257 mvzl	r4,0
+//N gchar_ret_eos S4f82c0ba3965
+0f5d0000 //C 00567   259 pop	r5
+//N gchar_ret S4f82c0ba3965
+0f3d0000 //C 00568   260 pop	r3
+0f2d0000 //C 00569   261 pop	r2
+0f1d0000 //C 0056a   262 pop	r1
+00f00e00 //C 0056b   263 ret
+//P S5cb1f98163db _lib_segment_str_setchar
+020b0000 //C 0056c   276 sz	r0		; check NULL pointer
+//G str_setchar
+10f00e00 //C 0056d   277 Z ret
+0d1d0000 //C 0056e   278 push	r1
+0d3d0000 //C 0056f   279 push	r3
+0d5d0000 //C 00570   280 push	r5
+0d6d0000 //C 00571   281 push	r6
+01320000 //C 00572   283 mvzl	r3,0		; word index
+01140001 //C 00573   284 inc	r1
+01520000 //C 00574   286 mvzl	r5,0		; start byte index in word
+//N schar_cyc S5cb1f98163db
+0a430000 //C 00575   287 ld	r4,r3,r0	; pick a word
+024b0000 //C 00576   288 sz	r4		; EOS?
+11f20585 //C 00577   289 jz	schar_ret
+//R 00577 #16 schar_ret 00000585
+06614405 //C 00578   291 getbz	r6,r4,r5	; pick byte from word
+//N schar_byte S5cb1f98163db
+026b0000 //C 00579   292 sz	r6		; is it 0?
+113a0001 //C 0057a   293 Z plus	r3,1		; if yes, get next word
+11f20574 //C 0057b   294 jz	schar_cyc
+//R 0057b #16 schar_cyc 00000574
+0114ffff //C 0057c   296 dec	r1		; count
+//N schar_nonz S5cb1f98163db
+11f20583 //C 0057d   297 jz	schar_set	; repeat if index is not reached
+//R 0057d #16 schar_set 00000583
+01540001 //C 0057e   299 inc	r5		; next byte index
+01580004 //C 0057f   300 cmp	r5,4		; is it overflowed?
+113a0001 //C 00580   301 Z plus	r3,1
+11f20574 //C 00581   302 jz	schar_cyc
+//R 00581 #16 schar_cyc 00000574
+01f20578 //C 00582   303 jmp	schar_byte
+//R 00582 #16 schar_byte 00000578
+07410205 //C 00583   306 putb	r4,r2,r5	; replace char in orig word
+//N schar_set S5cb1f98163db
+08430000 //C 00584   307 st	r4,r3,r0	; store in memory
+0f6d0000 //C 00585   309 pop	r6
+//N schar_ret S5cb1f98163db
+0f5d0000 //C 00586   310 pop	r5
+0f3d0000 //C 00587   311 pop	r3
+0f1d0000 //C 00588   312 pop	r1
+00f00e00 //C 00589   313 ret
+//P S53f2e29bd178 _lib_segment_str_packed
+020b0000 //C 0058a   324 sz	r0		; check NULL pointer
+//G str_packed
+120d0000 //C 0058b   325 Z clc
+10f00e00 //C 0058c   326 Z ret
+0d1d0000 //C 0058d   327 push	r1
+0d2d0000 //C 0058e   328 push	r2
+01220000 //C 0058f   329 mvzl	r2,0		; index
+0b128000 //C 00590   331 ld	r1,r2+,r0	; pick word
+//N sp_cyc S53f2e29bd178
+021b0000 //C 00591   332 sz	r1
+11f20597 //C 00592   333 jz	sp_false
+//R 00592 #16 sp_false 00000597
+011fff00 //C 00593   334 and	r1,0xff00	; check upper bytes
+11f20590 //C 00594   335 jz	sp_cyc
+//R 00594 #16 sp_cyc 00000590
+020c0000 //C 00595   337 sec
+//N sp_true S53f2e29bd178
+01f20598 //C 00596   338 jmp	sp_ret
+//R 00596 #16 sp_ret 00000598
+020d0000 //C 00597   340 clc
+//N sp_false S53f2e29bd178
+0f3d0000 //C 00598   342 pop	r3
+//N sp_ret S53f2e29bd178
+0f2d0000 //C 00599   343 pop	r2
+00f00e00 //C 0059a   344 ret
+//F char.asm
+//P S602f0726a14b _lib_segment_character_fn
+020c0000 //C 0059b    22 sec
+//G _char_is_true
+00f00e00 //C 0059c    23 ret
+020d0000 //C 0059d    25 clc
+//G _char_is_false
+00f00e00 //C 0059e    26 ret
+//P S847a5c4e618b _lib_segment_isdigit
+01080030 //C 0059f    37 cmp	R0,'0'
+//G isdigit
+41f2059d //C 005a0    38 ULT jmp	_char_is_false
+//R 005a0 #16 _char_is_false 0000059d
+01080039 //C 005a1    39 cmp	R0,'9'
+91f2059d //C 005a2    40 UGT jmp	_char_is_false
+//R 005a2 #16 _char_is_false 0000059d
+01f2059b //C 005a3    41 jmp _char_is_true
+//R 005a3 #16 _char_is_true 0000059b
+//P S9a7f1c151839 _lib_segment_islower
+01080061 //C 005a4    53 cmp	r0,'a'
+//G islower
+41f2059d //C 005a5    54 ULT jmp	_char_is_false
+//R 005a5 #16 _char_is_false 0000059d
+0108007a //C 005a6    55 cmp	r0,'z'
+91f2059d //C 005a7    56 UGT jmp	_char_is_false
+//R 005a7 #16 _char_is_false 0000059d
+01f2059b //C 005a8    57 jmp	_char_is_true
+//R 005a8 #16 _char_is_true 0000059b
+//P S154e11ca77b1 _lib_segment_isupper
+01080041 //C 005a9    69 cmp	r0,'A'
+//G isupper
+41f2059d //C 005aa    70 ULT jmp	_char_is_false
+//R 005aa #16 _char_is_false 0000059d
+0108005a //C 005ab    71 cmp	r0,'Z'
+91f2059d //C 005ac    72 UGT jmp	_char_is_false
+//R 005ac #16 _char_is_false 0000059d
+01f2059b //C 005ad    73 jmp	_char_is_true
+//R 005ad #16 _char_is_true 0000059b
+//P Sf1f3b6b1f10a _lib_segment_isalpha
+0ded0000 //C 005ae    85 push	lr
+//G isalpha
+040005a4 //C 005af    86 call	islower
+//R 005af #24 islower 000005a4
+3ffd0000 //C 005b0    87 C pop	pc
+040005a9 //C 005b1    88 call	isupper
+//R 005b1 #24 isupper 000005a9
+0ffd0000 //C 005b2    89 pop	pc
+//P Sb95a2b17779b _lib_segment_isalnum
+0ded0000 //C 005b3   101 push	lr
+//G isalnum
+040005ae //C 005b4   102 call	isalpha
+//R 005b4 #24 isalpha 000005ae
+3ffd0000 //C 005b5   103 C pop	pc
+0400059f //C 005b6   104 call	isdigit
+//R 005b6 #24 isdigit 0000059f
+0ffd0000 //C 005b7   105 pop	pc
+//F inout.asm
+//P S503b4c87a8c4 _lib_segment_putchar
+01f2f00e //C 005b8    24 jmp	_pm_putchar
+//R 005b8 #16 _pm_putchar 0000f00e
+//G putchar
+//P S433104d33bc0 _lib_segment_prints
+01f2f00f //C 005b9    30 jmp	_pm_prints
+//R 005b9 #16 _pm_prints 0000f00f
+//G prints
+//P S23554af9f140 _lib_segment_eprints
+01f2f012 //C 005ba    54 jmp	_pm_pes
+//R 005ba #16 _pm_pes 0000f012
+//G eprints
+//P Sff63d250b521 _lib_segment_printf
+01f2f014 //C 005bb    60 jmp	_pm_printf
+//R 005bb #16 _pm_printf 0000f014
+//G printf
+//P Sb401aee44acb _lib_segment_eprintf
+01f2f015 //C 005bc    66 jmp	_pm_pesf
+//R 005bc #16 _pm_pesf 0000f015
+//G eprintf
+//P Sedd6b6695436 _lib_segment_input_avail
+01f2f008 //C 005bd    72 jmp	_pm_check_uart
+//R 005bd #16 _pm_check_uart 0000f008
+//G input_avail
+//P S84a19e8ae015 _lib_segment_read
+0740ff40 //C 005be    89 ld	r4,UART.DR
+//R 005be #16 UART.DR 0000ff40
+//G read
+00f00e00 //C 005bf    90 ret
+//F mon.asm
+//P Sd14c348df59b _lib_segment_pmon
+01f2f000 //C 005c0    40 jmp	_pm_callin
+//R 005c0 #16 _pm_callin 0000f000
+//G monitor
+01f2f001 //C 005c1    44 jmp	_pm_enter_by_uart
+//R 005c1 #16 _pm_enter_by_uart 0000f001
+//G monitor_by_uart
+0ded0000 //C 005c2    48 push	lr
+//G monitor_by_button
+04000627 //C 005c3    49 call	btn_posedge
+//R 005c3 #24 btn_posedge 00000627
+4ffd0000 //C 005c4    50 NC pop	pc
+040005c0 //C 005c5    51 call	monitor
+//R 005c5 #24 monitor 000005c0
+0400061d //C 005c6    52 call	btn_restart
+//R 005c6 #24 btn_restart 0000061d
+0ffd0000 //C 005c7    53 pop	pc
+0ded0000 //C 005c8    57 push	lr
+//G monitor_version
+0d0d0000 //C 005c9    58 push	r0
+0400f003 //C 005ca    59 call	_pm_version
+//R 005ca #24 _pm_version 0000f003
+00400000 //C 005cb    60 mov	r4,r0
+0f0d0000 //C 005cc    61 pop	r0
+0ffd0000 //C 005cd    62 pop	pc
+//F bsp.asm
+//P S45ec84dfaab0 _lib_segment_nr_to_mask
+0d1d0000 //C 005ce    26 push	r1
+//G _nr_to_mask
+010b001f //C 005cf    27 btst	r0,0x1f		; max nr is 31
+01120001 //C 005d0    28 mvzl	r1,1		; mask for nr==0
+020b0000 //C 005d1    30 sz	r0		; is nr zero?
+//N nr_to_mask_cyc S45ec84dfaab0
+11f205d6 //C 005d2    31 jz	nr_to_mask_ret	; if yes, go out
+//R 005d2 #16 nr_to_mask_ret 000005d6
+02180000 //C 005d3    32 shl	r1		; shift mask up
+0104ffff //C 005d4    33 dec	r0		; decrement nr
+01f205d1 //C 005d5    34 jmp	nr_to_mask_cyc	; check for zero
+//R 005d5 #16 nr_to_mask_cyc 000005d1
+00000100 //C 005d6    36 mov	r0,r1		; return mask in R0
+//N nr_to_mask_ret S45ec84dfaab0
+0f1d0000 //C 005d7    37 pop	r1
+00f00e00 //C 005d8    38 ret
+//P S38738b71c88c _lib_segment_edge
+00000000 //C 005d9   120 ds	1
+//+ 00000001
+//N last_btn S38738b71c88c
+00000000 //C 005da   122 ds	1
+//+ 00000001
+//N last_sw S38738b71c88c
+00000000 //C 005db   124 ds	1
+//+ 00000001
+//N last_btn_down S38738b71c88c
+00000000 //C 005dc   126 ds	1
+//+ 00000001
+//N last_sw_down S38738b71c88c
+00000000 //C 005dd   128 db	0
+//N last_btn_inited S38738b71c88c
+00000000 //C 005de   130 db	0
+//N last_sw_inited S38738b71c88c
+0ded0000 //C 005df   141 push	lr
+//G _lib_edge_detect
+0d1d0000 //C 005e0   142 push	r1
+0d2d0000 //C 005e1   143 push	r2
+0d3d0000 //C 005e2   144 push	r3
+0d4d0000 //C 005e3   145 push	r4
+0d5d0000 //C 005e4   146 push	r5
+00500100 //C 005e5   148 mov	r5,r1		; what edge to check
+31f205f0 //C 005e6   149 C jmp	init_sw
+//R 005e6 #16 init_sw 000005f0
+071005dd //C 005e7   151 ld	r1,last_btn_inited
+//R 005e7 #16 last_btn_inited 000005dd
+//N init_btn S38738b71c88c
+021b0000 //C 005e8   152 sz	r1
+21f205f9 //C 005e9   153 jnz	pressed_inited
+//R 005e9 #16 pressed_inited 000005f9
+01120001 //C 005ea   154 mvzl	r1,1
+061005dd //C 005eb   155 st	r1,last_btn_inited
+//R 005eb #16 last_btn_inited 000005dd
+0710ff20 //C 005ec   156 ld	r1,GPIO.BTN
+//R 005ec #16 GPIO.BTN 0000ff20
+061005d9 //C 005ed   157 st	r1,last_btn
+//R 005ed #16 last_btn 000005d9
+061005db //C 005ee   158 st	r1,last_btn_down
+//R 005ee #16 last_btn_down 000005db
+01f20616 //C 005ef   159 jmp	pressed_false
+//R 005ef #16 pressed_false 00000616
+071005de //C 005f0   161 ld	r1,last_sw_inited
+//R 005f0 #16 last_sw_inited 000005de
+//N init_sw S38738b71c88c
+021b0000 //C 005f1   162 sz	r1
+21f205f9 //C 005f2   163 jnz	pressed_inited
+//R 005f2 #16 pressed_inited 000005f9
+01120001 //C 005f3   164 mvzl	r1,1
+061005de //C 005f4   165 st	r1,last_sw_inited
+//R 005f4 #16 last_sw_inited 000005de
+0710ff10 //C 005f5   166 ld	r1,GPIO.SW
+//R 005f5 #16 GPIO.SW 0000ff10
+061005da //C 005f6   167 st	r1,last_sw
+//R 005f6 #16 last_sw 000005da
+061005dc //C 005f7   168 st	r1,last_sw_down
+//R 005f7 #16 last_sw_down 000005dc
+01f20616 //C 005f8   169 jmp	pressed_false
+//R 005f8 #16 pressed_false 00000616
+4122ff20 //C 005f9   173 NC mvzl	r2,GPIO.BTN
+//R 005f9 #16 GPIO.BTN 0000ff20
+//N pressed_inited S38738b71c88c
+3122ff10 //C 005fa   174 C mvzl	r2,GPIO.SW
+//R 005fa #16 GPIO.SW 0000ff10
+31f205ff //C 005fb   175 jc	ch_sw
+//R 005fb #16 ch_sw 000005ff
+025b0000 //C 005fc   177 sz	r5
+//N ch_btn S38738b71c88c
+111205d9 //C 005fd   178 Z mvzl	r1,last_btn
+//R 005fd #16 last_btn 000005d9
+211205db //C 005fe   179 NZ mvzl	r1,last_btn_down
+//R 005fe #16 last_btn_down 000005db
+025b0000 //C 005ff   181 sz	r5
+//N ch_sw S38738b71c88c
+111205da //C 00600   182 Z mvzl	r1,last_sw
+//R 00600 #16 last_sw 000005da
+211205dc //C 00601   183 NZ mvzl	r1,last_sw_down
+//R 00601 #16 last_sw_down 000005dc
+0e310000 //C 00602   187 ld	r3,r1
+0e420000 //C 00603   188 ld	r4,r2
+003f0000 //C 00604   190 and	r3,r0		; masked last
+004f0000 //C 00605   191 and	r4,r0		; masked port
+00380400 //C 00606   192 cmp	r3,r4
+11f20616 //C 00607   193 EQ jmp	pressed_false
+//R 00607 #16 pressed_false 00000616
+02040000 //C 00608   194 not	r0		; negated mask
+0e310000 //C 00609   195 ld	r3,r1		; original last
+003f0000 //C 0060a   196 and	r3,r0		; clear checked bit
+003d0400 //C 0060b   197 or	r3,r4		; or with masked port
+0c310000 //C 0060c   198 st	r3,r1		; store new last value
+025b0000 //C 0060d   199 sz	r5
+21f20612 //C 0060e   200 jnz	check_release
+//R 0060e #16 check_release 00000612
+024b0000 //C 0060f   202 sz	r4		; check new port value
+//N check_push S38738b71c88c
+11f20616 //C 00610   203 jz	pressed_false
+//R 00610 #16 pressed_false 00000616
+21f20614 //C 00611   204 jnz	pressed_true
+//R 00611 #16 pressed_true 00000614
+024b0000 //C 00612   206 sz	r4
+//N check_release S38738b71c88c
+21f20616 //C 00613   207 jnz	pressed_false
+//R 00613 #16 pressed_false 00000616
+020c0000 //C 00614   210 sec
+//N pressed_true S38738b71c88c
+01f20617 //C 00615   211 jmp	pressed_end
+//R 00615 #16 pressed_end 00000617
+020d0000 //C 00616   213 clc
+//N pressed_false S38738b71c88c
+0f5d0000 //C 00617   215 pop	r5
+//N pressed_end S38738b71c88c
+0f4d0000 //C 00618   216 pop	r4
+0f3d0000 //C 00619   217 pop	r3
+0f2d0000 //C 0061a   218 pop	r2
+0f1d0000 //C 0061b   219 pop	r1
+0ffd0000 //C 0061c   220 pop	pc
+0d1d0000 //C 0061d   225 push	r1
+//G btn_restart
+0710ff20 //C 0061e   226 ld	r1,GPIO.BTN
+//R 0061e #16 GPIO.BTN 0000ff20
+061005d9 //C 0061f   227 st	r1,last_btn
+//R 0061f #16 last_btn 000005d9
+0f1d0000 //C 00620   228 pop	r1
+00f00e00 //C 00621   229 ret
+0d1d0000 //C 00622   233 push	r1
+//G sw_restart
+0710ff10 //C 00623   234 ld	r1,GPIO.SW
+//R 00623 #16 GPIO.SW 0000ff10
+061005da //C 00624   235 st	r1,last_sw
+//R 00624 #16 last_sw 000005da
+0f1d0000 //C 00625   236 pop	r1
+00f00e00 //C 00626   237 ret
+//P Saed5ad4c4c92 _lib_segment_btn
+0ded0000 //C 00627   250 push	lr
+//G btn_posedge
+040005ce //C 00628   251 call	_nr_to_mask
+//R 00628 #24 _nr_to_mask 000005ce
+0d1d0000 //C 00629   252 push	r1
+01120000 //C 0062a   253 mvzl	r1,0
+020d0000 //C 0062b   254 clc
+040005df //C 0062c   255 call	_lib_edge_detect
+//R 0062c #24 _lib_edge_detect 000005df
+0f1d0000 //C 0062d   256 pop	r1
+0ffd0000 //C 0062e   257 pop	pc
+0ded0000 //C 0062f   266 push	lr
+//G btn_negedge
+040005ce //C 00630   267 call	_nr_to_mask
+//R 00630 #24 _nr_to_mask 000005ce
+0d1d0000 //C 00631   268 push	r1
+01120001 //C 00632   269 mvzl	r1,1
+020d0000 //C 00633   270 clc
+040005df //C 00634   271 call	_lib_edge_detect
+//R 00634 #24 _lib_edge_detect 000005df
+0f1d0000 //C 00635   272 pop	r1
+0ffd0000 //C 00636   273 pop	pc
+0ded0000 //C 00637   282 push	lr
+//G btn_get
+0d1d0000 //C 00638   283 push	r1
+040005ce //C 00639   284 call	_nr_to_mask
+//R 00639 #24 _nr_to_mask 000005ce
+0710ff20 //C 0063a   285 ld	r1,GPIO.BTN
+//R 0063a #16 GPIO.BTN 0000ff20
+001f0000 //C 0063b   286 and	r1,r0
+120d0000 //C 0063c   287 Z clc
+220c0000 //C 0063d   288 NZ sec
+0f1d0000 //C 0063e   289 pop	r1
+0ffd0000 //C 0063f   290 pop	pc
+//H 5c3c807c
+//E

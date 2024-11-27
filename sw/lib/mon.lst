@@ -1,0 +1,4157 @@
+;; 
+;; Phase 1 of file mon.asm [ASM]
+
+;; 65 lines buffered
+;; 
+
+;; line[1]: .proc	p2
+;; proc_asm_line; lnr=1 w=.proc
+;; is_cond(.PROC); 12 P1
+;; Use Processor p2223
+;; 
+
+;; line[2]: 
+;; proc_asm_line; no words found in line 2
+;; 
+
+;; line[3]: ;;
+;; 
+
+;; line[4]: ;;          monitor           ()
+;; 
+
+;; line[5]: ;; 	    monitor_by_uart   ()
+;; 
+
+;; line[6]: ;;          monitor_by_button (R0:btn)
+;; 
+
+;; line[7]: ;; R4:ver   monitor_version   ()
+;; 
+
+;; line[8]: ;;
+;; 
+
+;; line[9]: 
+;; proc_asm_line; no words found in line 9
+;; 
+
+;; line[10]: 
+;; proc_asm_line; no words found in line 10
+;; 
+
+;; line[11]: .seg	_lib_segment_pmon
+;; proc_asm_line; lnr=11 w=.seg
+;; is_cond(.SEG); 54 P2
+;; Segment started: _lib_segment_pmon,Sd14c348df59b
+;; 
+
+;; line[12]: 
+;; proc_asm_line; no words found in line 12
+;; 
+
+;; line[13]: _pm_callin		==	0xf000
+;; proc_asm_line; lnr=13 w=_pm_callin
+;; is_cond(_PM_CALLIN); 54 P2
+;; is_inst(_PM_CALLIN);
+;; proc_asm_line; lnr=13 w===
+;; is_cond(==); 54 P2
+;; proc_asm_line; EQU W=== w=0xf000 val=61440
+;; Exporting symbol "_pm_callin"
+;; proc_asm_line; SYMBOL _pm_callin=61440
+;; 
+
+;; line[14]: _pm_enter_by_uart	==	0xf001
+;; proc_asm_line; lnr=14 w=_pm_enter_by_uart
+;; is_cond(_PM_ENTER_BY_UART); 54 P2
+;; is_inst(_PM_ENTER_BY_UART);
+;; proc_asm_line; lnr=14 w===
+;; is_cond(==); 54 P2
+;; proc_asm_line; EQU W=== w=0xf001 val=61441
+;; Exporting symbol "_pm_enter_by_uart"
+;; proc_asm_line; SYMBOL _pm_enter_by_uart=61441
+;; 
+
+;; line[15]: _pm_getchar		==	0xf002
+;; proc_asm_line; lnr=15 w=_pm_getchar
+;; is_cond(_PM_GETCHAR); 54 P2
+;; is_inst(_PM_GETCHAR);
+;; proc_asm_line; lnr=15 w===
+;; is_cond(==); 54 P2
+;; proc_asm_line; EQU W=== w=0xf002 val=61442
+;; Exporting symbol "_pm_getchar"
+;; proc_asm_line; SYMBOL _pm_getchar=61442
+;; 
+
+;; line[16]: _pm_version		==	0xf003
+;; proc_asm_line; lnr=16 w=_pm_version
+;; is_cond(_PM_VERSION); 54 P2
+;; is_inst(_PM_VERSION);
+;; proc_asm_line; lnr=16 w===
+;; is_cond(==); 54 P2
+;; proc_asm_line; EQU W=== w=0xf003 val=61443
+;; Exporting symbol "_pm_version"
+;; proc_asm_line; SYMBOL _pm_version=61443
+;; 
+
+;; line[17]: _pm_itobcd		==	0xf004
+;; proc_asm_line; lnr=17 w=_pm_itobcd
+;; is_cond(_PM_ITOBCD); 54 P2
+;; is_inst(_PM_ITOBCD);
+;; proc_asm_line; lnr=17 w===
+;; is_cond(==); 54 P2
+;; proc_asm_line; EQU W=== w=0xf004 val=61444
+;; Exporting symbol "_pm_itobcd"
+;; proc_asm_line; SYMBOL _pm_itobcd=61444
+;; 
+
+;; line[18]: _pm_cold_start		==	0xf005
+;; proc_asm_line; lnr=18 w=_pm_cold_start
+;; is_cond(_PM_COLD_START); 54 P2
+;; is_inst(_PM_COLD_START);
+;; proc_asm_line; lnr=18 w===
+;; is_cond(==); 54 P2
+;; proc_asm_line; EQU W=== w=0xf005 val=61445
+;; Exporting symbol "_pm_cold_start"
+;; proc_asm_line; SYMBOL _pm_cold_start=61445
+;; 
+
+;; line[19]: _pm_strchr		==	0xf006
+;; proc_asm_line; lnr=19 w=_pm_strchr
+;; is_cond(_PM_STRCHR); 54 P2
+;; is_inst(_PM_STRCHR);
+;; proc_asm_line; lnr=19 w===
+;; is_cond(==); 54 P2
+;; proc_asm_line; EQU W=== w=0xf006 val=61446
+;; Exporting symbol "_pm_strchr"
+;; proc_asm_line; SYMBOL _pm_strchr=61446
+;; 
+
+;; line[20]: _pm_streq		==	0xf007
+;; proc_asm_line; lnr=20 w=_pm_streq
+;; is_cond(_PM_STREQ); 54 P2
+;; is_inst(_PM_STREQ);
+;; proc_asm_line; lnr=20 w===
+;; is_cond(==); 54 P2
+;; proc_asm_line; EQU W=== w=0xf007 val=61447
+;; Exporting symbol "_pm_streq"
+;; proc_asm_line; SYMBOL _pm_streq=61447
+;; 
+
+;; line[21]: _pm_check_uart		==	0xf008
+;; proc_asm_line; lnr=21 w=_pm_check_uart
+;; is_cond(_PM_CHECK_UART); 54 P2
+;; is_inst(_PM_CHECK_UART);
+;; proc_asm_line; lnr=21 w===
+;; is_cond(==); 54 P2
+;; proc_asm_line; EQU W=== w=0xf008 val=61448
+;; Exporting symbol "_pm_check_uart"
+;; proc_asm_line; SYMBOL _pm_check_uart=61448
+;; 
+
+;; line[22]: _pm_input_avail		==	0xf008
+;; proc_asm_line; lnr=22 w=_pm_input_avail
+;; is_cond(_PM_INPUT_AVAIL); 54 P2
+;; is_inst(_PM_INPUT_AVAIL);
+;; proc_asm_line; lnr=22 w===
+;; is_cond(==); 54 P2
+;; proc_asm_line; EQU W=== w=0xf008 val=61448
+;; Exporting symbol "_pm_input_avail"
+;; proc_asm_line; SYMBOL _pm_input_avail=61448
+;; 
+
+;; line[23]: _pm_hexchar2value	==	0xf009
+;; proc_asm_line; lnr=23 w=_pm_hexchar2value
+;; is_cond(_PM_HEXCHAR2VALUE); 54 P2
+;; is_inst(_PM_HEXCHAR2VALUE);
+;; proc_asm_line; lnr=23 w===
+;; is_cond(==); 54 P2
+;; proc_asm_line; EQU W=== w=0xf009 val=61449
+;; Exporting symbol "_pm_hexchar2value"
+;; proc_asm_line; SYMBOL _pm_hexchar2value=61449
+;; 
+
+;; line[24]: _pm_value2hexchar	==	0xf00a
+;; proc_asm_line; lnr=24 w=_pm_value2hexchar
+;; is_cond(_PM_VALUE2HEXCHAR); 54 P2
+;; is_inst(_PM_VALUE2HEXCHAR);
+;; proc_asm_line; lnr=24 w===
+;; is_cond(==); 54 P2
+;; proc_asm_line; EQU W=== w=0xf00a val=61450
+;; Exporting symbol "_pm_value2hexchar"
+;; proc_asm_line; SYMBOL _pm_value2hexchar=61450
+;; 
+
+;; line[25]: _pm_htoi		==	0xf00b
+;; proc_asm_line; lnr=25 w=_pm_htoi
+;; is_cond(_PM_HTOI); 54 P2
+;; is_inst(_PM_HTOI);
+;; proc_asm_line; lnr=25 w===
+;; is_cond(==); 54 P2
+;; proc_asm_line; EQU W=== w=0xf00b val=61451
+;; Exporting symbol "_pm_htoi"
+;; proc_asm_line; SYMBOL _pm_htoi=61451
+;; 
+
+;; line[26]: _pm_strieq		==	0xf00c
+;; proc_asm_line; lnr=26 w=_pm_strieq
+;; is_cond(_PM_STRIEQ); 54 P2
+;; is_inst(_PM_STRIEQ);
+;; proc_asm_line; lnr=26 w===
+;; is_cond(==); 54 P2
+;; proc_asm_line; EQU W=== w=0xf00c val=61452
+;; Exporting symbol "_pm_strieq"
+;; proc_asm_line; SYMBOL _pm_strieq=61452
+;; 
+
+;; line[27]: _pm_read		==	0xf00d
+;; proc_asm_line; lnr=27 w=_pm_read
+;; is_cond(_PM_READ); 54 P2
+;; is_inst(_PM_READ);
+;; proc_asm_line; lnr=27 w===
+;; is_cond(==); 54 P2
+;; proc_asm_line; EQU W=== w=0xf00d val=61453
+;; Exporting symbol "_pm_read"
+;; proc_asm_line; SYMBOL _pm_read=61453
+;; 
+
+;; line[28]: _pm_putchar		==	0xf00e
+;; proc_asm_line; lnr=28 w=_pm_putchar
+;; is_cond(_PM_PUTCHAR); 54 P2
+;; is_inst(_PM_PUTCHAR);
+;; proc_asm_line; lnr=28 w===
+;; is_cond(==); 54 P2
+;; proc_asm_line; EQU W=== w=0xf00e val=61454
+;; Exporting symbol "_pm_putchar"
+;; proc_asm_line; SYMBOL _pm_putchar=61454
+;; 
+
+;; line[29]: _pm_prints		==	0xf00f
+;; proc_asm_line; lnr=29 w=_pm_prints
+;; is_cond(_PM_PRINTS); 54 P2
+;; is_inst(_PM_PRINTS);
+;; proc_asm_line; lnr=29 w===
+;; is_cond(==); 54 P2
+;; proc_asm_line; EQU W=== w=0xf00f val=61455
+;; Exporting symbol "_pm_prints"
+;; proc_asm_line; SYMBOL _pm_prints=61455
+;; 
+
+;; line[30]: _pm_printsnl		==	0xf010
+;; proc_asm_line; lnr=30 w=_pm_printsnl
+;; is_cond(_PM_PRINTSNL); 54 P2
+;; is_inst(_PM_PRINTSNL);
+;; proc_asm_line; lnr=30 w===
+;; is_cond(==); 54 P2
+;; proc_asm_line; EQU W=== w=0xf010 val=61456
+;; Exporting symbol "_pm_printsnl"
+;; proc_asm_line; SYMBOL _pm_printsnl=61456
+;; 
+
+;; line[31]: _pm_print_vhex		==	0xf011
+;; proc_asm_line; lnr=31 w=_pm_print_vhex
+;; is_cond(_PM_PRINT_VHEX); 54 P2
+;; is_inst(_PM_PRINT_VHEX);
+;; proc_asm_line; lnr=31 w===
+;; is_cond(==); 54 P2
+;; proc_asm_line; EQU W=== w=0xf011 val=61457
+;; Exporting symbol "_pm_print_vhex"
+;; proc_asm_line; SYMBOL _pm_print_vhex=61457
+;; 
+
+;; line[32]: _pm_pes			==	0xf012
+;; proc_asm_line; lnr=32 w=_pm_pes
+;; is_cond(_PM_PES); 54 P2
+;; is_inst(_PM_PES);
+;; proc_asm_line; lnr=32 w===
+;; is_cond(==); 54 P2
+;; proc_asm_line; EQU W=== w=0xf012 val=61458
+;; Exporting symbol "_pm_pes"
+;; proc_asm_line; SYMBOL _pm_pes=61458
+;; 
+
+;; line[33]: _pm_printd		==	0xf013
+;; proc_asm_line; lnr=33 w=_pm_printd
+;; is_cond(_PM_PRINTD); 54 P2
+;; is_inst(_PM_PRINTD);
+;; proc_asm_line; lnr=33 w===
+;; is_cond(==); 54 P2
+;; proc_asm_line; EQU W=== w=0xf013 val=61459
+;; Exporting symbol "_pm_printd"
+;; proc_asm_line; SYMBOL _pm_printd=61459
+;; 
+
+;; line[34]: _pm_printf		==	0xf014
+;; proc_asm_line; lnr=34 w=_pm_printf
+;; is_cond(_PM_PRINTF); 54 P2
+;; is_inst(_PM_PRINTF);
+;; proc_asm_line; lnr=34 w===
+;; is_cond(==); 54 P2
+;; proc_asm_line; EQU W=== w=0xf014 val=61460
+;; Exporting symbol "_pm_printf"
+;; proc_asm_line; SYMBOL _pm_printf=61460
+;; 
+
+;; line[35]: _pm_pesf		==	0xf015
+;; proc_asm_line; lnr=35 w=_pm_pesf
+;; is_cond(_PM_PESF); 54 P2
+;; is_inst(_PM_PESF);
+;; proc_asm_line; lnr=35 w===
+;; is_cond(==); 54 P2
+;; proc_asm_line; EQU W=== w=0xf015 val=61461
+;; Exporting symbol "_pm_pesf"
+;; proc_asm_line; SYMBOL _pm_pesf=61461
+;; 
+
+;; line[36]: _pm_ascii2seg		==	0xf016
+;; proc_asm_line; lnr=36 w=_pm_ascii2seg
+;; is_cond(_PM_ASCII2SEG); 54 P2
+;; is_inst(_PM_ASCII2SEG);
+;; proc_asm_line; lnr=36 w===
+;; is_cond(==); 54 P2
+;; proc_asm_line; EQU W=== w=0xf016 val=61462
+;; Exporting symbol "_pm_ascii2seg"
+;; proc_asm_line; SYMBOL _pm_ascii2seg=61462
+;; 
+
+;; line[37]: 
+;; proc_asm_line; no words found in line 37
+;; 
+
+;; line[38]: 
+;; proc_asm_line; no words found in line 38
+;; 
+
+;; line[39]: monitor::
+;; proc_asm_line; lnr=39 w=monitor::
+;; proc_asm_line; found label=monitor at addr=0
+;; mk_mem(addr=0 fin=mon.asm lnr=39)
+;; Exporting symbol "monitor"
+;; first word precessed, addr=0
+;; Instructionless line
+;; 
+
+;; line[40]: jmp	_pm_callin
+;; proc_asm_line; lnr=40 w=jmp
+;; is_cond(JMP); 54 P2
+;; is_inst(JMP);
+;; proc_asm_line; lnr=40 INST= 01f20000 in segment Array
+(
+    [name] => _lib_segment_pmon
+    [id] => Sd14c348df59b
+    [start] => 0
+    [noload] => 
+    [abs] => 
+    [fin] => mon.asm
+    [lnr] => 11
+)
+
+;; mk_mem(addr=0 fin=mon.asm lnr=40)
+;; mem[0] updated
+;; proc_asm_line; lnr=40
+;; mem[0].lnr=40
+;; 00000 01f20000 (Sd14c348df59b)
+;; 
+;; first word precessed, addr=0
+;; Continue with params
+;; Parameter word: _pm_callin _PM_CALLIN
+;; Check if _PM_CALLIN/_PM_CALLIN is a reg?
+;; Check if _PM_CALLIN/_PM_CALLIN is a reg?
+;; is_reg? r=
+;; Parameter value: _pm_callin
+;; param pattern=n_
+;; Added params=
+Array
+(
+    [0] => _pm_callin
+)
+
+to inst at 0
+;; mem[0] is ready
+;; new addr=1
+;; 
+
+;; line[41]: 
+;; proc_asm_line; no words found in line 41
+;; 
+
+;; line[42]: 
+;; proc_asm_line; no words found in line 42
+;; 
+
+;; line[43]: monitor_by_uart::
+;; proc_asm_line; lnr=43 w=monitor_by_uart::
+;; proc_asm_line; found label=monitor_by_uart at addr=1
+;; mk_mem(addr=1 fin=mon.asm lnr=43)
+;; Exporting symbol "monitor_by_uart"
+;; first word precessed, addr=1
+;; Instructionless line
+;; 
+
+;; line[44]: jmp	_pm_enter_by_uart
+;; proc_asm_line; lnr=44 w=jmp
+;; is_cond(JMP); 54 P2
+;; is_inst(JMP);
+;; proc_asm_line; lnr=44 INST= 01f20000 in segment Array
+(
+    [name] => _lib_segment_pmon
+    [id] => Sd14c348df59b
+    [start] => 0
+    [noload] => 
+    [abs] => 
+    [fin] => mon.asm
+    [lnr] => 11
+)
+
+;; mk_mem(addr=1 fin=mon.asm lnr=44)
+;; mem[1] updated
+;; proc_asm_line; lnr=44
+;; mem[1].lnr=44
+;; 00001 01f20000 (Sd14c348df59b)
+;; 
+;; first word precessed, addr=1
+;; Continue with params
+;; Parameter word: _pm_enter_by_uart _PM_ENTER_BY_UART
+;; Check if _PM_ENTER_BY_UART/_PM_ENTER_BY_UART is a reg?
+;; Check if _PM_ENTER_BY_UART/_PM_ENTER_BY_UART is a reg?
+;; is_reg? r=
+;; Parameter value: _pm_enter_by_uart
+;; param pattern=n_
+;; Added params=
+Array
+(
+    [0] => _pm_enter_by_uart
+)
+
+to inst at 1
+;; mem[1] is ready
+;; new addr=2
+;; 
+
+;; line[45]: 
+;; proc_asm_line; no words found in line 45
+;; 
+
+;; line[46]: 
+;; proc_asm_line; no words found in line 46
+;; 
+
+;; line[47]: monitor_by_button::
+;; proc_asm_line; lnr=47 w=monitor_by_button::
+;; proc_asm_line; found label=monitor_by_button at addr=2
+;; mk_mem(addr=2 fin=mon.asm lnr=47)
+;; Exporting symbol "monitor_by_button"
+;; first word precessed, addr=2
+;; Instructionless line
+;; 
+
+;; line[48]: push	lr
+;; proc_asm_line; lnr=48 w=push
+;; is_cond(PUSH); 54 P2
+;; is_inst(PUSH);
+;; proc_asm_line; lnr=48 INST= 0d0d0000 in segment Array
+(
+    [name] => _lib_segment_pmon
+    [id] => Sd14c348df59b
+    [start] => 0
+    [noload] => 
+    [abs] => 
+    [fin] => mon.asm
+    [lnr] => 11
+)
+
+;; mk_mem(addr=2 fin=mon.asm lnr=48)
+;; mem[2] updated
+;; proc_asm_line; lnr=48
+;; mem[2].lnr=48
+;; 00002 0d0d0000 (Sd14c348df59b)
+;; 
+;; first word precessed, addr=2
+;; Continue with params
+;; Parameter word: lr LR
+;; Check if LR/LR is a reg?
+;; Check if LR/LR is a reg?
+;; lr=14
+;; is_reg? r=14
+;; Parameter value: 14
+;; param pattern=r_
+;; Added params=
+Array
+(
+    [0] => 14
+)
+
+to inst at 2
+;; mem[2] is ready
+;; new addr=3
+;; 
+
+;; line[49]: call	btn_posedge
+;; proc_asm_line; lnr=49 w=call
+;; is_cond(CALL); 54 P2
+;; is_inst(CALL);
+;; proc_asm_line; lnr=49 INST= 04000000 in segment Array
+(
+    [name] => _lib_segment_pmon
+    [id] => Sd14c348df59b
+    [start] => 0
+    [noload] => 
+    [abs] => 
+    [fin] => mon.asm
+    [lnr] => 11
+)
+
+;; mk_mem(addr=3 fin=mon.asm lnr=49)
+;; proc_asm_line; lnr=49
+;; mem[3].lnr=49
+;; 00003 04000000 (Sd14c348df59b)
+;; 
+;; first word precessed, addr=3
+;; Continue with params
+;; Parameter word: btn_posedge BTN_POSEDGE
+;; Check if BTN_POSEDGE/BTN_POSEDGE is a reg?
+;; Check if BTN_POSEDGE/BTN_POSEDGE is a reg?
+;; is_reg? r=
+;; Parameter value: btn_posedge
+;; param pattern=n_
+;; Added params=
+Array
+(
+    [0] => btn_posedge
+)
+
+to inst at 3
+;; mem[3] is ready
+;; new addr=4
+;; 
+
+;; line[50]: NC pop	pc
+;; proc_asm_line; lnr=50 w=NC
+;; is_cond(NC); 54 P2
+;; proc_asm_line; COND= 40000000
+;; proc_asm_line; ICODE= 40000000
+;; proc_asm_line; lnr=50 w=pop
+;; is_cond(POP); 54 P2
+;; is_inst(POP);
+;; proc_asm_line; lnr=50 INST= 4f0d0000 in segment Array
+(
+    [name] => _lib_segment_pmon
+    [id] => Sd14c348df59b
+    [start] => 0
+    [noload] => 
+    [abs] => 
+    [fin] => mon.asm
+    [lnr] => 11
+)
+
+;; mk_mem(addr=4 fin=mon.asm lnr=50)
+;; proc_asm_line; lnr=50
+;; mem[4].lnr=50
+;; 00004 4f0d0000 (Sd14c348df59b)
+;; 
+;; first word precessed, addr=4
+;; Continue with params
+;; Parameter word: pc PC
+;; Check if PC/PC is a reg?
+;; Check if PC/PC is a reg?
+;; pc=15
+;; is_reg? r=15
+;; Parameter value: 15
+;; param pattern=r_
+;; Added params=
+Array
+(
+    [0] => 15
+)
+
+to inst at 4
+;; mem[4] is ready
+;; new addr=5
+;; 
+
+;; line[51]: call	monitor
+;; proc_asm_line; lnr=51 w=call
+;; is_cond(CALL); 54 P2
+;; is_inst(CALL);
+;; proc_asm_line; lnr=51 INST= 04000000 in segment Array
+(
+    [name] => _lib_segment_pmon
+    [id] => Sd14c348df59b
+    [start] => 0
+    [noload] => 
+    [abs] => 
+    [fin] => mon.asm
+    [lnr] => 11
+)
+
+;; mk_mem(addr=5 fin=mon.asm lnr=51)
+;; proc_asm_line; lnr=51
+;; mem[5].lnr=51
+;; 00005 04000000 (Sd14c348df59b)
+;; 
+;; first word precessed, addr=5
+;; Continue with params
+;; Parameter word: monitor MONITOR
+;; Check if MONITOR/MONITOR is a reg?
+;; Check if MONITOR/MONITOR is a reg?
+;; is_reg? r=
+;; Parameter value: monitor
+;; param pattern=n_
+;; Added params=
+Array
+(
+    [0] => monitor
+)
+
+to inst at 5
+;; mem[5] is ready
+;; new addr=6
+;; 
+
+;; line[52]: call	btn_restart
+;; proc_asm_line; lnr=52 w=call
+;; is_cond(CALL); 54 P2
+;; is_inst(CALL);
+;; proc_asm_line; lnr=52 INST= 04000000 in segment Array
+(
+    [name] => _lib_segment_pmon
+    [id] => Sd14c348df59b
+    [start] => 0
+    [noload] => 
+    [abs] => 
+    [fin] => mon.asm
+    [lnr] => 11
+)
+
+;; mk_mem(addr=6 fin=mon.asm lnr=52)
+;; proc_asm_line; lnr=52
+;; mem[6].lnr=52
+;; 00006 04000000 (Sd14c348df59b)
+;; 
+;; first word precessed, addr=6
+;; Continue with params
+;; Parameter word: btn_restart BTN_RESTART
+;; Check if BTN_RESTART/BTN_RESTART is a reg?
+;; Check if BTN_RESTART/BTN_RESTART is a reg?
+;; is_reg? r=
+;; Parameter value: btn_restart
+;; param pattern=n_
+;; Added params=
+Array
+(
+    [0] => btn_restart
+)
+
+to inst at 6
+;; mem[6] is ready
+;; new addr=7
+;; 
+
+;; line[53]: pop	pc
+;; proc_asm_line; lnr=53 w=pop
+;; is_cond(POP); 54 P2
+;; is_inst(POP);
+;; proc_asm_line; lnr=53 INST= 0f0d0000 in segment Array
+(
+    [name] => _lib_segment_pmon
+    [id] => Sd14c348df59b
+    [start] => 0
+    [noload] => 
+    [abs] => 
+    [fin] => mon.asm
+    [lnr] => 11
+)
+
+;; mk_mem(addr=7 fin=mon.asm lnr=53)
+;; proc_asm_line; lnr=53
+;; mem[7].lnr=53
+;; 00007 0f0d0000 (Sd14c348df59b)
+;; 
+;; first word precessed, addr=7
+;; Continue with params
+;; Parameter word: pc PC
+;; Check if PC/PC is a reg?
+;; Check if PC/PC is a reg?
+;; pc=15
+;; is_reg? r=15
+;; Parameter value: 15
+;; param pattern=r_
+;; Added params=
+Array
+(
+    [0] => 15
+)
+
+to inst at 7
+;; mem[7] is ready
+;; new addr=8
+;; 
+
+;; line[54]: 
+;; proc_asm_line; no words found in line 54
+;; 
+
+;; line[55]: 
+;; proc_asm_line; no words found in line 55
+;; 
+
+;; line[56]: monitor_version::
+;; proc_asm_line; lnr=56 w=monitor_version::
+;; proc_asm_line; found label=monitor_version at addr=8
+;; mk_mem(addr=8 fin=mon.asm lnr=56)
+;; Exporting symbol "monitor_version"
+;; first word precessed, addr=8
+;; Instructionless line
+;; 
+
+;; line[57]: push	lr
+;; proc_asm_line; lnr=57 w=push
+;; is_cond(PUSH); 54 P2
+;; is_inst(PUSH);
+;; proc_asm_line; lnr=57 INST= 0d0d0000 in segment Array
+(
+    [name] => _lib_segment_pmon
+    [id] => Sd14c348df59b
+    [start] => 0
+    [noload] => 
+    [abs] => 
+    [fin] => mon.asm
+    [lnr] => 11
+)
+
+;; mk_mem(addr=8 fin=mon.asm lnr=57)
+;; mem[8] updated
+;; proc_asm_line; lnr=57
+;; mem[8].lnr=57
+;; 00008 0d0d0000 (Sd14c348df59b)
+;; 
+;; first word precessed, addr=8
+;; Continue with params
+;; Parameter word: lr LR
+;; Check if LR/LR is a reg?
+;; Check if LR/LR is a reg?
+;; lr=14
+;; is_reg? r=14
+;; Parameter value: 14
+;; param pattern=r_
+;; Added params=
+Array
+(
+    [0] => 14
+)
+
+to inst at 8
+;; mem[8] is ready
+;; new addr=9
+;; 
+
+;; line[58]: push	r0
+;; proc_asm_line; lnr=58 w=push
+;; is_cond(PUSH); 54 P2
+;; is_inst(PUSH);
+;; proc_asm_line; lnr=58 INST= 0d0d0000 in segment Array
+(
+    [name] => _lib_segment_pmon
+    [id] => Sd14c348df59b
+    [start] => 0
+    [noload] => 
+    [abs] => 
+    [fin] => mon.asm
+    [lnr] => 11
+)
+
+;; mk_mem(addr=9 fin=mon.asm lnr=58)
+;; proc_asm_line; lnr=58
+;; mem[9].lnr=58
+;; 00009 0d0d0000 (Sd14c348df59b)
+;; 
+;; first word precessed, addr=9
+;; Continue with params
+;; Parameter word: r0 R0
+;; Check if R0/R0 is a reg?
+;; Check if R0/R0 is a reg?
+;; Match as a reg: w=0 r=0
+;; is_reg? r=0
+;; Parameter value: 0
+;; param pattern=r_
+;; Added params=
+Array
+(
+    [0] => 0
+)
+
+to inst at 9
+;; mem[9] is ready
+;; new addr=a
+;; 
+
+;; line[59]: call	_pm_version
+;; proc_asm_line; lnr=59 w=call
+;; is_cond(CALL); 54 P2
+;; is_inst(CALL);
+;; proc_asm_line; lnr=59 INST= 04000000 in segment Array
+(
+    [name] => _lib_segment_pmon
+    [id] => Sd14c348df59b
+    [start] => 0
+    [noload] => 
+    [abs] => 
+    [fin] => mon.asm
+    [lnr] => 11
+)
+
+;; mk_mem(addr=10 fin=mon.asm lnr=59)
+;; proc_asm_line; lnr=59
+;; mem[10].lnr=59
+;; 0000a 04000000 (Sd14c348df59b)
+;; 
+;; first word precessed, addr=a
+;; Continue with params
+;; Parameter word: _pm_version _PM_VERSION
+;; Check if _PM_VERSION/_PM_VERSION is a reg?
+;; Check if _PM_VERSION/_PM_VERSION is a reg?
+;; is_reg? r=
+;; Parameter value: _pm_version
+;; param pattern=n_
+;; Added params=
+Array
+(
+    [0] => _pm_version
+)
+
+to inst at 10
+;; mem[a] is ready
+;; new addr=b
+;; 
+
+;; line[60]: mov	r4,r0
+;; proc_asm_line; lnr=60 w=mov
+;; is_cond(MOV); 54 P2
+;; is_inst(MOV);
+;; proc_asm_line; lnr=60 INST= 00000000 in segment Array
+(
+    [name] => _lib_segment_pmon
+    [id] => Sd14c348df59b
+    [start] => 0
+    [noload] => 
+    [abs] => 
+    [fin] => mon.asm
+    [lnr] => 11
+)
+
+;; mk_mem(addr=11 fin=mon.asm lnr=60)
+;; proc_asm_line; lnr=60
+;; mem[11].lnr=60
+;; 0000b 00000000 (Sd14c348df59b)
+;; 
+;; first word precessed, addr=b
+;; Continue with params
+;; Parameter word: r4 R4
+;; Check if R4/R4 is a reg?
+;; Check if R4/R4 is a reg?
+;; Match as a reg: w=4 r=4
+;; is_reg? r=4
+;; Parameter value: 4
+;; Parameter word: r0 R0
+;; Check if R0/R0 is a reg?
+;; Check if R0/R0 is a reg?
+;; Match as a reg: w=0 r=0
+;; is_reg? r=0
+;; Parameter value: 0
+;; param pattern=rr_
+;; Added params=
+Array
+(
+    [0] => 4
+    [1] => 0
+)
+
+to inst at 11
+;; mem[b] is ready
+;; new addr=c
+;; 
+
+;; line[61]: pop	r0
+;; proc_asm_line; lnr=61 w=pop
+;; is_cond(POP); 54 P2
+;; is_inst(POP);
+;; proc_asm_line; lnr=61 INST= 0f0d0000 in segment Array
+(
+    [name] => _lib_segment_pmon
+    [id] => Sd14c348df59b
+    [start] => 0
+    [noload] => 
+    [abs] => 
+    [fin] => mon.asm
+    [lnr] => 11
+)
+
+;; mk_mem(addr=12 fin=mon.asm lnr=61)
+;; proc_asm_line; lnr=61
+;; mem[12].lnr=61
+;; 0000c 0f0d0000 (Sd14c348df59b)
+;; 
+;; first word precessed, addr=c
+;; Continue with params
+;; Parameter word: r0 R0
+;; Check if R0/R0 is a reg?
+;; Check if R0/R0 is a reg?
+;; Match as a reg: w=0 r=0
+;; is_reg? r=0
+;; Parameter value: 0
+;; param pattern=r_
+;; Added params=
+Array
+(
+    [0] => 0
+)
+
+to inst at 12
+;; mem[c] is ready
+;; new addr=d
+;; 
+
+;; line[62]: pop	pc
+;; proc_asm_line; lnr=62 w=pop
+;; is_cond(POP); 54 P2
+;; is_inst(POP);
+;; proc_asm_line; lnr=62 INST= 0f0d0000 in segment Array
+(
+    [name] => _lib_segment_pmon
+    [id] => Sd14c348df59b
+    [start] => 0
+    [noload] => 
+    [abs] => 
+    [fin] => mon.asm
+    [lnr] => 11
+)
+
+;; mk_mem(addr=13 fin=mon.asm lnr=62)
+;; proc_asm_line; lnr=62
+;; mem[13].lnr=62
+;; 0000d 0f0d0000 (Sd14c348df59b)
+;; 
+;; first word precessed, addr=d
+;; Continue with params
+;; Parameter word: pc PC
+;; Check if PC/PC is a reg?
+;; Check if PC/PC is a reg?
+;; pc=15
+;; is_reg? r=15
+;; Parameter value: 15
+;; param pattern=r_
+;; Added params=
+Array
+(
+    [0] => 15
+)
+
+to inst at 13
+;; mem[d] is ready
+;; new addr=e
+;; 
+
+;; line[63]: 
+;; proc_asm_line; no words found in line 63
+;; 
+
+;; line[64]: .ends
+;; proc_asm_line; lnr=64 w=.ends
+;; is_cond(.ENDS); 54 P2
+;; Finish segment: _lib_segment_pmon,Sd14c348df59b
+;; 
+
+;; line[65]: 
+;; proc_asm_line; no words found in line 65
+;; 
+
+
+;; SYMBOL_TABLE BEFORE PHASE2
+Array
+(
+    [_pm_callin] => Array
+        (
+            [type] => =
+            [name] => _pm_callin
+            [value] => 61440
+            [fin] => mon.asm
+            [lnr] => 13
+            [segid] => 
+            [owner] => Sd14c348df59b
+            [defined] => 1
+        )
+
+    [_pm_enter_by_uart] => Array
+        (
+            [type] => =
+            [name] => _pm_enter_by_uart
+            [value] => 61441
+            [fin] => mon.asm
+            [lnr] => 14
+            [segid] => 
+            [owner] => Sd14c348df59b
+            [defined] => 1
+        )
+
+    [_pm_getchar] => Array
+        (
+            [type] => =
+            [name] => _pm_getchar
+            [value] => 61442
+            [fin] => mon.asm
+            [lnr] => 15
+            [segid] => 
+            [owner] => Sd14c348df59b
+            [defined] => 1
+        )
+
+    [_pm_version] => Array
+        (
+            [type] => =
+            [name] => _pm_version
+            [value] => 61443
+            [fin] => mon.asm
+            [lnr] => 16
+            [segid] => 
+            [owner] => Sd14c348df59b
+            [defined] => 1
+        )
+
+    [_pm_itobcd] => Array
+        (
+            [type] => =
+            [name] => _pm_itobcd
+            [value] => 61444
+            [fin] => mon.asm
+            [lnr] => 17
+            [segid] => 
+            [owner] => Sd14c348df59b
+            [defined] => 1
+        )
+
+    [_pm_cold_start] => Array
+        (
+            [type] => =
+            [name] => _pm_cold_start
+            [value] => 61445
+            [fin] => mon.asm
+            [lnr] => 18
+            [segid] => 
+            [owner] => Sd14c348df59b
+            [defined] => 1
+        )
+
+    [_pm_strchr] => Array
+        (
+            [type] => =
+            [name] => _pm_strchr
+            [value] => 61446
+            [fin] => mon.asm
+            [lnr] => 19
+            [segid] => 
+            [owner] => Sd14c348df59b
+            [defined] => 1
+        )
+
+    [_pm_streq] => Array
+        (
+            [type] => =
+            [name] => _pm_streq
+            [value] => 61447
+            [fin] => mon.asm
+            [lnr] => 20
+            [segid] => 
+            [owner] => Sd14c348df59b
+            [defined] => 1
+        )
+
+    [_pm_check_uart] => Array
+        (
+            [type] => =
+            [name] => _pm_check_uart
+            [value] => 61448
+            [fin] => mon.asm
+            [lnr] => 21
+            [segid] => 
+            [owner] => Sd14c348df59b
+            [defined] => 1
+        )
+
+    [_pm_input_avail] => Array
+        (
+            [type] => =
+            [name] => _pm_input_avail
+            [value] => 61448
+            [fin] => mon.asm
+            [lnr] => 22
+            [segid] => 
+            [owner] => Sd14c348df59b
+            [defined] => 1
+        )
+
+    [_pm_hexchar2value] => Array
+        (
+            [type] => =
+            [name] => _pm_hexchar2value
+            [value] => 61449
+            [fin] => mon.asm
+            [lnr] => 23
+            [segid] => 
+            [owner] => Sd14c348df59b
+            [defined] => 1
+        )
+
+    [_pm_value2hexchar] => Array
+        (
+            [type] => =
+            [name] => _pm_value2hexchar
+            [value] => 61450
+            [fin] => mon.asm
+            [lnr] => 24
+            [segid] => 
+            [owner] => Sd14c348df59b
+            [defined] => 1
+        )
+
+    [_pm_htoi] => Array
+        (
+            [type] => =
+            [name] => _pm_htoi
+            [value] => 61451
+            [fin] => mon.asm
+            [lnr] => 25
+            [segid] => 
+            [owner] => Sd14c348df59b
+            [defined] => 1
+        )
+
+    [_pm_strieq] => Array
+        (
+            [type] => =
+            [name] => _pm_strieq
+            [value] => 61452
+            [fin] => mon.asm
+            [lnr] => 26
+            [segid] => 
+            [owner] => Sd14c348df59b
+            [defined] => 1
+        )
+
+    [_pm_read] => Array
+        (
+            [type] => =
+            [name] => _pm_read
+            [value] => 61453
+            [fin] => mon.asm
+            [lnr] => 27
+            [segid] => 
+            [owner] => Sd14c348df59b
+            [defined] => 1
+        )
+
+    [_pm_putchar] => Array
+        (
+            [type] => =
+            [name] => _pm_putchar
+            [value] => 61454
+            [fin] => mon.asm
+            [lnr] => 28
+            [segid] => 
+            [owner] => Sd14c348df59b
+            [defined] => 1
+        )
+
+    [_pm_prints] => Array
+        (
+            [type] => =
+            [name] => _pm_prints
+            [value] => 61455
+            [fin] => mon.asm
+            [lnr] => 29
+            [segid] => 
+            [owner] => Sd14c348df59b
+            [defined] => 1
+        )
+
+    [_pm_printsnl] => Array
+        (
+            [type] => =
+            [name] => _pm_printsnl
+            [value] => 61456
+            [fin] => mon.asm
+            [lnr] => 30
+            [segid] => 
+            [owner] => Sd14c348df59b
+            [defined] => 1
+        )
+
+    [_pm_print_vhex] => Array
+        (
+            [type] => =
+            [name] => _pm_print_vhex
+            [value] => 61457
+            [fin] => mon.asm
+            [lnr] => 31
+            [segid] => 
+            [owner] => Sd14c348df59b
+            [defined] => 1
+        )
+
+    [_pm_pes] => Array
+        (
+            [type] => =
+            [name] => _pm_pes
+            [value] => 61458
+            [fin] => mon.asm
+            [lnr] => 32
+            [segid] => 
+            [owner] => Sd14c348df59b
+            [defined] => 1
+        )
+
+    [_pm_printd] => Array
+        (
+            [type] => =
+            [name] => _pm_printd
+            [value] => 61459
+            [fin] => mon.asm
+            [lnr] => 33
+            [segid] => 
+            [owner] => Sd14c348df59b
+            [defined] => 1
+        )
+
+    [_pm_printf] => Array
+        (
+            [type] => =
+            [name] => _pm_printf
+            [value] => 61460
+            [fin] => mon.asm
+            [lnr] => 34
+            [segid] => 
+            [owner] => Sd14c348df59b
+            [defined] => 1
+        )
+
+    [_pm_pesf] => Array
+        (
+            [type] => =
+            [name] => _pm_pesf
+            [value] => 61461
+            [fin] => mon.asm
+            [lnr] => 35
+            [segid] => 
+            [owner] => Sd14c348df59b
+            [defined] => 1
+        )
+
+    [_pm_ascii2seg] => Array
+        (
+            [type] => =
+            [name] => _pm_ascii2seg
+            [value] => 61462
+            [fin] => mon.asm
+            [lnr] => 36
+            [segid] => 
+            [owner] => Sd14c348df59b
+            [defined] => 1
+        )
+
+    [monitor] => Array
+        (
+            [type] => L
+            [name] => monitor
+            [value] => 0
+            [fin] => mon.asm
+            [lnr] => 39
+            [segid] => 
+            [owner] => Sd14c348df59b
+            [defined] => 1
+        )
+
+    [monitor_by_uart] => Array
+        (
+            [type] => L
+            [name] => monitor_by_uart
+            [value] => 1
+            [fin] => mon.asm
+            [lnr] => 43
+            [segid] => 
+            [owner] => Sd14c348df59b
+            [defined] => 1
+        )
+
+    [monitor_by_button] => Array
+        (
+            [type] => L
+            [name] => monitor_by_button
+            [value] => 2
+            [fin] => mon.asm
+            [lnr] => 47
+            [segid] => 
+            [owner] => Sd14c348df59b
+            [defined] => 1
+        )
+
+    [monitor_version] => Array
+        (
+            [type] => L
+            [name] => monitor_version
+            [value] => 8
+            [fin] => mon.asm
+            [lnr] => 56
+            [segid] => 
+            [owner] => Sd14c348df59b
+            [defined] => 1
+        )
+
+)
+
+;; MEM_TABLE BEFORE PHASE2
+Array
+(
+    [0] => Array
+        (
+            [error] => 
+            [icode] => 32636928
+            [fin] => mon.asm
+            [lnr] => 40
+            [address] => 0
+            [cell_type] => C
+            [reloc] => Array
+                (
+                )
+
+            [labels] => Array
+                (
+                )
+
+            [tags] => Array
+                (
+                    [monitor] => monitor
+                )
+
+            [segid] => Sd14c348df59b
+            [src] => jmp	_pm_callin
+            [immediate] => Array
+                (
+                )
+
+            [skip] => 0
+            [params] => Array
+                (
+                    [0] => _pm_callin
+                )
+
+            [inst] => Array
+                (
+                    [icode] => 32636928
+                    [params] => Array
+                        (
+                            [n_] => Array
+                                (
+                                    [icode] => 0
+                                    [placements] => Array
+                                        (
+                                            [0] => #16
+                                        )
+
+                                )
+
+                        )
+
+                )
+
+            [pattern] => n_
+        )
+
+    [1] => Array
+        (
+            [error] => 
+            [icode] => 32636928
+            [fin] => mon.asm
+            [lnr] => 44
+            [address] => 1
+            [cell_type] => C
+            [reloc] => Array
+                (
+                )
+
+            [labels] => Array
+                (
+                )
+
+            [tags] => Array
+                (
+                    [monitor_by_uart] => monitor_by_uart
+                )
+
+            [segid] => Sd14c348df59b
+            [src] => jmp	_pm_enter_by_uart
+            [immediate] => Array
+                (
+                )
+
+            [skip] => 0
+            [params] => Array
+                (
+                    [0] => _pm_enter_by_uart
+                )
+
+            [inst] => Array
+                (
+                    [icode] => 32636928
+                    [params] => Array
+                        (
+                            [n_] => Array
+                                (
+                                    [icode] => 0
+                                    [placements] => Array
+                                        (
+                                            [0] => #16
+                                        )
+
+                                )
+
+                        )
+
+                )
+
+            [pattern] => n_
+        )
+
+    [2] => Array
+        (
+            [error] => 
+            [icode] => 218955776
+            [fin] => mon.asm
+            [lnr] => 48
+            [address] => 2
+            [cell_type] => C
+            [reloc] => Array
+                (
+                )
+
+            [labels] => Array
+                (
+                )
+
+            [tags] => Array
+                (
+                    [monitor_by_button] => monitor_by_button
+                )
+
+            [segid] => Sd14c348df59b
+            [src] => push	lr
+            [immediate] => Array
+                (
+                )
+
+            [skip] => 0
+            [params] => Array
+                (
+                    [0] => 14
+                )
+
+            [inst] => Array
+                (
+                    [icode] => 218955776
+                    [params] => Array
+                        (
+                            [r_] => Array
+                                (
+                                    [icode] => 0
+                                    [placements] => Array
+                                        (
+                                            [0] => rd
+                                        )
+
+                                )
+
+                        )
+
+                )
+
+            [pattern] => r_
+        )
+
+    [3] => Array
+        (
+            [error] => 
+            [icode] => 67108864
+            [fin] => mon.asm
+            [lnr] => 49
+            [address] => 3
+            [cell_type] => C
+            [reloc] => Array
+                (
+                )
+
+            [labels] => Array
+                (
+                )
+
+            [tags] => Array
+                (
+                )
+
+            [segid] => Sd14c348df59b
+            [src] => call	btn_posedge
+            [immediate] => Array
+                (
+                )
+
+            [skip] => 0
+            [params] => Array
+                (
+                    [0] => btn_posedge
+                )
+
+            [inst] => Array
+                (
+                    [icode] => 67108864
+                    [params] => Array
+                        (
+                            [rn_] => Array
+                                (
+                                    [icode] => 16777216
+                                    [placements] => Array
+                                        (
+                                            [0] => rd
+                                            [1] => #20
+                                        )
+
+                                )
+
+                            [n_] => Array
+                                (
+                                    [icode] => 0
+                                    [placements] => Array
+                                        (
+                                            [0] => #24
+                                        )
+
+                                )
+
+                        )
+
+                )
+
+            [pattern] => n_
+        )
+
+    [4] => Array
+        (
+            [error] => 
+            [icode] => 1326252032
+            [fin] => mon.asm
+            [lnr] => 50
+            [address] => 4
+            [cell_type] => C
+            [reloc] => Array
+                (
+                )
+
+            [labels] => Array
+                (
+                )
+
+            [tags] => Array
+                (
+                )
+
+            [segid] => Sd14c348df59b
+            [src] => NC pop	pc
+            [immediate] => Array
+                (
+                )
+
+            [skip] => 0
+            [params] => Array
+                (
+                    [0] => 15
+                )
+
+            [inst] => Array
+                (
+                    [icode] => 252510208
+                    [params] => Array
+                        (
+                            [r_] => Array
+                                (
+                                    [icode] => 0
+                                    [placements] => Array
+                                        (
+                                            [0] => rd
+                                        )
+
+                                )
+
+                        )
+
+                )
+
+            [pattern] => r_
+        )
+
+    [5] => Array
+        (
+            [error] => 
+            [icode] => 67108864
+            [fin] => mon.asm
+            [lnr] => 51
+            [address] => 5
+            [cell_type] => C
+            [reloc] => Array
+                (
+                )
+
+            [labels] => Array
+                (
+                )
+
+            [tags] => Array
+                (
+                )
+
+            [segid] => Sd14c348df59b
+            [src] => call	monitor
+            [immediate] => Array
+                (
+                )
+
+            [skip] => 0
+            [params] => Array
+                (
+                    [0] => monitor
+                )
+
+            [inst] => Array
+                (
+                    [icode] => 67108864
+                    [params] => Array
+                        (
+                            [rn_] => Array
+                                (
+                                    [icode] => 16777216
+                                    [placements] => Array
+                                        (
+                                            [0] => rd
+                                            [1] => #20
+                                        )
+
+                                )
+
+                            [n_] => Array
+                                (
+                                    [icode] => 0
+                                    [placements] => Array
+                                        (
+                                            [0] => #24
+                                        )
+
+                                )
+
+                        )
+
+                )
+
+            [pattern] => n_
+        )
+
+    [6] => Array
+        (
+            [error] => 
+            [icode] => 67108864
+            [fin] => mon.asm
+            [lnr] => 52
+            [address] => 6
+            [cell_type] => C
+            [reloc] => Array
+                (
+                )
+
+            [labels] => Array
+                (
+                )
+
+            [tags] => Array
+                (
+                )
+
+            [segid] => Sd14c348df59b
+            [src] => call	btn_restart
+            [immediate] => Array
+                (
+                )
+
+            [skip] => 0
+            [params] => Array
+                (
+                    [0] => btn_restart
+                )
+
+            [inst] => Array
+                (
+                    [icode] => 67108864
+                    [params] => Array
+                        (
+                            [rn_] => Array
+                                (
+                                    [icode] => 16777216
+                                    [placements] => Array
+                                        (
+                                            [0] => rd
+                                            [1] => #20
+                                        )
+
+                                )
+
+                            [n_] => Array
+                                (
+                                    [icode] => 0
+                                    [placements] => Array
+                                        (
+                                            [0] => #24
+                                        )
+
+                                )
+
+                        )
+
+                )
+
+            [pattern] => n_
+        )
+
+    [7] => Array
+        (
+            [error] => 
+            [icode] => 252510208
+            [fin] => mon.asm
+            [lnr] => 53
+            [address] => 7
+            [cell_type] => C
+            [reloc] => Array
+                (
+                )
+
+            [labels] => Array
+                (
+                )
+
+            [tags] => Array
+                (
+                )
+
+            [segid] => Sd14c348df59b
+            [src] => pop	pc
+            [immediate] => Array
+                (
+                )
+
+            [skip] => 0
+            [params] => Array
+                (
+                    [0] => 15
+                )
+
+            [inst] => Array
+                (
+                    [icode] => 252510208
+                    [params] => Array
+                        (
+                            [r_] => Array
+                                (
+                                    [icode] => 0
+                                    [placements] => Array
+                                        (
+                                            [0] => rd
+                                        )
+
+                                )
+
+                        )
+
+                )
+
+            [pattern] => r_
+        )
+
+    [8] => Array
+        (
+            [error] => 
+            [icode] => 218955776
+            [fin] => mon.asm
+            [lnr] => 57
+            [address] => 8
+            [cell_type] => C
+            [reloc] => Array
+                (
+                )
+
+            [labels] => Array
+                (
+                )
+
+            [tags] => Array
+                (
+                    [monitor_version] => monitor_version
+                )
+
+            [segid] => Sd14c348df59b
+            [src] => push	lr
+            [immediate] => Array
+                (
+                )
+
+            [skip] => 0
+            [params] => Array
+                (
+                    [0] => 14
+                )
+
+            [inst] => Array
+                (
+                    [icode] => 218955776
+                    [params] => Array
+                        (
+                            [r_] => Array
+                                (
+                                    [icode] => 0
+                                    [placements] => Array
+                                        (
+                                            [0] => rd
+                                        )
+
+                                )
+
+                        )
+
+                )
+
+            [pattern] => r_
+        )
+
+    [9] => Array
+        (
+            [error] => 
+            [icode] => 218955776
+            [fin] => mon.asm
+            [lnr] => 58
+            [address] => 9
+            [cell_type] => C
+            [reloc] => Array
+                (
+                )
+
+            [labels] => Array
+                (
+                )
+
+            [tags] => Array
+                (
+                )
+
+            [segid] => Sd14c348df59b
+            [src] => push	r0
+            [immediate] => Array
+                (
+                )
+
+            [skip] => 0
+            [params] => Array
+                (
+                    [0] => 0
+                )
+
+            [inst] => Array
+                (
+                    [icode] => 218955776
+                    [params] => Array
+                        (
+                            [r_] => Array
+                                (
+                                    [icode] => 0
+                                    [placements] => Array
+                                        (
+                                            [0] => rd
+                                        )
+
+                                )
+
+                        )
+
+                )
+
+            [pattern] => r_
+        )
+
+    [10] => Array
+        (
+            [error] => 
+            [icode] => 67108864
+            [fin] => mon.asm
+            [lnr] => 59
+            [address] => 10
+            [cell_type] => C
+            [reloc] => Array
+                (
+                )
+
+            [labels] => Array
+                (
+                )
+
+            [tags] => Array
+                (
+                )
+
+            [segid] => Sd14c348df59b
+            [src] => call	_pm_version
+            [immediate] => Array
+                (
+                )
+
+            [skip] => 0
+            [params] => Array
+                (
+                    [0] => _pm_version
+                )
+
+            [inst] => Array
+                (
+                    [icode] => 67108864
+                    [params] => Array
+                        (
+                            [rn_] => Array
+                                (
+                                    [icode] => 16777216
+                                    [placements] => Array
+                                        (
+                                            [0] => rd
+                                            [1] => #20
+                                        )
+
+                                )
+
+                            [n_] => Array
+                                (
+                                    [icode] => 0
+                                    [placements] => Array
+                                        (
+                                            [0] => #24
+                                        )
+
+                                )
+
+                        )
+
+                )
+
+            [pattern] => n_
+        )
+
+    [11] => Array
+        (
+            [error] => 
+            [icode] => 0
+            [fin] => mon.asm
+            [lnr] => 60
+            [address] => 11
+            [cell_type] => C
+            [reloc] => Array
+                (
+                )
+
+            [labels] => Array
+                (
+                )
+
+            [tags] => Array
+                (
+                )
+
+            [segid] => Sd14c348df59b
+            [src] => mov	r4,r0
+            [immediate] => Array
+                (
+                )
+
+            [skip] => 0
+            [params] => Array
+                (
+                    [0] => 4
+                    [1] => 0
+                )
+
+            [inst] => Array
+                (
+                    [icode] => 0
+                    [params] => Array
+                        (
+                            [rr_] => Array
+                                (
+                                    [icode] => 0
+                                    [placements] => Array
+                                        (
+                                            [0] => rd
+                                            [1] => rb
+                                        )
+
+                                )
+
+                        )
+
+                )
+
+            [pattern] => rr_
+        )
+
+    [12] => Array
+        (
+            [error] => 
+            [icode] => 252510208
+            [fin] => mon.asm
+            [lnr] => 61
+            [address] => 12
+            [cell_type] => C
+            [reloc] => Array
+                (
+                )
+
+            [labels] => Array
+                (
+                )
+
+            [tags] => Array
+                (
+                )
+
+            [segid] => Sd14c348df59b
+            [src] => pop	r0
+            [immediate] => Array
+                (
+                )
+
+            [skip] => 0
+            [params] => Array
+                (
+                    [0] => 0
+                )
+
+            [inst] => Array
+                (
+                    [icode] => 252510208
+                    [params] => Array
+                        (
+                            [r_] => Array
+                                (
+                                    [icode] => 0
+                                    [placements] => Array
+                                        (
+                                            [0] => rd
+                                        )
+
+                                )
+
+                        )
+
+                )
+
+            [pattern] => r_
+        )
+
+    [13] => Array
+        (
+            [error] => 
+            [icode] => 252510208
+            [fin] => mon.asm
+            [lnr] => 62
+            [address] => 13
+            [cell_type] => C
+            [reloc] => Array
+                (
+                )
+
+            [labels] => Array
+                (
+                )
+
+            [tags] => Array
+                (
+                )
+
+            [segid] => Sd14c348df59b
+            [src] => pop	pc
+            [immediate] => Array
+                (
+                )
+
+            [skip] => 0
+            [params] => Array
+                (
+                    [0] => 15
+                )
+
+            [inst] => Array
+                (
+                    [icode] => 252510208
+                    [params] => Array
+                        (
+                            [r_] => Array
+                                (
+                                    [icode] => 0
+                                    [placements] => Array
+                                        (
+                                            [0] => rd
+                                        )
+
+                                )
+
+                        )
+
+                )
+
+            [pattern] => r_
+        )
+
+)
+
+;; PHASE 2
+
+;; SYMBOL_TABLE:Array
+(
+    [_pm_callin] => Array
+        (
+            [type] => =
+            [name] => _pm_callin
+            [value] => 61440
+            [fin] => mon.asm
+            [lnr] => 13
+            [segid] => 
+            [owner] => Sd14c348df59b
+            [defined] => 1
+        )
+
+    [_pm_enter_by_uart] => Array
+        (
+            [type] => =
+            [name] => _pm_enter_by_uart
+            [value] => 61441
+            [fin] => mon.asm
+            [lnr] => 14
+            [segid] => 
+            [owner] => Sd14c348df59b
+            [defined] => 1
+        )
+
+    [_pm_getchar] => Array
+        (
+            [type] => =
+            [name] => _pm_getchar
+            [value] => 61442
+            [fin] => mon.asm
+            [lnr] => 15
+            [segid] => 
+            [owner] => Sd14c348df59b
+            [defined] => 1
+        )
+
+    [_pm_version] => Array
+        (
+            [type] => =
+            [name] => _pm_version
+            [value] => 61443
+            [fin] => mon.asm
+            [lnr] => 16
+            [segid] => 
+            [owner] => Sd14c348df59b
+            [defined] => 1
+        )
+
+    [_pm_itobcd] => Array
+        (
+            [type] => =
+            [name] => _pm_itobcd
+            [value] => 61444
+            [fin] => mon.asm
+            [lnr] => 17
+            [segid] => 
+            [owner] => Sd14c348df59b
+            [defined] => 1
+        )
+
+    [_pm_cold_start] => Array
+        (
+            [type] => =
+            [name] => _pm_cold_start
+            [value] => 61445
+            [fin] => mon.asm
+            [lnr] => 18
+            [segid] => 
+            [owner] => Sd14c348df59b
+            [defined] => 1
+        )
+
+    [_pm_strchr] => Array
+        (
+            [type] => =
+            [name] => _pm_strchr
+            [value] => 61446
+            [fin] => mon.asm
+            [lnr] => 19
+            [segid] => 
+            [owner] => Sd14c348df59b
+            [defined] => 1
+        )
+
+    [_pm_streq] => Array
+        (
+            [type] => =
+            [name] => _pm_streq
+            [value] => 61447
+            [fin] => mon.asm
+            [lnr] => 20
+            [segid] => 
+            [owner] => Sd14c348df59b
+            [defined] => 1
+        )
+
+    [_pm_check_uart] => Array
+        (
+            [type] => =
+            [name] => _pm_check_uart
+            [value] => 61448
+            [fin] => mon.asm
+            [lnr] => 21
+            [segid] => 
+            [owner] => Sd14c348df59b
+            [defined] => 1
+        )
+
+    [_pm_input_avail] => Array
+        (
+            [type] => =
+            [name] => _pm_input_avail
+            [value] => 61448
+            [fin] => mon.asm
+            [lnr] => 22
+            [segid] => 
+            [owner] => Sd14c348df59b
+            [defined] => 1
+        )
+
+    [_pm_hexchar2value] => Array
+        (
+            [type] => =
+            [name] => _pm_hexchar2value
+            [value] => 61449
+            [fin] => mon.asm
+            [lnr] => 23
+            [segid] => 
+            [owner] => Sd14c348df59b
+            [defined] => 1
+        )
+
+    [_pm_value2hexchar] => Array
+        (
+            [type] => =
+            [name] => _pm_value2hexchar
+            [value] => 61450
+            [fin] => mon.asm
+            [lnr] => 24
+            [segid] => 
+            [owner] => Sd14c348df59b
+            [defined] => 1
+        )
+
+    [_pm_htoi] => Array
+        (
+            [type] => =
+            [name] => _pm_htoi
+            [value] => 61451
+            [fin] => mon.asm
+            [lnr] => 25
+            [segid] => 
+            [owner] => Sd14c348df59b
+            [defined] => 1
+        )
+
+    [_pm_strieq] => Array
+        (
+            [type] => =
+            [name] => _pm_strieq
+            [value] => 61452
+            [fin] => mon.asm
+            [lnr] => 26
+            [segid] => 
+            [owner] => Sd14c348df59b
+            [defined] => 1
+        )
+
+    [_pm_read] => Array
+        (
+            [type] => =
+            [name] => _pm_read
+            [value] => 61453
+            [fin] => mon.asm
+            [lnr] => 27
+            [segid] => 
+            [owner] => Sd14c348df59b
+            [defined] => 1
+        )
+
+    [_pm_putchar] => Array
+        (
+            [type] => =
+            [name] => _pm_putchar
+            [value] => 61454
+            [fin] => mon.asm
+            [lnr] => 28
+            [segid] => 
+            [owner] => Sd14c348df59b
+            [defined] => 1
+        )
+
+    [_pm_prints] => Array
+        (
+            [type] => =
+            [name] => _pm_prints
+            [value] => 61455
+            [fin] => mon.asm
+            [lnr] => 29
+            [segid] => 
+            [owner] => Sd14c348df59b
+            [defined] => 1
+        )
+
+    [_pm_printsnl] => Array
+        (
+            [type] => =
+            [name] => _pm_printsnl
+            [value] => 61456
+            [fin] => mon.asm
+            [lnr] => 30
+            [segid] => 
+            [owner] => Sd14c348df59b
+            [defined] => 1
+        )
+
+    [_pm_print_vhex] => Array
+        (
+            [type] => =
+            [name] => _pm_print_vhex
+            [value] => 61457
+            [fin] => mon.asm
+            [lnr] => 31
+            [segid] => 
+            [owner] => Sd14c348df59b
+            [defined] => 1
+        )
+
+    [_pm_pes] => Array
+        (
+            [type] => =
+            [name] => _pm_pes
+            [value] => 61458
+            [fin] => mon.asm
+            [lnr] => 32
+            [segid] => 
+            [owner] => Sd14c348df59b
+            [defined] => 1
+        )
+
+    [_pm_printd] => Array
+        (
+            [type] => =
+            [name] => _pm_printd
+            [value] => 61459
+            [fin] => mon.asm
+            [lnr] => 33
+            [segid] => 
+            [owner] => Sd14c348df59b
+            [defined] => 1
+        )
+
+    [_pm_printf] => Array
+        (
+            [type] => =
+            [name] => _pm_printf
+            [value] => 61460
+            [fin] => mon.asm
+            [lnr] => 34
+            [segid] => 
+            [owner] => Sd14c348df59b
+            [defined] => 1
+        )
+
+    [_pm_pesf] => Array
+        (
+            [type] => =
+            [name] => _pm_pesf
+            [value] => 61461
+            [fin] => mon.asm
+            [lnr] => 35
+            [segid] => 
+            [owner] => Sd14c348df59b
+            [defined] => 1
+        )
+
+    [_pm_ascii2seg] => Array
+        (
+            [type] => =
+            [name] => _pm_ascii2seg
+            [value] => 61462
+            [fin] => mon.asm
+            [lnr] => 36
+            [segid] => 
+            [owner] => Sd14c348df59b
+            [defined] => 1
+        )
+
+    [monitor] => Array
+        (
+            [type] => L
+            [name] => monitor
+            [value] => 0
+            [fin] => mon.asm
+            [lnr] => 39
+            [segid] => 
+            [owner] => Sd14c348df59b
+            [defined] => 1
+        )
+
+    [monitor_by_uart] => Array
+        (
+            [type] => L
+            [name] => monitor_by_uart
+            [value] => 1
+            [fin] => mon.asm
+            [lnr] => 43
+            [segid] => 
+            [owner] => Sd14c348df59b
+            [defined] => 1
+        )
+
+    [monitor_by_button] => Array
+        (
+            [type] => L
+            [name] => monitor_by_button
+            [value] => 2
+            [fin] => mon.asm
+            [lnr] => 47
+            [segid] => 
+            [owner] => Sd14c348df59b
+            [defined] => 1
+        )
+
+    [monitor_version] => Array
+        (
+            [type] => L
+            [name] => monitor_version
+            [value] => 8
+            [fin] => mon.asm
+            [lnr] => 56
+            [segid] => 
+            [owner] => Sd14c348df59b
+            [defined] => 1
+        )
+
+)
+
+;; mem[0] is an instruction: 01f20000 jmp	_pm_callin
+;; Inst is in segment: Sd14c348df59b = _lib_segment_pmon
+;; Used pattern matches to an allowed one: n_
+;; Pattern fixed 01f20000 -> icode= 01f20000
+;; Param placing: n: _pm_callin=61440 as #16
+;; //I #16 0000f000
+;; Param placed 01f20000 -> icode= 01f2f000
+;; Code of mem[0000] is ready: 01f2f000
+
+
+;; MEM[0]=Array
+(
+    [error] => 
+    [icode] => 32698368
+    [fin] => mon.asm
+    [lnr] => 40
+    [address] => 0
+    [cell_type] => C
+    [reloc] => Array
+        (
+            [0] => Array
+                (
+                    [used_parameter] => _pm_callin
+                    [mode] => #16
+                    [value] => 61440
+                )
+
+        )
+
+    [labels] => Array
+        (
+        )
+
+    [tags] => Array
+        (
+            [monitor] => monitor
+        )
+
+    [segid] => Sd14c348df59b
+    [src] => jmp	_pm_callin
+    [immediate] => Array
+        (
+            [mode] => #16
+            [value] => 61440
+        )
+
+    [skip] => 0
+    [params] => Array
+        (
+            [0] => _pm_callin
+        )
+
+    [inst] => Array
+        (
+            [icode] => 32636928
+            [params] => Array
+                (
+                    [n_] => Array
+                        (
+                            [icode] => 0
+                            [placements] => Array
+                                (
+                                    [0] => #16
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [pattern] => n_
+)
+
+;; mem[1] is an instruction: 01f20000 jmp	_pm_enter_by_uart
+;; Inst is in segment: Sd14c348df59b = _lib_segment_pmon
+;; Used pattern matches to an allowed one: n_
+;; Pattern fixed 01f20000 -> icode= 01f20000
+;; Param placing: n: _pm_enter_by_uart=61441 as #16
+;; //I #16 0000f001
+;; Param placed 01f20000 -> icode= 01f2f001
+;; Code of mem[0001] is ready: 01f2f001
+
+
+;; MEM[1]=Array
+(
+    [error] => 
+    [icode] => 32698369
+    [fin] => mon.asm
+    [lnr] => 44
+    [address] => 1
+    [cell_type] => C
+    [reloc] => Array
+        (
+            [0] => Array
+                (
+                    [used_parameter] => _pm_enter_by_uart
+                    [mode] => #16
+                    [value] => 61441
+                )
+
+        )
+
+    [labels] => Array
+        (
+        )
+
+    [tags] => Array
+        (
+            [monitor_by_uart] => monitor_by_uart
+        )
+
+    [segid] => Sd14c348df59b
+    [src] => jmp	_pm_enter_by_uart
+    [immediate] => Array
+        (
+            [mode] => #16
+            [value] => 61441
+        )
+
+    [skip] => 0
+    [params] => Array
+        (
+            [0] => _pm_enter_by_uart
+        )
+
+    [inst] => Array
+        (
+            [icode] => 32636928
+            [params] => Array
+                (
+                    [n_] => Array
+                        (
+                            [icode] => 0
+                            [placements] => Array
+                                (
+                                    [0] => #16
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [pattern] => n_
+)
+
+;; mem[2] is an instruction: 0d0d0000 push	lr
+;; Inst is in segment: Sd14c348df59b = _lib_segment_pmon
+;; Used pattern matches to an allowed one: r_
+;; Pattern fixed 0d0d0000 -> icode= 0d0d0000
+;; Param placing: r: 14=14 as rd
+;; Param placed 0d0d0000 -> icode= 0ded0000
+;; Code of mem[0002] is ready: 0ded0000
+
+
+;; MEM[2]=Array
+(
+    [error] => 
+    [icode] => 233635840
+    [fin] => mon.asm
+    [lnr] => 48
+    [address] => 2
+    [cell_type] => C
+    [reloc] => Array
+        (
+        )
+
+    [labels] => Array
+        (
+        )
+
+    [tags] => Array
+        (
+            [monitor_by_button] => monitor_by_button
+        )
+
+    [segid] => Sd14c348df59b
+    [src] => push	lr
+    [immediate] => Array
+        (
+        )
+
+    [skip] => 0
+    [params] => Array
+        (
+            [0] => 14
+        )
+
+    [inst] => Array
+        (
+            [icode] => 218955776
+            [params] => Array
+                (
+                    [r_] => Array
+                        (
+                            [icode] => 0
+                            [placements] => Array
+                                (
+                                    [0] => rd
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [pattern] => r_
+)
+
+;; mem[3] is an instruction: 04000000 call	btn_posedge
+;; Inst is in segment: Sd14c348df59b = _lib_segment_pmon
+;; Used pattern matches to an allowed one: n_
+;; Pattern fixed 04000000 -> icode= 04000000
+;; Param placing: n: btn_posedge=0 as #24
+;; //I #24 00000000
+;; Param placed 04000000 -> icode= 04000000
+;; Code of mem[0003] is ready: 04000000
+
+
+;; MEM[3]=Array
+(
+    [error] => 
+    [icode] => 67108864
+    [fin] => mon.asm
+    [lnr] => 49
+    [address] => 3
+    [cell_type] => C
+    [reloc] => Array
+        (
+            [0] => Array
+                (
+                    [used_parameter] => btn_posedge
+                    [mode] => #24
+                    [value] => 0
+                )
+
+        )
+
+    [labels] => Array
+        (
+        )
+
+    [tags] => Array
+        (
+        )
+
+    [segid] => Sd14c348df59b
+    [src] => call	btn_posedge
+    [immediate] => Array
+        (
+            [mode] => #24
+            [value] => 0
+        )
+
+    [skip] => 0
+    [params] => Array
+        (
+            [0] => btn_posedge
+        )
+
+    [inst] => Array
+        (
+            [icode] => 67108864
+            [params] => Array
+                (
+                    [rn_] => Array
+                        (
+                            [icode] => 16777216
+                            [placements] => Array
+                                (
+                                    [0] => rd
+                                    [1] => #20
+                                )
+
+                        )
+
+                    [n_] => Array
+                        (
+                            [icode] => 0
+                            [placements] => Array
+                                (
+                                    [0] => #24
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [pattern] => n_
+)
+
+;; mem[4] is an instruction: 4f0d0000 NC pop	pc
+;; Inst is in segment: Sd14c348df59b = _lib_segment_pmon
+;; Used pattern matches to an allowed one: r_
+;; Pattern fixed 4f0d0000 -> icode= 4f0d0000
+;; Param placing: r: 15=15 as rd
+;; Param placed 4f0d0000 -> icode= 4ffd0000
+;; Code of mem[0004] is ready: 4ffd0000
+
+
+;; MEM[4]=Array
+(
+    [error] => 
+    [icode] => 1341980672
+    [fin] => mon.asm
+    [lnr] => 50
+    [address] => 4
+    [cell_type] => C
+    [reloc] => Array
+        (
+        )
+
+    [labels] => Array
+        (
+        )
+
+    [tags] => Array
+        (
+        )
+
+    [segid] => Sd14c348df59b
+    [src] => NC pop	pc
+    [immediate] => Array
+        (
+        )
+
+    [skip] => 0
+    [params] => Array
+        (
+            [0] => 15
+        )
+
+    [inst] => Array
+        (
+            [icode] => 252510208
+            [params] => Array
+                (
+                    [r_] => Array
+                        (
+                            [icode] => 0
+                            [placements] => Array
+                                (
+                                    [0] => rd
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [pattern] => r_
+)
+
+;; mem[5] is an instruction: 04000000 call	monitor
+;; Inst is in segment: Sd14c348df59b = _lib_segment_pmon
+;; Used pattern matches to an allowed one: n_
+;; Pattern fixed 04000000 -> icode= 04000000
+;; Param placing: n: monitor=0 as #24
+;; //I #24 00000000
+;; Param placed 04000000 -> icode= 04000000
+;; Code of mem[0005] is ready: 04000000
+
+
+;; MEM[5]=Array
+(
+    [error] => 
+    [icode] => 67108864
+    [fin] => mon.asm
+    [lnr] => 51
+    [address] => 5
+    [cell_type] => C
+    [reloc] => Array
+        (
+            [0] => Array
+                (
+                    [used_parameter] => monitor
+                    [mode] => #24
+                    [value] => 0
+                )
+
+        )
+
+    [labels] => Array
+        (
+        )
+
+    [tags] => Array
+        (
+        )
+
+    [segid] => Sd14c348df59b
+    [src] => call	monitor
+    [immediate] => Array
+        (
+            [mode] => #24
+            [value] => 0
+        )
+
+    [skip] => 0
+    [params] => Array
+        (
+            [0] => monitor
+        )
+
+    [inst] => Array
+        (
+            [icode] => 67108864
+            [params] => Array
+                (
+                    [rn_] => Array
+                        (
+                            [icode] => 16777216
+                            [placements] => Array
+                                (
+                                    [0] => rd
+                                    [1] => #20
+                                )
+
+                        )
+
+                    [n_] => Array
+                        (
+                            [icode] => 0
+                            [placements] => Array
+                                (
+                                    [0] => #24
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [pattern] => n_
+)
+
+;; mem[6] is an instruction: 04000000 call	btn_restart
+;; Inst is in segment: Sd14c348df59b = _lib_segment_pmon
+;; Used pattern matches to an allowed one: n_
+;; Pattern fixed 04000000 -> icode= 04000000
+;; Param placing: n: btn_restart=0 as #24
+;; //I #24 00000000
+;; Param placed 04000000 -> icode= 04000000
+;; Code of mem[0006] is ready: 04000000
+
+
+;; MEM[6]=Array
+(
+    [error] => 
+    [icode] => 67108864
+    [fin] => mon.asm
+    [lnr] => 52
+    [address] => 6
+    [cell_type] => C
+    [reloc] => Array
+        (
+            [0] => Array
+                (
+                    [used_parameter] => btn_restart
+                    [mode] => #24
+                    [value] => 0
+                )
+
+        )
+
+    [labels] => Array
+        (
+        )
+
+    [tags] => Array
+        (
+        )
+
+    [segid] => Sd14c348df59b
+    [src] => call	btn_restart
+    [immediate] => Array
+        (
+            [mode] => #24
+            [value] => 0
+        )
+
+    [skip] => 0
+    [params] => Array
+        (
+            [0] => btn_restart
+        )
+
+    [inst] => Array
+        (
+            [icode] => 67108864
+            [params] => Array
+                (
+                    [rn_] => Array
+                        (
+                            [icode] => 16777216
+                            [placements] => Array
+                                (
+                                    [0] => rd
+                                    [1] => #20
+                                )
+
+                        )
+
+                    [n_] => Array
+                        (
+                            [icode] => 0
+                            [placements] => Array
+                                (
+                                    [0] => #24
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [pattern] => n_
+)
+
+;; mem[7] is an instruction: 0f0d0000 pop	pc
+;; Inst is in segment: Sd14c348df59b = _lib_segment_pmon
+;; Used pattern matches to an allowed one: r_
+;; Pattern fixed 0f0d0000 -> icode= 0f0d0000
+;; Param placing: r: 15=15 as rd
+;; Param placed 0f0d0000 -> icode= 0ffd0000
+;; Code of mem[0007] is ready: 0ffd0000
+
+
+;; MEM[7]=Array
+(
+    [error] => 
+    [icode] => 268238848
+    [fin] => mon.asm
+    [lnr] => 53
+    [address] => 7
+    [cell_type] => C
+    [reloc] => Array
+        (
+        )
+
+    [labels] => Array
+        (
+        )
+
+    [tags] => Array
+        (
+        )
+
+    [segid] => Sd14c348df59b
+    [src] => pop	pc
+    [immediate] => Array
+        (
+        )
+
+    [skip] => 0
+    [params] => Array
+        (
+            [0] => 15
+        )
+
+    [inst] => Array
+        (
+            [icode] => 252510208
+            [params] => Array
+                (
+                    [r_] => Array
+                        (
+                            [icode] => 0
+                            [placements] => Array
+                                (
+                                    [0] => rd
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [pattern] => r_
+)
+
+;; mem[8] is an instruction: 0d0d0000 push	lr
+;; Inst is in segment: Sd14c348df59b = _lib_segment_pmon
+;; Used pattern matches to an allowed one: r_
+;; Pattern fixed 0d0d0000 -> icode= 0d0d0000
+;; Param placing: r: 14=14 as rd
+;; Param placed 0d0d0000 -> icode= 0ded0000
+;; Code of mem[0008] is ready: 0ded0000
+
+
+;; MEM[8]=Array
+(
+    [error] => 
+    [icode] => 233635840
+    [fin] => mon.asm
+    [lnr] => 57
+    [address] => 8
+    [cell_type] => C
+    [reloc] => Array
+        (
+        )
+
+    [labels] => Array
+        (
+        )
+
+    [tags] => Array
+        (
+            [monitor_version] => monitor_version
+        )
+
+    [segid] => Sd14c348df59b
+    [src] => push	lr
+    [immediate] => Array
+        (
+        )
+
+    [skip] => 0
+    [params] => Array
+        (
+            [0] => 14
+        )
+
+    [inst] => Array
+        (
+            [icode] => 218955776
+            [params] => Array
+                (
+                    [r_] => Array
+                        (
+                            [icode] => 0
+                            [placements] => Array
+                                (
+                                    [0] => rd
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [pattern] => r_
+)
+
+;; mem[9] is an instruction: 0d0d0000 push	r0
+;; Inst is in segment: Sd14c348df59b = _lib_segment_pmon
+;; Used pattern matches to an allowed one: r_
+;; Pattern fixed 0d0d0000 -> icode= 0d0d0000
+;; Param placing: r: 0=0 as rd
+;; Param placed 0d0d0000 -> icode= 0d0d0000
+;; Code of mem[0009] is ready: 0d0d0000
+
+
+;; MEM[9]=Array
+(
+    [error] => 
+    [icode] => 218955776
+    [fin] => mon.asm
+    [lnr] => 58
+    [address] => 9
+    [cell_type] => C
+    [reloc] => Array
+        (
+        )
+
+    [labels] => Array
+        (
+        )
+
+    [tags] => Array
+        (
+        )
+
+    [segid] => Sd14c348df59b
+    [src] => push	r0
+    [immediate] => Array
+        (
+        )
+
+    [skip] => 0
+    [params] => Array
+        (
+            [0] => 0
+        )
+
+    [inst] => Array
+        (
+            [icode] => 218955776
+            [params] => Array
+                (
+                    [r_] => Array
+                        (
+                            [icode] => 0
+                            [placements] => Array
+                                (
+                                    [0] => rd
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [pattern] => r_
+)
+
+;; mem[a] is an instruction: 04000000 call	_pm_version
+;; Inst is in segment: Sd14c348df59b = _lib_segment_pmon
+;; Used pattern matches to an allowed one: n_
+;; Pattern fixed 04000000 -> icode= 04000000
+;; Param placing: n: _pm_version=61443 as #24
+;; //I #24 0000f003
+;; Param placed 04000000 -> icode= 0400f003
+;; Code of mem[000a] is ready: 0400f003
+
+
+;; MEM[10]=Array
+(
+    [error] => 
+    [icode] => 67170307
+    [fin] => mon.asm
+    [lnr] => 59
+    [address] => 10
+    [cell_type] => C
+    [reloc] => Array
+        (
+            [0] => Array
+                (
+                    [used_parameter] => _pm_version
+                    [mode] => #24
+                    [value] => 61443
+                )
+
+        )
+
+    [labels] => Array
+        (
+        )
+
+    [tags] => Array
+        (
+        )
+
+    [segid] => Sd14c348df59b
+    [src] => call	_pm_version
+    [immediate] => Array
+        (
+            [mode] => #24
+            [value] => 61443
+        )
+
+    [skip] => 0
+    [params] => Array
+        (
+            [0] => _pm_version
+        )
+
+    [inst] => Array
+        (
+            [icode] => 67108864
+            [params] => Array
+                (
+                    [rn_] => Array
+                        (
+                            [icode] => 16777216
+                            [placements] => Array
+                                (
+                                    [0] => rd
+                                    [1] => #20
+                                )
+
+                        )
+
+                    [n_] => Array
+                        (
+                            [icode] => 0
+                            [placements] => Array
+                                (
+                                    [0] => #24
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [pattern] => n_
+)
+
+;; mem[b] is an instruction: 00000000 mov	r4,r0
+;; Inst is in segment: Sd14c348df59b = _lib_segment_pmon
+;; Used pattern matches to an allowed one: rr_
+;; Pattern fixed 00000000 -> icode= 00000000
+;; Param placing: r: 4=4 as rd
+;; Param placed 00000000 -> icode= 00400000
+;; Param placing: r: 0=0 as rb
+;; Param placed 00400000 -> icode= 00400000
+;; Code of mem[000b] is ready: 00400000
+
+
+;; MEM[11]=Array
+(
+    [error] => 
+    [icode] => 4194304
+    [fin] => mon.asm
+    [lnr] => 60
+    [address] => 11
+    [cell_type] => C
+    [reloc] => Array
+        (
+        )
+
+    [labels] => Array
+        (
+        )
+
+    [tags] => Array
+        (
+        )
+
+    [segid] => Sd14c348df59b
+    [src] => mov	r4,r0
+    [immediate] => Array
+        (
+        )
+
+    [skip] => 0
+    [params] => Array
+        (
+            [0] => 4
+            [1] => 0
+        )
+
+    [inst] => Array
+        (
+            [icode] => 0
+            [params] => Array
+                (
+                    [rr_] => Array
+                        (
+                            [icode] => 0
+                            [placements] => Array
+                                (
+                                    [0] => rd
+                                    [1] => rb
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [pattern] => rr_
+)
+
+;; mem[c] is an instruction: 0f0d0000 pop	r0
+;; Inst is in segment: Sd14c348df59b = _lib_segment_pmon
+;; Used pattern matches to an allowed one: r_
+;; Pattern fixed 0f0d0000 -> icode= 0f0d0000
+;; Param placing: r: 0=0 as rd
+;; Param placed 0f0d0000 -> icode= 0f0d0000
+;; Code of mem[000c] is ready: 0f0d0000
+
+
+;; MEM[12]=Array
+(
+    [error] => 
+    [icode] => 252510208
+    [fin] => mon.asm
+    [lnr] => 61
+    [address] => 12
+    [cell_type] => C
+    [reloc] => Array
+        (
+        )
+
+    [labels] => Array
+        (
+        )
+
+    [tags] => Array
+        (
+        )
+
+    [segid] => Sd14c348df59b
+    [src] => pop	r0
+    [immediate] => Array
+        (
+        )
+
+    [skip] => 0
+    [params] => Array
+        (
+            [0] => 0
+        )
+
+    [inst] => Array
+        (
+            [icode] => 252510208
+            [params] => Array
+                (
+                    [r_] => Array
+                        (
+                            [icode] => 0
+                            [placements] => Array
+                                (
+                                    [0] => rd
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [pattern] => r_
+)
+
+;; mem[d] is an instruction: 0f0d0000 pop	pc
+;; Inst is in segment: Sd14c348df59b = _lib_segment_pmon
+;; Used pattern matches to an allowed one: r_
+;; Pattern fixed 0f0d0000 -> icode= 0f0d0000
+;; Param placing: r: 15=15 as rd
+;; Param placed 0f0d0000 -> icode= 0ffd0000
+;; Code of mem[000d] is ready: 0ffd0000
+
+
+;; MEM[13]=Array
+(
+    [error] => 
+    [icode] => 268238848
+    [fin] => mon.asm
+    [lnr] => 62
+    [address] => 13
+    [cell_type] => C
+    [reloc] => Array
+        (
+        )
+
+    [labels] => Array
+        (
+        )
+
+    [tags] => Array
+        (
+        )
+
+    [segid] => Sd14c348df59b
+    [src] => pop	pc
+    [immediate] => Array
+        (
+        )
+
+    [skip] => 0
+    [params] => Array
+        (
+            [0] => 15
+        )
+
+    [inst] => Array
+        (
+            [icode] => 252510208
+            [params] => Array
+                (
+                    [r_] => Array
+                        (
+                            [icode] => 0
+                            [placements] => Array
+                                (
+                                    [0] => rd
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [pattern] => r_
+)
+
+;; ; PHASE 2 done
+;; //U P2
+;; ; Segments
+;; //T Sd14c348df59b _lib_segment_pmon noload=0 abs=0
+;; SYMBOLS
+;; OMITING SYMBOL=Array
+(
+    [type] => =
+    [name] => _pm_callin
+    [value] => 61440
+    [fin] => mon.asm
+    [lnr] => 13
+    [segid] => 
+    [owner] => Sd14c348df59b
+    [defined] => 1
+)
+
+;; //= _pm_callin _pm_callin 0000f000 Sd14c348df59b _
+;; OMITING SYMBOL=Array
+(
+    [type] => =
+    [name] => _pm_enter_by_uart
+    [value] => 61441
+    [fin] => mon.asm
+    [lnr] => 14
+    [segid] => 
+    [owner] => Sd14c348df59b
+    [defined] => 1
+)
+
+;; //= _pm_enter_by_uart _pm_enter_by_uart 0000f001 Sd14c348df59b _
+;; OMITING SYMBOL=Array
+(
+    [type] => =
+    [name] => _pm_getchar
+    [value] => 61442
+    [fin] => mon.asm
+    [lnr] => 15
+    [segid] => 
+    [owner] => Sd14c348df59b
+    [defined] => 1
+)
+
+;; //= _pm_getchar _pm_getchar 0000f002 Sd14c348df59b _
+;; OMITING SYMBOL=Array
+(
+    [type] => =
+    [name] => _pm_version
+    [value] => 61443
+    [fin] => mon.asm
+    [lnr] => 16
+    [segid] => 
+    [owner] => Sd14c348df59b
+    [defined] => 1
+)
+
+;; //= _pm_version _pm_version 0000f003 Sd14c348df59b _
+;; OMITING SYMBOL=Array
+(
+    [type] => =
+    [name] => _pm_itobcd
+    [value] => 61444
+    [fin] => mon.asm
+    [lnr] => 17
+    [segid] => 
+    [owner] => Sd14c348df59b
+    [defined] => 1
+)
+
+;; //= _pm_itobcd _pm_itobcd 0000f004 Sd14c348df59b _
+;; OMITING SYMBOL=Array
+(
+    [type] => =
+    [name] => _pm_cold_start
+    [value] => 61445
+    [fin] => mon.asm
+    [lnr] => 18
+    [segid] => 
+    [owner] => Sd14c348df59b
+    [defined] => 1
+)
+
+;; //= _pm_cold_start _pm_cold_start 0000f005 Sd14c348df59b _
+;; OMITING SYMBOL=Array
+(
+    [type] => =
+    [name] => _pm_strchr
+    [value] => 61446
+    [fin] => mon.asm
+    [lnr] => 19
+    [segid] => 
+    [owner] => Sd14c348df59b
+    [defined] => 1
+)
+
+;; //= _pm_strchr _pm_strchr 0000f006 Sd14c348df59b _
+;; OMITING SYMBOL=Array
+(
+    [type] => =
+    [name] => _pm_streq
+    [value] => 61447
+    [fin] => mon.asm
+    [lnr] => 20
+    [segid] => 
+    [owner] => Sd14c348df59b
+    [defined] => 1
+)
+
+;; //= _pm_streq _pm_streq 0000f007 Sd14c348df59b _
+;; OMITING SYMBOL=Array
+(
+    [type] => =
+    [name] => _pm_check_uart
+    [value] => 61448
+    [fin] => mon.asm
+    [lnr] => 21
+    [segid] => 
+    [owner] => Sd14c348df59b
+    [defined] => 1
+)
+
+;; //= _pm_check_uart _pm_check_uart 0000f008 Sd14c348df59b _
+;; OMITING SYMBOL=Array
+(
+    [type] => =
+    [name] => _pm_input_avail
+    [value] => 61448
+    [fin] => mon.asm
+    [lnr] => 22
+    [segid] => 
+    [owner] => Sd14c348df59b
+    [defined] => 1
+)
+
+;; //= _pm_input_avail _pm_input_avail 0000f008 Sd14c348df59b _
+;; OMITING SYMBOL=Array
+(
+    [type] => =
+    [name] => _pm_hexchar2value
+    [value] => 61449
+    [fin] => mon.asm
+    [lnr] => 23
+    [segid] => 
+    [owner] => Sd14c348df59b
+    [defined] => 1
+)
+
+;; //= _pm_hexchar2value _pm_hexchar2value 0000f009 Sd14c348df59b _
+;; OMITING SYMBOL=Array
+(
+    [type] => =
+    [name] => _pm_value2hexchar
+    [value] => 61450
+    [fin] => mon.asm
+    [lnr] => 24
+    [segid] => 
+    [owner] => Sd14c348df59b
+    [defined] => 1
+)
+
+;; //= _pm_value2hexchar _pm_value2hexchar 0000f00a Sd14c348df59b _
+;; OMITING SYMBOL=Array
+(
+    [type] => =
+    [name] => _pm_htoi
+    [value] => 61451
+    [fin] => mon.asm
+    [lnr] => 25
+    [segid] => 
+    [owner] => Sd14c348df59b
+    [defined] => 1
+)
+
+;; //= _pm_htoi _pm_htoi 0000f00b Sd14c348df59b _
+;; OMITING SYMBOL=Array
+(
+    [type] => =
+    [name] => _pm_strieq
+    [value] => 61452
+    [fin] => mon.asm
+    [lnr] => 26
+    [segid] => 
+    [owner] => Sd14c348df59b
+    [defined] => 1
+)
+
+;; //= _pm_strieq _pm_strieq 0000f00c Sd14c348df59b _
+;; OMITING SYMBOL=Array
+(
+    [type] => =
+    [name] => _pm_read
+    [value] => 61453
+    [fin] => mon.asm
+    [lnr] => 27
+    [segid] => 
+    [owner] => Sd14c348df59b
+    [defined] => 1
+)
+
+;; //= _pm_read _pm_read 0000f00d Sd14c348df59b _
+;; OMITING SYMBOL=Array
+(
+    [type] => =
+    [name] => _pm_putchar
+    [value] => 61454
+    [fin] => mon.asm
+    [lnr] => 28
+    [segid] => 
+    [owner] => Sd14c348df59b
+    [defined] => 1
+)
+
+;; //= _pm_putchar _pm_putchar 0000f00e Sd14c348df59b _
+;; OMITING SYMBOL=Array
+(
+    [type] => =
+    [name] => _pm_prints
+    [value] => 61455
+    [fin] => mon.asm
+    [lnr] => 29
+    [segid] => 
+    [owner] => Sd14c348df59b
+    [defined] => 1
+)
+
+;; //= _pm_prints _pm_prints 0000f00f Sd14c348df59b _
+;; OMITING SYMBOL=Array
+(
+    [type] => =
+    [name] => _pm_printsnl
+    [value] => 61456
+    [fin] => mon.asm
+    [lnr] => 30
+    [segid] => 
+    [owner] => Sd14c348df59b
+    [defined] => 1
+)
+
+;; //= _pm_printsnl _pm_printsnl 0000f010 Sd14c348df59b _
+;; OMITING SYMBOL=Array
+(
+    [type] => =
+    [name] => _pm_print_vhex
+    [value] => 61457
+    [fin] => mon.asm
+    [lnr] => 31
+    [segid] => 
+    [owner] => Sd14c348df59b
+    [defined] => 1
+)
+
+;; //= _pm_print_vhex _pm_print_vhex 0000f011 Sd14c348df59b _
+;; OMITING SYMBOL=Array
+(
+    [type] => =
+    [name] => _pm_pes
+    [value] => 61458
+    [fin] => mon.asm
+    [lnr] => 32
+    [segid] => 
+    [owner] => Sd14c348df59b
+    [defined] => 1
+)
+
+;; //= _pm_pes _pm_pes 0000f012 Sd14c348df59b _
+;; OMITING SYMBOL=Array
+(
+    [type] => =
+    [name] => _pm_printd
+    [value] => 61459
+    [fin] => mon.asm
+    [lnr] => 33
+    [segid] => 
+    [owner] => Sd14c348df59b
+    [defined] => 1
+)
+
+;; //= _pm_printd _pm_printd 0000f013 Sd14c348df59b _
+;; OMITING SYMBOL=Array
+(
+    [type] => =
+    [name] => _pm_printf
+    [value] => 61460
+    [fin] => mon.asm
+    [lnr] => 34
+    [segid] => 
+    [owner] => Sd14c348df59b
+    [defined] => 1
+)
+
+;; //= _pm_printf _pm_printf 0000f014 Sd14c348df59b _
+;; OMITING SYMBOL=Array
+(
+    [type] => =
+    [name] => _pm_pesf
+    [value] => 61461
+    [fin] => mon.asm
+    [lnr] => 35
+    [segid] => 
+    [owner] => Sd14c348df59b
+    [defined] => 1
+)
+
+;; //= _pm_pesf _pm_pesf 0000f015 Sd14c348df59b _
+;; OMITING SYMBOL=Array
+(
+    [type] => =
+    [name] => _pm_ascii2seg
+    [value] => 61462
+    [fin] => mon.asm
+    [lnr] => 36
+    [segid] => 
+    [owner] => Sd14c348df59b
+    [defined] => 1
+)
+
+;; //= _pm_ascii2seg _pm_ascii2seg 0000f016 Sd14c348df59b _
+;; OMITING SYMBOL=Array
+(
+    [type] => L
+    [name] => monitor
+    [value] => 0
+    [fin] => mon.asm
+    [lnr] => 39
+    [segid] => 
+    [owner] => Sd14c348df59b
+    [defined] => 1
+)
+
+;; //L monitor monitor 00000000 Sd14c348df59b _
+;; Adding label monitor to mem[0]
+
+;; MEM[0]=Array
+(
+    [error] => 
+    [icode] => 32698368
+    [fin] => mon.asm
+    [lnr] => 40
+    [address] => 0
+    [cell_type] => C
+    [reloc] => Array
+        (
+            [0] => Array
+                (
+                    [used_parameter] => _pm_callin
+                    [mode] => #16
+                    [value] => 61440
+                )
+
+        )
+
+    [labels] => Array
+        (
+            [0] => Array
+                (
+                    [type] => L
+                    [name] => monitor
+                    [value] => 0
+                    [fin] => mon.asm
+                    [lnr] => 39
+                    [segid] => 
+                    [owner] => Sd14c348df59b
+                    [defined] => 1
+                )
+
+        )
+
+    [tags] => Array
+        (
+            [monitor] => monitor
+        )
+
+    [segid] => Sd14c348df59b
+    [src] => jmp	_pm_callin
+    [immediate] => Array
+        (
+            [mode] => #16
+            [value] => 61440
+        )
+
+    [skip] => 0
+    [params] => Array
+        (
+            [0] => _pm_callin
+        )
+
+    [inst] => Array
+        (
+            [icode] => 32636928
+            [params] => Array
+                (
+                    [n_] => Array
+                        (
+                            [icode] => 0
+                            [placements] => Array
+                                (
+                                    [0] => #16
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [pattern] => n_
+)
+
+;; OMITING SYMBOL=Array
+(
+    [type] => L
+    [name] => monitor_by_uart
+    [value] => 1
+    [fin] => mon.asm
+    [lnr] => 43
+    [segid] => 
+    [owner] => Sd14c348df59b
+    [defined] => 1
+)
+
+;; //L monitor_by_uart monitor_by_uart 00000001 Sd14c348df59b _
+;; Adding label monitor_by_uart to mem[1]
+
+;; MEM[1]=Array
+(
+    [error] => 
+    [icode] => 32698369
+    [fin] => mon.asm
+    [lnr] => 44
+    [address] => 1
+    [cell_type] => C
+    [reloc] => Array
+        (
+            [0] => Array
+                (
+                    [used_parameter] => _pm_enter_by_uart
+                    [mode] => #16
+                    [value] => 61441
+                )
+
+        )
+
+    [labels] => Array
+        (
+            [0] => Array
+                (
+                    [type] => L
+                    [name] => monitor_by_uart
+                    [value] => 1
+                    [fin] => mon.asm
+                    [lnr] => 43
+                    [segid] => 
+                    [owner] => Sd14c348df59b
+                    [defined] => 1
+                )
+
+        )
+
+    [tags] => Array
+        (
+            [monitor_by_uart] => monitor_by_uart
+        )
+
+    [segid] => Sd14c348df59b
+    [src] => jmp	_pm_enter_by_uart
+    [immediate] => Array
+        (
+            [mode] => #16
+            [value] => 61441
+        )
+
+    [skip] => 0
+    [params] => Array
+        (
+            [0] => _pm_enter_by_uart
+        )
+
+    [inst] => Array
+        (
+            [icode] => 32636928
+            [params] => Array
+                (
+                    [n_] => Array
+                        (
+                            [icode] => 0
+                            [placements] => Array
+                                (
+                                    [0] => #16
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [pattern] => n_
+)
+
+;; OMITING SYMBOL=Array
+(
+    [type] => L
+    [name] => monitor_by_button
+    [value] => 2
+    [fin] => mon.asm
+    [lnr] => 47
+    [segid] => 
+    [owner] => Sd14c348df59b
+    [defined] => 1
+)
+
+;; //L monitor_by_button monitor_by_button 00000002 Sd14c348df59b _
+;; Adding label monitor_by_button to mem[2]
+
+;; MEM[2]=Array
+(
+    [error] => 
+    [icode] => 233635840
+    [fin] => mon.asm
+    [lnr] => 48
+    [address] => 2
+    [cell_type] => C
+    [reloc] => Array
+        (
+        )
+
+    [labels] => Array
+        (
+            [0] => Array
+                (
+                    [type] => L
+                    [name] => monitor_by_button
+                    [value] => 2
+                    [fin] => mon.asm
+                    [lnr] => 47
+                    [segid] => 
+                    [owner] => Sd14c348df59b
+                    [defined] => 1
+                )
+
+        )
+
+    [tags] => Array
+        (
+            [monitor_by_button] => monitor_by_button
+        )
+
+    [segid] => Sd14c348df59b
+    [src] => push	lr
+    [immediate] => Array
+        (
+        )
+
+    [skip] => 0
+    [params] => Array
+        (
+            [0] => 14
+        )
+
+    [inst] => Array
+        (
+            [icode] => 218955776
+            [params] => Array
+                (
+                    [r_] => Array
+                        (
+                            [icode] => 0
+                            [placements] => Array
+                                (
+                                    [0] => rd
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [pattern] => r_
+)
+
+;; OMITING SYMBOL=Array
+(
+    [type] => L
+    [name] => monitor_version
+    [value] => 8
+    [fin] => mon.asm
+    [lnr] => 56
+    [segid] => 
+    [owner] => Sd14c348df59b
+    [defined] => 1
+)
+
+;; //L monitor_version monitor_version 00000008 Sd14c348df59b _
+;; Adding label monitor_version to mem[8]
+
+;; MEM[8]=Array
+(
+    [error] => 
+    [icode] => 233635840
+    [fin] => mon.asm
+    [lnr] => 57
+    [address] => 8
+    [cell_type] => C
+    [reloc] => Array
+        (
+        )
+
+    [labels] => Array
+        (
+            [0] => Array
+                (
+                    [type] => L
+                    [name] => monitor_version
+                    [value] => 8
+                    [fin] => mon.asm
+                    [lnr] => 56
+                    [segid] => 
+                    [owner] => Sd14c348df59b
+                    [defined] => 1
+                )
+
+        )
+
+    [tags] => Array
+        (
+            [monitor_version] => monitor_version
+        )
+
+    [segid] => Sd14c348df59b
+    [src] => push	lr
+    [immediate] => Array
+        (
+        )
+
+    [skip] => 0
+    [params] => Array
+        (
+            [0] => 14
+        )
+
+    [inst] => Array
+        (
+            [icode] => 218955776
+            [params] => Array
+                (
+                    [r_] => Array
+                        (
+                            [icode] => 0
+                            [placements] => Array
+                                (
+                                    [0] => rd
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [pattern] => r_
+)
+
+;; 
+
+
+;; //P -
+;; //F mon.asm
+;; //P Sd14c348df59b _lib_segment_pmon
+;; 01f2f000 //C 00000    40 jmp	_pm_callin
+;; //R 00000 #16 _pm_callin 0000f000
+;; //I 00000 #16 0000f000
+;; //G monitor
+;; 01f2f001 //C 00001    44 jmp	_pm_enter_by_uart
+;; //R 00001 #16 _pm_enter_by_uart 0000f001
+;; //I 00001 #16 0000f001
+;; //G monitor_by_uart
+;; 0ded0000 //C 00002    48 push	lr
+;; //G monitor_by_button
+;; 04000000 //C 00003    49 call	btn_posedge
+;; //R 00003 #24 btn_posedge 00000000
+;; //I 00003 #24 00000000
+;; 4ffd0000 //C 00004    50 NC pop	pc
+;; 04000000 //C 00005    51 call	monitor
+;; //R 00005 #24 monitor 00000000
+;; //I 00005 #24 00000000
+;; 04000000 //C 00006    52 call	btn_restart
+;; //R 00006 #24 btn_restart 00000000
+;; //I 00006 #24 00000000
+;; 0ffd0000 //C 00007    53 pop	pc
+;; 0ded0000 //C 00008    57 push	lr
+;; //G monitor_version
+;; 0d0d0000 //C 00009    58 push	r0
+;; 0400f003 //C 0000a    59 call	_pm_version
+;; //R 0000a #24 _pm_version 0000f003
+;; //I 0000a #24 0000f003
+;; 00400000 //C 0000b    60 mov	r4,r0
+;; 0f0d0000 //C 0000c    61 pop	r0
+;; 0ffd0000 //C 0000d    62 pop	pc
+;; //H bc11d004
+;; //E

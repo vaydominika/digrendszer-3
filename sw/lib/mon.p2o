@@ -1,0 +1,71 @@
+//U P2
+
+//; SEGMENTS
+//T Sd14c348df59b _lib_segment_pmon noload=0 abs=0
+
+//; SYMBOLS
+//= _pm_callin _pm_callin 0000f000 Sd14c348df59b _
+//= _pm_enter_by_uart _pm_enter_by_uart 0000f001 Sd14c348df59b _
+//= _pm_getchar _pm_getchar 0000f002 Sd14c348df59b _
+//= _pm_version _pm_version 0000f003 Sd14c348df59b _
+//= _pm_itobcd _pm_itobcd 0000f004 Sd14c348df59b _
+//= _pm_cold_start _pm_cold_start 0000f005 Sd14c348df59b _
+//= _pm_strchr _pm_strchr 0000f006 Sd14c348df59b _
+//= _pm_streq _pm_streq 0000f007 Sd14c348df59b _
+//= _pm_check_uart _pm_check_uart 0000f008 Sd14c348df59b _
+//= _pm_input_avail _pm_input_avail 0000f008 Sd14c348df59b _
+//= _pm_hexchar2value _pm_hexchar2value 0000f009 Sd14c348df59b _
+//= _pm_value2hexchar _pm_value2hexchar 0000f00a Sd14c348df59b _
+//= _pm_htoi _pm_htoi 0000f00b Sd14c348df59b _
+//= _pm_strieq _pm_strieq 0000f00c Sd14c348df59b _
+//= _pm_read _pm_read 0000f00d Sd14c348df59b _
+//= _pm_putchar _pm_putchar 0000f00e Sd14c348df59b _
+//= _pm_prints _pm_prints 0000f00f Sd14c348df59b _
+//= _pm_printsnl _pm_printsnl 0000f010 Sd14c348df59b _
+//= _pm_print_vhex _pm_print_vhex 0000f011 Sd14c348df59b _
+//= _pm_pes _pm_pes 0000f012 Sd14c348df59b _
+//= _pm_printd _pm_printd 0000f013 Sd14c348df59b _
+//= _pm_printf _pm_printf 0000f014 Sd14c348df59b _
+//= _pm_pesf _pm_pesf 0000f015 Sd14c348df59b _
+//= _pm_ascii2seg _pm_ascii2seg 0000f016 Sd14c348df59b _
+//L monitor monitor 00000000 Sd14c348df59b _
+//L monitor_by_uart monitor_by_uart 00000001 Sd14c348df59b _
+//L monitor_by_button monitor_by_button 00000002 Sd14c348df59b _
+//L monitor_version monitor_version 00000008 Sd14c348df59b _
+
+//; CODE
+//P -
+//F mon.asm
+//P Sd14c348df59b _lib_segment_pmon
+01f2f000 //C 00000    40 jmp	_pm_callin
+//R 00000 #16 _pm_callin 0000f000
+//I 00000 #16 0000f000
+//G monitor
+01f2f001 //C 00001    44 jmp	_pm_enter_by_uart
+//R 00001 #16 _pm_enter_by_uart 0000f001
+//I 00001 #16 0000f001
+//G monitor_by_uart
+0ded0000 //C 00002    48 push	lr
+//G monitor_by_button
+04000000 //C 00003    49 call	btn_posedge
+//R 00003 #24 btn_posedge 00000000
+//I 00003 #24 00000000
+4ffd0000 //C 00004    50 NC pop	pc
+04000000 //C 00005    51 call	monitor
+//R 00005 #24 monitor 00000000
+//I 00005 #24 00000000
+04000000 //C 00006    52 call	btn_restart
+//R 00006 #24 btn_restart 00000000
+//I 00006 #24 00000000
+0ffd0000 //C 00007    53 pop	pc
+0ded0000 //C 00008    57 push	lr
+//G monitor_version
+0d0d0000 //C 00009    58 push	r0
+0400f003 //C 0000a    59 call	_pm_version
+//R 0000a #24 _pm_version 0000f003
+//I 0000a #24 0000f003
+00400000 //C 0000b    60 mov	r4,r0
+0f0d0000 //C 0000c    61 pop	r0
+0ffd0000 //C 0000d    62 pop	pc
+//H bc11d004
+//E

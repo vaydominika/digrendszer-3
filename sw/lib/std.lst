@@ -1,0 +1,1214 @@
+;; 
+;; Phase 1 of file std.asm [ASM]
+
+;; 23 lines buffered
+;; 
+
+;; line[1]: cpu	p2
+;; proc_asm_line; lnr=1 w=cpu
+;; is_cond(CPU); 12 P1
+;; Use Processor p2223
+;; 
+
+;; line[2]: 
+;; proc_asm_line; no words found in line 2
+;; 
+
+;; line[3]: ;;
+;; 
+
+;; line[4]: ;; R4=             itobcd   (R0:val)
+;; 
+
+;; line[5]: ;;
+;; 
+
+;; line[6]: 
+;; proc_asm_line; no words found in line 6
+;; 
+
+;; line[7]: 
+;; proc_asm_line; no words found in line 7
+;; 
+
+;; line[8]: ;;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; 
+
+;; line[9]: 
+;; proc_asm_line; no words found in line 9
+;; 
+
+;; line[10]: .seg	_lib_segment_itobcd
+;; proc_asm_line; lnr=10 w=.seg
+;; is_cond(.SEG); 54 P2
+;; Segment started: _lib_segment_itobcd,S655428b05acd
+;; 
+
+;; line[11]: itobcd::
+;; proc_asm_line; lnr=11 w=itobcd::
+;; proc_asm_line; found label=itobcd at addr=0
+;; mk_mem(addr=0 fin=std.asm lnr=11)
+;; Exporting symbol "itobcd"
+;; first word precessed, addr=0
+;; Instructionless line
+;; 
+
+;; line[12]: push	lr
+;; proc_asm_line; lnr=12 w=push
+;; is_cond(PUSH); 54 P2
+;; is_inst(PUSH);
+;; proc_asm_line; lnr=12 INST= 0d0d0000 in segment Array
+(
+    [name] => _lib_segment_itobcd
+    [id] => S655428b05acd
+    [start] => 0
+    [noload] => 
+    [abs] => 
+    [fin] => std.asm
+    [lnr] => 10
+)
+
+;; mk_mem(addr=0 fin=std.asm lnr=12)
+;; mem[0] updated
+;; proc_asm_line; lnr=12
+;; mem[0].lnr=12
+;; 00000 0d0d0000 (S655428b05acd)
+;; 
+;; first word precessed, addr=0
+;; Continue with params
+;; Parameter word: lr LR
+;; Check if LR/LR is a reg?
+;; Check if LR/LR is a reg?
+;; lr=14
+;; is_reg? r=14
+;; Parameter value: 14
+;; param pattern=r_
+;; Added params=
+Array
+(
+    [0] => 14
+)
+
+to inst at 0
+;; mem[0] is ready
+;; new addr=1
+;; 
+
+;; line[13]: push	r0
+;; proc_asm_line; lnr=13 w=push
+;; is_cond(PUSH); 54 P2
+;; is_inst(PUSH);
+;; proc_asm_line; lnr=13 INST= 0d0d0000 in segment Array
+(
+    [name] => _lib_segment_itobcd
+    [id] => S655428b05acd
+    [start] => 0
+    [noload] => 
+    [abs] => 
+    [fin] => std.asm
+    [lnr] => 10
+)
+
+;; mk_mem(addr=1 fin=std.asm lnr=13)
+;; proc_asm_line; lnr=13
+;; mem[1].lnr=13
+;; 00001 0d0d0000 (S655428b05acd)
+;; 
+;; first word precessed, addr=1
+;; Continue with params
+;; Parameter word: r0 R0
+;; Check if R0/R0 is a reg?
+;; Check if R0/R0 is a reg?
+;; Match as a reg: w=0 r=0
+;; is_reg? r=0
+;; Parameter value: 0
+;; param pattern=r_
+;; Added params=
+Array
+(
+    [0] => 0
+)
+
+to inst at 1
+;; mem[1] is ready
+;; new addr=2
+;; 
+
+;; line[14]: call	_pm_itobcd
+;; proc_asm_line; lnr=14 w=call
+;; is_cond(CALL); 54 P2
+;; is_inst(CALL);
+;; proc_asm_line; lnr=14 INST= 04000000 in segment Array
+(
+    [name] => _lib_segment_itobcd
+    [id] => S655428b05acd
+    [start] => 0
+    [noload] => 
+    [abs] => 
+    [fin] => std.asm
+    [lnr] => 10
+)
+
+;; mk_mem(addr=2 fin=std.asm lnr=14)
+;; proc_asm_line; lnr=14
+;; mem[2].lnr=14
+;; 00002 04000000 (S655428b05acd)
+;; 
+;; first word precessed, addr=2
+;; Continue with params
+;; Parameter word: _pm_itobcd _PM_ITOBCD
+;; Check if _PM_ITOBCD/_PM_ITOBCD is a reg?
+;; Check if _PM_ITOBCD/_PM_ITOBCD is a reg?
+;; is_reg? r=
+;; Parameter value: _pm_itobcd
+;; param pattern=n_
+;; Added params=
+Array
+(
+    [0] => _pm_itobcd
+)
+
+to inst at 2
+;; mem[2] is ready
+;; new addr=3
+;; 
+
+;; line[15]: mov	r4,r0
+;; proc_asm_line; lnr=15 w=mov
+;; is_cond(MOV); 54 P2
+;; is_inst(MOV);
+;; proc_asm_line; lnr=15 INST= 00000000 in segment Array
+(
+    [name] => _lib_segment_itobcd
+    [id] => S655428b05acd
+    [start] => 0
+    [noload] => 
+    [abs] => 
+    [fin] => std.asm
+    [lnr] => 10
+)
+
+;; mk_mem(addr=3 fin=std.asm lnr=15)
+;; proc_asm_line; lnr=15
+;; mem[3].lnr=15
+;; 00003 00000000 (S655428b05acd)
+;; 
+;; first word precessed, addr=3
+;; Continue with params
+;; Parameter word: r4 R4
+;; Check if R4/R4 is a reg?
+;; Check if R4/R4 is a reg?
+;; Match as a reg: w=4 r=4
+;; is_reg? r=4
+;; Parameter value: 4
+;; Parameter word: r0 R0
+;; Check if R0/R0 is a reg?
+;; Check if R0/R0 is a reg?
+;; Match as a reg: w=0 r=0
+;; is_reg? r=0
+;; Parameter value: 0
+;; param pattern=rr_
+;; Added params=
+Array
+(
+    [0] => 4
+    [1] => 0
+)
+
+to inst at 3
+;; mem[3] is ready
+;; new addr=4
+;; 
+
+;; line[16]: pop	r0
+;; proc_asm_line; lnr=16 w=pop
+;; is_cond(POP); 54 P2
+;; is_inst(POP);
+;; proc_asm_line; lnr=16 INST= 0f0d0000 in segment Array
+(
+    [name] => _lib_segment_itobcd
+    [id] => S655428b05acd
+    [start] => 0
+    [noload] => 
+    [abs] => 
+    [fin] => std.asm
+    [lnr] => 10
+)
+
+;; mk_mem(addr=4 fin=std.asm lnr=16)
+;; proc_asm_line; lnr=16
+;; mem[4].lnr=16
+;; 00004 0f0d0000 (S655428b05acd)
+;; 
+;; first word precessed, addr=4
+;; Continue with params
+;; Parameter word: r0 R0
+;; Check if R0/R0 is a reg?
+;; Check if R0/R0 is a reg?
+;; Match as a reg: w=0 r=0
+;; is_reg? r=0
+;; Parameter value: 0
+;; param pattern=r_
+;; Added params=
+Array
+(
+    [0] => 0
+)
+
+to inst at 4
+;; mem[4] is ready
+;; new addr=5
+;; 
+
+;; line[17]: pop	pc
+;; proc_asm_line; lnr=17 w=pop
+;; is_cond(POP); 54 P2
+;; is_inst(POP);
+;; proc_asm_line; lnr=17 INST= 0f0d0000 in segment Array
+(
+    [name] => _lib_segment_itobcd
+    [id] => S655428b05acd
+    [start] => 0
+    [noload] => 
+    [abs] => 
+    [fin] => std.asm
+    [lnr] => 10
+)
+
+;; mk_mem(addr=5 fin=std.asm lnr=17)
+;; proc_asm_line; lnr=17
+;; mem[5].lnr=17
+;; 00005 0f0d0000 (S655428b05acd)
+;; 
+;; first word precessed, addr=5
+;; Continue with params
+;; Parameter word: pc PC
+;; Check if PC/PC is a reg?
+;; Check if PC/PC is a reg?
+;; pc=15
+;; is_reg? r=15
+;; Parameter value: 15
+;; param pattern=r_
+;; Added params=
+Array
+(
+    [0] => 15
+)
+
+to inst at 5
+;; mem[5] is ready
+;; new addr=6
+;; 
+
+;; line[18]: 
+;; proc_asm_line; no words found in line 18
+;; 
+
+;; line[19]: .ends
+;; proc_asm_line; lnr=19 w=.ends
+;; is_cond(.ENDS); 54 P2
+;; Finish segment: _lib_segment_itobcd,S655428b05acd
+;; 
+
+;; line[20]: 
+;; proc_asm_line; no words found in line 20
+;; 
+
+;; line[21]: 
+;; proc_asm_line; no words found in line 21
+;; 
+
+;; line[22]: ;;; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; 
+
+;; line[23]: 
+;; proc_asm_line; no words found in line 23
+;; 
+
+
+;; SYMBOL_TABLE BEFORE PHASE2
+Array
+(
+    [itobcd] => Array
+        (
+            [type] => L
+            [name] => itobcd
+            [value] => 0
+            [fin] => std.asm
+            [lnr] => 11
+            [segid] => 
+            [owner] => S655428b05acd
+            [defined] => 1
+        )
+
+)
+
+;; MEM_TABLE BEFORE PHASE2
+Array
+(
+    [0] => Array
+        (
+            [error] => 
+            [icode] => 218955776
+            [fin] => std.asm
+            [lnr] => 12
+            [address] => 0
+            [cell_type] => C
+            [reloc] => Array
+                (
+                )
+
+            [labels] => Array
+                (
+                )
+
+            [tags] => Array
+                (
+                    [itobcd] => itobcd
+                )
+
+            [segid] => S655428b05acd
+            [src] => push	lr
+            [immediate] => Array
+                (
+                )
+
+            [skip] => 0
+            [params] => Array
+                (
+                    [0] => 14
+                )
+
+            [inst] => Array
+                (
+                    [icode] => 218955776
+                    [params] => Array
+                        (
+                            [r_] => Array
+                                (
+                                    [icode] => 0
+                                    [placements] => Array
+                                        (
+                                            [0] => rd
+                                        )
+
+                                )
+
+                        )
+
+                )
+
+            [pattern] => r_
+        )
+
+    [1] => Array
+        (
+            [error] => 
+            [icode] => 218955776
+            [fin] => std.asm
+            [lnr] => 13
+            [address] => 1
+            [cell_type] => C
+            [reloc] => Array
+                (
+                )
+
+            [labels] => Array
+                (
+                )
+
+            [tags] => Array
+                (
+                )
+
+            [segid] => S655428b05acd
+            [src] => push	r0
+            [immediate] => Array
+                (
+                )
+
+            [skip] => 0
+            [params] => Array
+                (
+                    [0] => 0
+                )
+
+            [inst] => Array
+                (
+                    [icode] => 218955776
+                    [params] => Array
+                        (
+                            [r_] => Array
+                                (
+                                    [icode] => 0
+                                    [placements] => Array
+                                        (
+                                            [0] => rd
+                                        )
+
+                                )
+
+                        )
+
+                )
+
+            [pattern] => r_
+        )
+
+    [2] => Array
+        (
+            [error] => 
+            [icode] => 67108864
+            [fin] => std.asm
+            [lnr] => 14
+            [address] => 2
+            [cell_type] => C
+            [reloc] => Array
+                (
+                )
+
+            [labels] => Array
+                (
+                )
+
+            [tags] => Array
+                (
+                )
+
+            [segid] => S655428b05acd
+            [src] => call	_pm_itobcd
+            [immediate] => Array
+                (
+                )
+
+            [skip] => 0
+            [params] => Array
+                (
+                    [0] => _pm_itobcd
+                )
+
+            [inst] => Array
+                (
+                    [icode] => 67108864
+                    [params] => Array
+                        (
+                            [rn_] => Array
+                                (
+                                    [icode] => 16777216
+                                    [placements] => Array
+                                        (
+                                            [0] => rd
+                                            [1] => #20
+                                        )
+
+                                )
+
+                            [n_] => Array
+                                (
+                                    [icode] => 0
+                                    [placements] => Array
+                                        (
+                                            [0] => #24
+                                        )
+
+                                )
+
+                        )
+
+                )
+
+            [pattern] => n_
+        )
+
+    [3] => Array
+        (
+            [error] => 
+            [icode] => 0
+            [fin] => std.asm
+            [lnr] => 15
+            [address] => 3
+            [cell_type] => C
+            [reloc] => Array
+                (
+                )
+
+            [labels] => Array
+                (
+                )
+
+            [tags] => Array
+                (
+                )
+
+            [segid] => S655428b05acd
+            [src] => mov	r4,r0
+            [immediate] => Array
+                (
+                )
+
+            [skip] => 0
+            [params] => Array
+                (
+                    [0] => 4
+                    [1] => 0
+                )
+
+            [inst] => Array
+                (
+                    [icode] => 0
+                    [params] => Array
+                        (
+                            [rr_] => Array
+                                (
+                                    [icode] => 0
+                                    [placements] => Array
+                                        (
+                                            [0] => rd
+                                            [1] => rb
+                                        )
+
+                                )
+
+                        )
+
+                )
+
+            [pattern] => rr_
+        )
+
+    [4] => Array
+        (
+            [error] => 
+            [icode] => 252510208
+            [fin] => std.asm
+            [lnr] => 16
+            [address] => 4
+            [cell_type] => C
+            [reloc] => Array
+                (
+                )
+
+            [labels] => Array
+                (
+                )
+
+            [tags] => Array
+                (
+                )
+
+            [segid] => S655428b05acd
+            [src] => pop	r0
+            [immediate] => Array
+                (
+                )
+
+            [skip] => 0
+            [params] => Array
+                (
+                    [0] => 0
+                )
+
+            [inst] => Array
+                (
+                    [icode] => 252510208
+                    [params] => Array
+                        (
+                            [r_] => Array
+                                (
+                                    [icode] => 0
+                                    [placements] => Array
+                                        (
+                                            [0] => rd
+                                        )
+
+                                )
+
+                        )
+
+                )
+
+            [pattern] => r_
+        )
+
+    [5] => Array
+        (
+            [error] => 
+            [icode] => 252510208
+            [fin] => std.asm
+            [lnr] => 17
+            [address] => 5
+            [cell_type] => C
+            [reloc] => Array
+                (
+                )
+
+            [labels] => Array
+                (
+                )
+
+            [tags] => Array
+                (
+                )
+
+            [segid] => S655428b05acd
+            [src] => pop	pc
+            [immediate] => Array
+                (
+                )
+
+            [skip] => 0
+            [params] => Array
+                (
+                    [0] => 15
+                )
+
+            [inst] => Array
+                (
+                    [icode] => 252510208
+                    [params] => Array
+                        (
+                            [r_] => Array
+                                (
+                                    [icode] => 0
+                                    [placements] => Array
+                                        (
+                                            [0] => rd
+                                        )
+
+                                )
+
+                        )
+
+                )
+
+            [pattern] => r_
+        )
+
+)
+
+;; PHASE 2
+
+;; SYMBOL_TABLE:Array
+(
+    [itobcd] => Array
+        (
+            [type] => L
+            [name] => itobcd
+            [value] => 0
+            [fin] => std.asm
+            [lnr] => 11
+            [segid] => 
+            [owner] => S655428b05acd
+            [defined] => 1
+        )
+
+)
+
+;; mem[0] is an instruction: 0d0d0000 push	lr
+;; Inst is in segment: S655428b05acd = _lib_segment_itobcd
+;; Used pattern matches to an allowed one: r_
+;; Pattern fixed 0d0d0000 -> icode= 0d0d0000
+;; Param placing: r: 14=14 as rd
+;; Param placed 0d0d0000 -> icode= 0ded0000
+;; Code of mem[0000] is ready: 0ded0000
+
+
+;; MEM[0]=Array
+(
+    [error] => 
+    [icode] => 233635840
+    [fin] => std.asm
+    [lnr] => 12
+    [address] => 0
+    [cell_type] => C
+    [reloc] => Array
+        (
+        )
+
+    [labels] => Array
+        (
+        )
+
+    [tags] => Array
+        (
+            [itobcd] => itobcd
+        )
+
+    [segid] => S655428b05acd
+    [src] => push	lr
+    [immediate] => Array
+        (
+        )
+
+    [skip] => 0
+    [params] => Array
+        (
+            [0] => 14
+        )
+
+    [inst] => Array
+        (
+            [icode] => 218955776
+            [params] => Array
+                (
+                    [r_] => Array
+                        (
+                            [icode] => 0
+                            [placements] => Array
+                                (
+                                    [0] => rd
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [pattern] => r_
+)
+
+;; mem[1] is an instruction: 0d0d0000 push	r0
+;; Inst is in segment: S655428b05acd = _lib_segment_itobcd
+;; Used pattern matches to an allowed one: r_
+;; Pattern fixed 0d0d0000 -> icode= 0d0d0000
+;; Param placing: r: 0=0 as rd
+;; Param placed 0d0d0000 -> icode= 0d0d0000
+;; Code of mem[0001] is ready: 0d0d0000
+
+
+;; MEM[1]=Array
+(
+    [error] => 
+    [icode] => 218955776
+    [fin] => std.asm
+    [lnr] => 13
+    [address] => 1
+    [cell_type] => C
+    [reloc] => Array
+        (
+        )
+
+    [labels] => Array
+        (
+        )
+
+    [tags] => Array
+        (
+        )
+
+    [segid] => S655428b05acd
+    [src] => push	r0
+    [immediate] => Array
+        (
+        )
+
+    [skip] => 0
+    [params] => Array
+        (
+            [0] => 0
+        )
+
+    [inst] => Array
+        (
+            [icode] => 218955776
+            [params] => Array
+                (
+                    [r_] => Array
+                        (
+                            [icode] => 0
+                            [placements] => Array
+                                (
+                                    [0] => rd
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [pattern] => r_
+)
+
+;; mem[2] is an instruction: 04000000 call	_pm_itobcd
+;; Inst is in segment: S655428b05acd = _lib_segment_itobcd
+;; Used pattern matches to an allowed one: n_
+;; Pattern fixed 04000000 -> icode= 04000000
+;; Param placing: n: _pm_itobcd=0 as #24
+;; //I #24 00000000
+;; Param placed 04000000 -> icode= 04000000
+;; Code of mem[0002] is ready: 04000000
+
+
+;; MEM[2]=Array
+(
+    [error] => 
+    [icode] => 67108864
+    [fin] => std.asm
+    [lnr] => 14
+    [address] => 2
+    [cell_type] => C
+    [reloc] => Array
+        (
+            [0] => Array
+                (
+                    [used_parameter] => _pm_itobcd
+                    [mode] => #24
+                    [value] => 0
+                )
+
+        )
+
+    [labels] => Array
+        (
+        )
+
+    [tags] => Array
+        (
+        )
+
+    [segid] => S655428b05acd
+    [src] => call	_pm_itobcd
+    [immediate] => Array
+        (
+            [mode] => #24
+            [value] => 0
+        )
+
+    [skip] => 0
+    [params] => Array
+        (
+            [0] => _pm_itobcd
+        )
+
+    [inst] => Array
+        (
+            [icode] => 67108864
+            [params] => Array
+                (
+                    [rn_] => Array
+                        (
+                            [icode] => 16777216
+                            [placements] => Array
+                                (
+                                    [0] => rd
+                                    [1] => #20
+                                )
+
+                        )
+
+                    [n_] => Array
+                        (
+                            [icode] => 0
+                            [placements] => Array
+                                (
+                                    [0] => #24
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [pattern] => n_
+)
+
+;; mem[3] is an instruction: 00000000 mov	r4,r0
+;; Inst is in segment: S655428b05acd = _lib_segment_itobcd
+;; Used pattern matches to an allowed one: rr_
+;; Pattern fixed 00000000 -> icode= 00000000
+;; Param placing: r: 4=4 as rd
+;; Param placed 00000000 -> icode= 00400000
+;; Param placing: r: 0=0 as rb
+;; Param placed 00400000 -> icode= 00400000
+;; Code of mem[0003] is ready: 00400000
+
+
+;; MEM[3]=Array
+(
+    [error] => 
+    [icode] => 4194304
+    [fin] => std.asm
+    [lnr] => 15
+    [address] => 3
+    [cell_type] => C
+    [reloc] => Array
+        (
+        )
+
+    [labels] => Array
+        (
+        )
+
+    [tags] => Array
+        (
+        )
+
+    [segid] => S655428b05acd
+    [src] => mov	r4,r0
+    [immediate] => Array
+        (
+        )
+
+    [skip] => 0
+    [params] => Array
+        (
+            [0] => 4
+            [1] => 0
+        )
+
+    [inst] => Array
+        (
+            [icode] => 0
+            [params] => Array
+                (
+                    [rr_] => Array
+                        (
+                            [icode] => 0
+                            [placements] => Array
+                                (
+                                    [0] => rd
+                                    [1] => rb
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [pattern] => rr_
+)
+
+;; mem[4] is an instruction: 0f0d0000 pop	r0
+;; Inst is in segment: S655428b05acd = _lib_segment_itobcd
+;; Used pattern matches to an allowed one: r_
+;; Pattern fixed 0f0d0000 -> icode= 0f0d0000
+;; Param placing: r: 0=0 as rd
+;; Param placed 0f0d0000 -> icode= 0f0d0000
+;; Code of mem[0004] is ready: 0f0d0000
+
+
+;; MEM[4]=Array
+(
+    [error] => 
+    [icode] => 252510208
+    [fin] => std.asm
+    [lnr] => 16
+    [address] => 4
+    [cell_type] => C
+    [reloc] => Array
+        (
+        )
+
+    [labels] => Array
+        (
+        )
+
+    [tags] => Array
+        (
+        )
+
+    [segid] => S655428b05acd
+    [src] => pop	r0
+    [immediate] => Array
+        (
+        )
+
+    [skip] => 0
+    [params] => Array
+        (
+            [0] => 0
+        )
+
+    [inst] => Array
+        (
+            [icode] => 252510208
+            [params] => Array
+                (
+                    [r_] => Array
+                        (
+                            [icode] => 0
+                            [placements] => Array
+                                (
+                                    [0] => rd
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [pattern] => r_
+)
+
+;; mem[5] is an instruction: 0f0d0000 pop	pc
+;; Inst is in segment: S655428b05acd = _lib_segment_itobcd
+;; Used pattern matches to an allowed one: r_
+;; Pattern fixed 0f0d0000 -> icode= 0f0d0000
+;; Param placing: r: 15=15 as rd
+;; Param placed 0f0d0000 -> icode= 0ffd0000
+;; Code of mem[0005] is ready: 0ffd0000
+
+
+;; MEM[5]=Array
+(
+    [error] => 
+    [icode] => 268238848
+    [fin] => std.asm
+    [lnr] => 17
+    [address] => 5
+    [cell_type] => C
+    [reloc] => Array
+        (
+        )
+
+    [labels] => Array
+        (
+        )
+
+    [tags] => Array
+        (
+        )
+
+    [segid] => S655428b05acd
+    [src] => pop	pc
+    [immediate] => Array
+        (
+        )
+
+    [skip] => 0
+    [params] => Array
+        (
+            [0] => 15
+        )
+
+    [inst] => Array
+        (
+            [icode] => 252510208
+            [params] => Array
+                (
+                    [r_] => Array
+                        (
+                            [icode] => 0
+                            [placements] => Array
+                                (
+                                    [0] => rd
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [pattern] => r_
+)
+
+;; ; PHASE 2 done
+;; //U P2
+;; ; Segments
+;; //T S655428b05acd _lib_segment_itobcd noload=0 abs=0
+;; SYMBOLS
+;; OMITING SYMBOL=Array
+(
+    [type] => L
+    [name] => itobcd
+    [value] => 0
+    [fin] => std.asm
+    [lnr] => 11
+    [segid] => 
+    [owner] => S655428b05acd
+    [defined] => 1
+)
+
+;; //L itobcd itobcd 00000000 S655428b05acd _
+;; Adding label itobcd to mem[0]
+
+;; MEM[0]=Array
+(
+    [error] => 
+    [icode] => 233635840
+    [fin] => std.asm
+    [lnr] => 12
+    [address] => 0
+    [cell_type] => C
+    [reloc] => Array
+        (
+        )
+
+    [labels] => Array
+        (
+            [0] => Array
+                (
+                    [type] => L
+                    [name] => itobcd
+                    [value] => 0
+                    [fin] => std.asm
+                    [lnr] => 11
+                    [segid] => 
+                    [owner] => S655428b05acd
+                    [defined] => 1
+                )
+
+        )
+
+    [tags] => Array
+        (
+            [itobcd] => itobcd
+        )
+
+    [segid] => S655428b05acd
+    [src] => push	lr
+    [immediate] => Array
+        (
+        )
+
+    [skip] => 0
+    [params] => Array
+        (
+            [0] => 14
+        )
+
+    [inst] => Array
+        (
+            [icode] => 218955776
+            [params] => Array
+                (
+                    [r_] => Array
+                        (
+                            [icode] => 0
+                            [placements] => Array
+                                (
+                                    [0] => rd
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [pattern] => r_
+)
+
+;; 
+
+
+;; //P -
+;; //F std.asm
+;; //P S655428b05acd _lib_segment_itobcd
+;; 0ded0000 //C 00000    12 push	lr
+;; //G itobcd
+;; 0d0d0000 //C 00001    13 push	r0
+;; 04000000 //C 00002    14 call	_pm_itobcd
+;; //R 00002 #24 _pm_itobcd 00000000
+;; //I 00002 #24 00000000
+;; 00400000 //C 00003    15 mov	r4,r0
+;; 0f0d0000 //C 00004    16 pop	r0
+;; 0ffd0000 //C 00005    17 pop	pc
+;; //H 3e440000
+;; //E

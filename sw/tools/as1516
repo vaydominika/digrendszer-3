@@ -1,0 +1,5 @@
+#!/bin/bash
+
+AS=./assembler.php
+
+php $AS -- "$@"

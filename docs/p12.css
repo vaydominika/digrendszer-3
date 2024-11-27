@@ -1,0 +1,59 @@
+html *
+{
+    font-family: Serif, Sans-serif;
+}
+
+body [lang=en], 
+body [lang=hu] {
+    display: none;
+}
+
+.hungarianLang [lang=hu] {
+    display: inline;
+}
+
+.englishLang [lang=en] {
+    display: inline;
+}
+
+code {
+  background-color: #eee;
+  border: 1px solid #999;
+  font-family: monospace;
+  white-space: pre;
+}
+
+samp {
+  background-color: #eee;
+  border: 1px solid #999;
+  display: block;
+  padding: 10px;
+  font-family: monospace;
+  white-space: pre;
+}
+
+#inst {
+  padding: 4px;
+  font-family: monospace;
+  white-space: pre;
+}
+
+table { border-collapse: collapse; }
+
+tt { font-family: monospace }
+
+.mov, .call, .mem, .alu1, .alu2 {
+    border-radius: 3px;
+    padding-left: 3px;
+    padding-right: 3px;
+    border: 1px solid #ddd;
+    font-family: monospace;
+}
+
+.mov  { background-color: #dff; }
+.call { background-color: #fdf; }
+.mem  { background-color: #ffd; }
+.alu1 { background-color: #ddf; }
+.alu2 { background-color: #dfd; }
+
+a.inst { text-decoration: none; }

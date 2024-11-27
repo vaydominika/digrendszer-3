@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html id="html-tag" lang="en">
+  <script>
+   const $htmlTag = document.querySelector("#html-tag")
+   const urlParams = new URL(window.location.toLocaleString()).searchParams;
+   const lvar= urlParams.get('lang');
+   switch(lvar) {
+     case "hu":
+       $htmlTag.lang = "hu"
+       $htmlTag.classList.add("hungarianLang")
+       break
+     default:
+       $htmlTag.classList.add("englishLang")
+       break
+   }
+  </script>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="p12.css">
+    <title>p2223 library: input functions</title>
+  </head>
+  
+  <body>
+
+    <span lang="hu">Lang:</span> <span lang="en">Nyelv:</span>
+    <a href="lib_in.html?lang=hu">HU</a>
+    <a href="lib_in.html?lang=en">EN</a>
+
+
+    <h1>
+      <span lang="en">Input functions</span>
+      <span lang="hu">Bemeneti függvények</span>
+    </h1>
+
+
+    <a name="input_avail"><h3>input_avail</h3></a>
+
+    <ul>
+      <li><span lang="en">Input(s):</span>
+	<span lang="hu">Bemenet(ek):</span>
+	<span lang="en"></span>
+	<span lang="hu"></span>
+      </li>
+      <li><span lang="en">Output(s):</span>
+	<span lang="hu">Kimenet(ek):</span>
+	<span lang="en">Flag.C=1 if input is available</span>
+	<span lang="hu">Flag.C=1 ha van bemenő adat</span>
+      </li>
+    </ul>
+
+    <p>Az UART vevő állapotának vizsgálata. Azt mutatja meg, hogy
+    van-e az UART-ban beolvasható vett karakter, ha igen, a flag
+    regiszter C bitje 1 lesz.</p>
+
+    
+    <a name="getchar"><h3>getchar</h3></a>
+
+    <ul>
+      <li><span lang="en">Input(s):</span>
+	<span lang="hu">Bemenet(ek):</span>
+	<span lang="en">-</span>
+	<span lang="hu">-</span>
+      </li>
+      <li><span lang="en">Output(s):</span>
+	<span lang="hu">Kimenet(ek):</span>
+	<span lang="en">Flag.C=1, R4=received character</span>
+	<span lang="hu">Flag.C=1, R4=beolvasott karakter</span>
+      </li>
+    </ul>
+
+    <p>Várakozás egy karakter vételére, majd a karakter kiolvasása az
+    UART áramkörből.</p>
+
+    
+    <a name="read"><h3>read</h3></a>
+
+    <ul>
+      <li><span lang="en">Input(s):</span>
+	<span lang="hu">Bemenet(ek):</span>
+	<span lang="en">-</span>
+	<span lang="hu">-</span>
+      </li>
+      <li><span lang="en">Output(s):</span>
+	<span lang="hu">Kimenet(ek):</span>
+	<span lang="en">R4=received character</span>
+	<span lang="hu">R4=vett karakater</span>
+      </li>
+    </ul>
+
+    <p>Az UART vevő áramkörének kiolvasása. A szubrutin nem vár új
+    karakterre, a vevő állapotát előzőleg az input_avail funkcióval
+    kell vizsgálni.</p>
+
+
+    <a name="le_init"><h3>le_init</h3></a>
+
+    <ul>
+      <li><span lang="en">Input(s):</span>
+	<span lang="hu">Bemenet(ek):</span>
+	<span lang="en">R0=buffer address, R1=buffer length</span>
+	<span lang="hu">R0=puffer címe, R1=puffer hossza</span>
+      </li>
+      <li><span lang="en">Output(s):</span>
+	<span lang="hu">Kimenet(ek):</span>
+	<span lang="en">-</span>
+	<span lang="hu">-</span>
+      </li>
+    </ul>
+
+    <p>A sor beolvasó függvény számára beállítja a beolvasáshoz
+    használandó puffer címét és méretét. A puffert üresre állítja, így
+    a sor beolvasása elkezdhető.</p>
+
+
+    <a name="le_start"><h3>le_start</h3></a>
+
+    <ul>
+      <li><span lang="en">Input(s):</span>
+	<span lang="hu">Bemenet(ek):</span>
+	<span lang="en">-</span>
+	<span lang="hu">-</span>
+      </li>
+      <li><span lang="en">Output(s):</span>
+	<span lang="hu">Kimenet(ek):</span>
+	<span lang="en">-</span>
+	<span lang="hu">-</span>
+      </li>
+    </ul>
+
+    <p>A sor beolvasó függvény által használt puffert kiüríti, így új
+    beolvasás kezdhető.</p>
+
+
+    <a name="le_read"><h3>le_read</h3></a>
+
+    <ul>
+      <li><span lang="en">Input(s):</span>
+	<span lang="hu">Bemenet(ek):</span>
+	<span lang="en">-</span>
+	<span lang="hu">-</span>
+      </li>
+      <li><span lang="en">Output(s):</span>
+	<span lang="hu">Kimenet(ek):</span>
+	<span lang="en">Flag.C=1 if line read is ready (ENTER pressed)</span>
+	<span lang="hu">Flag.C=1 ha a sor beolvasás kész (ENTER-t lenyomták)</span>
+      </li>
+    </ul>
+
+    <p>Megvizsgálja, hogy van-e beolvasható karakter, ha igen,
+    elhelyezi a sor pufferben, amíg az meg nem telik. Kezeli a
+    backspace törlő billentyűt. Ha a bevitel közben megnyomták az
+    ENTER-t, akkor a C flag-et 1-be állítja.</p>
+
+
+    <hr>
+  </body>
+</html>

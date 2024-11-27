@@ -1,0 +1,23 @@
+//U P2
+
+//; SEGMENTS
+//T S655428b05acd _lib_segment_itobcd noload=0 abs=0
+
+//; SYMBOLS
+//L itobcd itobcd 00000000 S655428b05acd _
+
+//; CODE
+//P -
+//F std.asm
+//P S655428b05acd _lib_segment_itobcd
+0ded0000 //C 00000    12 push	lr
+//G itobcd
+0d0d0000 //C 00001    13 push	r0
+04000000 //C 00002    14 call	_pm_itobcd
+//R 00002 #24 _pm_itobcd 00000000
+//I 00002 #24 00000000
+00400000 //C 00003    15 mov	r4,r0
+0f0d0000 //C 00004    16 pop	r0
+0ffd0000 //C 00005    17 pop	pc
+//H 3e440000
+//E

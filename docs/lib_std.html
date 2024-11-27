@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html id="html-tag" lang="en">
+  <script>
+   const $htmlTag = document.querySelector("#html-tag")
+   const urlParams = new URL(window.location.toLocaleString()).searchParams;
+   var lvar= urlParams.get('lang');
+   switch(lvar) {
+     case "hu":
+       $htmlTag.lang = "hu"
+       $htmlTag.classList.add("hungarianLang")
+       break
+     default:
+       lvar= "en";
+       $htmlTag.classList.add("englishLang")
+       break
+   }
+   function lnk(cath,fn)
+    {
+      var l= 'lib_' + cath + '.html#' + fn + '?lang=' + lvar;
+      return l;
+    }
+  </script>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="p12.css">
+    <title>p2223 library: standard functions</title>
+  </head>
+  
+  <body>
+
+    <span lang="hu">Lang:</span> <span lang="en">Nyelv:</span>
+    <a href="lib_std.html?lang=hu">HU</a>
+    <a href="lib_std.html?lang=en">EN</a>
+
+    
+    <h1>
+      <span lang="en">Standard functions</span>
+      <span lang="hu">Egyéb függvények</span>
+    </h1>
+
+
+    <a name="itobcd"><h3>itobcd</h3></a>
+
+    <ul>
+      <li><span lang="en">Input(s):</span>
+	<span lang="hu">Bemenet(ek):</span>
+	<span lang="en">R0=unsigned binary value (0-99999999)</span>
+	<span lang="hu">R0=bináris szám (0-99999999)</span>
+      </li>
+      <li><span lang="en">Output(s):</span>
+	<span lang="hu">Kimenet(ek):</span>
+	<span lang="en">R4=BCD coded value</span>
+	<span lang="hu">R4=BCD kódú szám</span>
+      </li>
+    </ul>
+
+    <p>Előjel nélküli bináris kódú szám átalakítása BCD kódolásra. A
+    bemeneti érték maximum 99999999 lehet, egyébként az eredmény 0
+    lesz.</p>
+    
+    <hr>
+  </body>
+</html>

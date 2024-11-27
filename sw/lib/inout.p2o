@@ -1,0 +1,322 @@
+//U P2
+
+//; SEGMENTS
+//T S503b4c87a8c4 _lib_segment_putchar noload=0 abs=0
+//T S433104d33bc0 _lib_segment_prints noload=0 abs=0
+//T Sbfabe490d60a _lib_segment_printsnl noload=0 abs=0
+//T S598684c1340a _lib_segment_printh noload=0 abs=0
+//T S33203772c092 _lib_segment_printd noload=0 abs=0
+//T S23554af9f140 _lib_segment_eprints noload=0 abs=0
+//T Sff63d250b521 _lib_segment_printf noload=0 abs=0
+//T Sb401aee44acb _lib_segment_eprintf noload=0 abs=0
+//T Sedd6b6695436 _lib_segment_input_avail noload=0 abs=0
+//T S7592e12f2189 _lib_segment_getchar noload=0 abs=0
+//T S84a19e8ae015 _lib_segment_read noload=0 abs=0
+//T S076f4212ff14 _lib_segment_line_editor noload=0 abs=0
+
+//; SYMBOLS
+//L putchar putchar 00000000 S503b4c87a8c4 _
+//L prints prints 00000001 S433104d33bc0 _
+//L printsnl printsnl 00000002 Sbfabe490d60a _
+//L printh printh 00000003 S598684c1340a _
+//L printd printd 00000004 S33203772c092 _
+//L eprints eprints 00000005 S23554af9f140 _
+//L printf printf 00000006 Sff63d250b521 _
+//L eprintf eprintf 00000007 Sb401aee44acb _
+//L input_avail input_avail 00000008 Sedd6b6695436 _
+//L getchar getchar 00000009 S7592e12f2189 _
+//L S7592e12f2189gc_wait gc_wait 0000000a s S7592e12f2189
+//L read read 0000000e S84a19e8ae015 _
+//L le_init le_init 00000010 S076f4212ff14 _
+//L le_setbuf le_setbuf 00000010 S076f4212ff14 _
+//L le_start le_start 00000017 S076f4212ff14 _
+//L le_read le_read 00000024 S076f4212ff14 _
+//L tu_fgets tu_fgets 00000024 S076f4212ff14 _
+//L S076f4212ff14ler_got_char ler_got_char 0000002c s S076f4212ff14
+//L S076f4212ff14ler_bs ler_bs 00000037 s S076f4212ff14
+//L S076f4212ff14ler_del ler_del 00000037 s S076f4212ff14
+//L S076f4212ff14ler_nobs ler_nobs 0000004c s S076f4212ff14
+//L S076f4212ff14ler_noroom ler_noroom 00000060 s S076f4212ff14
+//L S076f4212ff14ler_false ler_false 00000061 s S076f4212ff14
+//L S076f4212ff14ler_true ler_true 00000063 s S076f4212ff14
+//L S076f4212ff14ler_ret ler_ret 00000065 s S076f4212ff14
+//L S076f4212ff14le_buf_len le_buf_len 0000006b s S076f4212ff14
+//L S076f4212ff14le_buf_addr le_buf_addr 0000006c s S076f4212ff14
+//L S076f4212ff14le_cursor_pos le_cursor_pos 0000006d s S076f4212ff14
+//L S076f4212ff14le_ptr le_ptr 0000006e s S076f4212ff14
+
+//; CODE
+//P -
+//F inout.asm
+//P S503b4c87a8c4 _lib_segment_putchar
+01f20000 //C 00000    24 jmp	_pm_putchar
+//R 00000 #16 _pm_putchar 00000000
+//I 00000 #16 00000000
+//G putchar
+//P S433104d33bc0 _lib_segment_prints
+01f20000 //C 00001    30 jmp	_pm_prints
+//R 00001 #16 _pm_prints 00000000
+//I 00001 #16 00000000
+//G prints
+//P Sbfabe490d60a _lib_segment_printsnl
+01f20000 //C 00002    36 jmp	_pm_printsnl
+//R 00002 #16 _pm_printsnl 00000000
+//I 00002 #16 00000000
+//G printsnl
+//P S598684c1340a _lib_segment_printh
+01f20000 //C 00003    42 jmp	_pm_print_vhex
+//R 00003 #16 _pm_print_vhex 00000000
+//I 00003 #16 00000000
+//G printh
+//P S33203772c092 _lib_segment_printd
+01f20000 //C 00004    48 jmp	_pm_printd
+//R 00004 #16 _pm_printd 00000000
+//I 00004 #16 00000000
+//G printd
+//P S23554af9f140 _lib_segment_eprints
+01f20000 //C 00005    54 jmp	_pm_pes
+//R 00005 #16 _pm_pes 00000000
+//I 00005 #16 00000000
+//G eprints
+//P Sff63d250b521 _lib_segment_printf
+01f20000 //C 00006    60 jmp	_pm_printf
+//R 00006 #16 _pm_printf 00000000
+//I 00006 #16 00000000
+//G printf
+//P Sb401aee44acb _lib_segment_eprintf
+01f20000 //C 00007    66 jmp	_pm_pesf
+//R 00007 #16 _pm_pesf 00000000
+//I 00007 #16 00000000
+//G eprintf
+//P Sedd6b6695436 _lib_segment_input_avail
+01f20000 //C 00008    72 jmp	_pm_check_uart
+//R 00008 #16 _pm_check_uart 00000000
+//I 00008 #16 00000000
+//G input_avail
+//P S7592e12f2189 _lib_segment_getchar
+0ded0000 //C 00009    78 push	lr
+//G getchar
+04000000 //C 0000a    80 call	_pm_check_uart
+//R 0000a #24 _pm_check_uart 00000000
+//I 0000a #24 00000000
+//N gc_wait S7592e12f2189
+41f2000a //C 0000b    81 jnc	gc_wait
+//R 0000b #16 gc_wait 0000000a
+//I 0000b #16 0000000a
+07400000 //C 0000c    82 ld	r4,UART.DR
+//R 0000c #16 UART.DR 00000000
+//I 0000c #16 00000000
+0ffd0000 //C 0000d    83 pop	pc
+//P S84a19e8ae015 _lib_segment_read
+07400000 //C 0000e    89 ld	r4,UART.DR
+//R 0000e #16 UART.DR 00000000
+//I 0000e #16 00000000
+//G read
+00f00e00 //C 0000f    90 ret
+//P S076f4212ff14 _lib_segment_line_editor
+0ded0000 //C 00010   100 push	lr
+//G le_init
+//G le_setbuf
+020b0000 //C 00011   101 sz	r0
+11120000 //C 00012   102 Z mvzl	r1,0
+//I 00012 #16 00000000
+0600006c //C 00013   103 st	r0,le_buf_addr	; store buffer info
+//R 00013 #16 le_buf_addr 0000006c
+//I 00013 #16 0000006c
+0610006b //C 00014   104 st	r1,le_buf_len	; in local vars
+//R 00014 #16 le_buf_len 0000006b
+//I 00014 #16 0000006b
+04000017 //C 00015   105 call	le_start	; set buffer empty
+//R 00015 #24 le_start 00000017
+//I 00015 #24 00000017
+0ffd0000 //C 00016   106 pop	pc
+0ded0000 //C 00017   112 push	lr
+//G le_start
+0d1d0000 //C 00018   113 push	r1
+0d2d0000 //C 00019   114 push	r2
+01220000 //C 0001a   115 mvzl	r2,0		; set cursor post to 0
+//I 0001a #16 00000000
+0620006d //C 0001b   116 st	r2,le_cursor_pos
+//R 0001b #16 le_cursor_pos 0000006d
+//I 0001b #16 0000006d
+0710006c //C 0001c   117 ld	r1,le_buf_addr	; buf[0]= 0
+//R 0001c #16 le_buf_addr 0000006c
+//I 0001c #16 0000006c
+021b0000 //C 0001d   118 sz	r1
+2c210000 //C 0001e   119 NZ st	r2,r1
+0112006e //C 0001f   120 mvzl	r1,le_ptr	; ptr= 0
+//R 0001f #16 le_ptr 0000006e
+//I 0001f #16 0000006e
+0c210000 //C 00020   121 st	r2,r1
+0f2d0000 //C 00021   122 pop	r2
+0f1d0000 //C 00022   123 pop	r1
+0ffd0000 //C 00023   124 pop	pc
+0ded0000 //C 00024   131 push	lr
+//G le_read
+//G tu_fgets
+0d0d0000 //C 00025   132 push	r0
+0d1d0000 //C 00026   133 push	r1
+0d2d0000 //C 00027   134 push	r2
+0d3d0000 //C 00028   135 push	r3
+0d4d0000 //C 00029   136 push	r4
+04000008 //C 0002a   138 call	input_avail	; if there is no char
+//R 0002a #24 input_avail 00000008
+//I 0002a #24 00000008
+41f20065 //C 0002b   139 NC jmp	ler_ret		; return with false
+//R 0002b #16 ler_ret 00000065
+//I 0002b #16 00000065
+0400000e //C 0002c   141 call	read		; read one char
+//R 0002c #24 read 0000000e
+//I 0002c #24 0000000e
+//N ler_got_char S076f4212ff14
+00000400 //C 0002d   142 mov	r0,r4
+0108000d //C 0002e   143 cmp	r0,13		; check CR and LF
+//I 0002e #16 0000000d
+11f20063 //C 0002f   144 jz	ler_true	; both accepted as ENTER
+//R 0002f #16 ler_true 00000063
+//I 0002f #16 00000063
+0108000a //C 00030   145 cmp	r0,10
+//I 00030 #16 0000000a
+11f20063 //C 00031   146 jz	ler_true
+//R 00031 #16 ler_true 00000063
+//I 00031 #16 00000063
+01080008 //C 00032   148 cmp	r0,8		; is it backspace?
+//I 00032 #16 00000008
+11f20037 //C 00033   149 jz	ler_bs
+//R 00033 #16 ler_bs 00000037
+//I 00033 #16 00000037
+0108007f //C 00034   150 cmp	r0,0x7f
+//I 00034 #16 0000007f
+11f20037 //C 00035   151 jz	ler_del
+//R 00035 #16 ler_del 00000037
+//I 00035 #16 00000037
+01f2004c //C 00036   152 jmp	ler_nobs
+//R 00036 #16 ler_nobs 0000004c
+//I 00036 #16 0000004c
+0720006e //C 00037   157 ld	r2,le_ptr	; already emtpy?
+//R 00037 #16 le_ptr 0000006e
+//I 00037 #16 0000006e
+//N ler_bs S076f4212ff14
+//N ler_del S076f4212ff14
+022b0000 //C 00038   158 sz	r2
+11f20061 //C 00039   159 jz	ler_false
+//R 00039 #16 ler_false 00000061
+//I 00039 #16 00000061
+0124ffff //C 0003a   160 dec	r2		; ptr= pre-1
+0620006e //C 0003b   161 st	r2,le_ptr
+//R 0003b #16 le_ptr 0000006e
+//I 0003b #16 0000006e
+0710006c //C 0003c   162 ld	r1,le_buf_addr	; buf[ptr]=0
+//R 0003c #16 le_buf_addr 0000006c
+//I 0003c #16 0000006c
+01020000 //C 0003d   163 mvzl	r0,0
+//I 0003d #16 00000000
+021b0000 //C 0003e   164 sz	r1
+28010200 //C 0003f   165 NZ st	r0,r1,r2
+f4000007 //C 00040   166 ces	eprintf
+//R 00040 #24 eprintf 00000007
+//I 00040 #24 00000007
+0000001b //C 00041   167 db	27
+//I 00041 d8 0000001b
+0000005b //C 00042   167 db	91
+//I 00042 d8 0000005b
+00000031 //C 00043   167 db	49
+//I 00043 d8 00000031
+00000044 //C 00044   167 db	68
+//I 00044 d8 00000044
+00000020 //C 00045   167 db	32
+//I 00045 d8 00000020
+0000001b //C 00046   167 db	27
+//I 00046 d8 0000001b
+0000005b //C 00047   167 db	91
+//I 00047 d8 0000005b
+00000031 //C 00048   167 db	49
+//I 00048 d8 00000031
+00000044 //C 00049   167 db	68
+//I 00049 d8 00000044
+00000000 //C 0004a   167 db
+//I 0004a d8 00000000
+01f20061 //C 0004b   168 jmp	ler_false
+//R 0004b #16 ler_false 00000061
+//I 0004b #16 00000061
+01080020 //C 0004c   171 cmp	r0,32		; skip ctrl chars
+//I 0004c #16 00000020
+//N ler_nobs S076f4212ff14
+41f20061 //C 0004d   172 ULT jmp	ler_false
+//R 0004d #16 ler_false 00000061
+//I 0004d #16 00000061
+01080080 //C 0004e   173 cmp	r0,128		; skip graphic chars
+//I 0004e #16 00000080
+31f20061 //C 0004f   174 UGE jmp	ler_false
+//R 0004f #16 ler_false 00000061
+//I 0004f #16 00000061
+0710006c //C 00050   176 ld	r1,le_buf_addr
+//R 00050 #16 le_buf_addr 0000006c
+//I 00050 #16 0000006c
+021b0000 //C 00051   177 sz	r1
+11f20061 //C 00052   178 jz	ler_false
+//R 00052 #16 ler_false 00000061
+//I 00052 #16 00000061
+0710006b //C 00053   179 ld	r1,le_buf_len
+//R 00053 #16 le_buf_len 0000006b
+//I 00053 #16 0000006b
+0720006e //C 00054   180 ld	r2,le_ptr
+//R 00054 #16 le_ptr 0000006e
+//I 00054 #16 0000006e
+00300200 //C 00055   181 mov	r3,r2
+01340001 //C 00056   182 inc	r3
+00380100 //C 00057   183 cmp	r3,r1
+31f20060 //C 00058   184 UGE jmp	ler_noroom
+//R 00058 #16 ler_noroom 00000060
+//I 00058 #16 00000060
+0710006c //C 00059   185 ld	r1,le_buf_addr
+//R 00059 #16 le_buf_addr 0000006c
+//I 00059 #16 0000006c
+08010200 //C 0005a   186 st	r0,r1,r2
+04000000 //C 0005b   187 call	putchar
+//R 0005b #24 putchar 00000000
+//I 0005b #24 00000000
+01020000 //C 0005c   188 mvzl	r0,0
+//I 0005c #16 00000000
+08010300 //C 0005d   189 st	r0,r1,r3
+0630006e //C 0005e   190 st	r3,le_ptr
+//R 0005e #16 le_ptr 0000006e
+//I 0005e #16 0000006e
+01f20061 //C 0005f   191 jmp	ler_false
+//R 0005f #16 ler_false 00000061
+//I 0005f #16 00000061
+01f20061 //C 00060   194 jmp	ler_false
+//R 00060 #16 ler_false 00000061
+//I 00060 #16 00000061
+//N ler_noroom S076f4212ff14
+020d0000 //C 00061   196 clc
+//N ler_false S076f4212ff14
+01f20065 //C 00062   197 jmp	ler_ret
+//R 00062 #16 ler_ret 00000065
+//I 00062 #16 00000065
+020c0000 //C 00063   199 sec
+//N ler_true S076f4212ff14
+01f20065 //C 00064   200 jmp	ler_ret
+//R 00064 #16 ler_ret 00000065
+//I 00064 #16 00000065
+0f4d0000 //C 00065   202 pop	r4
+//N ler_ret S076f4212ff14
+0f3d0000 //C 00066   203 pop	r3
+0f2d0000 //C 00067   204 pop	r2
+0f1d0000 //C 00068   205 pop	r1
+0f0d0000 //C 00069   206 pop	r0
+0ffd0000 //C 0006a   207 pop	pc
+00000000 //C 0006b   211 db	0
+//I 0006b d8 00000000
+//N le_buf_len S076f4212ff14
+00000000 //C 0006c   213 db	0
+//I 0006c d8 00000000
+//N le_buf_addr S076f4212ff14
+00000000 //C 0006d   215 db	0
+//I 0006d d8 00000000
+//N le_cursor_pos S076f4212ff14
+00000000 //C 0006e   217 db	0
+//I 0006e d8 00000000
+//N le_ptr S076f4212ff14
+//H f5322aad
+//E

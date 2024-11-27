@@ -1,0 +1,154 @@
+//U P2
+
+//; SEGMENTS
+//T S293d8fdbaa47 _lib_segment_div noload=0 abs=0
+//T S8e7b3d203072 _lib_segment_rand noload=0 abs=0
+//T S32e270509cd9 _lib_segment_rand_max noload=0 abs=0
+
+//; SYMBOLS
+//L div div 00000000 S293d8fdbaa47 _
+//L S293d8fdbaa47div_dok div_dok 00000007 s S293d8fdbaa47
+//L S293d8fdbaa47div_dummy div_dummy 00000007 s S293d8fdbaa47
+//L S293d8fdbaa47div_cyc div_cyc 0000000b s S293d8fdbaa47
+//L S293d8fdbaa47div_cyc_next div_cyc_next 00000016 s S293d8fdbaa47
+//L S293d8fdbaa47div_ret div_ret 00000018 s S293d8fdbaa47
+//L S8e7b3d203072seed seed 0000001a s S8e7b3d203072
+//L srand srand 0000001b S8e7b3d203072 _
+//L rand rand 0000001d S8e7b3d203072 _
+//L S8e7b3d203072c1 c1 00000023 s S8e7b3d203072
+//L S8e7b3d203072c2 c2 00000029 s S8e7b3d203072
+//L S8e7b3d203072c3 c3 0000002f s S8e7b3d203072
+//L rand_max rand_max 00000038 S32e270509cd9 _
+
+//; CODE
+//P -
+//F math.asm
+//P S293d8fdbaa47 _lib_segment_div
+0ded0000 //C 00000    15 push	lr
+//G div
+0d6d0000 //C 00001    16 push	r6
+021b0000 //C 00002    18 sz	r1
+21f20007 //C 00003    19 NZ jmp	div_dok
+//R 00003 #16 div_dok 00000007
+//I 00003 #16 00000007
+00400000 //C 00004    20 mov	r4,r0		; div by zero
+01520000 //C 00005    21 mvzl	r5,0x0
+//I 00005 #16 00000000
+01f20018 //C 00006    22 jmp	div_ret
+//R 00006 #16 div_ret 00000018
+//I 00006 #16 00000018
+01420000 //C 00007    25 mvzl	r4,0		; Q= 0
+//I 00007 #16 00000000
+//N div_dok S293d8fdbaa47
+//N div_dummy S293d8fdbaa47
+01520000 //C 00008    26 mvzl	r5,0		; R= 0
+//I 00008 #16 00000000
+01618000 //C 00009    27 mvh	r6,0x80000000	; m= 1<<31
+//I 00009 h16 80000000
+01600000 //C 0000a    28 mvl	r6,0x80000000
+//I 0000a #16 80000000
+026b0000 //C 0000b    30 sz	r6
+//N div_cyc S293d8fdbaa47
+11f20018 //C 0000c    31 Z jmp	div_ret
+//R 0000c #16 div_ret 00000018
+//I 0000c #16 00000018
+02580000 //C 0000d    32 shl	r5		; r<<= 1
+000c0600 //C 0000e    33 test	r0,r6		; if (n&m)
+215d0001 //C 0000f    34 NZ or	r5,1		; r|= 1
+//I 0000f #16 00000001
+00580100 //C 00010    35 cmp	r5,r1		; if (r>=d)
+41f20016 //C 00011    36 LO jmp	div_cyc_next
+//R 00011 #16 div_cyc_next 00000016
+//I 00011 #16 00000016
+00560100 //C 00012    37 sub	r5,r1		; r-= d
+004d0600 //C 00013    38 or	r4,r6		; q|= m
+01f20016 //C 00014    39 jmp	div_cyc_next
+//R 00014 #16 div_cyc_next 00000016
+//I 00014 #16 00000016
+01f2000b //C 00015    40 jmp	div_cyc
+//R 00015 #16 div_cyc 0000000b
+//I 00015 #16 0000000b
+02690000 //C 00016    42 shr	r6		; m>>= 1
+//N div_cyc_next S293d8fdbaa47
+01f2000b //C 00017    43 jmp	div_cyc
+//R 00017 #16 div_cyc 0000000b
+//I 00017 #16 0000000b
+0f6d0000 //C 00018    45 pop	r6
+//N div_ret S293d8fdbaa47
+0ffd0000 //C 00019    46 pop	pc
+//P S8e7b3d203072 _lib_segment_rand
+00000049 //C 0001a    58 db	2127401289
+//I 0001a d8 7ecd9149
+//N seed S8e7b3d203072
+0600001a //C 0001b    65 st	r0,seed
+//R 0001b #16 seed 0000001a
+//I 0001b #16 0000001a
+//G srand
+00f00e00 //C 0001c    66 ret
+0ded0000 //C 0001d    72 push	lr
+//G rand
+0d0d0000 //C 0001e    73 push	r0
+0d2d0000 //C 0001f    74 push	r2
+0700001a //C 00020    76 ld	r0,seed
+//R 00020 #16 seed 0000001a
+//I 00020 #16 0000001a
+00400000 //C 00021    77 mov	r4,r0
+0122000d //C 00022    78 mvzl	r2,13
+//I 00022 #16 0000000d
+02480000 //C 00023    79 c1:	shl	r4
+//N c1 S8e7b3d203072
+0124ffff //C 00024    80 dec	r2
+21f20023 //C 00025    81 jnz	c1
+//R 00025 #16 c1 00000023
+//I 00025 #16 00000023
+000e0400 //C 00026    82 xor	r0,r4
+00400000 //C 00027    83 mov	r4,r0
+01220011 //C 00028    84 mvzl	r2,17
+//I 00028 #16 00000011
+02490000 //C 00029    85 c2:	shr	r4
+//N c2 S8e7b3d203072
+0124ffff //C 0002a    86 dec	r2
+21f20029 //C 0002b    87 jnz	c2
+//R 0002b #16 c2 00000029
+//I 0002b #16 00000029
+000e0400 //C 0002c    88 xor	r0,r4
+00400000 //C 0002d    89 mov	r4,r0
+01220005 //C 0002e    90 mvzl	r2,5
+//I 0002e #16 00000005
+02480000 //C 0002f    91 c3:	shl	r4
+//N c3 S8e7b3d203072
+0124ffff //C 00030    92 dec	r2
+21f2002f //C 00031    93 jnz	c3
+//R 00031 #16 c3 0000002f
+//I 00031 #16 0000002f
+000e0400 //C 00032    94 xor	r0,r4
+0600001a //C 00033    95 st	r0,seed
+//R 00033 #16 seed 0000001a
+//I 00033 #16 0000001a
+00400000 //C 00034    97 mov	r4,r0
+0f2d0000 //C 00035    99 pop	r2
+0f0d0000 //C 00036   100 pop	r0
+0ffd0000 //C 00037   101 pop	pc
+//P S32e270509cd9 _lib_segment_rand_max
+0ded0000 //C 00038   110 push	lr
+//G rand_max
+0d0d0000 //C 00039   111 push	r0
+0d2d0000 //C 0003a   112 push	r2
+0d5d0000 //C 0003b   113 push	r5
+00200000 //C 0003c   115 mov	r2,r0
+01240001 //C 0003d   116 inc	r2
+0400001d //C 0003e   117 call	rand
+//R 0003e #24 rand 0000001d
+//I 0003e #24 0000001d
+00000400 //C 0003f   118 mov	r0,r4
+00100200 //C 00040   119 mov	r1,r2
+04000000 //C 00041   120 call	div
+//R 00041 #24 div 00000000
+//I 00041 #24 00000000
+00400500 //C 00042   121 mov	r4,r5
+0f5d0000 //C 00043   123 pop	r5
+0f2d0000 //C 00044   124 pop	r2
+0f0d0000 //C 00045   125 pop	r0
+0ffd0000 //C 00046   126 pop	pc
+//H 469cb4ca
+//E

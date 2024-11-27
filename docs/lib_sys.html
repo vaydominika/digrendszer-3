@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html id="html-tag" lang="en">
+  <script>
+   const $htmlTag = document.querySelector("#html-tag")
+   const urlParams = new URL(window.location.toLocaleString()).searchParams;
+   var lvar= urlParams.get('lang');
+   switch(lvar) {
+     case "hu":
+       $htmlTag.lang = "hu"
+       $htmlTag.classList.add("hungarianLang")
+       break
+     default:
+       lvar= "en";
+       $htmlTag.classList.add("englishLang")
+       break
+   }
+   function lnk(cath,fn)
+    {
+      var l= 'lib_' + cath + '.html#' + fn + '?lang=' + lvar;
+      return l;
+    }
+  </script>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="p12.css">
+    <title>p2223 library: system functions</title>
+  </head>
+  
+  <body>
+
+    <span lang="hu">Lang:</span> <span lang="en">Nyelv:</span>
+    <a href="lib_sys.html?lang=hu">HU</a>
+    <a href="lib_sys.html?lang=en">EN</a>
+
+    
+    <h1>
+      <span lang="en">System functions</span>
+      <span lang="hu">Rendszer függvények</span>
+    </h1>
+
+
+    <a name="monitor"><h3>monitor</h3></a>
+
+    <ul>
+      <li><span lang="en">Input(s):</span>
+	<span lang="hu">Bemenet(ek):</span>
+	<span lang="en">-</span>
+	<span lang="hu">-</span>
+      </li>
+      <li><span lang="en">Output(s):</span>
+	<span lang="hu">Kimenet(ek):</span>
+	<span lang="en">-</span>
+	<span lang="hu">-</span>
+      </li>
+    </ul>
+
+    <p>Visszatérés a felhasználói programból a monitorhoz. A függvény
+    nem tér vissza, azonban a program a <tt>go</tt> monitor paranccsal
+    folytatható a hívás utáni utasítástól.</p>
+    
+
+    <a name="monitor_by_uart"><h3>monitor_by_uart</h3></a>
+    
+    <ul>
+      <li><span lang="en">Input(s):</span>
+	<span lang="hu">Bemenet(ek):</span>
+	<span lang="en">-</span>
+	<span lang="hu">-</span>
+      </li>
+      <li><span lang="en">Output(s):</span>
+	<span lang="hu">Kimenet(ek):</span>
+	<span lang="en">-</span>
+	<span lang="hu">-</span>
+      </li>
+    </ul>
+
+    <p>Feltételes visszatérés a felhasználói programból a monitorhoz,
+    ha a soros vonalon van beolbasható karakter. A függvény nem tér
+    vissza, azonban a program a <tt>go</tt> monitor paranccsal
+    folytatható a hívás utáni utasítástól.</p>
+
+    
+    <a name="monitor_by_button"><h3>monitor_by_button</h3></a>
+    
+    <ul>
+      <li><span lang="en">Input(s):</span>
+	<span lang="hu">Bemenet(ek):</span>
+	<span lang="en">R0=number of button</span>
+	<span lang="hu">R0=nyomógomb sorszáma (0-15)</span>
+      </li>
+      <li><span lang="en">Output(s):</span>
+	<span lang="hu">Kimenet(ek):</span>
+	<span lang="en">-</span>
+	<span lang="hu">-</span>
+      </li>
+    </ul>
+
+    <p>Feltételes visszatérés a felhasználói programból a monitorhoz,
+      ha az R0-ban megadott sorszámú nyomógmb megnyomódik. A függvény
+      nem tér vissza, azonban a program a <tt>go</tt> monitor paranccsal
+      folytatható a hívás utáni utasítástól.</p>
+
+    
+    <a name="monitor_version"><h3>monitor_version</h3></a>
+    
+    <ul>
+      <li><span lang="en">Input(s):</span>
+	<span lang="hu">Bemenet(ek):</span>
+	<span lang="en">-</span>
+	<span lang="hu">-</span>
+      </li>
+      <li><span lang="en">Output(s):</span>
+	<span lang="hu">Kimenet(ek):</span>
+	<span lang="en">R4=version</span>
+	<span lang="hu">R4=verzió</span>
+      </li>
+    </ul>
+
+    <p>A pmon monitor program verziószámát adja meg. Az eredmény
+    1. bájtja a fő verziószám, a 0. bájt pedig az al verziószám.</p>
+
+    
+    <hr>
+  </body>
+</html>

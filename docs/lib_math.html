@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html id="html-tag" lang="en">
+  <script>
+   const $htmlTag = document.querySelector("#html-tag")
+   const urlParams = new URL(window.location.toLocaleString()).searchParams;
+   var lvar= urlParams.get('lang');
+   switch(lvar) {
+     case "hu":
+       $htmlTag.lang = "hu"
+       $htmlTag.classList.add("hungarianLang")
+       break
+     default:
+       lvar= "en";
+       $htmlTag.classList.add("englishLang")
+       break
+   }
+   function lnk(cath,fn)
+    {
+      var l= 'lib_' + cath + '.html#' + fn + '?lang=' + lvar;
+      return l;
+    }
+  </script>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="p12.css">
+    <title>p2223 library: math functions</title>
+  </head>
+  
+  <body>
+
+    <span lang="hu">Lang:</span> <span lang="en">Nyelv:</span>
+    <a href="lib_math.html?lang=hu">HU</a>
+    <a href="lib_math.html?lang=en">EN</a>
+
+    
+    <h1>
+      <span lang="en">Math functions</span>
+      <span lang="hu">Matematikai függvények</span>
+    </h1>
+
+
+    <a name="div"><h3>div</h3></a>
+
+    <ul>
+      <li><span lang="en">Input(s):</span>
+	<span lang="hu">Bemenet(ek):</span>
+	<span lang="en">R0=number, R1=divisor</span>
+	<span lang="hu">R0=osztandó, R1=osztó</span>
+      </li>
+      <li><span lang="en">Output(s):</span>
+	<span lang="hu">Kimenet(ek):</span>
+	<span lang="en">R4=quotient, R5=reminder</span>
+	<span lang="hu">R4=eredmény, R5=maradék</span>
+      </li>
+    </ul>
+
+    <p>Előjel nélküli egész számok osztása: R2= R0/R1. Az osztó (R1)
+    nem lehet 0. Az osztás maradéka az R3 regiszterbe kerül.</p>
+
+
+    <a name="rand"><h3>rand</h3></a>
+
+    <ul>
+      <li><span lang="en">Input(s):</span>
+	<span lang="hu">Bemenet(ek):</span>
+	<span lang="en">-</span>
+	<span lang="hu">-</span>
+      </li>
+      <li><span lang="en">Output(s):</span>
+	<span lang="hu">Kimenet(ek):</span>
+	<span lang="en">R4=next random number</span>
+	<span lang="hu">R4=következő véletlen szám</span>
+      </li>
+    </ul>
+
+    <p>32 bites, előjel nélküli véletlen szám generálása.</p>
+
+
+    <a name="rand_max"><h3>rand_max</h3></a>
+
+    <ul>
+      <li><span lang="en">Input(s):</span>
+	<span lang="hu">Bemenet(ek):</span>
+	<span lang="en">R0=max value</span>
+	<span lang="hu">R0=maximum</span>
+      </li>
+      <li><span lang="en">Output(s):</span>
+	<span lang="hu">Kimenet(ek):</span>
+	<span lang="en">R4=next random number</span>
+	<span lang="hu">R4=következő véletlen szám</span>
+      </li>
+    </ul>
+
+    <p>32 bites, előjel nélküli véletlen szám generálása, amely a
+    0 és a maximum (paraméter) értékhatárok közé esik.</p>
+
+
+    <a name="srand"><h3>srand</h3></a>
+
+    <ul>
+      <li><span lang="en">Input(s):</span>
+	<span lang="hu">Bemenet(ek):</span>
+	<span lang="en">R0=seed</span>
+	<span lang="hu">R0=aktuális véletlen szám</span>
+      </li>
+      <li><span lang="en">Output(s):</span>
+	<span lang="hu">Kimenet(ek):</span>
+	<span lang="en">-</span>
+	<span lang="hu">-</span>
+      </li>
+    </ul>
+
+    <p>A véletlen szám generátor aktuális értékének beállítása. A
+    következő rand hívás a véletlen szekvencia következő értékét fogja
+    adni.</p>
+
+        
+    <hr>
+  </body>
+</html>

@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html id="html-tag" lang="en">
+  <script>
+   const $htmlTag = document.querySelector("#html-tag")
+   const urlParams = new URL(window.location.toLocaleString()).searchParams;
+   var lvar= urlParams.get('lang');
+   switch(lvar) {
+     case "hu":
+       $htmlTag.lang = "hu"
+       $htmlTag.classList.add("hungarianLang")
+       break
+     default:
+       lvar= "en";
+       $htmlTag.classList.add("englishLang")
+       break
+   }
+   function lnk(cath,fn)
+    {
+      var l= 'lib_' + cath + '.html#' + fn + '?lang=' + lvar;
+      return l;
+    }
+  </script>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="p12.css">
+    <title>p2223 library: board support procedures</title>
+  </head>
+  
+  <body>
+
+    <span lang="hu">Lang:</span> <span lang="en">Nyelv:</span>
+    <a href="lib_bsp.html?lang=hu">HU</a>
+    <a href="lib_bsp.html?lang=en">EN</a>
+
+    
+    <h1>
+      <span lang="en">Board support procedures</span>
+      <span lang="hu">Kártya kezelő függvények</span>
+    </h1>
+
+
+    <a name="btn_posedge"><h3>btn_posedge</h3></a>
+
+    <ul>
+      <li><span lang="en">Input(s):</span>
+	<span lang="hu">Bemenet(ek):</span>
+	<span lang="en">R0=number of button (0-15)</span>
+	<span lang="hu">R0=nyomógomb sorszáma (0-15)</span>
+      </li>
+      <li><span lang="en">Output(s):</span>
+	<span lang="hu">Kimenet(ek):</span>
+	<span lang="en">Flag.C=1 if pressed</span>
+	<span lang="hu">Flag.C=1 ha megnyomták</span>
+      </li>
+    </ul>
+
+    <p>Nyomógomb megnyomásának vizsgálata. A függvény a gomb
+    megnyomásának detektálása után egy meghíváskor fog megnyomott
+    értéket adni.</p>
+    
+
+    <a name="btn_negedge"><h3>btn_negedge</h3></a>
+
+    <ul>
+      <li><span lang="en">Input(s):</span>
+	<span lang="hu">Bemenet(ek):</span>
+	<span lang="en">R0=number of button (0-15)</span>
+	<span lang="hu">R0=nyomógomb sorszáma (0-15)</span>
+      </li>
+      <li><span lang="en">Output(s):</span>
+	<span lang="hu">Kimenet(ek):</span>
+	<span lang="en">Flag.C=1 if released</span>
+	<span lang="hu">Flag.C=1 ha elengedték</span>
+      </li>
+    </ul>
+
+    <p>Nyomógomb elengedésének vizsgálata. A függvény a gomb
+    elengedésének detektálása után egy meghíváskor fog igaz értéket
+    értéket adni.</p>
+    
+
+    <a name="btn_get"><h3>btn_get</h3></a>
+
+    <ul>
+      <li><span lang="en">Input(s):</span>
+	<span lang="hu">Bemenet(ek):</span>
+	<span lang="en">R0=number of button (0-15)</span>
+	<span lang="hu">R0=nyomógomb sorszáma (0-15)</span>
+      </li>
+      <li><span lang="en">Output(s):</span>
+	<span lang="hu">Kimenet(ek):</span>
+	<span lang="en">Flag.C=1 if button is ON</span>
+	<span lang="hu">Flag.C=1 ha nyomva van</span>
+      </li>
+    </ul>
+
+    <p>Nyomógomb aktuális állapotának lekérdezése.</p>
+    
+
+    <a name="sw_posedge"><h3>sw_posedge</h3></a>
+    
+    <ul>
+      <li><span lang="en">Input(s):</span>
+	<span lang="hu">Bemenet(ek):</span>
+	<span lang="en">R0=number of switch (0-15)</span>
+	<span lang="hu">R0=kapcsoló sorszáma (0-15)</span>
+      </li>
+      <li><span lang="en">Output(s):</span>
+	<span lang="hu">Kimenet(ek):</span>
+	<span lang="en">Flag.C=1 if switch turned on</span>
+	<span lang="hu">Flag.C=1 ha a kapcsolót bekapcsolták</span>
+      </li>
+    </ul>
+
+    <p>Kapcsoló bekapcsolásának vizsgálata.A függvény a kapcsoló
+      bekapcsolásának detektálása után egy meghíváskor fog bekapcsolt
+      értéket adni.</p>
+
+
+    <a name="sw_negedge"><h3>sw_negedge</h3></a>
+    
+    <ul>
+      <li><span lang="en">Input(s):</span>
+	<span lang="hu">Bemenet(ek):</span>
+	<span lang="en">R0=number of switch (0-15)</span>
+	<span lang="hu">R0=kapcsoló sorszáma (0-15)</span>
+      </li>
+      <li><span lang="en">Output(s):</span>
+	<span lang="hu">Kimenet(ek):</span>
+	<span lang="en">Flag.C=1 if switch turned off</span>
+	<span lang="hu">Flag.C=1 ha a kapcsolót kikapcsolták</span>
+      </li>
+    </ul>
+
+    <p>Kapcsoló kikapcsolásának vizsgálata.A függvény a kapcsoló
+      kikapcsolásának detektálása után egy meghíváskor fog kikapcsolt
+      értéket adni.</p>
+
+
+    <a name="sw_get"><h3>sw_get</h3></a>
+    
+    <ul>
+      <li><span lang="en">Input(s):</span>
+	<span lang="hu">Bemenet(ek):</span>
+	<span lang="en">R0=number of switch (0-15)</span>
+	<span lang="hu">R0=kapcsoló sorszáma (0-15)</span>
+      </li>
+      <li><span lang="en">Output(s):</span>
+	<span lang="hu">Kimenet(ek):</span>
+	<span lang="en">Flag.C=1 if switch is on</span>
+	<span lang="hu">Flag.C=1 ha a kapcsoló fel van kapcsolva</span>
+      </li>
+    </ul>
+
+    <p>Kapcsoló aktuális értékének lekérdezése.</p>
+
+
+    <a name="btn_restart"><h3>btn_restart</h3></a>
+
+    <ul>
+      <li><span lang="en">Input(s):</span>
+	<span lang="hu">Bemenet(ek):</span>
+	<span lang="en">-</span>
+	<span lang="hu">-</span>
+      </li>
+      <li><span lang="en">Output(s):</span>
+	<span lang="hu">Kimenet(ek):</span>
+	<span lang="en">-</span>
+	<span lang="hu">-</span>
+      </li>
+    </ul>
+
+    <p>A nyomógombok állapotának megváltozását detektáló algoritmus
+    alaphelyzetbe állítása.</p>
+
+
+    <a name="sw_restart"><h3>sw_restart</h3></a>
+
+    <ul>
+      <li><span lang="en">Input(s):</span>
+	<span lang="hu">Bemenet(ek):</span>
+	<span lang="en">-</span>
+	<span lang="hu">-</span>
+      </li>
+      <li><span lang="en">Output(s):</span>
+	<span lang="hu">Kimenet(ek):</span>
+	<span lang="en">-</span>
+	<span lang="hu">-</span>
+      </li>
+    </ul>
+
+    <p>A kapcsolók állapotának megváltozását detektáló algoritmus
+      alaphelyzetbe állítása.</p>
+
+    
+    <a name="led_on"><h3>led_on</h3></a>
+
+    <ul>
+      <li><span lang="en">Input(s):</span>
+	<span lang="hu">Bemenet(ek):</span>
+	<span lang="en">R0: number of LED (0-23)</span>
+	<span lang="hu">R0: LED sorszáma (0-23)</span>
+      </li>
+      <li><span lang="en">Output(s):</span>
+	<span lang="hu">Kimenet(ek):</span>
+	<span lang="en">-</span>
+	<span lang="hu">-</span>
+      </li>
+    </ul>
+
+    <p>A megadott szorszámú LED-et bekapcsolja. A Nexys4DDR és a
+    Boolean kártyákon csak 16 LED van. A LogSYS kártyán a 0-7 sorszámú
+    LED-ek zöldek, a 8-15 sorszámú LED-ek a 0-7 címkéjű piros LED-ek,
+    míg a 16-23 sorszámok a 0-7 címkéjű kék LED-ek.</p>
+
+    
+    <a name="led_off"><h3>led_off</h3></a>
+
+    <ul>
+      <li><span lang="en">Input(s):</span>
+	<span lang="hu">Bemenet(ek):</span>
+	<span lang="en">R0: number of LED (0-23)</span>
+	<span lang="hu">R0: LED sorszáma (0-23)</span>
+      </li>
+      <li><span lang="en">Output(s):</span>
+	<span lang="hu">Kimenet(ek):</span>
+	<span lang="en">-</span>
+	<span lang="hu">-</span>
+      </li>
+    </ul>
+
+    <p>A megadott szorszámú LED-et kikapcsolja. A LogSYS kártyán a 0-7
+    sorszámú LED-ek zöldek, a 8-15 sorszámú LED-ek a 0-7 címkéjű piros
+    LED-ek, míg a 16-23 sorszámok a 0-7 címkéjű kék LED-ek.</p>
+
+    
+    <a name="led_toggle"><h3>led_toggle</h3></a>
+
+    <ul>
+      <li><span lang="en">Input(s):</span>
+	<span lang="hu">Bemenet(ek):</span>
+	<span lang="en">R0: number of LED (0-23)</span>
+	<span lang="hu">R0: LED sorszáma (0-23)</span>
+      </li>
+      <li><span lang="en">Output(s):</span>
+	<span lang="hu">Kimenet(ek):</span>
+	<span lang="en">-</span>
+	<span lang="hu">-</span>
+      </li>
+    </ul>
+
+    <p>A megadott szorszámú LED-et átkapcsolja. A LogSYS kártyán a 0-7
+    sorszámú LED-ek zöldek, a 8-15 sorszámú LED-ek a 0-7 címkéjű piros
+    LED-ek, míg a 16-23 sorszámok a 0-7 címkéjű kék LED-ek.</p>
+
+    
+    <a name="led_set"><h3>led_set</h3></a>
+
+    <ul>
+      <li><span lang="en">Input(s):</span>
+	<span lang="hu">Bemenet(ek):</span>
+	<span lang="en">R0: number of LED (0-23), R1: value (bool)</span>
+	<span lang="hu">R0: LED sorszáma (0-23), R1: érték (bool)</span>
+      </li>
+      <li><span lang="en">Output(s):</span>
+	<span lang="hu">Kimenet(ek):</span>
+	<span lang="en">-</span>
+	<span lang="hu">-</span>
+      </li>
+    </ul>
+
+    <p>A megadott szorszámú LED-et beállítja a megadott logikai érték
+      alapján: IGAZ esetén bekapcsolja, HAMIS esetén kikapcsolja. A
+      LogSYS kártyán a 0-7 sorszámú LED-ek zöldek, a 8-15 sorszámú
+      LED-ek a 0-7 címkéjű piros LED-ek, míg a 16-23 sorszámok a 0-7
+      címkéjű kék LED-ek.</p>
+
+    
+    <a name="led_get"><h3>led_get</h3></a>
+
+    <ul>
+      <li><span lang="en">Input(s):</span>
+	<span lang="hu">Bemenet(ek):</span>
+	<span lang="en">R0: number of LED (0-23)</span>
+	<span lang="hu">R0: LED sorszáma (0-23)</span>
+      </li>
+      <li><span lang="en">Output(s):</span>
+	<span lang="hu">Kimenet(ek):</span>
+	<span lang="en">Flag.C=1 if LED is ON</span>
+	<span lang="hu">Flag.C=1 ha a LED bekapcsolt</span>
+      </li>
+    </ul>
+
+    <p>A megadott szorszámú LED értéke alapján állítja be a C
+    jelzőbitet: 1 lesz, ha a LED be van kapcsolva. A LogSYS kártyán a
+    0-7 sorszámú LED-ek zöldek, a 8-15 sorszámú LED-ek a 0-7 címkéjű
+    piros LED-ek, míg a 16-23 sorszámok a 0-7 címkéjű kék LED-ek.</p>
+
+    
+    <hr>
+  </body>
+</html>

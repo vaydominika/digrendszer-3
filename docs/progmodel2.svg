@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Creator: fig2dev Version 3.2.9 -->
+<!-- CreationDate: 2024-09-05 15:59:32 -->
+<!-- Magnification: 1.05 -->
+<svg	xmlns="http://www.w3.org/2000/svg"
+	xmlns:xlink="http://www.w3.org/1999/xlink"
+	width="320pt" height="173pt"
+	viewBox="2820 2261 5067 2746">
+<g fill="none">
+<!-- Line -->
+<rect x="2835" y="2520" width="2970" height="315" fill="#00d1d1"
+	stroke="#000000" stroke-width="8px"/>
+<!-- Line -->
+<rect x="2835" y="2835" width="2970" height="315" fill="#00d1d1"
+	stroke="#000000" stroke-width="8px"/>
+<!-- Line -->
+<rect x="2835" y="4365" width="2970" height="315" fill="#ffbfbf"
+	stroke="#000000" stroke-width="8px"/>
+<!-- Line -->
+<rect x="2835" y="4680" width="2970" height="315" fill="#ffd600"
+	stroke="#000000" stroke-width="8px"/>
+<!-- Line -->
+<polyline points=" 2835,3150 2835,4365"
+	stroke="#000000" stroke-width="8px" stroke-dasharray="40 40"/>
+<!-- Line -->
+<polyline points=" 5805,3150 5805,4365"
+	stroke="#000000" stroke-width="8px" stroke-dasharray="40 40"/>
+<!-- Line -->
+<rect x="6255" y="2700" width="270" height="315"
+	stroke="#000000" stroke-width="8px"/>
+<!-- Line -->
+<rect x="7065" y="2700" width="270" height="315"
+	stroke="#000000" stroke-width="8px"/>
+<!-- Line -->
+<rect x="6525" y="2700" width="270" height="315"
+	stroke="#000000" stroke-width="8px"/>
+<!-- Line -->
+<rect x="6795" y="2700" width="270" height="315"
+	stroke="#000000" stroke-width="8px"/>
+<!-- Line -->
+<rect x="7335" y="2700" width="270" height="315"
+	stroke="#000000" stroke-width="8px"/>
+<!-- Line -->
+<rect x="7605" y="2700" width="270" height="315"
+	stroke="#000000" stroke-width="8px"/>
+<!-- Text -->
+<text xml:space="preserve" x="4275" y="2745" fill="#000000" font-family="Helvetica" font-style="normal" font-weight="normal" font-size="192" text-anchor="middle">R0</text>
+<!-- Text -->
+<text xml:space="preserve" x="4275" y="3060" fill="#000000" font-family="Helvetica" font-style="normal" font-weight="normal" font-size="192" text-anchor="middle">R1</text>
+<!-- Text -->
+<text xml:space="preserve" x="4275" y="4590" fill="#000000" font-family="Helvetica" font-style="normal" font-weight="normal" font-size="192" text-anchor="middle">R14</text>
+<!-- Text -->
+<text xml:space="preserve" x="4275" y="4905" fill="#000000" font-family="Helvetica" font-style="normal" font-weight="normal" font-size="192" text-anchor="middle">R15</text>
+<!-- Text -->
+<text xml:space="preserve" x="5895" y="4590" fill="#000000" font-family="Helvetica" font-style="normal" font-weight="normal" font-size="192" text-anchor="start">LR</text>
+<!-- Text -->
+<text xml:space="preserve" x="5895" y="4905" fill="#000000" font-family="Helvetica" font-style="normal" font-weight="normal" font-size="192" text-anchor="start">PC</text>
+<!-- Text -->
+<text xml:space="preserve" x="2835" y="2475" fill="#000000" font-family="Helvetica" font-style="normal" font-weight="normal" font-size="192" text-anchor="start">31</text>
+<!-- Text -->
+<text xml:space="preserve" x="5805" y="2475" fill="#000000" font-family="Helvetica" font-style="normal" font-weight="normal" font-size="192" text-anchor="end">0</text>
+<!-- Text -->
+<text xml:space="preserve" x="7020" y="2565" fill="#000000" font-family="Helvetica" font-style="normal" font-weight="normal" font-size="192" text-anchor="middle">Flag</text>
+<!-- Text -->
+<text xml:space="preserve" x="6390" y="2970" fill="#000000" font-family="Helvetica" font-style="normal" font-weight="normal" font-size="192" text-anchor="middle">U</text>
+<!-- Text -->
+<text xml:space="preserve" x="6660" y="2970" fill="#000000" font-family="Helvetica" font-style="normal" font-weight="normal" font-size="192" text-anchor="middle">P</text>
+<!-- Text -->
+<text xml:space="preserve" x="6930" y="2970" fill="#000000" font-family="Helvetica" font-style="normal" font-weight="normal" font-size="192" text-anchor="middle">O</text>
+<!-- Text -->
+<text xml:space="preserve" x="7200" y="2970" fill="#000000" font-family="Helvetica" font-style="normal" font-weight="normal" font-size="192" text-anchor="middle">Z</text>
+<!-- Text -->
+<text xml:space="preserve" x="7470" y="2970" fill="#000000" font-family="Helvetica" font-style="normal" font-weight="normal" font-size="192" text-anchor="middle">C</text>
+<!-- Text -->
+<text xml:space="preserve" x="7740" y="2970" fill="#000000" font-family="Helvetica" font-style="normal" font-weight="normal" font-size="192" text-anchor="middle">S</text>
+</g>
+</svg>

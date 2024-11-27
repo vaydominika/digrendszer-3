@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html id="html-tag" lang="en">
+  <script>
+   const $htmlTag = document.querySelector("#html-tag")
+   const urlParams = new URL(window.location.toLocaleString()).searchParams;
+   const lvar= urlParams.get('lang');
+   switch(lvar) {
+     case "hu":
+       $htmlTag.lang = "hu"
+       $htmlTag.classList.add("hungarianLang")
+       break
+     default:
+       $htmlTag.classList.add("englishLang")
+       break
+   }
+  </script>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="p12.css">
+    <title>How to use p1516/p2223 development environment</title>
+  </head>
+
+  <body>
+
+    <span lang="hu">Lang:</span> <span lang="en">Nyelv:</span>
+    <a href="devenv.html?lang=hu">HU</a>
+    <a href="devenv.html?lang=en">EN</a>
+    
+    <h1>
+    <span lang="en">How to use p1516/p2223 development environment</span>
+    <span lang="hu">p1516/p2223 fejlesztőrendszer használata</span>
+    </h1>
+
+    <p>
+    <span lang="hu">A p1516 és a p2223 processzorokkal felépített
+      számítógépek programozását és használatát segíti a p12dev
+      fejlesztőrendszer. A csomag tartalmazza a hardver leírását
+      Verilog HDL nyelven, valamint a szoftver fejlesztéshez szükséges
+      eszközöket. A kész rendszer szimulálható hardver, vagy utasítás
+      szinten, illetve megvalósítható különféle FPGA kártyákon.</span>
+
+    <span lang="en">Computers built with the p1516 and p2223 processors
+      are programmed and used with the p12dev development system. A
+      package contains the hardware description in Verilog HDL and the
+      tools for software development. The finished system can be
+      simulated at hardware or instruction level, or implemented on
+      various FPGA boards.</span>
+    </p>
+    
+    <h2>
+      <span lang="hu">A fejlesztőrendszer telepítése</span>
+      <span lang="en">Installing development system</span>
+    </h2>
+
+    <p>
+    <span lang="hu">Töltsük le a csomagot tartalmazó ZIP fájlt (p12dev-X.Y.Z.zip) a
+      következő címről:</span>
+
+    <span lang="en">Download the ZIP file containing the package (p12dev.zip)
+      from the following address:</span>
+    </p>
+    
+    <p><a href="https://github.com/danieldrotos/p12dev/releases/latest">https://github.com/danieldrotos/p12dev/releases/latest</a></p>
+
+    <p>
+    <span lang="hu">majd csomagoljuk ki egy tetszőleges könyvtárba, ezzel a
+      telepítés kész.</span>
+    
+    <span lang="en">then unpack it into a directory of your choice, the
+      installation is now complete.</span>
+    </p>
+
+    
+    <h2>
+      <span lang="hu">A szükséges szoftverek</span>
+      <span lang="en">Required softwares</span>
+    </h2>
+
+    <p>
+    <span lang="hu">A fejlesztőrendszer használatához szükséges egyéb
+      szoftverek a következők:</span>
+    
+    <span lang="en">Following softwares are required to use the development
+      system:</span>
+    </p>
+    
+    <ul>
+      <li>Icarus Verilog + GtkWave
+      (<a href="https://bleyer.org/icarus">https://bleyer.org/icarus</a>)</li>
+      <li>GNU Make
+      (<a href="https://gnuwin32.sourceforge.net/packages/make.htm">https://gnuwin32.sourceforge.net/packages/make.htm</a>)</li>
+      <li>PHP-CLI
+      (<a href="http://mazsola.iit.uni-miskolc.hu/~drdani/proc_tools/tools/">http://mazsola.iit.uni-miskolc.hu/~drdani/proc_tools/tools/</a>)</li>
+      <li>&mu;Csim
+      (<a href="http://www.ucsim.hu">http://www.ucsim.hu</a>)</li>
+      <li>TeraTerm
+      (<a href="https://teratermproject.github.io/index-en.html">https://teratermproject.github.io/index-en.html</a>)</li>
+      <li>Vivado</li>
+    </ul>
+
+    <p>
+    <span lang="hu">Mivel a rendszerre való fejlesztési folyamat
+      alapvetően assembly nyelvű szoftver fejlesztésből áll, célszerű
+      lehet egy olyan szövegszerkesztőt is telepíteni (pl. egy IDE
+      szoftvert), amely ehhez megfelelő támogatást nyújt
+      (pl. <a href="https://code.visualstudio.com/download">VS-Code</a>,
+      <a href="https://www.codeblocks.org/">CodeBlocks</a>, <a href="https://www.geany.org/">Geany</a>,
+      stb.).</span>
+    
+    <span lang="en">Since the process of developing a system is
+      essentially assembly software development, it may be appropriate
+      to use a text editor (or an IDE) that has good support for such
+      a development
+      (e.g. <a href="https://code.visualstudio.com/download">VS-Code</a>, <a href="https://www.codeblocks.org/">CodeBlocks</a>, <a href="https://www.geany.org/">Geany</a>,
+      etc.).</span>
+    </p>
+
+    
+    <h2>
+      <span lang="hu">Projekt létrehozása és beállítása</span>
+      <span lang="en">Creating a project and setting parameters</span>
+    </h2>
+
+    <p>
+    <span lang="hu">Egy szövegszerkesztővel nyissuk meg a
+      fejlesztőrendszer könyvtárban található prj.mk nevű fájlt, és
+      írjuk be a projektünk assembly nyelvű forrását tartalmazó fájl
+      nevét:</span>
+
+    <span lang="en">Look for the prj.mk file in the root directory of the
+      development system and open it with a text editor. Enter the
+      name of your assembly source file, like:</span>
+    </p>
+    
+    <p><samp>PRG = sw/progs2/counter3</samp></p>
+
+    <p>
+      <span lang="hu">a <code>PRG</code> paramétert tartalmazó sorba, az =
+	jel után. A fájl nevében az útvonalat a fejlesztőrendszer gyökér
+	könyvtárához képest adjuk meg. A fájl nevében nem kell
+	feltüntetni az .asm kiterjesztést! Alapértelmezésként a
+	sw/progs2 alkönyvtárban található counter3 nevű példa program
+	neve van megadva.</span>
+      
+      <span lang="en">in the line of <code>PRG</code> parameter, after the
+	= sign. Path in the file name sould be relative to root
+	directory of the package. Do not include the .asm extension in
+	the name. Name of the counter3 example is used from sw/progs2
+	directory by default. Change it to your app name.</span>
+    </p>
+
+    <p>
+      <span lang="hu">Hozzuk létre a fájlt a megadott könyvtárban, a
+	megadott névvel (és .asm kiterjesztéssel), és írjuk meg a
+	programot.</span>
+      
+      <span lang="en">Create the assembly source file with the name you
+	used above and place it in the correct directory. Write your
+	code into the assembly source file.</span>
+    </p>
+
+    
+    <h3>
+      <span lang="hu">Projekt paraméterek</span>
+      <span lang="en">Project parameters</span>
+    </h3>
+
+    <p>
+      <span lang="hu">A rendszer felépítését és a futtatás módját
+	befolyásoló paraméterek két külön fájlban találhatók: <b>prj.mk</b> és <b>hw/hwconf.v</b>.</span>
+      
+      <span lang="en">Parameters affecting the system architecture and the way
+	it runs are in two separate files: <b>prj.mk</b> and <b>hw/hwconf.v</b>.</span>
+    </p>
+
+    
+    <h4><code>INSTS</code></h4>
+
+    <p>
+    <span lang="hu">A paraméter a prj.mk fájlban található. Értéke egy
+      szám, amely a hardver szimuláció során lefuttatandó CPU
+      utasítások számát definiálja. A megadott számú utasítás után a
+      szimuláció leáll.</span>
+    
+    <span lang="en">The parameter is located in prj.mk file. It's value
+      is a number, specifying number of CPU instructions to simulate
+      during hardware simulation. Simulation will stop after running
+      specifid number of instructions.</span>
+    </p>
+
+    
+    <h4><code>CPU_TYPE</code></h4>
+
+    <p>
+    <span lang="hu">A paraméter a hw/hwconf.v fájlban található. Az
+      értéke az adja meg, hogy a számítógépbe p1516, vagy p2223 típusú
+      CPU kerüljön-e. A p1516 CPU használatához az értéket 1-re, míg a
+      p2223-hoz 2-re kell állítani.</span>
+
+    <span lang="en">Parameter is in hw/hwconf.v file. It specifies type
+      of the CPU included in the computer. Value 1 selects p1516 type
+      of CPU while value 2 selects p2223.</span>
+    </p>
+
+    
+    <h4><code>COMP_TYPE</code></h4>
+
+    <p>
+    <span lang="hu">A paraméter a hw/hwconf.v fájlban található. Az
+      értéke a rendszerbe kerülő számítógép (computer) típusát adja
+      meg. A v1 típusú számítógép használatához az értéket 1-re, míg a
+      v2 típushoz 2-re kell állítani.</span>
+
+    <span lange="en">Parameter is in hw/hwconf.v file. Value of this
+      parameter selects type of the computer. Type v1 computer can be
+      selected by set this parameter to 1. Value of 2 selects type
+      v2. Please note, that type v1 is now obsolete.</span>
+    </p>
+    
+
+    <h4><code>AW</code></h4>
+
+    <p>
+      <span lang="hu">A paraméter a hw/hwconf.v fájlban található. Az
+	értéke a CPU-hoz kapcsolt memória cím busz bemenetének mérete
+	bitekben. A memória kapacitása így 2<sup>AW</sup> szó (minden
+	szó 32 bit) lesz. Alapértelmezés szerinti értéke 17, ami 128
+	Kszó memóriát eredményez, ez a legnagyobb felhasználható méret
+	az implementációhoz használt FPGA kártyák esetében.</span>
+      
+      <span lang="en">Parameter is in hw/hwconf.v file. Value of this
+	parameter specifies the width of the address bus of memory that
+	is connected to the CPU. The capacity of the memory will be 2<sup>AW</sup> word. Use
+	of value 17 defines 128 Kword memory which reflects the memory
+	size available on FPGA boards.</span>
+    </p>
+    
+    
+    <h3>
+      <span lang="hu">Az assembly nyelvű program</span>
+      <span lang="en">Using assembly languge</span>
+    </h3>
+
+    <p>
+      <span lang="hu">A p2223 processzoros, v2 típusú számítógépnek a
+	memóriájába be van töltve a PMon monitor program. Ez lehetővé
+	teszi a gép kezelését akkor is, ha nem töltünk be felhasználói
+	programot, illetve biztosítja a felhasználói program cseréjét. A
+	PMon elindulását a memória 0 címén található JMP 0xf03c utasítás
+	biztosítja (kódja: 0x01f2f03c). A monitor helyett a felhasználói
+	programmal is indíthatjuk a gépet, ha a szoftvert úgy írjuk meg,
+	hogy az első utasítása a 0 címre kerüljön:</span>
+
+      <span lang="en">PMon monitor program is already loaded into computer
+	memory if you use v2 type of computer with p2223 processor. This
+	allows you to operate the computer when no user program is
+	loaded, and makes possible to load in new user program. PMon is
+	started by a JMP 0xf03c instruction located at address 0 (code
+	of it is 0x01f2f03c). You can start the machine with the user
+	program instead, if you overwrite the JMP at 0 with your
+	program's code by placing it at 0 with the following directive:</span>
+    </p>
+    
+    <p><samp>.org 0</samp></p>
+    
+    <p>
+      <span lang="hu">Ezt a módszert hardver, és esetleg utasítás szintű
+	szimuláció esetén célszerű használni. Ebben az esetben
+	törekedjünk arra, hogy a program valamilyen funkciójával legyen
+	lehetőség a monitorhoz való visszatérésre. A monitorba való
+	visszatérést legegyszerűbben az 0xf000 című szubrutin
+	meghívásával érhetjük el:</span>
+    
+      <span lang="en">This method can be usefull for hardware or
+	instruction-level simulation. In this case you should provide
+	some possibility to exit the user program and jump back to
+	monitor. The easiest way to return to the monitor is call
+	subroutine at 0xf000:</span>
+    </p>
+    
+    <p><samp>call 0xf000</samp></p>
+
+    <p>
+      <span lang="hu">Ennek hiányában az FPGA kártyán futó alkalmazói
+	programot nem tudjuk lecserélni, új program betöltéséhez újra
+	kell programoznunk az FPGA áramkört. A monitor elérésének
+	további módjait annak leírásában találjuk.</span>
+      
+      <span lang="en">Without this, the application running on FPGA can not
+	be replaced and you have to reprogram the whole FPGA. Further
+	ways to access the monitor program are described in its
+	documentation.</span>
+    </p>
+
+    <p>
+      <pan lang="hu">Ha 0-tól eltérő kezdőcímet használunk, pl.</pan>
+      
+      <span lang="en">If you place your program at address different than 0,
+	like:</span>
+    </p>
+
+    <p><samp>.org 1</samp></p>
+
+    <p>
+      <span lang="hu">akkor a programot a megfelelő monitor parancs
+	kiadásával indíthatjuk (paraméterként az ORG direktívával
+	megadott kezdőcímet használjuk):</span>
+	
+      <span lang="en">then your app can be started with appropriate monitor
+	command (go), where you must use the address which was used in
+	the .org directive:</span>
+    </p>
+    
+    <p><samp>g 1</samp></p>
+    
+    
+    <h2>
+      <span lang="hu">A projekt futtatása</span>
+      <span lang="en">Running the project</span>
+    </h2>
+    
+    <h3>
+      <span lang="hu">Hardver szimuláció</span>
+      <span lang="en">Hardware simulation</span>
+    </h3>
+
+    <p>
+      <span lang="hu">A hardver szimuláció az áramkör kapu szintű
+	szimulációja. A szimulációhoz egy verilog szimulátor szükséges,
+	a fejlesztőrendszer az Icarus verilog szoftvert használja. A
+	szimuláció több lépésből áll, az Icarus a tervet először
+	szimulálható formára alakítja, &ldquo;lefordítja&rdquo;. Ehhez a
+	lépéshez szükség van a számítógép memóriájának tartalmára is,
+	tehát mindenekelőtt a futtatandó programot kell lefordítanunk és
+	átalakítanunk a verilog számára szükséges formátumra.
+      </span>
+    
+      <span lang="en">Hardware simulation means gate level simulation of
+	the circuit.  It requires a verilog simulator, the development
+	system uses Icarus verilog software. Simulation takes several
+	steps. First, Icarus converts the model into an internal form
+	that is suitable for the simulation. This step needs the memory
+	content, so we need to compile the software first to generate
+	needed memory content file which the Icarus is able to read.
+      </span>
+    </p>
+
+    <p>
+      <span lang="hu">A második lépésben fut maga a szimuláció, amelynek
+	során a tesztelt áramkörre (vagyis a számítógépre) megfelelő
+	bemeneti jeleket kapcsolunk. A szimuláció az <code>INSTS</code> paraméterben megadott
+	számú CPU utasítás után leáll.
+      </span>
+    
+      <span lang="en">In second step the simulation will run when input signal
+	values are applied to input of the circuit. The simulation stops
+	when CPU executes as many instructions as specified in the <code>NSTS</code>
+	parameter.
+      </span>
+    </p>
+
+    <p>
+      <span lang="hu">A szimuláció az áramkörben megjelenő jelek értékét
+	egy kimeneti fájlba írja (dump fájl), amelyet a harmadik
+	lépésben megjeleníthetünk és kiértékelhetünk. A teljes folyamat
+	lefuttatását egy Makefile vezérli, amelyet parancssorból
+	kezelhetünk.
+      </span>
+      
+      <span lang="en">The simulation writes out values of internal signals
+	into an output file (dump file) which can be displayed in the
+	third step.  The whole process is controlled by a Makefile which
+	can be used form command line.
+      </span>
+    </p>
+
+    <p>
+      <span lang="hu">Nyissunk meg egy parancsértelmező ablakot
+	(pl. Powershell), és váltsunk a csomag gyökér
+	könyvtárára. Pl. ha a ZIP fájlt az Asztal-ra csomagoltuk ki egy
+	p12dev könyvtárba, akkor adjuk ki a:
+      </span>
+        
+      <span lang="en">Open a command window (e.g. PowerShell on windows)
+	and change working directory to root of the development
+	system. For example, if the package is unzipped into p12dev on
+	Desktop, enter:
+      </span>
+    </p>
+    
+    <p lang="hu"><samp>cd Asztal/p12dev</samp></p>
+    <p lang="en"><samp>cd Desktop/p12dev</samp></p>
+    <br>
+
+    <p>
+      <span lang="hu">parancsot. Ha a szükséges szoftvereket telepítettünk,
+	a szimuláció és a megjelenítés a</span>
+      
+      <span lang="en">command. If the required softwares are installed, the
+	simulation and displaying the result can be done with:
+      </span>
+    </p>
+    
+    <p><samp>make</samp></p>
+    
+    <p>
+      <span lang="hu">parancs kiadásával futtatható le. A szimuláció után
+	elindul a gtkwave szoftver, amely a dump fájl tartalmát
+	idődiagram formájában kirajzolja és lehetővé teszi a gép
+	működésének vizsgálatát.</span>
+      
+      <span lang="en">command. After the simulaton, gtkwave softwer is
+	started which displays content of the dump file on a time
+	diagram.</span>
+    </p>
+
+    <p>
+      <span lang="hu">A make parancs paramétere segítségével a folyamat
+	egyes lépései önállóan is lefuttathatók:</span>
+      
+      <span lang="en">Using following parameters to make command, it is
+	possible to run any step of the process separately:
+      </span>
+    </p>
+    
+    <p></p>
+    <p lang="hu"><samp>make progs     ; példaprogramok és a monitor lefordítása
+make sw        ; a projektben megadott program lefordítása
+make hw        ; a hardver lefordítása
+make sim       ; a lefordított hardver szimulációja
+make show      ; a dump fájl megjelenítése
+make clean     ; a generált fájlok törlése
+    </samp></p>
+
+    <p lang="en"><samp>make progs     ; compile examples and monitor
+make sw        ; compile app of the project
+make hw        ; compile hardware
+make sim       ; simulate hardware
+make show      ; show dumpfile
+make clean     ; remove generated files
+    </samp></p>
+
+
+
+    <h4>
+      <span lang="hu">A teszt modul használata</span>
+      <span lang="en">Using test module</span>
+    </h4>
+
+    <p>
+      <span lang="hu">A gép számára szükséges bemeneti jeleket a tm.v
+	(Verilog Test Module) fájl módosításával állíthatjuk elő.</span>
+	
+      <span lang="en">You have to modify the tm.v (Verilog Test Module)
+	file to produce input signals for the computer, requied by the
+	tested app.</span>
+    </p>
+    
+
+    <h3>
+      <span lang="hu">Utasítás szintű szimuláció</span>
+      <span lang="en">Instruction level simulation</span>
+    </h3>
+
+    <p>
+      <span lang="hu">Az utasítás szintű szimulációt az &mu;Csim szoftver
+	valósítja meg, természetesen az indítás előtt le kell fordítani
+	a futtatandó programot. A futtatást és a szimulátor elindítását
+	elvégezhetjük a fejlesztőrendszer gyökér könyvtárában a</span>
+
+      <span lang="en">The instruction level simulation is performed by the
+	&mu;Csim software. Code of the application must be compiled
+	before the simulation. Requied compilation and start of the
+	simulator can be done by following command (issued in root
+	directory of the development system):</span>
+    </p>
+
+    <p></p><p><samp>make iss</samp></p>
+    
+    <p>
+      <span lang="hu">parancs kiadásával. A fordítás után elindul a
+	szimulátor, a memóriába betöltődik a projektben megadott
+	program kódja és a monitor. A program futtatása elindul. Az
+	&mu;Csim mellett három terminál ablak is megnyílik, a
+	fejlécük <b>UART</b>, <b>cmd1</b> és <b>cmd2</b> lesz.</span>
+      
+      <span lang="en">After compilation of the app, the simulator
+	starts. The simulated memory is filled with the code of the
+	project's app and the monitor. Besides &mu;Csim (which runs in
+	the background), three terminal windows open,
+	titled <b>UART</b>, <b>cmd1</b> and <b>cmd2</b>.</span>
+    </p>
+
+    <p>
+      <span lang="hu">Az UART ablak a szimulált soros vonalhoz
+	kapcsolódik. Ha a programot a monitor mellé fordítottuk le,
+	akkor itt egy ENTER lenyomása után a monitor promptját
+	(kettőspont) fogjuk látni. A monitor segítségével
+	elindíthatjuk a programunkat a</span>
+      
+      <span lang="en">The UART window is connected to the simulated
+	uart. When you compile your app by keeping monitor start
+	instruction, and press ENTER in this window, the monitor
+	prompt (colon) will appear. You can start your app with the
+	following monitor command:</span>
+    </p>
+
+    <p></p>
+    <p>
+      <span lang="hu"><samp>g kezdőcím</samp></span>
+      <span lang="en"><samp>g startaddress</samp></span>
+    </p>
+    
+
+    <p>
+      <span lang="hu">parancs kiadásával, ahol a <i>kezdőcím</i>et
+	hexadecimálisan kell megadnunk.</span>
+      
+      <span lang="en">where <i>startaddress</i> of the app must be entered in
+	hexadecimal.</span>
+    </p>
+
+    <p>
+      <span lang="hu">A cmd1 és cmd2 ablakok az &mu;Csim parancssorai,
+	itt adhatunk ki a szimulátornak parancsokat. A szimulátor
+	leírását a</span>
+      
+      <span lang="en">The cmd1 and cmd2 windows are command consoles
+	of the simulator, you can enter &mu;Csim commands
+	there. Documentation of the simulator is at:</span>
+    </p>
+    
+
+    <p><a href="http://www.ucsim.hu">http://www.ucsim.hu</a></p>
+
+
+    <p>
+      <span lang="hu">címen olvashatjuk. A GPIO kezelésének egyik
+	módja, hogy az egyik cmd ablakot függőlegesen felnagyítjuk
+	legalább 34 sor méretűre, majd kiadjuk a</span>
+	
+      <span lang="en">GPIO can be handled in several ways, one is the
+	use of interactive interface, which can be started by:</span>
+    </p>
+    
+
+    <p></p><p><samp>set con dport</samp></p>
+    
+    <p>
+      <span lang="hu">parancsot. Ezután látni fogjuk a négy kimeneti és a
+	két bemeneti portot. A bemeneti portok alsó 16 bitjét az alattuk
+	feltüntetett billentyűkkel válthajuk át.</span>
+      
+      <span lang="en">command. Values of all GPIO port (2 inputs, 4
+	outputs) registers will appear (you should increase window size
+	to at least 34 lines to make room for all). You can use
+	displayed keys to toggle input port bits.</span>
+    </p>
+
+    <p>
+      <span lang="hu">A szimulátorból való kilépéshez adjuk ki a <b>kill</b>
+	parancsot
+	az egyik cmd a blakban.</span>
+      
+      <span lang="en">To exit the simulator <b>kill</b> command can be used in
+	a command window.</span>
+    </p>
+    
+
+    <p>
+      <span lang="hu">Az FPGA kártya be- és kimeneti eszközeinek
+      megjelenítését a következő parancsok egyinének beírásával
+      érhetjük el:</span>
+
+      <span lang="en">Display the input and output devices of the FPGA
+      card by entering one of the following commands:</span>
+    </p>
+
+    <p><samp>set con n4ddr
+set con logsys
+set con boolean</samp></p>
+
+    <p>
+      <span lang="hu">annak megfelelően, hogy melyik FPGA kártyát
+      szeretnénk a szimulációban kezelni.</span>
+
+      <span lang="en">according to which FPGA card would you like to
+      simulate.</span>
+    </p>
+
+    <p><img src="dsp_n4ddr.png"></p>
+
+    <p>
+      <span lang="hu">A képen sárgával látható billentyűkkel
+      vezérelhetjük a szimulátort, illetve a kártya bemeneti eszközeit
+	(nyomógombok, kapcsolók).</span>
+
+      <span lang="en">The yellow keys in the picture control the
+	simulator and the card's input devices (push buttons,
+	switches).</span>
+    </p>
+
+    
+    <h3>
+      <span lang="hu">Megvalósítás FPGA kártyán</span>
+      <span lang="en">Implementation on FPGA board</span>
+    </h3>
+
+    <p>
+      <span lang="hu">Az FPGA kártyán való megvalósításhoz a
+	fejlesztőrendszerben kész Vivado projekteket találunk</span>
+    
+      <span lang="en">You can find ready to use Vivado projects in the
+	package to implement the computer on FPGA boards:</span>
+    </p>
+    
+    <ul>
+      <li>Boolean (bool_2023.1.xpr),</li>
+      <li>LogSys (ls_2023.1.xpr),</li>
+      <li>Nexys4-DDR (n4_2023.1.xpr)</li>
+    </ul>
+
+    <p>
+      <span lang="hu">típusú kártyákhoz, az hw/implement alkönyvtárban. A
+	projektek a Vivado 2023.1 verziójával készültek, ezért minimum
+	erre, vagy újabb Vivado-ra van szükség a használatukhoz. Az
+	implementáció lefordításához szükség van a memória tartalmat
+	definiáló fájlra, amit a PMon monitor és a mellette még
+	betöltendő alkalmazói program lefordításával állíthatunk elő.</span>
+    
+      <span lang="en">in hw/implement subdirectory. The projects are made
+	by Vivado version 2023.1, so you have to use this or newer
+	version. Memory content file is needed to compile the
+	implementation, which can be produced by compiling sw part of
+	the package.</span>
+    </p>
+    
+    <span lang="hu">
+      <ol>
+	<li>A p12dev könyvtárban adjuk ki a <code> make sw </code> parancsot.</li>
+	<li>Indítsuk el Vivado szoftvernek a megfelelő verzióját.</li>
+	<li>Nyissuk meg a fenti projekt fájlok közül a használt FPGA
+	  kártyának megfelelőt.</li>
+	<li>Válasszuk ki a Project Manager-ben (Flow menü) a Generate
+	  bitstream menüpontot.</li>
+	<li>Nyissuk meg a Hardware Manager-t.</li>
+	<li>Kapcsolódjunk a kártyához az Open target funkcióval.</li>
+	<li>A Program Device menüpont segítségével töltsük le a lefordított
+	  rendszert az FPGA-ra.</li>
+	<li>Indítsuk el a TeraTerm programot.</li>
+	<li>Kapcsolódjunk a kártya által biztosított VCP eszközhöz
+	  115200,N,8,1 beállításokkal. Az ENTER lenyomása után a PMon
+	  promptját (kettőspont) fogjuk látni.</li>
+	<li>A megfelelő PMon parancsokkal töltsük le a lefordított
+	  programunk kódját a memóriába, és indítsuk el.</li>
+      </ol>
+    </span>
+    
+    <span lang="en">
+      <ol>
+	<li>Issue <code> make sw </code> command in p12dev directory.</li>
+	<li>Start Vivado (2013.1 or newer version).</li>
+	<li>Open appropriate project file (see above) according your board.</li>
+	<li>Select Generate bitstream in the Project Manager (Flow menu).</li>
+	<li>Open Hardware Manager.</li>
+	<li>Connect your board with Open target.</li>
+	<li>Use Program device function to download compiled code to the board.</li>
+	<li>Open TeraTerm</li>
+	<li>Connect to the board with settings: 115200,N,8,1. Press ENTER
+	  and you will see the prompt of the monitor (a colon).</li>
+	<li>Use PMon commands to download your app code to the computer
+	  memory, and start it.</li>
+      </ol>
+    </span>
+
+    <p>
+      <span lang="hu">Lefordított bit fájlokat is használhatunk, ezek a
+	PMon monitor programot, és alkalmazói szoftverként a counter3
+	példa programot tartalmazzák. A kész bit fájlokat a</span>
+    
+      <span lang="en">You can use precompiled bitfiles to program your
+	board, they contain PMon monitor and the counter3 example as the
+	user app. These bitfiles are available at:</span>
+    </p>
+    
+    <p><a href="https://github.com/danieldrotos/p12dev/releases/precompiled-bitfiles">https://github.com/danieldrotos/p12dev/releases/precompiled-bitfiles</a></p>
+
+    <p lang="hu">címről tölthetjük le:</p>
+    
+    <span lang="hu">
+      <ul>
+	<li>n4_top.bit fájlt használjuk a Nexys4-DDR kártyához,</li>
+	<li>bool_top.bit fájlt a Boolean kártyához, illetve a</li>
+	<li>ls_top.bit fájlt a LogSys kártyához.</li>
+      </ul>
+    </span>
+    
+    <span lang="en">
+      <ul>
+	<li>n4_top.bit file can be downloaded to a Nexys4-DDR board,</li>
+	<li>bool_top.bit is compiled for Boolean board, while</li>
+	<li>ls_top.bit is usable on LogSys board.</li>
+      </ul>
+    </span>
+
+    <p>
+      <span lang="hu">A Vivado elindítása után nyissuk meg a Hardware
+	managert és programozzuk a kártyát a letöltött bit
+	fájllal. Ezután a monitor program segítségével használhatjuk a
+	számítógépet.</span>
+    
+      <span lang="en">After starting Vivado, open the Hardware manager and
+	download selected bitfile to the board. After downloading, you
+	can use the computer with the help of the PMon monitor.</span>
+    </p>
+    
+    <hr>
+    
+  </body>
+</html>

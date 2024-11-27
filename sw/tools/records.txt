@@ -1,0 +1,86 @@
+//U P1|P2
+//T segmentid name noload=0|1 abs=0|1
+//L key name hexvalue owner segmentid
+//P -
+//P segmentid name
+//G name
+//N name segmentid
+//R hexaddress mode symbol hexvalue
+//I hexaddress mode hexvalue
+//+ hexvalue
+//F filename
+//H hexvalue
+icode //C hexaddress declnr source code
+//E
+//;
+
+
+
+Processor type
+
+//U P1|P2
+
+
+Segment definition
+
+//T segmentid name noload=0|1 abs=0|1
+
+
+Symbol or label
+
+//L|=|S key name hexvalue owner segmentid
+
+
+Begin/End of a code segment
+
+//P -
+// segmentid name
+
+
+Global label definition of prev code record
+
+// G name
+
+
+Local label definition os prev code record
+//N name segmentid
+
+
+Relocation info about prev code record
+
+//R hexaddress mode symbol hexvalue
+
+
+Immediate info
+
+//I hexaddress mode hexvalue
+
+
+Filename of source
+
+//F filename
+
+
+Skip defined by .ds
+
+//+ hexvalue
+
+
+Checksum record
+
+//H hexvalue
+
+
+Code record
+
+icode //C hexaddress declnr source...
+
+
+End record
+
+//E
+
+
+Comment
+
+//; comment

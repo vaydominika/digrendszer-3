@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html id="html-tag" lang="en">
+  <script>
+   const $htmlTag = document.querySelector("#html-tag")
+   const urlParams = new URL(window.location.toLocaleString()).searchParams;
+   var lvar= urlParams.get('lang');
+   switch(lvar) {
+     case "hu":
+       $htmlTag.lang = "hu"
+       $htmlTag.classList.add("hungarianLang")
+       break
+     default:
+       lvar= "en";
+       $htmlTag.classList.add("englishLang")
+       break
+   }
+   function lnk(cath,fn)
+    {
+      var l= 'lib_' + cath + '.html#' + fn + '?lang=' + lvar;
+      return l;
+    }
+  </script>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="p12.css">
+    <title>p2223 library: terminal functions</title>
+  </head>
+  
+  <body>
+
+    <span lang="hu">Lang:</span> <span lang="en">Nyelv:</span>
+    <a href="lib_term.html?lang=hu">HU</a>
+    <a href="lib_term.html?lang=en">EN</a>
+
+    
+    <h1>
+      <span lang="en">Terminal functions</span>
+      <span lang="hu">Terminál függvények</span>
+    </h1>
+
+    
+    <a name="tu_save_cursor"><h3>tu_save_cursor</h3></a>
+
+    <ul>
+      <li><span lang="en">Input(s):</span>
+	<span lang="hu">Bemenet(ek):</span>
+	<span lang="en">-</span>
+	<span lang="hu">-</span>
+      </li>
+      <li><span lang="en">Output(s):</span>
+	<span lang="hu">Kimenet(ek):</span>
+	<span lang="en">-</span>
+	<span lang="hu">-</span>
+      </li>
+    </ul>
+
+    <p>Elmenti a kurzor aktuális pozícióját. Az elmentett pozícióba a
+      <a href="#tu_restore_cursor>">tu_restore_cursor</a> függvénnyel
+      lehet a kurzort vissza mozgatni.</p>
+
+    
+    <a name="tu_restore_cursor"><h3>tu_restore_cursor</h3></a>
+
+    <ul>
+      <li><span lang="en">Input(s):</span>
+	<span lang="hu">Bemenet(ek):</span>
+	<span lang="en">-</span>
+	<span lang="hu">-</span>
+      </li>
+      <li><span lang="en">Output(s):</span>
+	<span lang="hu">Kimenet(ek):</span>
+	<span lang="en">-</span>
+	<span lang="hu">-</span>
+      </li>
+    </ul>
+
+    <p>A kurzort mozgatja arra a pozícióra, melyet előzőleg a
+      <a href="#tu_save_cursor">tu_save_cursor</a> függvény
+      segítségével elmentettünk.</p>
+
+
+    <a name="tu_hide"><h3>tu_hide</h3></a>
+
+    <ul>
+      <li><span lang="en">Input(s):</span>
+	<span lang="hu">Bemenet(ek):</span>
+	<span lang="en">-</span>
+	<span lang="hu">-</span>
+      </li>
+      <li><span lang="en">Output(s):</span>
+	<span lang="hu">Kimenet(ek):</span>
+	<span lang="en">-</span>
+	<span lang="hu">-</span>
+      </li>
+    </ul>
+
+    <p>A kurzor megjelenítését kikapcsolja.</p>
+
+
+    <a name="tu_show"><h3>tu_show</h3></a>
+
+    <ul>
+      <li><span lang="en">Input(s):</span>
+	<span lang="hu">Bemenet(ek):</span>
+	<span lang="en">-</span>
+	<span lang="hu">-</span>
+      </li>
+      <li><span lang="en">Output(s):</span>
+	<span lang="hu">Kimenet(ek):</span>
+	<span lang="en">-</span>
+	<span lang="hu">-</span>
+      </li>
+    </ul>
+
+    <p>A kurzor megjelenítését bekapcsolja.</p>
+
+
+    <a name="tu_clear_screen"><h3>tu_clear_screen</h3></a>
+
+    <ul>
+      <li><span lang="en">Input(s):</span>
+	<span lang="hu">Bemenet(ek):</span>
+	<span lang="en">-</span>
+	<span lang="hu">-</span>
+      </li>
+      <li><span lang="en">Output(s):</span>
+	<span lang="hu">Kimenet(ek):</span>
+	<span lang="en">-</span>
+	<span lang="hu">-</span>
+      </li>
+    </ul>
+
+    <p>Letörli a képenyőt, a képernyő az aktuális háttérszínű lesz. A
+    kurzort a bal felső sarokba mozgatja.</p>
+
+    
+    <a name="tu_clear_char"><h3>tu_clear_char</h3></a>
+
+    <ul>
+      <li><span lang="en">Input(s):</span>
+	<span lang="hu">Bemenet(ek):</span>
+	<span lang="en">-</span>
+	<span lang="hu">-</span>
+      </li>
+      <li><span lang="en">Output(s):</span>
+	<span lang="hu">Kimenet(ek):</span>
+	<span lang="en">-</span>
+	<span lang="hu">-</span>
+      </li>
+    </ul>
+
+    <p>A kurzor aktuális pozíciójára szöközt ír, vagyis az ott lévő
+    karakterhelyet törli. A kurzor pozíciója nem változik.</p>
+
+    
+    <a name="tu_go_left"><h3>tu_go_left</h3></a>
+
+    <ul>
+      <li><span lang="en">Input(s):</span>
+	<span lang="hu">Bemenet(ek):</span>
+	<span lang="en">R0= distance</span>
+	<span lang="hu">R0= távolság</span>
+      </li>
+      <li><span lang="en">Output(s):</span>
+	<span lang="hu">Kimenet(ek):</span>
+	<span lang="en">-</span>
+	<span lang="hu">-</span>
+      </li>
+    </ul>
+
+    <p>A kurzort az R0-ban megadott számú karakter hellyel balra
+    mozgatja.</p>
+
+
+    <a name="tu_go_right"><h3>tu_right</h3></a>
+
+    <ul>
+      <li><span lang="en">Input(s):</span>
+	<span lang="hu">Bemenet(ek):</span>
+	<span lang="en">R0= distance</span>
+	<span lang="hu">R0= távolság</span>
+      </li>
+      <li><span lang="en">Output(s):</span>
+	<span lang="hu">Kimenet(ek):</span>
+	<span lang="en">-</span>
+	<span lang="hu">-</span>
+      </li>
+    </ul>
+
+    <p>A kurzort az R0-ban megadott számú karakter hellyel jobbra
+    mozgatja.</p>
+
+
+    <a name="tu_go_up"><h3>tu_go_up</h3></a>
+
+    <ul>
+      <li><span lang="en">Input(s):</span>
+	<span lang="hu">Bemenet(ek):</span>
+	<span lang="en">R0= distance</span>
+	<span lang="hu">R0= távolság</span>
+      </li>
+      <li><span lang="en">Output(s):</span>
+	<span lang="hu">Kimenet(ek):</span>
+	<span lang="en">-</span>
+	<span lang="hu">-</span>
+      </li>
+    </ul>
+
+    <p>A kurzort az R0-ban megadott számú karakter hellyel felfelé
+    mozgatja.</p>
+
+
+    <a name="tu_go_down"><h3>tu_go_down</h3></a>
+
+    <ul>
+      <li><span lang="en">Input(s):</span>
+	<span lang="hu">Bemenet(ek):</span>
+	<span lang="en">R0= distance</span>
+	<span lang="hu">R0= távolság</span>
+      </li>
+      <li><span lang="en">Output(s):</span>
+	<span lang="hu">Kimenet(ek):</span>
+	<span lang="en">-</span>
+	<span lang="hu">-</span>
+      </li>
+    </ul>
+
+    <p>A kurzort az R0-ban megadott számú karakter hellyel lefelé
+    mozgatja.</p>
+
+
+    <a name="tu_go"><h3>tu_go</h3></a>
+
+    <ul>
+      <li><span lang="en">Input(s):</span>
+	<span lang="hu">Bemenet(ek):</span>
+	<span lang="en">R0= x, R1= y</span>
+	<span lang="hu">R0= x, R1= y</span>
+      </li>
+      <li><span lang="en">Output(s):</span>
+	<span lang="hu">Kimenet(ek):</span>
+	<span lang="en">-</span>
+	<span lang="hu">-</span>
+      </li>
+    </ul>
+
+    <p>A kurzort a paraméterekben megadott pozícióra mozgatja. A bal
+    felső sarok koordinátája: x=1, y=1.</p>
+
+
+    <a name="tu_color"><h3>tu_color</h3></a>
+
+    <ul>
+      <li><span lang="en">Input(s):</span>
+	<span lang="hu">Bemenet(ek):</span>
+	<span lang="en">R0= background (0-15), R1= foreground (0-15)</span>
+	<span lang="hu">R0= háttér (0-15), R1= előtér (0-15)</span>
+      </li>
+      <li><span lang="en">Output(s):</span>
+	<span lang="hu">Kimenet(ek):</span>
+	<span lang="en">-</span>
+	<span lang="hu">-</span>
+      </li>
+    </ul>
+
+    <p>Beállítja az előtér és a háttér színt, amelyek a következő
+    kiírástól kezdve jutnak érvényre. A 0-7 közötti értékek a három
+    alap szín (0.bit=piros, 1.bit=zöld, 2.bit=kék) keveréséből
+    adódnak, a 8-15 közötti értékek ugyanezeket a színeket
+    eredményezik "nagy intenzitással". A megjelenített színek az
+    alkalmazott terminaál programtól függnek. Egyes programok esetén az
+    alkalmazott szín profil konfigurálható is lehet.</p>
+
+    <p>Ha az előtér vagy a háttér szín paraméter negatív, akkor az a
+      szín nem módosul.</p>
+
+    <p>Az alábbi ábrán láthatók a kiválasztható háttér és előtér szín
+      kombinációk. Az első hexadecimális számjegy a háttér színe, a
+      második az előtér színe.</p>
+
+    <p><img src="colors.png" border="0"></p>
+    
+
+      
+    <a name="tu_fg"><h3>tu_fg</h3></a>
+
+    <ul>
+      <li><span lang="en">Input(s):</span>
+	<span lang="hu">Bemenet(ek):</span>
+	<span lang="en">R0= foreground color</span>
+	<span lang="hu">R0= előtér szín</span>
+      </li>
+      <li><span lang="en">Output(s):</span>
+	<span lang="hu">Kimenet(ek):</span>
+	<span lang="en">-</span>
+	<span lang="hu">-</span>
+      </li>
+    </ul>
+
+    <p>Az előtér (betű) szín beállítása a következő kiírás számára. A
+      szín paramétert a <a href="#tu_color">tu_color</a> függvénynél
+      ismertetett módon kell megadni.</p>
+
+
+    <a name="tu_bg"><h3>tu_bg</h3></a>
+
+    <ul>
+      <li><span lang="en">Input(s):</span>
+	<span lang="hu">Bemenet(ek):</span>
+	<span lang="en">R0= background color</span>
+	<span lang="hu">R0= háttér szín</span>
+      </li>
+      <li><span lang="en">Output(s):</span>
+	<span lang="hu">Kimenet(ek):</span>
+	<span lang="en">-</span>
+	<span lang="hu">-</span>
+      </li>
+    </ul>
+
+    <p>A háttér szín beállítása a következő kiírás számára. A szín
+      paramétert a <a href="#tu_color">tu_color</a> függvénynél
+      ismertetett módon kell megadni.</p>
+
+
+    <a name="tu_wob"><h3>tu_wob</h3></a>
+
+    <ul>
+      <li><span lang="en">Input(s):</span>
+	<span lang="hu">Bemenet(ek):</span>
+	<span lang="en">-</span>
+	<span lang="hu">-</span>
+      </li>
+      <li><span lang="en">Output(s):</span>
+	<span lang="hu">Kimenet(ek):</span>
+	<span lang="en">-</span>
+	<span lang="hu">-</span>
+      </li>
+    </ul>
+
+    <p>Fekete alapon fehér szín beállítása a következő kiírás
+    számára.</p>
+
+    
+    <a name="tu_bow"><h3>tu_bow</h3></a>
+
+    <ul>
+      <li><span lang="en">Input(s):</span>
+	<span lang="hu">Bemenet(ek):</span>
+	<span lang="en">-</span>
+	<span lang="hu">-</span>
+      </li>
+      <li><span lang="en">Output(s):</span>
+	<span lang="hu">Kimenet(ek):</span>
+	<span lang="en">-</span>
+	<span lang="hu">-</span>
+      </li>
+    </ul>
+
+    <p>Fehér alapon fekete szín beállítása a következő kiírás
+    számára.</p>
+
+
+    <a name="tu_gob"><h3>tu_gob</h3></a>
+
+    <ul>
+      <li><span lang="en">Input(s):</span>
+	<span lang="hu">Bemenet(ek):</span>
+	<span lang="en">-</span>
+	<span lang="hu">-</span>
+      </li>
+      <li><span lang="en">Output(s):</span>
+	<span lang="hu">Kimenet(ek):</span>
+	<span lang="en">-</span>
+	<span lang="hu">-</span>
+      </li>
+    </ul>
+
+    <p>Fekete alapon zöld szín beállítása a következő kiírás
+    számára.</p>
+
+
+<!--
+    <a name="tu_"><h3>tu_</h3></a>
+
+    <ul>
+      <li><span lang="en">Input(s):</span>
+	<span lang="hu">Bemenet(ek):</span>
+	<span lang="en">-</span>
+	<span lang="hu">-</span>
+      </li>
+      <li><span lang="en">Output(s):</span>
+	<span lang="hu">Kimenet(ek):</span>
+	<span lang="en">-</span>
+	<span lang="hu">-</span>
+      </li>
+    </ul>
+
+    <p></p>
+-->
+    
+    <hr>
+  </body>
+</html>

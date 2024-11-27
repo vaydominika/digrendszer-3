@@ -1,0 +1,954 @@
+//U P2
+
+//; SEGMENTS
+//T S293d8fdbaa47 _lib_segment_div noload=0 abs=0
+//T S8e7b3d203072 _lib_segment_rand noload=0 abs=0
+//T Sbe1a78b9d15e _lib_segment_str_chr noload=0 abs=0
+//T S0e483de54bb5 _lib_segment_regs_of_gpio noload=0 abs=0
+//T S33927ab86900 _lib_segment_regs_of_uart noload=0 abs=0
+//T S602f0726a14b _lib_segment_character_fn noload=0 abs=0
+//T S847a5c4e618b _lib_segment_isdigit noload=0 abs=0
+//T S9a7f1c151839 _lib_segment_islower noload=0 abs=0
+//T S154e11ca77b1 _lib_segment_isupper noload=0 abs=0
+//T Sf1f3b6b1f10a _lib_segment_isalpha noload=0 abs=0
+//T Sb95a2b17779b _lib_segment_isalnum noload=0 abs=0
+//T S503b4c87a8c4 _lib_segment_putchar noload=0 abs=0
+//T S23554af9f140 _lib_segment_eprints noload=0 abs=0
+//T Sb401aee44acb _lib_segment_eprintf noload=0 abs=0
+//T Sedd6b6695436 _lib_segment_input_avail noload=0 abs=0
+//T S84a19e8ae015 _lib_segment_read noload=0 abs=0
+//T Sd14c348df59b _lib_segment_pmon noload=0 abs=0
+//T S45ec84dfaab0 _lib_segment_nr_to_mask noload=0 abs=0
+//T S38738b71c88c _lib_segment_edge noload=0 abs=0
+//T Saed5ad4c4c92 _lib_segment_btn noload=0 abs=0
+//T S91882b04b352 _lib_segment_tu_clear noload=0 abs=0
+//T Sae7fcc1e9a4d _lib_segment_tu_moving noload=0 abs=0
+//T S1401655c5a30 _lib_segment_tu_color noload=0 abs=0
+
+//; SYMBOLS
+//L cyc0 cyc0 0000002c - _
+//L cyc2 cyc2 0000003e - _
+//L cyc1 cyc1 00000051 - _
+//L dsp dsp 0000005e - _
+//L htab htab 00000077 - _
+//L stack stack 000000ec - _
+//L div div 000000ed S293d8fdbaa47 _
+//L S293d8fdbaa47div_dok div_dok 000000f4 s S293d8fdbaa47
+//L S293d8fdbaa47div_dummy div_dummy 000000f4 s S293d8fdbaa47
+//L S293d8fdbaa47div_cyc div_cyc 000000f8 s S293d8fdbaa47
+//L S293d8fdbaa47div_cyc_next div_cyc_next 00000103 s S293d8fdbaa47
+//L S293d8fdbaa47div_ret div_ret 00000105 s S293d8fdbaa47
+//L S8e7b3d203072seed seed 00000107 s S8e7b3d203072
+//L srand srand 00000108 S8e7b3d203072 _
+//L rand rand 0000010a S8e7b3d203072 _
+//L S8e7b3d203072c1 c1 00000110 s S8e7b3d203072
+//L S8e7b3d203072c2 c2 00000116 s S8e7b3d203072
+//L S8e7b3d203072c3 c3 0000011c s S8e7b3d203072
+//L str_chr str_chr 00000125 Sbe1a78b9d15e _
+//= GPIO.PORTA GPIO.PORTA 0000ff00 S0e483de54bb5 _
+//= GPIO.PORTB GPIO.PORTB 0000ff01 S0e483de54bb5 _
+//= GPIO.PORTC GPIO.PORTC 0000ff02 S0e483de54bb5 _
+//= GPIO.PORTD GPIO.PORTD 0000ff03 S0e483de54bb5 _
+//= GPIOA.ODR GPIOA.ODR 0000ff00 S0e483de54bb5 _
+//= GPIOB.ODR GPIOB.ODR 0000ff01 S0e483de54bb5 _
+//= GPIOC.ODR GPIOC.ODR 0000ff02 S0e483de54bb5 _
+//= GPIOD.ODR GPIOD.ODR 0000ff03 S0e483de54bb5 _
+//= GPIO.7SEG GPIO.7SEG 0000ff00 S0e483de54bb5 _
+//= GPIO.LED GPIO.LED 0000ff01 S0e483de54bb5 _
+//= GPIO.PORTI GPIO.PORTI 0000ff20 S0e483de54bb5 _
+//= GPIO.PORTJ GPIO.PORTJ 0000ff10 S0e483de54bb5 _
+//= GPIOI.IDR GPIOI.IDR 0000ff20 S0e483de54bb5 _
+//= GPIOJ.IDR GPIOJ.IDR 0000ff10 S0e483de54bb5 _
+//= GPIO.BTN GPIO.BTN 0000ff20 S0e483de54bb5 _
+//= GPIO.SW GPIO.SW 0000ff10 S0e483de54bb5 _
+//= UART.DR UART.DR 0000ff40 S33927ab86900 _
+//= UART.CTRL UART.CTRL 0000ff41 S33927ab86900 _
+//= UART.RSTAT UART.RSTAT 0000ff42 S33927ab86900 _
+//= UART.TSTAT UART.TSTAT 0000ff43 S33927ab86900 _
+//= UART.CPB UART.CPB 0000ff44 S33927ab86900 _
+//= UART.SREG0 UART.SREG0 0000ff4c S33927ab86900 _
+//= UART.SREG1 UART.SREG1 0000ff4d S33927ab86900 _
+//= UART.SREG2 UART.SREG2 0000ff4e S33927ab86900 _
+//= UART.SREG3 UART.SREG3 0000ff4f S33927ab86900 _
+//L _char_is_true _char_is_true 00000135 S602f0726a14b _
+//L _char_is_false _char_is_false 00000137 S602f0726a14b _
+//L isdigit isdigit 00000139 S847a5c4e618b _
+//L islower islower 0000013e S9a7f1c151839 _
+//L isupper isupper 00000143 S154e11ca77b1 _
+//L isalpha isalpha 00000148 Sf1f3b6b1f10a _
+//L isalnum isalnum 0000014d Sb95a2b17779b _
+//L putchar putchar 00000152 S503b4c87a8c4 _
+//L eprints eprints 00000153 S23554af9f140 _
+//L eprintf eprintf 00000154 Sb401aee44acb _
+//L input_avail input_avail 00000155 Sedd6b6695436 _
+//L read read 00000156 S84a19e8ae015 _
+//= _pm_callin _pm_callin 0000f000 Sd14c348df59b _
+//= _pm_enter_by_uart _pm_enter_by_uart 0000f001 Sd14c348df59b _
+//= _pm_getchar _pm_getchar 0000f002 Sd14c348df59b _
+//= _pm_version _pm_version 0000f003 Sd14c348df59b _
+//= _pm_itobcd _pm_itobcd 0000f004 Sd14c348df59b _
+//= _pm_cold_start _pm_cold_start 0000f005 Sd14c348df59b _
+//= _pm_strchr _pm_strchr 0000f006 Sd14c348df59b _
+//= _pm_streq _pm_streq 0000f007 Sd14c348df59b _
+//= _pm_check_uart _pm_check_uart 0000f008 Sd14c348df59b _
+//= _pm_input_avail _pm_input_avail 0000f008 Sd14c348df59b _
+//= _pm_hexchar2value _pm_hexchar2value 0000f009 Sd14c348df59b _
+//= _pm_value2hexchar _pm_value2hexchar 0000f00a Sd14c348df59b _
+//= _pm_htoi _pm_htoi 0000f00b Sd14c348df59b _
+//= _pm_strieq _pm_strieq 0000f00c Sd14c348df59b _
+//= _pm_read _pm_read 0000f00d Sd14c348df59b _
+//= _pm_putchar _pm_putchar 0000f00e Sd14c348df59b _
+//= _pm_prints _pm_prints 0000f00f Sd14c348df59b _
+//= _pm_printsnl _pm_printsnl 0000f010 Sd14c348df59b _
+//= _pm_print_vhex _pm_print_vhex 0000f011 Sd14c348df59b _
+//= _pm_pes _pm_pes 0000f012 Sd14c348df59b _
+//= _pm_printd _pm_printd 0000f013 Sd14c348df59b _
+//= _pm_printf _pm_printf 0000f014 Sd14c348df59b _
+//= _pm_pesf _pm_pesf 0000f015 Sd14c348df59b _
+//= _pm_ascii2seg _pm_ascii2seg 0000f016 Sd14c348df59b _
+//L monitor monitor 00000158 Sd14c348df59b _
+//L monitor_by_uart monitor_by_uart 00000159 Sd14c348df59b _
+//L monitor_by_button monitor_by_button 0000015a Sd14c348df59b _
+//L monitor_version monitor_version 00000160 Sd14c348df59b _
+//L _nr_to_mask _nr_to_mask 00000166 S45ec84dfaab0 _
+//L S45ec84dfaab0nr_to_mask_cyc nr_to_mask_cyc 00000169 s S45ec84dfaab0
+//L S45ec84dfaab0nr_to_mask_ret nr_to_mask_ret 0000016e s S45ec84dfaab0
+//L S38738b71c88clast_btn last_btn 00000171 s S38738b71c88c
+//L S38738b71c88clast_sw last_sw 00000172 s S38738b71c88c
+//L S38738b71c88clast_btn_down last_btn_down 00000173 s S38738b71c88c
+//L S38738b71c88clast_sw_down last_sw_down 00000174 s S38738b71c88c
+//L S38738b71c88clast_btn_inited last_btn_inited 00000175 s S38738b71c88c
+//L S38738b71c88clast_sw_inited last_sw_inited 00000176 s S38738b71c88c
+//L _lib_edge_detect _lib_edge_detect 00000177 S38738b71c88c _
+//L S38738b71c88cinit_btn init_btn 0000017f s S38738b71c88c
+//L S38738b71c88cinit_sw init_sw 00000188 s S38738b71c88c
+//L S38738b71c88cpressed_inited pressed_inited 00000191 s S38738b71c88c
+//L S38738b71c88cch_btn ch_btn 00000194 s S38738b71c88c
+//L S38738b71c88cch_sw ch_sw 00000197 s S38738b71c88c
+//L S38738b71c88ccheck_push check_push 000001a7 s S38738b71c88c
+//L S38738b71c88ccheck_release check_release 000001aa s S38738b71c88c
+//L S38738b71c88cpressed_true pressed_true 000001ac s S38738b71c88c
+//L S38738b71c88cpressed_false pressed_false 000001ae s S38738b71c88c
+//L S38738b71c88cpressed_end pressed_end 000001af s S38738b71c88c
+//L btn_restart btn_restart 000001b5 S38738b71c88c _
+//L sw_restart sw_restart 000001ba S38738b71c88c _
+//L btn_posedge btn_posedge 000001bf Saed5ad4c4c92 _
+//L btn_negedge btn_negedge 000001c7 Saed5ad4c4c92 _
+//L btn_get btn_get 000001cf Saed5ad4c4c92 _
+//L tu_clear_screen tu_clear_screen 000001d8 S91882b04b352 _
+//L tu_clear_char tu_clear_char 000001e6 S91882b04b352 _
+//L tu_go_left tu_go_left 000001f1 Sae7fcc1e9a4d _
+//L tu_go_right tu_go_right 000001fd Sae7fcc1e9a4d _
+//L tu_go_up tu_go_up 00000209 Sae7fcc1e9a4d _
+//L tu_go_down tu_go_down 00000215 Sae7fcc1e9a4d _
+//L tu_go tu_go 00000221 Sae7fcc1e9a4d _
+//L S1401655c5a30_tu_bg_color _tu_bg_color 00000232 s S1401655c5a30
+//L S1401655c5a30_tu_fg_color _tu_fg_color 00000233 s S1401655c5a30
+//L tu_color tu_color 00000234 S1401655c5a30 _
+//L S1401655c5a30set_fg set_fg 00000239 s S1401655c5a30
+//L S1401655c5a30set_bg set_bg 00000245 s S1401655c5a30
+//L S1401655c5a30end end 00000254 s S1401655c5a30
+//L tu_fg tu_fg 00000257 S1401655c5a30 _
+//L tu_bg tu_bg 00000260 S1401655c5a30 _
+//L tu_wob tu_wob 00000268 S1401655c5a30 _
+//L tu_bow tu_bow 00000274 S1401655c5a30 _
+//L tu_gob tu_gob 00000280 S1401655c5a30 _
+
+//; CODE
+//P -
+//F tudemo.asm
+01d200ec //C 00001     5 mvzl	sp,stack
+//R 00001 #16 stack 000000ec
+04000268 //C 00002     7 call	tu_wob
+//R 00002 #24 tu_wob 00000268
+040001d8 //C 00003     8 call	tu_clear_screen
+//R 00003 #24 tu_clear_screen 000001d8
+01020003 //C 00004     9 mvzl	r0,3
+01120002 //C 00005    10 mvzl	r1,2
+04000221 //C 00006    11 call	tu_go
+//R 00006 #24 tu_go 00000221
+01020001 //C 00007    12 mvzl	r0,1
+0112000a //C 00008    13 mvzl	r1,10
+04000234 //C 00009    14 call	tu_color
+//R 00009 #24 tu_color 00000234
+f4000153 //C 0000a    15 ces	eprints
+//R 0000a #24 eprints 00000153
+00000078 //C 0000b    16 db	120
+0000003d //C 0000c    16 db	61
+00000033 //C 0000d    16 db	51
+00000020 //C 0000e    16 db	32
+00000079 //C 0000f    16 db	121
+0000003d //C 00010    16 db	61
+00000032 //C 00011    16 db	50
+00000020 //C 00012    16 db	32
+00000062 //C 00013    16 db	98
+00000067 //C 00014    16 db	103
+0000003d //C 00015    16 db	61
+00000031 //C 00016    16 db	49
+00000020 //C 00017    16 db	32
+00000072 //C 00018    16 db	114
+00000065 //C 00019    16 db	101
+00000064 //C 0001a    16 db	100
+00000020 //C 0001b    16 db	32
+00000066 //C 0001c    16 db	102
+00000067 //C 0001d    16 db	103
+0000003d //C 0001e    16 db	61
+00000032 //C 0001f    16 db	50
+00000020 //C 00020    16 db	32
+00000067 //C 00021    16 db	103
+00000072 //C 00022    16 db	114
+00000065 //C 00023    16 db	101
+00000065 //C 00024    16 db	101
+0000006e //C 00025    16 db	110
+00000000 //C 00026    16 db
+04000268 //C 00027    18 call	tu_wob
+//R 00027 #24 tu_wob 00000268
+f4000153 //C 00028    19 ces	eprints
+//R 00028 #24 eprints 00000153
+0000000a //C 00029    20 db	10
+00000000 //C 0002a    20 db
+01020000 //C 0002b    22 mvzl	r0,0
+04000257 //C 0002c    24 call	tu_fg
+//R 0002c #24 tu_fg 00000257
+//G cyc0
+0d0d0000 //C 0002d    25 push	r0
+0e100077 //C 0002e    26 ld	r1,r0,htab
+//R 0002e #16 htab 00000077
+f4000154 //C 0002f    27 ces	eprintf
+//R 0002f #24 eprintf 00000154
+00000020 //C 00030    28 db	32
+00000025 //C 00031    28 db	37
+00000063 //C 00032    28 db	99
+00000020 //C 00033    28 db	32
+00000000 //C 00034    28 db
+0f0d0000 //C 00035    29 pop	r0
+01040001 //C 00036    30 inc	r0
+01080010 //C 00037    31 cmp	r0,16
+21f2002c //C 00038    32 jnz	cyc0
+//R 00038 #16 cyc0 0000002c
+04000268 //C 00039    34 call	tu_wob
+//R 00039 #24 tu_wob 00000268
+f4000153 //C 0003a    35 ces	eprints
+//R 0003a #24 eprints 00000153
+0000000a //C 0003b    36 db	10
+00000000 //C 0003c    36 db
+01020000 //C 0003d    38 mvzl	r0,0
+04000260 //C 0003e    40 call	tu_bg
+//R 0003e #24 tu_bg 00000260
+//G cyc2
+0d0d0000 //C 0003f    41 push	r0
+0e100077 //C 00040    42 ld	r1,r0,htab
+//R 00040 #16 htab 00000077
+f4000154 //C 00041    43 ces	eprintf
+//R 00041 #24 eprintf 00000154
+00000020 //C 00042    44 db	32
+00000025 //C 00043    44 db	37
+00000063 //C 00044    44 db	99
+00000020 //C 00045    44 db	32
+00000000 //C 00046    44 db
+0f0d0000 //C 00047    45 pop	r0
+01040001 //C 00048    46 inc	r0
+01080010 //C 00049    47 cmp	r0,16
+21f2003e //C 0004a    48 jnz	cyc2
+//R 0004a #16 cyc2 0000003e
+04000268 //C 0004b    50 call	tu_wob
+//R 0004b #24 tu_wob 00000268
+f4000153 //C 0004c    51 ces	eprints
+//R 0004c #24 eprints 00000153
+0000000a //C 0004d    52 db	10
+00000000 //C 0004e    52 db
+01620000 //C 0004f    54 mvzl	r6,0		; bg
+01720000 //C 00050    55 mvzl	r7,0		; fg
+0400005e //C 00051    58 call	dsp
+//R 00051 #24 dsp 0000005e
+//G cyc1
+01740001 //C 00052    59 inc	r7
+01780010 //C 00053    60 cmp	r7,16
+21f20051 //C 00054    61 jnz	cyc1
+//R 00054 #16 cyc1 00000051
+01720000 //C 00055    62 mvzl	r7,0
+01640001 //C 00056    63 inc	r6
+01680010 //C 00057    64 cmp	r6,16
+21f20051 //C 00058    65 jnz	cyc1
+//R 00058 #16 cyc1 00000051
+04000268 //C 00059    67 call	tu_wob
+//R 00059 #24 tu_wob 00000268
+f4000153 //C 0005a    68 ces	eprints
+//R 0005a #24 eprints 00000153
+0000000a //C 0005b    69 db	10
+00000000 //C 0005c    69 db
+04000158 //C 0005d    70 call	monitor
+//R 0005d #24 monitor 00000158
+0ded0000 //C 0005e    73 push	lr
+//G dsp
+0d6d0000 //C 0005f    74 push	r6
+0d7d0000 //C 00060    75 push	r7
+00000600 //C 00061    76 mov	r0,r6
+00100700 //C 00062    77 mov	r1,r7
+04000234 //C 00063    78 call	tu_color
+//R 00063 #24 tu_color 00000234
+00100600 //C 00064    79 mov	r1,r6		; y= bg+7
+01140007 //C 00065    80 add	r1,7
+00000700 //C 00066    81 mov	r0,r7		; x= fg*4+10
+01090004 //C 00067    82 mul	r0,4
+0104000a //C 00068    83 add	r0,10
+04000221 //C 00069    84 call	tu_go
+//R 00069 #24 tu_go 00000221
+0e160077 //C 0006a    85 ld	r1,r6,htab
+//R 0006a #16 htab 00000077
+0e270077 //C 0006b    86 ld	r2,r7,htab
+//R 0006b #16 htab 00000077
+f4000154 //C 0006c    87 ces	eprintf
+//R 0006c #24 eprintf 00000154
+00000020 //C 0006d    88 db	32
+00000025 //C 0006e    88 db	37
+00000063 //C 0006f    88 db	99
+00000025 //C 00070    88 db	37
+00000063 //C 00071    88 db	99
+00000020 //C 00072    88 db	32
+00000000 //C 00073    88 db
+0f7d0000 //C 00074    89 pop	r7
+0f6d0000 //C 00075    90 pop	r6
+0ffd0000 //C 00076    91 pop	pc
+00000030 //C 00077    94 db	48
+//G htab
+00000031 //C 00078    94 db	49
+00000032 //C 00079    94 db	50
+00000033 //C 0007a    94 db	51
+00000034 //C 0007b    94 db	52
+00000035 //C 0007c    94 db	53
+00000036 //C 0007d    94 db	54
+00000037 //C 0007e    94 db	55
+00000038 //C 0007f    94 db	56
+00000039 //C 00080    94 db	57
+00000041 //C 00081    94 db	65
+00000042 //C 00082    94 db	66
+00000043 //C 00083    94 db	67
+00000044 //C 00084    94 db	68
+00000045 //C 00085    94 db	69
+00000046 //C 00086    94 db	70
+00000000 //C 00087    94 db
+00000000 //C 00088    96 ds	100
+//+ 00000064
+00000000 //C 000ec    97 stack:	ds	1
+//+ 00000001
+//G stack
+//F math.asm
+//P S293d8fdbaa47 _lib_segment_div
+0ded0000 //C 000ed    15 push	lr
+//G div
+0d6d0000 //C 000ee    16 push	r6
+021b0000 //C 000ef    18 sz	r1
+21f200f4 //C 000f0    19 NZ jmp	div_dok
+//R 000f0 #16 div_dok 000000f4
+00400000 //C 000f1    20 mov	r4,r0		; div by zero
+01520000 //C 000f2    21 mvzl	r5,0x0
+01f20105 //C 000f3    22 jmp	div_ret
+//R 000f3 #16 div_ret 00000105
+01420000 //C 000f4    25 mvzl	r4,0		; Q= 0
+//N div_dok S293d8fdbaa47
+//N div_dummy S293d8fdbaa47
+01520000 //C 000f5    26 mvzl	r5,0		; R= 0
+01618000 //C 000f6    27 mvh	r6,0x80000000	; m= 1<<31
+01600000 //C 000f7    28 mvl	r6,0x80000000
+026b0000 //C 000f8    30 sz	r6
+//N div_cyc S293d8fdbaa47
+11f20105 //C 000f9    31 Z jmp	div_ret
+//R 000f9 #16 div_ret 00000105
+02580000 //C 000fa    32 shl	r5		; r<<= 1
+000c0600 //C 000fb    33 test	r0,r6		; if (n&m)
+215d0001 //C 000fc    34 NZ or	r5,1		; r|= 1
+00580100 //C 000fd    35 cmp	r5,r1		; if (r>=d)
+41f20103 //C 000fe    36 LO jmp	div_cyc_next
+//R 000fe #16 div_cyc_next 00000103
+00560100 //C 000ff    37 sub	r5,r1		; r-= d
+004d0600 //C 00100    38 or	r4,r6		; q|= m
+01f20103 //C 00101    39 jmp	div_cyc_next
+//R 00101 #16 div_cyc_next 00000103
+01f200f8 //C 00102    40 jmp	div_cyc
+//R 00102 #16 div_cyc 000000f8
+02690000 //C 00103    42 shr	r6		; m>>= 1
+//N div_cyc_next S293d8fdbaa47
+01f200f8 //C 00104    43 jmp	div_cyc
+//R 00104 #16 div_cyc 000000f8
+0f6d0000 //C 00105    45 pop	r6
+//N div_ret S293d8fdbaa47
+0ffd0000 //C 00106    46 pop	pc
+//P S8e7b3d203072 _lib_segment_rand
+00000049 //C 00107    58 db	2127401289
+//N seed S8e7b3d203072
+06000107 //C 00108    65 st	r0,seed
+//R 00108 #16 seed 00000107
+//G srand
+00f00e00 //C 00109    66 ret
+0ded0000 //C 0010a    72 push	lr
+//G rand
+0d0d0000 //C 0010b    73 push	r0
+0d2d0000 //C 0010c    74 push	r2
+07000107 //C 0010d    76 ld	r0,seed
+//R 0010d #16 seed 00000107
+00400000 //C 0010e    77 mov	r4,r0
+0122000d //C 0010f    78 mvzl	r2,13
+02480000 //C 00110    79 c1:	shl	r4
+//N c1 S8e7b3d203072
+0124ffff //C 00111    80 dec	r2
+21f20110 //C 00112    81 jnz	c1
+//R 00112 #16 c1 00000110
+000e0400 //C 00113    82 xor	r0,r4
+00400000 //C 00114    83 mov	r4,r0
+01220011 //C 00115    84 mvzl	r2,17
+02490000 //C 00116    85 c2:	shr	r4
+//N c2 S8e7b3d203072
+0124ffff //C 00117    86 dec	r2
+21f20116 //C 00118    87 jnz	c2
+//R 00118 #16 c2 00000116
+000e0400 //C 00119    88 xor	r0,r4
+00400000 //C 0011a    89 mov	r4,r0
+01220005 //C 0011b    90 mvzl	r2,5
+02480000 //C 0011c    91 c3:	shl	r4
+//N c3 S8e7b3d203072
+0124ffff //C 0011d    92 dec	r2
+21f2011c //C 0011e    93 jnz	c3
+//R 0011e #16 c3 0000011c
+000e0400 //C 0011f    94 xor	r0,r4
+06000107 //C 00120    95 st	r0,seed
+//R 00120 #16 seed 00000107
+00400000 //C 00121    97 mov	r4,r0
+0f2d0000 //C 00122    99 pop	r2
+0f0d0000 //C 00123   100 pop	r0
+0ffd0000 //C 00124   101 pop	pc
+//F str.asm
+//P Sbe1a78b9d15e _lib_segment_str_chr
+020b0000 //C 00125    94 sz	r0		; check NULL pointer
+//G str_chr
+120d0000 //C 00126    95 Z clc
+10f00e00 //C 00127    96 Z ret
+02100000 //C 00128    97 zeb	r1		; prepare character
+0ded0000 //C 00129    98 push	lr
+0d1d0000 //C 0012a    99 push	r1
+0d2d0000 //C 0012b   100 push	r2
+00400000 //C 0012c   101 mov	r4,r0
+00000100 //C 0012d   102 mov	r0,r1
+00100400 //C 0012e   103 mov	r1,r4
+0400f006 //C 0012f   104 call	_pm_strchr
+//R 0012f #24 _pm_strchr 0000f006
+00400100 //C 00130   105 mov	r4,r1
+00500200 //C 00131   106 mov	r5,r2
+0f2d0000 //C 00132   107 pop	r2
+0f1d0000 //C 00133   108 pop	r1
+0ffd0000 //C 00134   109 pop	pc
+//F char.asm
+//P S602f0726a14b _lib_segment_character_fn
+020c0000 //C 00135    22 sec
+//G _char_is_true
+00f00e00 //C 00136    23 ret
+020d0000 //C 00137    25 clc
+//G _char_is_false
+00f00e00 //C 00138    26 ret
+//P S847a5c4e618b _lib_segment_isdigit
+01080030 //C 00139    37 cmp	R0,'0'
+//G isdigit
+41f20137 //C 0013a    38 ULT jmp	_char_is_false
+//R 0013a #16 _char_is_false 00000137
+01080039 //C 0013b    39 cmp	R0,'9'
+91f20137 //C 0013c    40 UGT jmp	_char_is_false
+//R 0013c #16 _char_is_false 00000137
+01f20135 //C 0013d    41 jmp _char_is_true
+//R 0013d #16 _char_is_true 00000135
+//P S9a7f1c151839 _lib_segment_islower
+01080061 //C 0013e    53 cmp	r0,'a'
+//G islower
+41f20137 //C 0013f    54 ULT jmp	_char_is_false
+//R 0013f #16 _char_is_false 00000137
+0108007a //C 00140    55 cmp	r0,'z'
+91f20137 //C 00141    56 UGT jmp	_char_is_false
+//R 00141 #16 _char_is_false 00000137
+01f20135 //C 00142    57 jmp	_char_is_true
+//R 00142 #16 _char_is_true 00000135
+//P S154e11ca77b1 _lib_segment_isupper
+01080041 //C 00143    69 cmp	r0,'A'
+//G isupper
+41f20137 //C 00144    70 ULT jmp	_char_is_false
+//R 00144 #16 _char_is_false 00000137
+0108005a //C 00145    71 cmp	r0,'Z'
+91f20137 //C 00146    72 UGT jmp	_char_is_false
+//R 00146 #16 _char_is_false 00000137
+01f20135 //C 00147    73 jmp	_char_is_true
+//R 00147 #16 _char_is_true 00000135
+//P Sf1f3b6b1f10a _lib_segment_isalpha
+0ded0000 //C 00148    85 push	lr
+//G isalpha
+0400013e //C 00149    86 call	islower
+//R 00149 #24 islower 0000013e
+3ffd0000 //C 0014a    87 C pop	pc
+04000143 //C 0014b    88 call	isupper
+//R 0014b #24 isupper 00000143
+0ffd0000 //C 0014c    89 pop	pc
+//P Sb95a2b17779b _lib_segment_isalnum
+0ded0000 //C 0014d   101 push	lr
+//G isalnum
+04000148 //C 0014e   102 call	isalpha
+//R 0014e #24 isalpha 00000148
+3ffd0000 //C 0014f   103 C pop	pc
+04000139 //C 00150   104 call	isdigit
+//R 00150 #24 isdigit 00000139
+0ffd0000 //C 00151   105 pop	pc
+//F inout.asm
+//P S503b4c87a8c4 _lib_segment_putchar
+01f2f00e //C 00152    24 jmp	_pm_putchar
+//R 00152 #16 _pm_putchar 0000f00e
+//G putchar
+//P S23554af9f140 _lib_segment_eprints
+01f2f012 //C 00153    54 jmp	_pm_pes
+//R 00153 #16 _pm_pes 0000f012
+//G eprints
+//P Sb401aee44acb _lib_segment_eprintf
+01f2f015 //C 00154    66 jmp	_pm_pesf
+//R 00154 #16 _pm_pesf 0000f015
+//G eprintf
+//P Sedd6b6695436 _lib_segment_input_avail
+01f2f008 //C 00155    72 jmp	_pm_check_uart
+//R 00155 #16 _pm_check_uart 0000f008
+//G input_avail
+//P S84a19e8ae015 _lib_segment_read
+0740ff40 //C 00156    89 ld	r4,UART.DR
+//R 00156 #16 UART.DR 0000ff40
+//G read
+00f00e00 //C 00157    90 ret
+//F mon.asm
+//P Sd14c348df59b _lib_segment_pmon
+01f2f000 //C 00158    40 jmp	_pm_callin
+//R 00158 #16 _pm_callin 0000f000
+//G monitor
+01f2f001 //C 00159    44 jmp	_pm_enter_by_uart
+//R 00159 #16 _pm_enter_by_uart 0000f001
+//G monitor_by_uart
+0ded0000 //C 0015a    48 push	lr
+//G monitor_by_button
+040001bf //C 0015b    49 call	btn_posedge
+//R 0015b #24 btn_posedge 000001bf
+4ffd0000 //C 0015c    50 NC pop	pc
+04000158 //C 0015d    51 call	monitor
+//R 0015d #24 monitor 00000158
+040001b5 //C 0015e    52 call	btn_restart
+//R 0015e #24 btn_restart 000001b5
+0ffd0000 //C 0015f    53 pop	pc
+0ded0000 //C 00160    57 push	lr
+//G monitor_version
+0d0d0000 //C 00161    58 push	r0
+0400f003 //C 00162    59 call	_pm_version
+//R 00162 #24 _pm_version 0000f003
+00400000 //C 00163    60 mov	r4,r0
+0f0d0000 //C 00164    61 pop	r0
+0ffd0000 //C 00165    62 pop	pc
+//F bsp.asm
+//P S45ec84dfaab0 _lib_segment_nr_to_mask
+0d1d0000 //C 00166    26 push	r1
+//G _nr_to_mask
+010b001f //C 00167    27 btst	r0,0x1f		; max nr is 31
+01120001 //C 00168    28 mvzl	r1,1		; mask for nr==0
+020b0000 //C 00169    30 sz	r0		; is nr zero?
+//N nr_to_mask_cyc S45ec84dfaab0
+11f2016e //C 0016a    31 jz	nr_to_mask_ret	; if yes, go out
+//R 0016a #16 nr_to_mask_ret 0000016e
+02180000 //C 0016b    32 shl	r1		; shift mask up
+0104ffff //C 0016c    33 dec	r0		; decrement nr
+01f20169 //C 0016d    34 jmp	nr_to_mask_cyc	; check for zero
+//R 0016d #16 nr_to_mask_cyc 00000169
+00000100 //C 0016e    36 mov	r0,r1		; return mask in R0
+//N nr_to_mask_ret S45ec84dfaab0
+0f1d0000 //C 0016f    37 pop	r1
+00f00e00 //C 00170    38 ret
+//P S38738b71c88c _lib_segment_edge
+00000000 //C 00171   120 ds	1
+//+ 00000001
+//N last_btn S38738b71c88c
+00000000 //C 00172   122 ds	1
+//+ 00000001
+//N last_sw S38738b71c88c
+00000000 //C 00173   124 ds	1
+//+ 00000001
+//N last_btn_down S38738b71c88c
+00000000 //C 00174   126 ds	1
+//+ 00000001
+//N last_sw_down S38738b71c88c
+00000000 //C 00175   128 db	0
+//N last_btn_inited S38738b71c88c
+00000000 //C 00176   130 db	0
+//N last_sw_inited S38738b71c88c
+0ded0000 //C 00177   141 push	lr
+//G _lib_edge_detect
+0d1d0000 //C 00178   142 push	r1
+0d2d0000 //C 00179   143 push	r2
+0d3d0000 //C 0017a   144 push	r3
+0d4d0000 //C 0017b   145 push	r4
+0d5d0000 //C 0017c   146 push	r5
+00500100 //C 0017d   148 mov	r5,r1		; what edge to check
+31f20188 //C 0017e   149 C jmp	init_sw
+//R 0017e #16 init_sw 00000188
+07100175 //C 0017f   151 ld	r1,last_btn_inited
+//R 0017f #16 last_btn_inited 00000175
+//N init_btn S38738b71c88c
+021b0000 //C 00180   152 sz	r1
+21f20191 //C 00181   153 jnz	pressed_inited
+//R 00181 #16 pressed_inited 00000191
+01120001 //C 00182   154 mvzl	r1,1
+06100175 //C 00183   155 st	r1,last_btn_inited
+//R 00183 #16 last_btn_inited 00000175
+0710ff20 //C 00184   156 ld	r1,GPIO.BTN
+//R 00184 #16 GPIO.BTN 0000ff20
+06100171 //C 00185   157 st	r1,last_btn
+//R 00185 #16 last_btn 00000171
+06100173 //C 00186   158 st	r1,last_btn_down
+//R 00186 #16 last_btn_down 00000173
+01f201ae //C 00187   159 jmp	pressed_false
+//R 00187 #16 pressed_false 000001ae
+07100176 //C 00188   161 ld	r1,last_sw_inited
+//R 00188 #16 last_sw_inited 00000176
+//N init_sw S38738b71c88c
+021b0000 //C 00189   162 sz	r1
+21f20191 //C 0018a   163 jnz	pressed_inited
+//R 0018a #16 pressed_inited 00000191
+01120001 //C 0018b   164 mvzl	r1,1
+06100176 //C 0018c   165 st	r1,last_sw_inited
+//R 0018c #16 last_sw_inited 00000176
+0710ff10 //C 0018d   166 ld	r1,GPIO.SW
+//R 0018d #16 GPIO.SW 0000ff10
+06100172 //C 0018e   167 st	r1,last_sw
+//R 0018e #16 last_sw 00000172
+06100174 //C 0018f   168 st	r1,last_sw_down
+//R 0018f #16 last_sw_down 00000174
+01f201ae //C 00190   169 jmp	pressed_false
+//R 00190 #16 pressed_false 000001ae
+4122ff20 //C 00191   173 NC mvzl	r2,GPIO.BTN
+//R 00191 #16 GPIO.BTN 0000ff20
+//N pressed_inited S38738b71c88c
+3122ff10 //C 00192   174 C mvzl	r2,GPIO.SW
+//R 00192 #16 GPIO.SW 0000ff10
+31f20197 //C 00193   175 jc	ch_sw
+//R 00193 #16 ch_sw 00000197
+025b0000 //C 00194   177 sz	r5
+//N ch_btn S38738b71c88c
+11120171 //C 00195   178 Z mvzl	r1,last_btn
+//R 00195 #16 last_btn 00000171
+21120173 //C 00196   179 NZ mvzl	r1,last_btn_down
+//R 00196 #16 last_btn_down 00000173
+025b0000 //C 00197   181 sz	r5
+//N ch_sw S38738b71c88c
+11120172 //C 00198   182 Z mvzl	r1,last_sw
+//R 00198 #16 last_sw 00000172
+21120174 //C 00199   183 NZ mvzl	r1,last_sw_down
+//R 00199 #16 last_sw_down 00000174
+0e310000 //C 0019a   187 ld	r3,r1
+0e420000 //C 0019b   188 ld	r4,r2
+003f0000 //C 0019c   190 and	r3,r0		; masked last
+004f0000 //C 0019d   191 and	r4,r0		; masked port
+00380400 //C 0019e   192 cmp	r3,r4
+11f201ae //C 0019f   193 EQ jmp	pressed_false
+//R 0019f #16 pressed_false 000001ae
+02040000 //C 001a0   194 not	r0		; negated mask
+0e310000 //C 001a1   195 ld	r3,r1		; original last
+003f0000 //C 001a2   196 and	r3,r0		; clear checked bit
+003d0400 //C 001a3   197 or	r3,r4		; or with masked port
+0c310000 //C 001a4   198 st	r3,r1		; store new last value
+025b0000 //C 001a5   199 sz	r5
+21f201aa //C 001a6   200 jnz	check_release
+//R 001a6 #16 check_release 000001aa
+024b0000 //C 001a7   202 sz	r4		; check new port value
+//N check_push S38738b71c88c
+11f201ae //C 001a8   203 jz	pressed_false
+//R 001a8 #16 pressed_false 000001ae
+21f201ac //C 001a9   204 jnz	pressed_true
+//R 001a9 #16 pressed_true 000001ac
+024b0000 //C 001aa   206 sz	r4
+//N check_release S38738b71c88c
+21f201ae //C 001ab   207 jnz	pressed_false
+//R 001ab #16 pressed_false 000001ae
+020c0000 //C 001ac   210 sec
+//N pressed_true S38738b71c88c
+01f201af //C 001ad   211 jmp	pressed_end
+//R 001ad #16 pressed_end 000001af
+020d0000 //C 001ae   213 clc
+//N pressed_false S38738b71c88c
+0f5d0000 //C 001af   215 pop	r5
+//N pressed_end S38738b71c88c
+0f4d0000 //C 001b0   216 pop	r4
+0f3d0000 //C 001b1   217 pop	r3
+0f2d0000 //C 001b2   218 pop	r2
+0f1d0000 //C 001b3   219 pop	r1
+0ffd0000 //C 001b4   220 pop	pc
+0d1d0000 //C 001b5   225 push	r1
+//G btn_restart
+0710ff20 //C 001b6   226 ld	r1,GPIO.BTN
+//R 001b6 #16 GPIO.BTN 0000ff20
+06100171 //C 001b7   227 st	r1,last_btn
+//R 001b7 #16 last_btn 00000171
+0f1d0000 //C 001b8   228 pop	r1
+00f00e00 //C 001b9   229 ret
+0d1d0000 //C 001ba   233 push	r1
+//G sw_restart
+0710ff10 //C 001bb   234 ld	r1,GPIO.SW
+//R 001bb #16 GPIO.SW 0000ff10
+06100172 //C 001bc   235 st	r1,last_sw
+//R 001bc #16 last_sw 00000172
+0f1d0000 //C 001bd   236 pop	r1
+00f00e00 //C 001be   237 ret
+//P Saed5ad4c4c92 _lib_segment_btn
+0ded0000 //C 001bf   250 push	lr
+//G btn_posedge
+04000166 //C 001c0   251 call	_nr_to_mask
+//R 001c0 #24 _nr_to_mask 00000166
+0d1d0000 //C 001c1   252 push	r1
+01120000 //C 001c2   253 mvzl	r1,0
+020d0000 //C 001c3   254 clc
+04000177 //C 001c4   255 call	_lib_edge_detect
+//R 001c4 #24 _lib_edge_detect 00000177
+0f1d0000 //C 001c5   256 pop	r1
+0ffd0000 //C 001c6   257 pop	pc
+0ded0000 //C 001c7   266 push	lr
+//G btn_negedge
+04000166 //C 001c8   267 call	_nr_to_mask
+//R 001c8 #24 _nr_to_mask 00000166
+0d1d0000 //C 001c9   268 push	r1
+01120001 //C 001ca   269 mvzl	r1,1
+020d0000 //C 001cb   270 clc
+04000177 //C 001cc   271 call	_lib_edge_detect
+//R 001cc #24 _lib_edge_detect 00000177
+0f1d0000 //C 001cd   272 pop	r1
+0ffd0000 //C 001ce   273 pop	pc
+0ded0000 //C 001cf   282 push	lr
+//G btn_get
+0d1d0000 //C 001d0   283 push	r1
+04000166 //C 001d1   284 call	_nr_to_mask
+//R 001d1 #24 _nr_to_mask 00000166
+0710ff20 //C 001d2   285 ld	r1,GPIO.BTN
+//R 001d2 #16 GPIO.BTN 0000ff20
+001f0000 //C 001d3   286 and	r1,r0
+120d0000 //C 001d4   287 Z clc
+220c0000 //C 001d5   288 NZ sec
+0f1d0000 //C 001d6   289 pop	r1
+0ffd0000 //C 001d7   290 pop	pc
+//F terminal.asm
+//P S91882b04b352 _lib_segment_tu_clear
+0ded0000 //C 001d8    59 push	lr
+//G tu_clear_screen
+f4000153 //C 001d9    60 ces	eprints
+//R 001d9 #24 eprints 00000153
+0000001b //C 001da    61 db	27
+0000005b //C 001db    61 db	91
+00000032 //C 001dc    61 db	50
+0000004a //C 001dd    61 db	74
+0000001b //C 001de    61 db	27
+0000005b //C 001df    61 db	91
+00000031 //C 001e0    61 db	49
+0000003b //C 001e1    61 db	59
+00000031 //C 001e2    61 db	49
+00000048 //C 001e3    61 db	72
+00000000 //C 001e4    61 db
+0ffd0000 //C 001e5    62 pop	pc
+0ded0000 //C 001e6    66 push	lr
+//G tu_clear_char
+f4000153 //C 001e7    67 ces	eprints
+//R 001e7 #24 eprints 00000153
+0000001b //C 001e8    68 db	27
+0000005b //C 001e9    68 db	91
+00000073 //C 001ea    68 db	115
+00000020 //C 001eb    68 db	32
+0000001b //C 001ec    68 db	27
+0000005b //C 001ed    68 db	91
+00000075 //C 001ee    68 db	117
+00000000 //C 001ef    68 db
+0ffd0000 //C 001f0    69 pop	pc
+//P Sae7fcc1e9a4d _lib_segment_tu_moving
+0ded0000 //C 001f1    78 push	lr
+//G tu_go_left
+0d1d0000 //C 001f2    79 push	r1
+00100000 //C 001f3    80 mov	r1,r0
+f4000154 //C 001f4    81 ces	eprintf
+//R 001f4 #24 eprintf 00000154
+0000001b //C 001f5    82 db	27
+0000005b //C 001f6    82 db	91
+00000025 //C 001f7    82 db	37
+00000064 //C 001f8    82 db	100
+00000044 //C 001f9    82 db	68
+00000000 //C 001fa    82 db
+0f1d0000 //C 001fb    83 pop	r1
+0ffd0000 //C 001fc    84 pop	pc
+0ded0000 //C 001fd    89 push	lr
+//G tu_go_right
+0d1d0000 //C 001fe    90 push	r1
+00100000 //C 001ff    91 mov	r1,r0
+f4000154 //C 00200    92 ces	eprintf
+//R 00200 #24 eprintf 00000154
+0000001b //C 00201    93 db	27
+0000005b //C 00202    93 db	91
+00000025 //C 00203    93 db	37
+00000064 //C 00204    93 db	100
+00000043 //C 00205    93 db	67
+00000000 //C 00206    93 db
+0f1d0000 //C 00207    94 pop	r1
+0ffd0000 //C 00208    95 pop	pc
+0ded0000 //C 00209   100 push	lr
+//G tu_go_up
+0d1d0000 //C 0020a   101 push	r1
+00100000 //C 0020b   102 mov	r1,r0
+f4000154 //C 0020c   103 ces	eprintf
+//R 0020c #24 eprintf 00000154
+0000001b //C 0020d   104 db	27
+0000005b //C 0020e   104 db	91
+00000025 //C 0020f   104 db	37
+00000064 //C 00210   104 db	100
+00000041 //C 00211   104 db	65
+00000000 //C 00212   104 db
+0f1d0000 //C 00213   105 pop	r1
+0ffd0000 //C 00214   106 pop	pc
+0ded0000 //C 00215   111 push	lr
+//G tu_go_down
+0d1d0000 //C 00216   112 push	r1
+00100000 //C 00217   113 mov	r1,r0
+f4000154 //C 00218   114 ces	eprintf
+//R 00218 #24 eprintf 00000154
+0000001b //C 00219   115 db	27
+0000005b //C 0021a   115 db	91
+00000025 //C 0021b   115 db	37
+00000064 //C 0021c   115 db	100
+00000042 //C 0021d   115 db	66
+00000000 //C 0021e   115 db
+0f1d0000 //C 0021f   116 pop	r1
+0ffd0000 //C 00220   117 pop	pc
+0ded0000 //C 00221   123 push	lr
+//G tu_go
+0d1d0000 //C 00222   124 push	r1
+0d2d0000 //C 00223   125 push	r2
+00200000 //C 00224   126 mov	r2,r0
+f4000154 //C 00225   127 ces	eprintf
+//R 00225 #24 eprintf 00000154
+0000001b //C 00226   128 db	27
+0000005b //C 00227   128 db	91
+00000025 //C 00228   128 db	37
+00000064 //C 00229   128 db	100
+0000003b //C 0022a   128 db	59
+00000025 //C 0022b   128 db	37
+00000064 //C 0022c   128 db	100
+00000048 //C 0022d   128 db	72
+00000000 //C 0022e   128 db
+0f2d0000 //C 0022f   129 pop	r2
+0f1d0000 //C 00230   130 pop	r1
+0ffd0000 //C 00231   131 pop	pc
+//P S1401655c5a30 _lib_segment_tu_color
+00000000 //C 00232   139 ds	1
+//+ 00000001
+//N _tu_bg_color S1401655c5a30
+00000000 //C 00233   141 ds	1
+//+ 00000001
+//N _tu_fg_color S1401655c5a30
+0ded0000 //C 00234   146 push	lr
+//G tu_color
+0d0d0000 //C 00235   147 push	r0
+0d1d0000 //C 00236   148 push	r1
+021b0000 //C 00237   150 sz	r1
+51f20245 //C 00238   151 S1 jmp	set_bg
+//R 00238 #16 set_bg 00000245
+011b000f //C 00239   153 btst	r1,15
+//N set_fg S1401655c5a30
+011c0008 //C 0023a   154 test	r1,8
+111a001e //C 0023b   155 Z plus	r1,30
+211a0052 //C 0023c   156 NZ plus	r1,82
+06100233 //C 0023d   157 st	r1,_tu_fg_color
+//R 0023d #16 _tu_fg_color 00000233
+f4000154 //C 0023e   158 ces	eprintf
+//R 0023e #24 eprintf 00000154
+0000001b //C 0023f   159 db	27
+0000005b //C 00240   159 db	91
+00000025 //C 00241   159 db	37
+00000064 //C 00242   159 db	100
+0000006d //C 00243   159 db	109
+00000000 //C 00244   159 db
+020b0000 //C 00245   161 sz	r0
+//N set_bg S1401655c5a30
+51f20254 //C 00246   162 S1 jmp	end
+//R 00246 #16 end 00000254
+010b000f //C 00247   163 btst	r0,15
+010c0008 //C 00248   164 test	r0,8
+110a0028 //C 00249   165 Z plus	r0,40
+210a005c //C 0024a   166 NZ plus	r0,92
+00100000 //C 0024b   167 mov	r1,r0
+06100232 //C 0024c   168 st	r1,_tu_bg_color
+//R 0024c #16 _tu_bg_color 00000232
+f4000154 //C 0024d   169 ces	eprintf
+//R 0024d #24 eprintf 00000154
+0000001b //C 0024e   170 db	27
+0000005b //C 0024f   170 db	91
+00000025 //C 00250   170 db	37
+00000064 //C 00251   170 db	100
+0000006d //C 00252   170 db	109
+00000000 //C 00253   170 db
+0f1d0000 //C 00254   172 pop	r1
+//N end S1401655c5a30
+0f0d0000 //C 00255   173 pop	r0
+0ffd0000 //C 00256   174 pop	pc
+0ded0000 //C 00257   179 push	lr
+//G tu_fg
+0d0d0000 //C 00258   180 push	r0
+0d1d0000 //C 00259   181 push	r1
+00100000 //C 0025a   182 mov	r1,r0
+0103ffff //C 0025b   183 mvs	r0,-1
+04000234 //C 0025c   184 call	tu_color
+//R 0025c #24 tu_color 00000234
+0f1d0000 //C 0025d   185 pop	r1
+0f0d0000 //C 0025e   186 pop	r0
+0ffd0000 //C 0025f   187 pop	pc
+0ded0000 //C 00260   192 push	lr
+//G tu_bg
+0d0d0000 //C 00261   193 push	r0
+0d1d0000 //C 00262   194 push	r1
+0113ffff //C 00263   195 mvs	r1,-1
+04000234 //C 00264   196 call	tu_color
+//R 00264 #24 tu_color 00000234
+0f1d0000 //C 00265   197 pop	r1
+0f0d0000 //C 00266   198 pop	r0
+0ffd0000 //C 00267   199 pop	pc
+0ded0000 //C 00268   204 push	lr
+//G tu_wob
+f4000153 //C 00269   205 ces	eprints
+//R 00269 #24 eprints 00000153
+0000001b //C 0026a   206 db	27
+0000005b //C 0026b   206 db	91
+00000033 //C 0026c   206 db	51
+00000037 //C 0026d   206 db	55
+0000003b //C 0026e   206 db	59
+00000034 //C 0026f   206 db	52
+00000030 //C 00270   206 db	48
+0000006d //C 00271   206 db	109
+00000000 //C 00272   206 db
+0ffd0000 //C 00273   207 pop	pc
+0ded0000 //C 00274   212 push	lr
+//G tu_bow
+f4000153 //C 00275   213 ces	eprints
+//R 00275 #24 eprints 00000153
+0000001b //C 00276   214 db	27
+0000005b //C 00277   214 db	91
+00000033 //C 00278   214 db	51
+00000030 //C 00279   214 db	48
+0000003b //C 0027a   214 db	59
+00000034 //C 0027b   214 db	52
+00000037 //C 0027c   214 db	55
+0000006d //C 0027d   214 db	109
+00000000 //C 0027e   214 db
+0ffd0000 //C 0027f   215 pop	pc
+0ded0000 //C 00280   220 push	lr
+//G tu_gob
+f4000153 //C 00281   221 ces	eprints
+//R 00281 #24 eprints 00000153
+0000001b //C 00282   222 db	27
+0000005b //C 00283   222 db	91
+00000033 //C 00284   222 db	51
+00000032 //C 00285   222 db	50
+0000003b //C 00286   222 db	59
+00000034 //C 00287   222 db	52
+00000030 //C 00288   222 db	48
+0000006d //C 00289   222 db	109
+00000000 //C 0028a   222 db
+0ffd0000 //C 0028b   223 pop	pc
+//H fe437296
+//E

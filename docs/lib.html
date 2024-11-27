@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html id="html-tag" lang="en">
+  <script>
+   const $htmlTag = document.querySelector("#html-tag")
+   const urlParams = new URL(window.location.toLocaleString()).searchParams;
+   var lvar= urlParams.get('lang');
+   switch(lvar) {
+     case "hu":
+       $htmlTag.lang = "hu"
+       $htmlTag.classList.add("hungarianLang")
+       break
+     default:
+       lvar= "en";
+       $htmlTag.classList.add("englishLang")
+       break
+   }
+   function lnk(cath,fn)
+    {
+      var l= 'lib_' + cath + '.html#' + fn + '?lang=' + lvar;
+      return l;
+    }
+  </script>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="p12.css">
+    <title>p2223 function library</title>
+  </head>
+  
+  <body>
+
+    <span lang="hu">Lang:</span> <span lang="en">Nyelv:</span>
+    <a href="lib.html?lang=hu">HU</a>
+    <a href="lib.html?lang=en">EN</a>
+
+    <h1>
+      <psan lang="en">p2223 function library</psan>
+      <span lang="hu">p2223 függvény könyvtár</span>
+    </h1>
+
+    <p>A fejlesztőrendszerben a projekt alkalmazásának lefordítása
+    során a program kiegészül a rendszerben elérhető függvényekkel.</p>
+
+    <p>Ezeken túl a pmon monitorprogram függvényei is
+    hívhatók. Felhívjuk a figyelmet, hogy a hasonló célra szolgáló
+    monitor függvénynek és a könyvtári függvénynek a paraméterezése
+    eltérő lehet!</p>
+      
+    <h2>
+      <span lang="en">Output functions</span>
+      <span lang="hu">Kimeneti függvények</span>
+    </h2>
+
+    <!-- 
+    <a id="eprintf">tryit</a>
+    <script>document.getElementById('eprintf').href=lnk('out','eprintf');</script>
+    -->
+    
+    <table border="1">
+      <tr><th><span lang="hu">Kiemenet(ek)</span><span lang="en">Output(s)</span></th>
+	<th><span lang="hu">Függvény</span><span lang="en">Function</span></th>
+	<th><span lang="hu">Bemenet</span> <span lang="en">Input(s)</span></th>
+      </tr>
+      <tr><td>-</td>
+	<td><a href="lib_out.html#putchar">putchar</a></td>
+	<td>(R0:chr)</td>
+      </tr>
+      <tr><td>-</td>
+	<td><a href="lib_out.html#prints">prints</a></td>
+	<td>(R0:str)</td>
+      </tr>
+      <tr><td>-</td>
+	<td><a href="lib_out.html#printsnl">printsnl</a></td>
+	<td>(R0:str)</td>
+      </tr>
+      <tr><td>-</td>
+	<td><a href="lib_out.html#printh">printh</a></td>
+	<td>(R0:val, R1:sep_len)</td>
+      </tr>
+      <tr><td>-</td>
+	<td><a href="lib_out.html#printd">printd</a></td>
+	<td>(R0:val)</td>
+      </tr>
+      <tr><td>-</td>
+	<td><a href="lib_out.html#eprints">eprints</a></td>
+	<td>()</td>
+      </tr>
+      <tr><td>-</td>
+	<td><a href="lib_out.html#printf">printf</a></td>
+	<td>(R0:str, R1:par, ...)</td>
+      </tr>
+      <tr><td>-</td>
+	<td><a href="lib_out.html#eprintf">eprintf</a></td>
+	<td>(R1:par, ...)</td>
+      </tr>
+    </table>
+    <!-- 
+	 <tr><td></td>
+	 <td><a href="lib_out.html#"></a></td>
+	 <td>(R0:str)</td>
+	 </tr>
+       -->
+    
+    <h2>
+      <span lang="en">Input functions</span>
+      <span lang="hu">Bemeneti függvények</span>
+    </h2>
+
+
+    <table border="1">
+      <tr><th><span lang="hu">Kiemenet(ek)</span><span lang="en">Output(s)</span></th>
+	<th><span lang="hu">Függvény</span><span lang="en">Function</span></th>
+	<th><span lang="hu">Bemenet</span> <span lang="en">Input(s)</span></th>
+      </tr>
+      <tr><td>F.C:avail</td>
+	<td><a href="lib_in.html#input_avail">input_avail</a></td>
+	<td>()</td>
+      </tr>
+      <tr><td>R4:chr, F.C:avail</td>
+	<td><a href="lib_in.html#getchar">getchar</a></td>
+	<td>()</td>
+      </tr>
+      <tr><td>R4:chr</td>
+	<td><a href="lib_in.html#read">read</a></td>
+	<td>()</td>
+      </tr>
+      <tr><td>-</td>
+	<td><a href="lib_in.html#le_init">le_init</a></td>
+	<td>(R0:buf, R1:len)</td>
+      </tr>
+      <tr><td>-</td>
+	<td><a href="lib_in.html#le_start">le_start</a></td>
+	<td>()</td>
+      </tr>
+      <tr><td>F.C:ready</td>
+	<td><a href="lib_in.html#le_read">le_read</a></td>
+	<td>()</td>
+      </tr>
+    </table>
+    <!-- 
+	 <tr><td>R4:</td>
+	 <td><a href="lib_in.html#"></a></td>
+	 <td>()</td>
+	 </tr>
+       -->
+
+
+    <h2>
+      <span lang="en">Character functions</span>
+      <span lang="hu">Karakter kezelő függvények</span>
+    </h2>
+
+
+    <table border="1">
+      <tr><th><span lang="hu">Kiemenet(ek)</span><span lang="en">Output(s)</span></th>
+	<th><span lang="hu">Függvény</span><span lang="en">Function</span></th>
+	<th><span lang="hu">Bemenet</span> <span lang="en">Input(s)</span></th>
+      </tr>
+      <tr><td>F.C:digit</td>
+	<td><a href="lib_char.html#isdigit">isdigit</a></td>
+	<td>(R0:char)</td>
+      </tr>
+      <tr><td>F.C:lower</td>
+	<td><a href="lib_char.html#islower">islower</a></td>
+	<td>(R0:char)</td>
+      </tr>
+      <tr><td>F.C:upper</td>
+	<td><a href="lib_char.html#isupper">isupper</a></td>
+	<td>(R0:char)</td>
+      </tr>
+      <tr><td>F.C:alpha</td>
+	<td><a href="lib_char.html#isalpha">isalpha</a></td>
+	<td>(R0:char)</td>
+      </tr>
+      <tr><td>F.C:alnum</td>
+	<td><a href="lib_char.html#isalnum">isalnum</a></td>
+	<td>(R0:char)</td>
+      </tr>
+      <tr><td>F.C:blank</td>
+	<td><a href="lib_char.html#isblank">isblank</a></td>
+	<td>(R0:char)</td>
+      </tr>
+      <tr><td>F.C:blank</td>
+	<td><a href="lib_char.html#isprint">isprint</a></td>
+	<td>(R0:char)</td>
+      </tr>
+      <tr><td>F.C:punctuation</td>
+	<td><a href="lib_char.html#ispunct">ispunct</a></td>
+	<td>(R0:char)</td>
+      </tr>
+      <tr><td>F.C:punctuation</td>
+	<td><a href="lib_char.html#isspace">isspace</a></td>
+	<td>(R0:char)</td>
+      </tr>
+      <tr><td>F.C:hexdigit</td>
+	<td><a href="lib_char.html#isxdigit">isxdigit</a></td>
+	<td>(R0:char)</td>
+      </tr>
+      <tr><td>R4:char</td>
+	<td><a href="lib_char.html#tolower">tolower</a></td>
+	<td>(R0:char)</td>
+      </tr>
+      <tr><td>R4:char</td>
+	<td><a href="lib_char.html#toupper">toupper</a></td>
+	<td>(R0:char)</td>
+      </tr>
+    </table>
+    <!-- 
+	 <tr><td>F.C:</td>
+	 <td><a href="lib_char.html#"></a></td>
+	 <td>(R0:char)</td>
+	 </tr>
+       -->
+
+
+    <h2>
+      <span lang="en">String functions</span>
+      <span lang="hu">Szövegkezelő függvények</span>
+    </h2>
+
+
+    <table border="1">
+      <tr><th><span lang="hu">Kiemenet(ek)</span><span lang="en">Output(s)</span></th>
+	<th><span lang="hu">Függvény</span><span lang="en">Function</span></th>
+	<th><span lang="hu">Bemenet</span> <span lang="en">Input(s)</span></th>
+      </tr>
+      <tr><td>F.C:OK, R4:val</td>
+	<td><a href="lib_str.html#dtoi">dtoi</a></td>
+	<td>(R0:str)</td>
+      </tr>
+      <tr><td>F.C:OK, R4:val</td>
+	<td><a href="lib_str.html#htoi">htoi</a></td>
+	<td>(R0:str)</td>
+      </tr>
+      <tr><td>F.C:found, R4:addr, R5:idx</td>
+	<td><a href="lib_str.html#str_chr">str_chr</a></td>
+	<td>(R0:str, R1:char)</td>
+      </tr>
+      <tr><td>F.C:equal</td>
+	<td><a href="lib_str.html#str_eq">str_eq</a></td>
+	<td>(R0:str1, R1:str2)</td>
+      </tr>
+      <tr><td>F.C:equal</td>
+	<td><a href="lib_str.html#str_ieq">str_ieq</a></td>
+	<td>(R0:str1, R1:str2)</td>
+      </tr>
+      <tr><td>R4:len</td>
+	<td><a href="lib_str.html#str_len">str_len</a></td>
+	<td>(R0:str)</td>
+      </tr>
+      <tr><td>R4:size</td>
+	<td><a href="lib_str.html#str_size">str_size</a></td>
+	<td>(R0:str)</td>
+      </tr>
+      <tr><td>R4:char</td>
+	<td><a href="lib_str.html#str_getchar">str_getchar</a></td>
+	<td>(R0:str, R1:idx)</td>
+      </tr>
+      <tr><td>-</td>
+	<td><a href="lib_str.html#str_setchar">str_setchar</a></td>
+	<td>(R0:str, R1:idx, R2:char)</td>
+      </tr>
+      <tr><td>F.C:packed</td>
+	<td><a href="lib_str.html#str_packed">str_packed</a></td>
+	<td>(R0:str)</td>
+      </tr>
+    </table>
+    <!-- 
+	 <tr><td></td>
+	 <td><a href="lib_str.html#"></a></td>
+	 <td>(R0:str)</td>
+	 </tr>
+       -->
+
+    
+    <h2>
+      <span lang="en">Math functions</span>
+      <span lang="hu">Matematikai függvények</span>
+    </h2>
+
+
+    <table border="1">
+      <tr><th><span lang="hu">Kiemenet(ek)</span><span lang="en">Output(s)</span></th>
+	<th><span lang="hu">Függvény</span><span lang="en">Function</span></th>
+	<th><span lang="hu">Bemenet</span> <span lang="en">Input(s)</span></th>
+      </tr>
+      <tr><td>R4:quot, R5:rem</td>
+	<td><a href="lib_math.html#div">div</a></td>
+	<td>(R0:num, R1:div)</td>
+      </tr>
+      <tr><td>R4:val</td>
+	<td><a href="lib_math.html#rand">rand</a></td>
+	<td>()</td>
+      </tr>
+      <tr><td>R4:val</td>
+	<td><a href="lib_math.html#rand_max">rand_max</a></td>
+	<td>(R0:max)</td>
+      </tr>
+      <tr><td>-</td>
+	<td><a href="lib_math.html#srand">srand</a></td>
+	<td>(R0:seed)</td>
+      </tr>
+    </table>
+    <!-- 
+	 <tr><td></td>
+	 <td><a href="lib_math.html#"></a></td>
+	 <td>()</td>
+	 </tr>
+       -->
+    
+    <h2>
+      <span lang="en">Board support procedures</span>
+      <span lang="hu">Kártya kezelő függvények</span>
+    </h2>
+
+
+    <table border="1">
+      <tr><th><span lang="hu">Kiemenet(ek)</span><span lang="en">Output(s)</span></th>
+	<th><span lang="hu">Függvény</span><span lang="en">Function</span></th>
+	<th><span lang="hu">Bemenet</span> <span lang="en">Input(s)</span></th>
+      </tr>
+      <tr><td>F.C:pressed</td>
+	<td><a href="lib_bsp.html#btn_posedge">btn_posedge</a></td>
+	<td>(R0:btn)</td>
+      </tr>
+      <tr><td>F.C:released</td>
+	<td><a href="lib_bsp.html#btn_negedge">btn_negedge</a></td>
+	<td>(R0:btn)</td>
+      </tr>
+      <tr><td>F.C:value</td>
+	<td><a href="lib_bsp.html#btn_get">btn_get</a></td>
+	<td>(R0:btn)</td>
+      </tr>
+      <tr><td>F.C:switched_on</td>
+	<td><a href="lib_bsp.html#sw_posedge">sw_posedge</a></td>
+	<td>(R0:switch)</td>
+      </tr>
+      <tr><td>F.C:switched_off</td>
+	<td><a href="lib_bsp.html#sw_negedge">sw_negedge</a></td>
+	<td>(R0:switch)</td>
+      </tr>
+      <tr><td>F.C:value</td>
+	<td><a href="lib_bsp.html#sw_get">sw_get</a></td>
+	<td>(R0:switch)</td>
+      </tr>
+      <tr><td>-</td>
+	<td><a href="lib_bsp.html#btn_restart">btn_restart</a></td>
+	<td>()</td>
+      </tr>
+      <tr><td>-</td>
+	<td><a href="lib_bsp.html#sw_restart">sw_restart</a></td>
+	<td>()</td>
+      </tr>
+      <tr><td>-</td>
+	<td><a href="lib_bsp.html#led_on">led_on</a></td>
+	<td>(R0:led)</td>
+      </tr>
+      <tr><td>-</td>
+	<td><a href="lib_bsp.html#led_off">led_off</a></td>
+	<td>(R0:led)</td>
+      </tr>
+      <tr><td>-</td>
+	<td><a href="lib_bsp.html#led_toggle">led_toggle</a></td>
+	<td>(R0:led)</td>
+      </tr>
+      <tr><td>-</td>
+	<td><a href="lib_bsp.html#led_set">led_set</a></td>
+	<td>(R0:led, R1:val)</td>
+      </tr>
+      <tr><td>F.C:on</td>
+	<td><a href="lib_bsp.html#led_get">led_get</a></td>
+	<td>(R0:led)</td>
+      </tr>
+    </table>
+    <!-- 
+	 <tr><td></td>
+	 <td><a href="lib_bsp.html#"></a></td>
+	 <td>()</td>
+	 </tr>
+       -->
+    
+    
+    <h2>
+      <span lang="en">System functions</span>
+      <span lang="hu">Rendszer függvények</span>
+    </h2>
+
+
+    <table border="1">
+      <tr><th><span lang="hu">Kiemenet(ek)</span><span lang="en">Output(s)</span></th>
+	<th><span lang="hu">Függvény</span><span lang="en">Function</span></th>
+	<th><span lang="hu">Bemenet</span> <span lang="en">Input(s)</span></th>
+      </tr>
+      <tr><td>-</td>
+	<td><a href="lib_sys.html#monitor">monitor</a></td>
+	<td>()</td>
+      </tr>
+      <tr><td>-</td>
+	<td><a href="lib_sys.html#monitor_by_uart">monitor_by_uart</a></td>
+	<td>()</td>
+      </tr>
+      <tr><td>-</td>
+	<td><a href="lib_sys.html#monitor_by_button">monitor_by_button</a></td>
+	<td>(R0:btn)</td>
+      </tr>
+      <tr><td>R4:version</td>
+	<td><a href="lib_sys.html#monitor_version">monitor_version</a></td>
+	<td>()</td>
+      </tr>
+    </table>
+    <!-- 
+	 <tr><td></td>
+	 <td><a href="lib_sys.html#"></a></td>
+	 <td>()</td>
+	 </tr>
+       -->
+
+    
+    <h2>
+      <span lang="en">Standard functions</span>
+      <span lang="hu">Egyéb függvények</span>
+    </h2>
+
+
+    <table border="1">
+      <tr><th><span lang="hu">Kiemenet(ek)</span><span lang="en">Output(s)</span></th>
+	<th><span lang="hu">Függvény</span><span lang="en">Function</span></th>
+	<th><span lang="hu">Bemenet</span> <span lang="en">Input(s)</span></th>
+      </tr>
+      <tr><td>R4:bcd</td>
+	<td><a href="lib_std.html#itobcd">itobcd</a></td>
+	<td>(R0:bin)</td>
+      </tr>
+    </table>
+    <!-- 
+	 <tr><td></td>
+	 <td><a href="lib_std.html#"></a></td>
+	 <td>()</td>
+	 </tr>
+       -->
+
+
+
+    
+    <h2>
+      <span lang="en">Terminal functions</span>
+      <span lang="hu">Terminál függvények</span>
+    </h2>
+
+
+    <table border="1">
+      <tr><th><span lang="hu">Kiemenet(ek)</span><span lang="en">Output(s)</span></th>
+	<th><span lang="hu">Függvény</span><span lang="en">Function</span></th>
+	<th><span lang="hu">Bemenet</span> <span lang="en">Input(s)</span></th>
+      </tr>
+      <tr><td>-</td>
+	 <td><a href="lib_term.html#tu_save_cursor">tu_save_cursor</a></td>
+	 <td>()</td>
+      </tr>
+      <tr><td>-</td>
+	 <td><a href="lib_term.html#tu_restore_cursor">tu_restore_cursor</a></td>
+	 <td>()</td>
+      </tr>
+      <tr><td>-</td>
+	 <td><a href="lib_term.html#tu_hide">tu_hide</a></td>
+	 <td>()</td>
+      </tr>
+      <tr><td>-</td>
+	 <td><a href="lib_term.html#tu_show">tu_show</a></td>
+	 <td>()</td>
+      </tr>
+      <tr><td>-</td>
+	 <td><a href="lib_term.html#tu_clear_screen">tu_clear_screen</a></td>
+	 <td>()</td>
+      </tr>
+      <tr><td>-</td>
+	 <td><a href="lib_term.html#tu_clear_char">tu_clear_char</a></td>
+	 <td>()</td>
+      </tr>
+      <tr><td>-</td>
+	<td><a href="lib_term.html#tu_go_left">tu_go_left</a></td>
+	<td>(R0:n)</td>
+      </tr>
+      <tr><td>-</td>
+	<td><a href="lib_term.html#tu_go_right">tu_go_right</a></td>
+	<td>(R0:n)</td>
+      </tr>
+      <tr><td>-</td>
+	<td><a href="lib_term.html#tu_go_up">tu_go_up</a></td>
+	<td>(R0:n)</td>
+      </tr>
+      <tr><td>-</td>
+	<td><a href="lib_term.html#tu_go_down">tu_go_down</a></td>
+	<td>(R0:n)</td>
+      </tr>
+      <tr><td>-</td>
+	<td><a href="lib_term.html#tu_go">tu_go</a></td>
+	<td>(R0:n)</td>
+      </tr>
+      <tr><td>-</td>
+	<td><a href="lib_term.html#tu_color">tu_color</a></td>
+	<td>(R0:bg, R1:fg)</td>
+      </tr>
+      <tr><td>-</td>
+	<td><a href="lib_term.html#tu_fg">tu_fg</a></td>
+	<td>(R0:color)</td>
+      </tr>
+      <tr><td>-</td>
+	<td><a href="lib_term.html#tu_bg">tu_bg</a></td>
+	<td>(R0:color)</td>
+      </tr>
+      <tr><td>-</td>
+	<td><a href="lib_term.html#tu_wob">tu_wob</a></td>
+	<td>()</td>
+      </tr>
+      <tr><td>-</td>
+	<td><a href="lib_term.html#tu_bow">tu_bow</a></td>
+	<td>()</td>
+      </tr>
+      <tr><td>-</td>
+	<td><a href="lib_term.html#tu_gob">tu_gob</a></td>
+	<td>()</td>
+      </tr>
+    </table>
+    <!-- 
+	 <tr><td>-</td>
+	 <td><a href="lib_term.html#"></a></td>
+	 <td>(R0:n)</td>
+	 </tr>
+       -->
+
+
+    <hr>
+  </body>
+</html>

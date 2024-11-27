@@ -1,0 +1,23 @@
+`timescale 1ns / 1ps
+
+module mem(A, 
+           CLK, 
+           CS, 
+           I, 
+           WR, 
+           CSO, 
+           O);
+
+    input [31:0] A;
+    input CLK;
+    input CS;
+    input [31:0] I;
+    input WR;
+   output CSO;
+   output [31:0] O;
+   
+   wire H;
+   wire L;
+   
+   RAMB16_S36 #( 
+         .INIT(36'h000000000), 
